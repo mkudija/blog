@@ -428,17 +428,60 @@ article .meta a.comments_btn:hover {
 
   <article>
     <header>
+      <h2><a href="/blog/2012/09/26/optical-illusions-in-matplotlib/">Optical Illusions in Matplotlib</a></h2>
+      <time datetime="" title="2012-09-26T07:27:00-04:00" pubdate>Wed 26 September 2012</time>
+    </header>
+
+    <div class="article_content">
+      
+
+<p>A while ago I posted some information on the new matplotlib animation
+package (see my tutorial
+<a href="/blog/2012/08/18/matplotlib-animation-tutorial">here</a> and
+a followup post <a href="/blog/2012/09/05/quantum-python">here</a>).  In them, I show
+how easy it is to  use matplotlib to create simple animations.</p>
+<p>This morning I came across this cool optical illusion on
+<a href="http://gizmodo.com/5945194/this-optical-trick-is-annoying-the-hell-out-of-me">gizmodo</a></p>
+<p><img src="/images/original_illusion.gif"></p>
+
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2012/09/26/optical-illusions-in-matplotlib/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/matplotlib.html" class="tag">matplotlib</a>
+            <a href="/tag/animation.html" class="tag">animation</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2012/09/20/why-python-is-the-last/">Why Python is the Last Language You'll Have To Learn</a></h2>
       <time datetime="" title="2012-09-20T20:50:00-04:00" pubdate>Thu 20 September 2012</time>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p>This week, for part of a textbook I'm helping to write,
 I spent some time reading and researching the history of Python as
 a scientific computing tool.  I had heard bits and pieces of this in the past,
-but it was fascinating to put it all together and learn about …</p>
+but it was fascinating to put it all together and learn about how all the
+individual contributions that have made Python what it is today.
+All of this got me thinking: for most of us, Python was a replacement for
+something: IDL, MatLab, Java, Mathematica, Perl... you name it.
+But what will replace Python?
+Ten years down the road, what language will people be espousing in
+blogs with awkwardly-alliterated titles?  As I thought it through, I
+became more and more convinced that, at least in the scientific computing
+world, Python is here to stay.</p>
+
     </div>
 
     <div class="meta">
@@ -462,14 +505,28 @@ but it was fascinating to put it all together and learn about …</p>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p>Of all the programming styles I have learned,
 <a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>
 is perhaps the most beautiful.  It can take problems that, at first glance,
 look ugly and intractable, and solve the problem with clean, concise code.
 Where a simplistic algorithm might accomplish something by brute force,
-dynamic programming steps back, breaks …</p>
+dynamic programming steps back, breaks the task into a smaller set of
+sequential parts, and then proceeds in the most efficient way possible.</p>
+<h3>Bayesian Blocks</h3>
+<p>I'll go through an example here where the ideas of dynamic programming
+are vital to some very cool data analysis resuts.
+This post draws heavily from a recent
+<a href="http://adsabs.harvard.edu/abs/2012arXiv1207.5578S">paper</a> by Jeff Scargle
+and collaborators (this is the Scargle of <em>Lomb-Scargle Periodogram</em>
+fame), as well as some conversations I had with Jeff at
+<a href="http://www.astro.caltech.edu/ai12/">Astroinformatics 2012</a>.
+The paper discusses
+a framework called <em>Bayesian Blocks</em>, which is essentially a method of
+creating histograms with bin sizes that adapt to the data (there's a bit
+more to it than that: here we'll focus on histograms for simplicity).</p>
+
     </div>
 
     <div class="meta">
@@ -492,7 +549,7 @@ dynamic programming steps back, breaks …</p>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p><em>Update: a reader contributed some improvements to the Python code presented
  below.  Please see the
@@ -502,7 +559,18 @@ for updated code</em></p>
 I explored the new animation capabilities of the latest
 <a href="http://matplotlib.sourceforge.net">matplotlib</a> release.
 It got me wondering whether it would be possible to simulate more complicated
-physical …</p>
+physical systems in real time in python.  Quantum Mechanics was the first
+thing that came to mind.  It turns out that by mixing a bit of Physics
+knowledge with a bit of computing knowledge, it's quite straightforward
+to simulate and animate a simple quantum mechanical system with python.</p>
+<h2>The Schrodinger Equation</h2>
+<p>The dynamics of a one-dimensional quantum system are governed by the
+time-dependent Schrodinger equation:</p>
+<p>$$
+i\hbar\frac{\partial \psi}{\partial t}
+  = \frac{-\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2} + V \psi
+$$</p>
+
     </div>
 
     <div class="meta">
@@ -527,14 +595,29 @@ physical …</p>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p><em>For a more up-to-date comparison of Numba and Cython, see the</em>
 <a href="http://jakevdp.github.io/blog/2013/06/15/numba-vs-cython-take-2/"><em>newer post</em></a>
 <em>on this subject.</em></p>
 <p>Often I'll tell people that I use python for computational analysis, and they
 look at me inquisitively.  "Isn't python pretty slow?"  They have a point.
-Python is an interpreted language, and as such cannot …</p>
+Python is an interpreted language, and as such cannot natively perform
+many operations as quickly as a compiled language such as C or Fortran.
+There is also the issue of the oft-misunderstood and much-maligned
+<a href="http://wiki.python.org/moin/GlobalInterpreterLock">GIL</a>,
+which calls into question python's ability to allow true parallel computing.</p>
+<p>Many solutions have been proposed: <a href="http://pypy.org/">PyPy</a> is a much faster
+version of the core python language; 
+<a href="http://code.google.com/p/numexpr/">numexpr</a> provides optimized performance
+on certain classes of operations from within python;
+<a href="http://www.scipy.org/Weave/">weave</a> allows inline inclusion of compiled
+C/C++ code;
+<a href="http://www.cython.org/">cython</a> provides extra markup that allows python
+and/or python-like code to be compiled into C for fast operations.  But
+a naysayer might point out: many of these "python" solutions in practice
+are not really python at all, but clever hacks into Fortran or C.</p>
+
     </div>
 
     <div class="meta">
@@ -559,7 +642,7 @@ Python is an interpreted language, and as such cannot …</p>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p><a href="http://matplotlib.sourceforge.net">Matplotlib</a> version 1.1 added some tools
 for creating
@@ -570,7 +653,14 @@ the matplotlib
 page.  I thought I'd share here some of the things I've learned when playing
 around with these tools.</p>
 <h3>Basic Animation</h3>
-<p>The animation tools center around …</p>
+<p>The animation tools center around the <code>matplotlib.animation.Animation</code> base
+class, which provides a framework around which the animation functionality
+is built.  The main interfaces are <code>TimedAnimation</code> and <code>FuncAnimation</code>,
+which you can read more about in the
+<a href="http://matplotlib.sourceforge.net/api/animation_api.html">documentation</a>.
+Here I'll explore using the <code>FuncAnimation</code> tool, which I have found
+to be the most useful.</p>
+
     </div>
 
     <div class="meta">
@@ -596,13 +686,18 @@ around with these tools.</p>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p>In the <a href="/blog/2012/08/08/memoryview-benchmarks/">previous post</a>, I explored
 how cython typed memoryviews can be used to speed up repeated array
 operations.  It became clear that typed memoryviews are superior to
 the ndarray syntax for slicing, and as fast as raw pointers for single
-element access.  In the comments, Mathieu brought up an …</p>
+element access.  In the comments, Mathieu brought up an interesting
+question: is the ndarray syntax as good as typed memoryviews if you're
+not doing slicing?</p>
+<p>The answer turns out to be yes, <em>unless</em> the compiler tries to inline your
+function.</p>
+
     </div>
 
     <div class="meta">
@@ -628,7 +723,7 @@ element access.  In the comments, Mathieu brought up an …</p>
     </header>
 
     <div class="article_content">
-      <!-- PELICAN_BEGIN_SUMMARY -->
+      
 
 <p>There was recently a <a href="https://groups.google.com/forum/?fromgroups#!topic/cython-users/8uuxjB_wbBQ[1-25]" title="cython-users archive">thread</a>
 on cython-users which caught my eye.  It has to do with 
@@ -637,7 +732,16 @@ way of working with memory buffers in cython.</p>
 <p>I've been thinking recently about how to do fast
 and flexible memory buffer access in cython.  I contributed the
 <a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html">BallTree</a>
-implementation for nearest …</p>
+implementation for nearest neighbors searching in
+<a href="http://www.scikit-learn.org">scikit-learn</a>, and have been actively thinking
+about how to make it faster and more flexible, including adding the ability
+to specify distance metrics other than euclidean and minkowski.</p>
+<p>In order to accomplish this, I'd like to have a set of distance metric
+functions which take two vectors and compute a distance.  There would
+be many functions with similar call signatures which could then be
+plugged into a code that would iterate over a set of vectors and
+compute the appropriate distances.</p>
+
     </div>
 
     <div class="meta">

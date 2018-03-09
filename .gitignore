@@ -101,3 +101,5 @@ ENV/
 .mypy_cache/
 theme/.DS_Store
 .DS_Store
+content/.DS_Store
+plugins/.DS_Store

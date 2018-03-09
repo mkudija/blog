@@ -432,7 +432,7 @@ article .meta a.comments_btn:hover {
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            
 
 <p>A while ago I posted some information on the new matplotlib animation
 package (see my tutorial
@@ -441,15 +441,111 @@ a followup post <a href="/blog/2012/09/05/quantum-python">here</a>).  In them, I
 how easy it is to  use matplotlib to create simple animations.</p>
 <p>This morning I came across this cool optical illusion on
 <a href="http://gizmodo.com/5945194/this-optical-trick-is-annoying-the-hell-out-of-me">gizmodo</a></p>
-<p>{% img /images/original_illusion.gif %}</p>
-<!-- PELICAN_END_SUMMARY -->
+<p><img src="/images/original_illusion.gif"></p>
+
 
 <p>It intrigued me, so I decided to see if I could create it using matplotlib.
 Using my previous template and a bit of geometry, I was able to finish it
 before breakfast!  Here's the code:</p>
-<p>{% include_code animate_square.py lang:python Optical Illusion %}</p>
+<figure class='code'>
+<figcaption><span>Optical Illusion animate_square.py</span> <a href='/downloads/code/animate_square.py'>download</a></figcaption>
+
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Optical Illusion in Matplotlib</span>
+
+<span class="sd">author: Jake Vanderplas</span>
+<span class="sd">email: vanderplas@astro.washington.edu</span>
+<span class="sd">website: http://jakevdp.github.com</span>
+<span class="sd">license: BSD</span>
+<span class="sd">Please feel free to use and modify this, but keep the above information.</span>
+<span class="sd">Thanks!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">RegularPolygon</span>
+
+<span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add lines and patches</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">RegularPolygon</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="p">),</span>
+                          <span class="mi">4</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+           <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]]</span>
+<span class="k">for</span> <span class="n">sq</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">sq</span><span class="p">)</span>
+
+
+<span class="c1"># initialization function: plot the background of each frame</span>
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="k">for</span> <span class="n">sq</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">:</span>
+        <span class="n">sq</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lines</span> <span class="o">+</span> <span class="n">squares</span>
+
+
+<span class="c1"># animation function.  This is called sequentially</span>
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="c1"># Set transparency level for squares</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.005</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">sq</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">:</span>
+        <span class="n">sq</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+
+    <span class="c1"># Set location for lines</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.6</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+    <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">([(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span>
+                     <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+
+    <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">([(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span>
+                     <span class="p">[(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+
+    <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">([(</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d2</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span>
+                     <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+
+    <span class="n">lines</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">([(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d2</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span>
+                     <span class="p">[(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                      <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+
+    <span class="k">return</span> <span class="n">lines</span> <span class="o">+</span> <span class="n">squares</span>
+
+<span class="c1"># call the animator.  blit=True means only re-draw parts that have changed.</span>
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                               <span class="n">frames</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="c1"># save the animation as an mp4.  This requires ffmpeg or mencoder to be</span>
+<span class="c1"># installed.  The extra_args ensure that the x264 codec is used, so that</span>
+<span class="c1"># the video can be embedded in html5.  You may need to adjust this for</span>
+<span class="c1"># your system: for more information, see</span>
+<span class="c1"># http://matplotlib.sourceforge.net/api/animation_api.html</span>
+<span class="c1">#anim.save(&#39;basic_animation.mp4&#39;, fps=30, extra_args=[&#39;-vcodec&#39;, &#39;libx264&#39;])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+</figure>
+
 <p>And here's the result:</p>
-<p>{% video /downloads/videos/animate_square.mp4 360 270 /downloads/videos/animate_square.png %}</p>
+<p><span class="videobox">
+            <video width="360" height="270" preload="none" controls poster="/downloads/videos/animate_square.png"><source src='/downloads/videos/animate_square.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></span></p>
 <p>This just confirms my suspicion that a few lines of python really can do
 anything.</p>
         </div>

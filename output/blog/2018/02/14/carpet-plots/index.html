@@ -433,18 +433,19 @@ article .meta a.comments_btn:hover {
 
         <div class="article_content">
             <p><img alt src="/images/carpet.jpeg"></p>
-<!-- PELICAN_BEGIN_SUMMARY -->
 
-<h1>Why Carpet Plots?</h1>
+
+<h2>Why Carpet Plots?</h2>
 <p>A typical scatter plot allows you to compare the impact of one independent variable (<em>x-axis</em>) on one dependent variable (<em>y-axis</em>). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.</p>
-<!-- PELICAN_END_SUMMARY -->
+
 
 <p>Options:
 - one variable on x-axis, one variable as different lines on the plot
 - 3d graph to show surface
 - other...?</p>
-<h1>Carpet Plots in Python</h1>
-<h2>Data Preparation: using <code>pd.melt()</code></h2>
+<p>The advantage of carpet plots it the ability to quickly identify the impact of the two independent variables. This can be especially helpful when doing a trade study where multiple variables are in play, such as during preliminary aircraft design. </p>
+<h2>Carpet Plots in Python</h2>
+<h3>Data Preparation: using <code>pd.melt()</code></h3>
 <p>Pandas has a number of helpful data reshaping methods, and this exercise gave the opportunity to use <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.melt.html"><code>pd.melt()</code></a>. </p>
 <p>Our starting dataset has the first independent variable values (a) along one axis, and the second independent variable values (b) along the other axis, with the resulting value of the dependent variable (y) filled in. Think of this as the output of an Excel data table. </p>
 <p>[show first data example]</p>
@@ -457,7 +458,7 @@ article .meta a.comments_btn:hover {
 </pre></div>
 
 
-<h2>Plotting with Plotly</h2>
+<h3>Plotting with Plotly</h3>
 <p>Now that we have a tidy dataset, we can plot using Plotly. Why Plotly? I have avoided Plotly in the past beacuse of the weird partially-open-source-partially-paid model and needing to authenticate online. Using Plotly's <a href="https://plot.ly/python/carpet-plot/">carpet plot example</a> and some digging on Stackoverflow, I was able to get it to work without the online authentication. I would still prefer to use matplotlib, and may tackle that later. For now, here's the code to generate the Plotly carpet plot:</p>
 <div class="highlight"><pre><span></span><span class="c1"># RESOURCES:</span>
 <span class="c1"># carpet plots: https://en.wikipedia.org/wiki/Carpet_plot</span>
@@ -490,15 +491,15 @@ article .meta a.comments_btn:hover {
     <span class="p">)</span>
 
 
-<span class="n">trace2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scattercarpet</span><span class="p">(</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">210000</span><span class="p">,</span><span class="mi">175000</span><span class="p">],</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2200</span><span class="p">,</span><span class="mi">1900</span><span class="p">],</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-      <span class="n">shape</span> <span class="o">=</span> <span class="s1">&#39;spline&#39;</span><span class="p">,</span>
-      <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
-    <span class="p">)</span>
-  <span class="p">)</span>
+<span class="c1">#trace2 = go.Scattercarpet(</span>
+<span class="c1">#    a = [210000,175000],</span>
+<span class="c1">#    b = [2200,1900],</span>
+<span class="c1">#    line = dict(</span>
+<span class="c1">#      shape = &#39;spline&#39;,</span>
+<span class="c1">#      smoothing = 1,</span>
+<span class="c1">#      color = &#39;blue&#39;</span>
+<span class="c1">#    )</span>
+<span class="c1">#  )</span>
 
 <span class="c1"># this works too, but doesn&#39;t have labels, etc.</span>
 <span class="c1">#data = [trace1, trace2]</span>
@@ -526,7 +527,7 @@ article .meta a.comments_btn:hover {
 </pre></div>
 
 
-<h1>Future Work</h1>
+<h2>Future Work</h2>
 <p>In the future plan to:
 - use matplotlib instead of plotly (start with &lt;&gt; this example)
 - demonstrate with more than two independent variables</p>

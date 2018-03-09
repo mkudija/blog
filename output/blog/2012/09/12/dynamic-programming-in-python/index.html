@@ -432,7 +432,7 @@ article .meta a.comments_btn:hover {
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            
 
 <p>Of all the programming styles I have learned,
 <a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>
@@ -453,7 +453,7 @@ The paper discusses
 a framework called <em>Bayesian Blocks</em>, which is essentially a method of
 creating histograms with bin sizes that adapt to the data (there's a bit
 more to it than that: here we'll focus on histograms for simplicity).</p>
-<!-- PELICAN_END_SUMMARY -->
+
 
 <p>To motivate this, let's take a look at the histogram of some sampled data.
 We'll create a complicated set of random data in the following way:</p>
@@ -480,14 +480,14 @@ out:</p>
 </pre></div>
 
 
-<p>{% img /figures/bayesblocks1.png [Simple Histogram of our Distribution] %}</p>
+<p><img alt="[Simple Histogram of our Distribution]" src="/figures/bayesblocks1.png" title="[Simple Histogram of our Distribution]"></p>
 <p>Not too informative.  The default bins in <code>matplotlib</code> are too wide for this
 dataset.  We might be able to do better by increasing the number of bins:</p>
 <div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 
-<p>{% img /figures/bayesblocks2.png [More Detailed Histogram of our Distribution] %}</p>
+<p><img alt="[More Detailed Histogram of our Distribution]" src="/figures/bayesblocks2.png" title="[More Detailed Histogram of our Distribution]"></p>
 <p>This is better.  But having to choose the bin width each time we plot a
 distribution is not only tiresome, it may lead to missing some important
 information in our data.  In a perfect world, we'd like for
@@ -640,7 +640,7 @@ we saw earlier:</p>
 </pre></div>
 
 
-<p>{% img /figures/bayesblocks3.png [Adaptive Histogram of our Distribution] %}</p>
+<p><img alt="[Adaptive Histogram of our Distribution]" src="/figures/bayesblocks3.png" title="[Adaptive Histogram of our Distribution]"></p>
 <p>The adaptive-width bins lead to a very clean representation of the important
 features in the data.  More importantly, these bins are quantifiably optimal,
 and their properties can be used to make quantitative statistical

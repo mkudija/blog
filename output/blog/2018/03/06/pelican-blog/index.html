@@ -6,7 +6,7 @@
         <meta name="author" content="Matthew Kudija">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>3D Interactive Rubik's Cube in Python | Matthew Kudija</title>
+        <title>Setting Up A Pelican Blog on GitHub Pages | Matthew Kudija</title>
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -427,45 +427,63 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>3D Interactive Rubik's Cube in Python</h1>
-            <time datetime="article.date.isoformat()" pubdate>Mon 26 November 2012</time>
+            <h1>Setting Up A Pelican Blog on GitHub Pages</h1>
+            <time datetime="article.date.isoformat()" pubdate>Tue 06 March 2018</time>
         </header>
 
         <div class="article_content">
-            
-
-<p>Over the weekend, I built a interactive 3D Rubik's cube simulator in python
-using only <a href="http://matplotlib.org">matplotlib</a> for all the graphics and
-interaction.  Check out the demonstration here:</p>
-<p><span class="videobox">
-            <video width="680" height="400" preload="none" controls poster="/downloads/videos/MagicCube_frame.jpg"><source src='/downloads/videos/MagicCube.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></span></p>
-<p>You can browse the source code at the MagicCube github repository:
-<a href="http://github.com/davidwhogg/MagicCube">http://github.com/davidwhogg/MagicCube</a>.</p>
+            <p><img alt src="/images/carpet.jpeg"></p>
 
 
-<p>The 3D rendering is based on the quaternions and projections  discussed in
-my <a href="/blog/2012/11/24/simple-3d-visualization-in-matplotlib/">previous post</a>,
-and many of the key bindings discussed there are used here.
-The additional component is the turning of each face.  This is actually
-fairly simple to accomplish using the tools discussed above.</p>
-<p>For example, the right face is perpendicular to the x-axis in the cube-frame.
-Thus to turn it, you only need to manipulate polygons with x-coordinate
-between 1/3 and 1 inclusive (the cube has side-length 2 and is centered on
-the origin).  The correct faces are found quickly using
-numpy's <code>where</code> statement, and a quaternion rotation is applied only to
-these faces.  Easy!</p>
-<p>The code and interface still needs some work, and I'm hoping to add more
-features as I have time.  After spending my long weekend working on this,
-I have some real work to catch-up on...</p>
-<p><em>Update: I've heard from some folks that the key and mouse bindings don't
-work on some operating systems or backends.  If you experience
-system-dependent bugs and have any insight into the problem, I'd appreciate
-help working out what's happening!</em></p>
+<p>A typical scatter plot allows you to compare the impact of one independent variable (<em>x-axis</em>) on one dependent variable (<em>y-axis</em>). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.</p>
+
+
+<h1>Why Pelican?</h1>
+<ul>
+<li>Static</li>
+<li>Python-powered</li>
+<li></li>
+</ul>
+<h1>Setting Up a Pelican Blog</h1>
+<div class="highlight"><pre><span></span>$ conda create -n pelican-blog <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 jupyter notebook
+$ <span class="nb">source</span> activate pelican-blog
+$ pip install pelican
+$ pip install Markdown
+$ pelican-quickstart
+$ git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
+$ git submodule add git://github.com/getpelican/pelican-plugins.git plugins/pelican-plugins
+</pre></div>
+
+
+<h1>Other setup:</h1>
+<ul>
+<li>verify makefile</li>
+</ul>
+<h1>Update Your Blog</h1>
+<h2>Update Content</h2>
+<ul>
+<li>Add/update .md files in <code>content/</code> (reference <a href="http://docs.getpelican.com/en/3.6.3/content.html">docs</a>)</li>
+<li>notes on meta header, etc.</li>
+<li>notes on learning markdown</li>
+<li></li>
+</ul>
+<h2>Build</h2>
+<div class="highlight"><pre><span></span>$ make html
+$ make serve
+</pre></div>
+
+
+<p>Navigate to [http://localhost:8000/]</p>
+<h2>Push to GitHub</h2>
+<ul>
+<li>how to get to GitHub...?</li>
+<li>overview of how GitHub pages work</li>
+</ul>
         </div>
 
         <div class="meta">
             <div>
-                    <a href="/tag/matplotlib.html" class="tag">matplotlib</a>
+                    <a href="/tag/pelican.html" class="tag">pelican</a>
             </div>
         </div>
     </article>

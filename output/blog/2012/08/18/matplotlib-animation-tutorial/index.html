@@ -432,7 +432,7 @@ article .meta a.comments_btn:hover {
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            
 
 <p><a href="http://matplotlib.sourceforge.net">Matplotlib</a> version 1.1 added some tools
 for creating
@@ -450,11 +450,61 @@ which you can read more about in the
 <a href="http://matplotlib.sourceforge.net/api/animation_api.html">documentation</a>.
 Here I'll explore using the <code>FuncAnimation</code> tool, which I have found
 to be the most useful.</p>
-<!-- PELICAN_END_SUMMARY -->
+
 
 <p>First we'll use <code>FuncAnimation</code> to do a basic animation of a sine wave moving
 across the screen:</p>
-<p>{% include_code basic_animation.py lang:python Basic Animation %}</p>
+<figure class='code'>
+<figcaption><span>Basic Animation basic_animation.py</span> <a href='/downloads/code/basic_animation.py'>download</a></figcaption>
+
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Matplotlib Animation Example</span>
+
+<span class="sd">author: Jake Vanderplas</span>
+<span class="sd">email: vanderplas@astro.washington.edu</span>
+<span class="sd">website: http://jakevdp.github.com</span>
+<span class="sd">license: BSD</span>
+<span class="sd">Please feel free to use and modify this, but keep the above information. Thanks!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+
+<span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># initialization function: plot the background of each frame</span>
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+<span class="c1"># animation function.  This is called sequentially</span>
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+<span class="c1"># call the animator.  blit=True means only re-draw the parts that have changed.</span>
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                               <span class="n">frames</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># save the animation as an mp4.  This requires ffmpeg or mencoder to be</span>
+<span class="c1"># installed.  The extra_args ensure that the x264 codec is used, so that</span>
+<span class="c1"># the video can be embedded in html5.  You may need to adjust this for</span>
+<span class="c1"># your system: for more information, see</span>
+<span class="c1"># http://matplotlib.sourceforge.net/api/animation_api.html</span>
+<span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;basic_animation.mp4&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-vcodec&#39;</span><span class="p">,</span> <span class="s1">&#39;libx264&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+</figure>
+
 <p>Let's step through this and see what's going on.  After importing required
 pieces of <code>numpy</code> and <code>matplotlib</code>, The script sets up the plot:</p>
 <div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -505,7 +555,8 @@ the pieces of the plot which have changed.  The time saved with <code>blit=True<
 means that the animations display much more quickly.</p>
 <p>We end with an optional save command, and then a show command to show the
 result.  Here's what the script generates:</p>
-<p>{% video /downloads/videos/basic_animation.mp4 360 270 /downloads/videos/basic_animation_frame.png %}</p>
+<p><span class="videobox">
+            <video width="360" height="270" preload="none" controls poster="/downloads/videos/basic_animation_frame.png"><source src='/downloads/videos/basic_animation.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></span></p>
 <p>This framework for generating and saving animations is very powerful and
 flexible: if we put some physics into the <code>animate</code> function, the possibilities
 are endless.  Below are a couple examples of some physics animations that
@@ -517,7 +568,168 @@ is an animation of a double pendulum.  This example operates by precomputing
 the pendulum position over 10 seconds, and then animating the results.  I
 saw this and wondered if python would be fast enough to compute the dynamics
 on the fly.  It turns out it is:</p>
-<p>{% include_code double_pendulum.py lang:python Double Pendulum %}</p>
+<figure class='code'>
+<figcaption><span>Double Pendulum double_pendulum.py</span> <a href='/downloads/code/double_pendulum.py'>download</a></figcaption>
+
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">General Numerical Solver for the 1D Time-Dependent Schrodinger&#39;s equation.</span>
+
+<span class="sd">adapted from code at http://matplotlib.sourceforge.net/examples/animation/double_pendulum_animated.py</span>
+
+<span class="sd">Double pendulum formula translated from the C code at</span>
+<span class="sd">http://www.physics.usyd.edu.au/~wheat/dpend_html/solve_dpend.c</span>
+
+<span class="sd">author: Jake Vanderplas</span>
+<span class="sd">email: vanderplas@astro.washington.edu</span>
+<span class="sd">website: http://jakevdp.github.com</span>
+<span class="sd">license: BSD</span>
+<span class="sd">Please feel free to use and modify this, but keep the above information. Thanks!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="kn">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="kn">as</span> <span class="nn">animation</span>
+
+<span class="k">class</span> <span class="nc">DoublePendulum</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Double Pendulum Class</span>
+
+<span class="sd">    init_state is [theta1, omega1, theta2, omega2] in degrees,</span>
+<span class="sd">    where theta1, omega1 is the angular position and velocity of the first</span>
+<span class="sd">    pendulum arm, and theta2, omega2 is that of the second pendulum arm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">init_state</span> <span class="o">=</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                 <span class="n">L1</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># length of pendulum 1 in m</span>
+                 <span class="n">L2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># length of pendulum 2 in m</span>
+                 <span class="n">M1</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># mass of pendulum 1 in kg</span>
+                 <span class="n">M2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># mass of pendulum 2 in kg</span>
+                 <span class="n">G</span><span class="o">=</span><span class="mf">9.8</span><span class="p">,</span>  <span class="c1"># acceleration due to gravity, in m/s^2</span>
+                 <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">init_state</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_elapsed</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_state</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span>
+    
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;compute the current x,y positions of the pendulum arms&quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                       <span class="n">L1</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="n">L2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="o">-</span><span class="n">L1</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="o">-</span><span class="n">L2</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])])</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">energy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;compute the energy of the current state&quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="n">L1</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="n">L2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="o">-</span><span class="n">L1</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="o">-</span><span class="n">L2</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])])</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="n">L1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                        <span class="n">L2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])])</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="n">L1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                        <span class="n">L2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])])</span>
+
+        <span class="n">U</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">M1</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">M2</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">M1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vx</span><span class="p">,</span> <span class="n">vx</span><span class="p">)</span> <span class="o">+</span> <span class="n">M2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vy</span><span class="p">,</span> <span class="n">vy</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">U</span> <span class="o">+</span> <span class="n">K</span>
+
+    <span class="k">def</span> <span class="nf">dstate_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;compute the derivative of the given state&quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+
+        <span class="n">dydx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">dydx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dydx</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="n">cos_delta</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">sin_delta</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">den1</span> <span class="o">=</span> <span class="p">(</span><span class="n">M1</span> <span class="o">+</span> <span class="n">M2</span><span class="p">)</span> <span class="o">*</span> <span class="n">L1</span> <span class="o">-</span> <span class="n">M2</span> <span class="o">*</span> <span class="n">L1</span> <span class="o">*</span> <span class="n">cos_delta</span> <span class="o">*</span> <span class="n">cos_delta</span>
+        <span class="n">dydx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">M2</span> <span class="o">*</span> <span class="n">L1</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin_delta</span> <span class="o">*</span> <span class="n">cos_delta</span>
+                   <span class="o">+</span> <span class="n">M2</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="n">cos_delta</span>
+                   <span class="o">+</span> <span class="n">M2</span> <span class="o">*</span> <span class="n">L2</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin_delta</span>
+                   <span class="o">-</span> <span class="p">(</span><span class="n">M1</span> <span class="o">+</span> <span class="n">M2</span><span class="p">)</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">/</span> <span class="n">den1</span>
+
+        <span class="n">den2</span> <span class="o">=</span> <span class="p">(</span><span class="n">L2</span> <span class="o">/</span> <span class="n">L1</span><span class="p">)</span> <span class="o">*</span> <span class="n">den1</span>
+        <span class="n">dydx</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">M2</span> <span class="o">*</span> <span class="n">L2</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin_delta</span> <span class="o">*</span> <span class="n">cos_delta</span>
+                   <span class="o">+</span> <span class="p">(</span><span class="n">M1</span> <span class="o">+</span> <span class="n">M2</span><span class="p">)</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">cos_delta</span>
+                   <span class="o">-</span> <span class="p">(</span><span class="n">M1</span> <span class="o">+</span> <span class="n">M2</span><span class="p">)</span> <span class="o">*</span> <span class="n">L1</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin_delta</span>
+                   <span class="o">-</span> <span class="p">(</span><span class="n">M1</span> <span class="o">+</span> <span class="n">M2</span><span class="p">)</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="o">/</span> <span class="n">den2</span>
+        
+        <span class="k">return</span> <span class="n">dydx</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;execute one time step of length dt and update state&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dstate_dt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_elapsed</span> <span class="o">+=</span> <span class="n">dt</span>
+
+<span class="c1">#------------------------------------------------------------</span>
+<span class="c1"># set up initial state and global variables</span>
+<span class="n">pendulum</span> <span class="o">=</span> <span class="n">DoublePendulum</span><span class="p">([</span><span class="mf">180.</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="mi">30</span> <span class="c1"># 30 fps</span>
+
+<span class="c1">#------------------------------------------------------------</span>
+<span class="c1"># set up figure and animation</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">autoscale_on</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                     <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">time_text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">energy_text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;initialize animation&quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">time_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">energy_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span> <span class="n">time_text</span><span class="p">,</span> <span class="n">energy_text</span>
+
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;perform animation step&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">pendulum</span><span class="p">,</span> <span class="n">dt</span>
+    <span class="n">pendulum</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+    
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="o">*</span><span class="n">pendulum</span><span class="o">.</span><span class="n">position</span><span class="p">())</span>
+    <span class="n">time_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;time = </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pendulum</span><span class="o">.</span><span class="n">time_elapsed</span><span class="p">)</span>
+    <span class="n">energy_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;energy = </span><span class="si">%.3f</span><span class="s1"> J&#39;</span> <span class="o">%</span> <span class="n">pendulum</span><span class="o">.</span><span class="n">energy</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span> <span class="n">time_text</span><span class="p">,</span> <span class="n">energy_text</span>
+
+<span class="c1"># choose the interval based on dt and the time to animate one step</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">-</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                              <span class="n">interval</span><span class="o">=</span><span class="n">interval</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">)</span>
+
+<span class="c1"># save the animation as an mp4.  This requires ffmpeg or mencoder to be</span>
+<span class="c1"># installed.  The extra_args ensure that the x264 codec is used, so that</span>
+<span class="c1"># the video can be embedded in html5.  You may need to adjust this for</span>
+<span class="c1"># your system: for more information, see</span>
+<span class="c1"># http://matplotlib.sourceforge.net/api/animation_api.html</span>
+<span class="c1">#ani.save(&#39;double_pendulum.mp4&#39;, fps=30, extra_args=[&#39;-vcodec&#39;, &#39;libx264&#39;])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+</figure>
+
 <p>Here we've created a class which stores the state of the double pendulum
 (encoded in the angle of each arm plus the angular velocity of each arm)
 and also provides some functions for computing the dynamics.  The animation
@@ -527,17 +739,191 @@ changes the text to keep track of time and energy (energy should be constant
 if our math is correct: it's comforting that it is).  The video below
 lasts only ten seconds, but by running the script you can watch the
 pendulum chaotically oscillate until your laptop runs out of power:</p>
-<p>{% video /downloads/videos/double_pendulum.mp4 360 270 /downloads/videos/double_pendulum_frame.png %}</p>
+<p><span class="videobox">
+            <video width="360" height="270" preload="none" controls poster="/downloads/videos/double_pendulum_frame.png"><source src='/downloads/videos/double_pendulum.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></span></p>
 <h3>Particles in a Box</h3>
 <p>Another animation I created is the elastic collisions of a group of particles
 in a box under the force of gravity.  The collisions are elastic: they conserve
 energy and 2D momentum, and the particles bounce realistically off the walls
 of the box and fall under the influence of a constant gravitational force:</p>
-<p>{% include_code particle_box.py lang:python Particles in a Box %}</p>
+<figure class='code'>
+<figcaption><span>Particles in a Box particle_box.py</span> <a href='/downloads/code/particle_box.py'>download</a></figcaption>
+
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Animation of Elastic collisions with Gravity</span>
+
+<span class="sd">author: Jake Vanderplas</span>
+<span class="sd">email: vanderplas@astro.washington.edu</span>
+<span class="sd">website: http://jakevdp.github.com</span>
+<span class="sd">license: BSD</span>
+<span class="sd">Please feel free to use and modify this, but keep the above information. Thanks!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span><span class="p">,</span> <span class="n">squareform</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="kn">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="kn">as</span> <span class="nn">animation</span>
+
+<span class="k">class</span> <span class="nc">ParticleBox</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Orbits class</span>
+<span class="sd">    </span>
+<span class="sd">    init_state is an [N x 4] array, where N is the number of particles:</span>
+<span class="sd">       [[x1, y1, vx1, vy1],</span>
+<span class="sd">        [x2, y2, vx2, vy2],</span>
+<span class="sd">        ...               ]</span>
+
+<span class="sd">    bounds is the size of the box: [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">init_state</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]],</span>
+                 <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                 <span class="n">size</span> <span class="o">=</span> <span class="mf">0.04</span><span class="p">,</span>
+                 <span class="n">M</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+                 <span class="n">G</span> <span class="o">=</span> <span class="mf">9.8</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">init_state</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_elapsed</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">bounds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">G</span> <span class="o">=</span> <span class="n">G</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;step once by dt seconds&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_elapsed</span> <span class="o">+=</span> <span class="n">dt</span>
+        
+        <span class="c1"># update positions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span>
+
+        <span class="c1"># find pairs of particles undergoing a collision</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">squareform</span><span class="p">(</span><span class="n">pdist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">unique</span> <span class="o">=</span> <span class="p">(</span><span class="n">ind1</span> <span class="o">&lt;</span> <span class="n">ind2</span><span class="p">)</span>
+        <span class="n">ind1</span> <span class="o">=</span> <span class="n">ind1</span><span class="p">[</span><span class="n">unique</span><span class="p">]</span>
+        <span class="n">ind2</span> <span class="o">=</span> <span class="n">ind2</span><span class="p">[</span><span class="n">unique</span><span class="p">]</span>
+
+        <span class="c1"># update velocities of colliding pairs</span>
+        <span class="k">for</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">):</span>
+            <span class="c1"># mass</span>
+            <span class="n">m1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span>
+            <span class="n">m2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span>
+
+            <span class="c1"># location vector</span>
+            <span class="n">r1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">i1</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">r2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+            <span class="c1"># velocity vector</span>
+            <span class="n">v1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">i1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span>
+            <span class="n">v2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span>
+
+            <span class="c1"># relative location &amp; velocity vectors</span>
+            <span class="n">r_rel</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+            <span class="n">v_rel</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">-</span> <span class="n">v2</span>
+
+            <span class="c1"># momentum vector of the center of mass</span>
+            <span class="n">v_cm</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">m2</span> <span class="o">*</span> <span class="n">v2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span>
+
+            <span class="c1"># collisions of spheres reflect v_rel over r_rel</span>
+            <span class="n">rr_rel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r_rel</span><span class="p">,</span> <span class="n">r_rel</span><span class="p">)</span>
+            <span class="n">vr_rel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v_rel</span><span class="p">,</span> <span class="n">r_rel</span><span class="p">)</span>
+            <span class="n">v_rel</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">r_rel</span> <span class="o">*</span> <span class="n">vr_rel</span> <span class="o">/</span> <span class="n">rr_rel</span> <span class="o">-</span> <span class="n">v_rel</span>
+
+            <span class="c1"># assign new velocities</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">i1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="n">v_cm</span> <span class="o">+</span> <span class="n">v_rel</span> <span class="o">*</span> <span class="n">m2</span> <span class="o">/</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="n">v_cm</span> <span class="o">-</span> <span class="n">v_rel</span> <span class="o">*</span> <span class="n">m1</span> <span class="o">/</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span> 
+
+        <span class="c1"># check for crossing boundary</span>
+        <span class="n">crossed_x1</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">crossed_x2</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">crossed_y1</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">crossed_y2</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">crossed_x1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">crossed_x2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">crossed_y1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">crossed_y2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">crossed_x1</span> <span class="o">|</span> <span class="n">crossed_x2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">crossed_y1</span> <span class="o">|</span> <span class="n">crossed_y2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="c1"># add gravity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span> <span class="o">*</span> <span class="n">dt</span>
+
+
+<span class="c1">#------------------------------------------------------------</span>
+<span class="c1"># set up initial state</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">init_state</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">init_state</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">3.9</span>
+
+<span class="n">box</span> <span class="o">=</span> <span class="n">ParticleBox</span><span class="p">(</span><span class="n">init_state</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">30</span> <span class="c1"># 30fps</span>
+
+
+<span class="c1">#------------------------------------------------------------</span>
+<span class="c1"># set up figure and animation</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">autoscale_on</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                     <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">))</span>
+
+<span class="c1"># particles holds the locations of the particles</span>
+<span class="n">particles</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># rect is the box edge</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">bounds</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span>
+                     <span class="n">box</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">box</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                     <span class="n">box</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">box</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                     <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;initialize animation&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">box</span><span class="p">,</span> <span class="n">rect</span>
+    <span class="n">particles</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">rect</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">particles</span><span class="p">,</span> <span class="n">rect</span>
+
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;perform animation step&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">box</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span>
+    <span class="n">box</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+    <span class="n">ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">dpi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">box</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_figwidth</span><span class="p">()</span>
+             <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xbound</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1"># update pieces of the animation</span>
+    <span class="n">rect</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">particles</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">box</span><span class="o">.</span><span class="n">state</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">particles</span><span class="o">.</span><span class="n">set_markersize</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">particles</span><span class="p">,</span> <span class="n">rect</span>
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+                              <span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">)</span>
+
+
+<span class="c1"># save the animation as an mp4.  This requires ffmpeg or mencoder to be</span>
+<span class="c1"># installed.  The extra_args ensure that the x264 codec is used, so that</span>
+<span class="c1"># the video can be embedded in html5.  You may need to adjust this for</span>
+<span class="c1"># your system: for more information, see</span>
+<span class="c1"># http://matplotlib.sourceforge.net/api/animation_api.html</span>
+<span class="c1">#ani.save(&#39;particle_box.mp4&#39;, fps=30, extra_args=[&#39;-vcodec&#39;, &#39;libx264&#39;])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+</figure>
+
 <p>The math should be familiar to anyone with a physics background, and the
 result is pretty mesmerizing.  I coded this up during a flight, and ended
 up just sitting and watching it for about ten minutes.</p>
-<p>{% video /downloads/videos/particle_box.mp4 360 270 /downloads/videos/particle_box_frame.png %}</p>
+<p><span class="videobox">
+            <video width="360" height="270" preload="none" controls poster="/downloads/videos/particle_box_frame.png"><source src='/downloads/videos/particle_box.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></span></p>
 <p>This is just the beginning: it might be an interesting exercise to add
 other elements, like computation of the temperature and pressure to demonstrate
 the ideal gas law, or real-time plotting of the velocity distribution to
