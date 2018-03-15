@@ -428,6 +428,38 @@ article .meta a.comments_btn:hover {
 
   <article>
     <header>
+      <h2><a href="/blog/2012/10/04/blogging-with-ipython/">Blogging with IPython in Octopress</a></h2>
+      <time datetime="" title="2012-10-04T18:40:00-04:00" pubdate>Thu 04 October 2012</time>
+    </header>
+
+    <div class="article_content">
+      
+
+<p>A few weeks ago, Fernando Perez, the creator of IPython, wrote a <a href="http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html">post</a> about blogging with IPython notebooks.  I decided to take a stab at making this work in Octopress.</p>
+<p>I started by following Fernando's outline:  I first went to <a href="http://github.com/ipython/nbconvert">http://github.com/ipython/nbconvert</a> and obtained the current version of the notebook converter.  Running <code>nbconvert.py -f blogger-html filename.ipynb</code> produces a separate html and header file with the notebook content.  I inserted the stylesheet info into my header (in octopress, the default location is <code>source/_includes/custom/head.html</code>) and copied the html directly into my post.</p>
+<p>I immediately encountered a problem.  <code>nbconvert</code> uses global CSS classes and style markups, and some of these (notably the "hightlight" class and the <code>&lt;pre&gt;</code> tag formatting) conflict with styles defined in my octopress theme.  The result was that every post in my blog ended up looking like an ugly hybrid of octopress and an ipython notebook.  Not very nice.</p>
+<p>So I did some surgery.  Admittedly, this is a terrible hack, but the following code takes the files output by nbconvert, slices them up, and creates a specific set of CSS classes for the notebook markup, such that there's no longer a conflict with the native octopress styles
+(you can download this script <a href="http://jakevdp.github.com/downloads/code/convert_notebook.py">here</a>):</p>
+
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2012/10/04/blogging-with-ipython/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/blogging.html" class="tag">blogging</a>
+            <a href="/tag/octopress.html" class="tag">octopress</a>
+            <a href="/tag/tutorial.html" class="tag">tutorial</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2012/09/26/optical-illusions-in-matplotlib/">Optical Illusions in Matplotlib</a></h2>
       <time datetime="" title="2012-09-26T07:27:00-04:00" pubdate>Wed 26 September 2012</time>
     </header>

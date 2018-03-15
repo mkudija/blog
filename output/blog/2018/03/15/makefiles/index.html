@@ -6,7 +6,7 @@
         <meta name="author" content="Matthew Kudija">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Matthew Kudija - Authors | Matthew Kudija</title>
+        <title>Automation Using Makefiles | Matthew Kudija</title>
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -424,10 +424,162 @@ article .meta a.comments_btn:hover {
         </header>
 
         <div id="wrap">
-    <h1>Authors on Matthew Kudija</h1>
+<div class="container post">
+    <article>
+        <header>
+            <h1>Automation Using Makefiles</h1>
+            <time datetime="article.date.isoformat()" pubdate>Thu 15 March 2018</time>
+        </header>
 
-    <ul>        <li><a href="/author/matthew-kudija.html">Matthew Kudija</a> (19)</li>
-    </ul>
+        <div class="article_content">
+            <!-- ![alt]({filename}/images/carpet.jpeg) -->
+
+
+
+<p>Makefiles provide an easy way to group multiple terminal commands into a single command using <code>make &lt;command&gt;</code>. This gives a brief overview with just enough enformation to write your first Makefile.</p>
+
+
+<h1>Why Make?</h1>
+<p>Make was originally developed to build executable programs, but I have seen an <a href="https://github.com/mwilliamson/python-makefile/blob/master/makefile">number</a> <a href="https://github.com/jakevdp/jakevdp.github.io-source/blob/master/Makefile">of</a> <a href="https://github.com/getsentry/raven-python/blob/master/Makefile">examples</a> of people using Make to manage Python workflows. In this example, let's say we have a Python script in several repositories that we use to update files in that repository. From the command line, we can easily <code>cd</code> into each and <code>python build.py</code> to run the script and then commit the changes. Using a Makefile, however, we can automate all of that into a single command: <code>make publish</code>. Let's take a look at how to do this.</p>
+<h1>Writing a Makefile</h1>
+<p>To start, the contents of our Makefile are below. </p>
+<div class="highlight"><pre><span></span>PY?=python3
+
+
+help:
+    @echo &#39;                                                                          &#39;
+    @echo &#39;Makefile to update websites on MAG GitHub pages                           &#39;
+    @echo &#39;                                                                          &#39;
+    @echo &#39;Usage:                                                                    &#39;
+    @echo &#39;   make data                MILE_file_copy and update_utilization         &#39;
+    @echo &#39;   make html                regenerate the websites                       &#39;
+    @echo &#39;   make publish             regenerate websites, then publish to GitHub   &#39;
+    @echo &#39;                                                                          &#39;
+
+data:
+    python ../MILE_Data/MILE_file_copy.py
+    cd ../Aircraft-Data/Utilization/Scripts; python update_utilization.py
+
+html: data
+    cd ../CommercialData/scripts; python build.py
+    cd ../MarketView/scripts; python build.py
+    cd ../FleetView/scripts; python build.py
+
+publish: html
+    @echo &#39; &#39;
+    cd ../CommercialData; git pull origin master
+    cd ../CommercialData; git add -A
+    cd ../CommercialData; git commit -m &quot;auto-regenerate from make&quot;
+    cd ../CommercialData; git push origin master
+
+    @echo &#39; &#39;
+    cd ../MarketView; git pull origin master
+    cd ../MarketView; git add -A
+    cd ../MarketView; git commit -m &quot;auto-regenerate from make&quot;
+    cd ../MarketView; git push origin master
+
+    @echo &#39; &#39;
+    cd ../FleetView; git pull origin master
+    cd ../FleetView; git add -A
+    cd ../FleetView; git commit -m &quot;auto-regenerate from make&quot;
+    cd ../FleetView; git push origin master
+</pre></div>
+
+
+<p>Let's break this down to understand how to construct a Makefile. A Makefile has this basic structure (see the complete <a href="https://www.gnu.org/software/make/manual/make.html">Make documentation, particularly section 2.1</a>):</p>
+<div class="highlight"><pre><span></span>target … : prerequisites …
+        recipe
+        …
+        …
+</pre></div>
+
+
+<ul>
+<li><code>target</code> is name of the make command we are constructing. In our Makefile, <code>data: ...</code> means we can call <code>make data</code> </li>
+<li><code>prerequisites</code> are commands to call before calling our <code>recipe</code>. In our Makefile, when we call <code>make publish</code>, <code>make html</code> will be executed first</li>
+<li><code>recipe</code> is the group of commands our make command performs. Each line is a command, but commands can be given on the same line separated by <code>;</code>. When we call <code>make data</code> in our Makefile, the first command run is executing <code>python ../MILE_Data/MILE_file_copy.py</code></li>
+</ul>
+<p>We can now define make commands, group tasks we want to perform, and define prerequisites as necessary. As with anything in software, there is much more to learn about Makefiles, but this is enough to get you started. </p>
+<h2>A Note on Directories</h2>
+<p>The <code>cwd</code> of Python when run from a Makefile will by default be the directory that contains the Makefile. This may be an issue if you are running Python scripts that assume a <code>cwd</code> where they are located. To address this, you can enter the appropriate directory and execute the script on the same line in the Makefile, for example: <code>cd ../MarketView/scripts; python build.py</code></p>
+<h1>Executing Makefiles</h1>
+<p>Back to our example, the previous process required us to:</p>
+<ul>
+<li><code>cd</code> into each repo</li>
+<li>run <code>python build.py</code> update files</li>
+<li>commit the changes</li>
+<li>repeat or each</li>
+</ul>
+<p>Using this Makefile, the process now is simply:</p>
+<ul>
+<li><code>cd</code> in to the directory containing <code>Makefile</code></li>
+<li><code>make publish</code></li>
+</ul>
+<h1>Conclusion</h1>
+<p>Whenever you find yourself doing the same rote task often it may be a good time to ask yourself if some simple automation is appropriate. For anything you perform at the command line, Makefiles can be a lightweight way to give you some more free time.</p>
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="/tag/python.html" class="tag">python</a>
+                    <a href="/tag/makefile.html" class="tag">makefile</a>
+                    <a href="/tag/make.html" class="tag">make</a>
+            </div>
+        </div>
+    </article>
+
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
         </div>
 <!--
     <footer>
