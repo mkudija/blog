@@ -20,5 +20,5 @@ FEED_USE_SUMMARY = True  # from the feed_summary plugin
 
 DELETE_OUTPUT_DIRECTORY = True
 
-DISQUS_SITENAME = "mkudija"
+DISQUS_SITENAME = "matthewkudija"
 GOOGLE_ANALYTICS = "UA-72240498-1"
