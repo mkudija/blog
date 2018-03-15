@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Matthew Kudija'
 SITENAME = 'Matthew Kudija'
-SITESUBTITLE = u'Thoughts on Python and beyond'
+SITESUBTITLE = u'Notes on Python and beyond'
 SITEURL = ''
 PATH = 'content'
 TIMEZONE = 'America/New_York'
@@ -52,10 +52,9 @@ THEME = './theme/'
 ABOUT_PAGE = '/pages/about.html'
 TWITTER_USERNAME = 'mkudija'
 GITHUB_USERNAME = 'mkudija'
-#STACKOVERFLOW_ADDRESS = 'http://stackoverflow.com/users/2937831/jakevdp'
 AUTHOR_WEBSITE = 'http://matthewkudija.com'
-AUTHOR_BLOG = 'http://jakevdp.github.io'
-AUTHOR_CV = "http://staff.washington.edu/jakevdp/media/pdfs/CV.pdf"
+AUTHOR_BLOG = 'http://matthewkudija.com/pelican'
+AUTHOR_CV = "http://matthewkudija.com/resume.pdf"
 SHOW_ARCHIVES = True
 SHOW_FEED = False  # Need to address large feeds
 
@@ -65,5 +64,5 @@ STATIC_PATHS = ['images', 'figures', 'videos', 'downloads', 'favicon.ico']
 
 # Footer info
 
-LICENSE_URL = "https://github.com/jakevdp/jakevdp.github.io-source/blob/master/LICENSE"
+LICENSE_URL = "https://github.com/mkudija/pelican/blob/master/LICENSE"
 LICENSE = "MIT"

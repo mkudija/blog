@@ -1,444 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="author" content="Matthew Kudija">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <title>Matthew Kudija - Articles by Matthew Kudija | Matthew Kudija</title>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija - articles</title><link href="http://matthewkudija.com/" rel="alternate"></link><link href="http://matthewkudija.com/feeds/articles.atom.xml" rel="self"></link><id>http://matthewkudija.com/</id><updated>2018-03-15T06:00:00-04:00</updated><entry><title>Code Block Highlighting</title><link href="http://matthewkudija.com/blog/2018/03/15/code-block/" rel="alternate"></link><published>2018-03-15T06:00:00-04:00</published><updated>2018-03-15T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-15:blog/2018/03/15/code-block/</id><summary type="html">
 
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="alternate" type="application/atom+xml" title="Matthew Kudija blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+&lt;p&gt;I test code block highlighting...&lt;/p&gt;
+</summary><category term="python"></category><category term="makefile"></category><category term="make"></category></entry><entry><title>Automation Using Makefiles</title><link href="http://matthewkudija.com/blog/2018/03/15/makefiles/" rel="alternate"></link><published>2018-03-15T06:00:00-04:00</published><updated>2018-03-15T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-15:blog/2018/03/15/makefiles/</id><summary type="html">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/theme/css/icons.css"/>
-        <style>.highlight .hll { background-color: #ffffcc }
-.highlight .c { color: #60a0b0; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #007020; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #007020 } /* Comment.Preproc */
-.highlight .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #808080 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0040D0 } /* Generic.Traceback */
-.highlight .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #007020 } /* Keyword.Pseudo */
-.highlight .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #902000 } /* Keyword.Type */
-.highlight .m { color: #40a070 } /* Literal.Number */
-.highlight .s { color: #4070a0 } /* Literal.String */
-.highlight .na { color: #4070a0 } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
-.highlight .no { color: #60add5 } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #d55537; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #007020 } /* Name.Exception */
-.highlight .nf { color: #06287e } /* Name.Function */
-.highlight .nl { color: #002070; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #062873; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #bb60d5 } /* Name.Variable */
-.highlight .ow { color: #007020; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mf { color: #40a070 } /* Literal.Number.Float */
-.highlight .mh { color: #40a070 } /* Literal.Number.Hex */
-.highlight .mi { color: #40a070 } /* Literal.Number.Integer */
-.highlight .mo { color: #40a070 } /* Literal.Number.Oct */
-.highlight .sb { color: #4070a0 } /* Literal.String.Backtick */
-.highlight .sc { color: #4070a0 } /* Literal.String.Char */
-.highlight .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #4070a0 } /* Literal.String.Double */
-.highlight .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #4070a0 } /* Literal.String.Heredoc */
-.highlight .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
-.highlight .sx { color: #c65d09 } /* Literal.String.Other */
-.highlight .sr { color: #235388 } /* Literal.String.Regex */
-.highlight .s1 { color: #4070a0 } /* Literal.String.Single */
-.highlight .ss { color: #517918 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #bb60d5 } /* Name.Variable.Class */
-.highlight .vg { color: #bb60d5 } /* Name.Variable.Global */
-.highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
-.highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
-        <style>body {
-  margin: 0;
-  padding: 0;
-  font: 15px 'Source Sans Pro', sans-serif;
-  line-height: 1.6em;
-  color: #222;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-a {
-  color: #007EE5;
-  text-decoration: none;
-}
-a:hover {
-  color: #007EE5;
-  text-decoration: none;
-}
-header.main-header {
-  background: none repeat scroll 0% 0% #205F29;
-  margin-bottom: 0px;
-}
-header.main-header a {
-  color: #fff;
-}
-header.main-header .container {
-  max-width: 1000px;
-}
-header.main-header .container nav a:hover {
-  background-color: #5C881C;
-}
-article {
-  margin: 0;
-}
-article header.about {
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-}
-article header {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-}
-article header h1 {
-  margin-bottom: 2px;
-  font-weight: 700;
-  color: #000;
-}
-article header time {
-  color: #9E9E9E;
-  font-size: 0.85em;
-  float: right;
-}
-article header time.left {
-  color: #9E9E9E;
-  font-size: 0.85em;
-  float: left;
-}
-article div.social-links ul {
-  padding: 0px;
-}
-article div.social-links li {
-  display: inline;
-  font-size: 20px;
-}
-article div.social-links li a {
-  color: #000;
-  padding: 10px;
-}
-article div.social-links li a:hover {
-  color: #666;
-  text-decoration: none;
-}
-article p {
-  font-size: 16px;
-  margin-bottom: 20px;
-  line-height: 1.6em;
-}
-article p.note {
-  background: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 0.533em 0.733em;
-}
-article p.update {
-  background-color: #FEEFB3;
-  border: 1px solid #e6e68a;
-  padding: 0.533em 0.733em;
-}
-article p.alert {
-  background-color: #ffe2e2;
-  border: 1px solid #ffb2b2;
-  padding: 0.533em 0.733em;
-}
-article ul,
-article ol {
-  margin-top: 0px;
-  margin-bottom: 25px;
-}
-article li {
-  font-size: 16px;
-  line-height: 1.6em;
-}
-article a:hover {
-  text-decoration: underline;
-}
-article blockquote {
-  border-left: 2px solid #c7c7cc;
-  color: #666;
-  margin: 30px 0;
-  padding: 0 0 0 25px;
-}
-article img {
-  max-width: 100%;
-}
-article code {
-  color: #333;
-  background-color: #EEE;
-  border-radius: 0;
-  font-size: 13px;
-}
-article .meta {
-  font-size: 11px;
-}
-article .meta a:hover {
-  text-decoration: none;
-}
-article .meta div {
-  margin-bottom: 20px;
-  display: block;
-}
-article .meta a.tag {
-  margin: 0 10px 10px 0;
-  padding: 1px 12px;
-  display: inline-block;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
-  background: rgba(0, 0, 0, 0.05);
-}
-article .meta a.tag:hover {
-  background: rgba(0, 0, 0, 0.15);
-}
-article .meta a.read_more,
-article .meta a.comments_btn {
-  font-size: 14px;
-  font-weight: 800;
-  padding: 10px 20px;
-  color: #205F29;
-  background: #FFF;
-  border: 1px solid #205F29;
-}
-article .meta a.read_more:hover,
-article .meta a.comments_btn:hover {
-  color: #FFF;
-  background: #5C881C;
-}
-.index {
-  max-width: 700px;
-}
-.index article header h2 {
-  font-size: 36px;
-  margin-bottom: 2px;
-  font-weight: 700;
-}
-.index article header h2 a {
-  color: #000;
-}
-.index article header h2 a:hover {
-  color: #007EE5;
-  text-decoration: none;
-}
-.index .separator {
-  padding: 40px 0 0 0;
-  margin: 0 0 40px 0;
-  height: 10px;
-  border-bottom: solid 1px #CCC;
-}
-.index .pagination {
-  display: block;
-  margin-bottom: 100px;
-}
-.index .pagination .left {
-  text-align: right;
-}
-.index .pagination .right {
-  text-align: left;
-}
-.index .pagination a {
-  display: inline-block;
-  border: 2px solid #5C881C;
-  margin: 0 5px;
-  padding: 8px 20px;
-  font-weight: bold;
-  color: #5C881C;
-}
-.index .pagination a:hover {
-  color: #FFF;
-  background: #5C881C;
-}
-.post {
-  max-width: 700px;
-}
-.post h2:before {
-  content: "# ";
-  font-weight: bold;
-  color: #DDD;
-}
-.post h3:before {
-  content: "## ";
-  font-weight: bold;
-  color: #DDD;
-}
-.post h4:before {
-  content: "### ";
-  font-weight: bold;
-  color: #DDD;
-}
-.post article .meta {
-  margin: 50px 0 100px;
-}
-.list {
-  max-width: 700px;
-}
-.list ul.double-list {
-  margin: 0 auto 60px;
-  padding: 0;
-  list-style-type: none;
-}
-.list ul.double-list li {
-  padding: 5px 0;
-}
-.list ul.double-list li h2 {
-  font-size: 1em;
-  display: inline;
-  font-weight: normal;
-}
-.list ul.double-list li span {
-  font-family: sans-serif;
-  text-transform: uppercase;
-  text-align: right;
-  float: right;
-  padding-top: 3px;
-  font-size: 12px;
-  color: #999;
-}
-.full-width-content {
-  padding-top: 10px;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: -20px;
-  margin-right: -20px;
-}
-.col-xs-1,
-.col-sm-1,
-.col-md-1,
-.col-lg-1,
-.col-xs-2,
-.col-sm-2,
-.col-md-2,
-.col-lg-2,
-.col-xs-3,
-.col-sm-3,
-.col-md-3,
-.col-lg-3,
-.col-xs-4,
-.col-sm-4,
-.col-md-4,
-.col-lg-4,
-.col-xs-5,
-.col-sm-5,
-.col-md-5,
-.col-lg-5,
-.col-xs-6,
-.col-sm-6,
-.col-md-6,
-.col-lg-6,
-.col-xs-7,
-.col-sm-7,
-.col-md-7,
-.col-lg-7,
-.col-xs-8,
-.col-sm-8,
-.col-md-8,
-.col-lg-8,
-.col-xs-9,
-.col-sm-9,
-.col-md-9,
-.col-lg-9,
-.col-xs-10,
-.col-sm-10,
-.col-md-10,
-.col-lg-10,
-.col-xs-11,
-.col-sm-11,
-.col-md-11,
-.col-lg-11,
-.col-xs-12,
-.col-sm-12,
-.col-md-12,
-.col-lg-12 {
-  padding-right: 0px;
-  padding-left: 0px;
-}</style>
+&lt;p&gt;Makefiles provide an easy way to group multiple terminal commands into a single command using &lt;code&gt;make &amp;lt;command&amp;gt;&lt;/code&gt;. This gives a brief overview with just enough enformation to write your first Makefile.&lt;/p&gt;
+</summary><category term="python"></category><category term="makefile"></category><category term="make"></category></entry><entry><title>Setting Up A Pelican Blog on GitHub Pages</title><link href="http://matthewkudija.com/blog/2018/03/06/pelican-blog/" rel="alternate"></link><published>2018-03-06T06:00:00-05:00</published><updated>2018-03-06T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-06:blog/2018/03/06/pelican-blog/</id><summary type="html">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+&lt;p&gt;A typical scatter plot allows you to compare the impact of one independent variable (&lt;em&gt;x-axis&lt;/em&gt;) on one dependent variable (&lt;em&gt;y-axis&lt;/em&gt;). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.&lt;/p&gt;
+</summary><category term="pelican"></category></entry><entry><title>Carpet Plots</title><link href="http://matthewkudija.com/blog/2018/02/14/carpet-plots/" rel="alternate"></link><published>2018-02-14T06:00:00-05:00</published><updated>2018-02-14T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-02-14:blog/2018/02/14/carpet-plots/</id><summary type="html">
 
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-        <script type="text/javascript">
-        init_mathjax = function() {
-            if (window.MathJax) {
-                // MathJax loaded
-                MathJax.Hub.Config({
-                    tex2jax: {
-                        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-                    },
-                    displayAlign: 'left', // Change this to 'center' to center equations.
-                    "HTML-CSS": {
-                        styles: {'.MathJax_Display': {"margin": 0}}
-                    }
-                });
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-            }
-        }
-        init_mathjax();
-        </script>
+&lt;h2&gt;Why Carpet Plots?&lt;/h2&gt;
+&lt;p&gt;A typical scatter plot allows you to compare the impact of one independent variable (&lt;em&gt;x-axis&lt;/em&gt;) on one dependent variable (&lt;em&gt;y-axis&lt;/em&gt;). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.&lt;/p&gt;
+</summary><category term="pandas"></category><category term="plotly"></category></entry><entry><title>Sparse SVDs in Python</title><link href="http://matthewkudija.com/blog/2012/12/19/sparse-svds-in-python/" rel="alternate"></link><published>2012-12-19T08:21:00-05:00</published><updated>2012-12-19T08:21:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-12-19:blog/2012/12/19/sparse-svds-in-python/</id><summary type="html">
 
-    </head>
+&lt;p&gt;After &lt;a href="http://fseoane.net/blog/2012/singular-value-decomposition-in-scipy/"&gt;Fabian's post&lt;/a&gt; on the topic, I have recently returned to thinking about the
+subject of sparse singular value decompositions (SVDs) in Python.&lt;/p&gt;
+&lt;p&gt;For those who haven't used it, the SVD is an extremely powerful technique.
+It is the core routine of many applications,
+from filtering to dimensionality
+reduction to graph analysis to supervised classification and much, much more.&lt;/p&gt;
+&lt;p&gt;I first came across the need for a fast sparse SVD when applying a technique
+called Locally Linear Embedding (LLE) to astronomy spectra: it was the first
+astronomy paper I published, and you can read it &lt;a href="http://adsabs.harvard.edu/abs/2009AJ....138.1365V"&gt;here&lt;/a&gt;.  In LLE, one visualizes the nonlinear relationship
+between high-dimensional observations.  The computational cost is extreme: for
+&lt;em&gt;N&lt;/em&gt; objects, one must compute the null space (intimately related to the SVD)
+of a &lt;em&gt;N&lt;/em&gt; by &lt;em&gt;N&lt;/em&gt; matrix.  Using direct methods (e.g. LAPACK), this can scale
+as bad as $\mathcal{O}[N^3]$ in both memory and speed!&lt;/p&gt;
+</summary><category term="linear algebra"></category><category term="benchmarks"></category></entry><entry><title>Minesweeper in Matplotlib</title><link href="http://matthewkudija.com/blog/2012/12/06/minesweeper-in-matplotlib/" rel="alternate"></link><published>2012-12-06T18:23:00-05:00</published><updated>2012-12-06T18:23:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-12-06:blog/2012/12/06/minesweeper-in-matplotlib/</id><summary type="html">
 
-    <body>
-        <header class="navbar navbar-inverse bs-docs-nav">
-            <div class="container-fluid">
-                <div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span> 
-		  </button>
-                  <a class="navbar-brand" href="/" title="Home" class="title">Matthew Kudija</a>
-                </div>
-                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
-		    <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/pages/about.html" title="About">About</a></li>
-                            <li><a href="/archives.html" title="Archive">Archive</a></li>
-                            <li><a class="nodec icon-rss" href="/feeds/all.atom.xml" title="jakevdp.github.io RSS feed" rel="me"></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <div id="wrap">
-<div class="container index">
-
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/10/07/xkcd-style-plots-in-matplotlib/">XKCD-style plots in Matplotlib</a></h2>
-      <time datetime="" title="2012-10-07T13:30:00-04:00" pubdate>Sun 07 October 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-<em>Update: the matplotlib pull request has been merged!  See</em>
-<a href="http://jakevdp.github.io/blog/2013/07/10/XKCD-plots-in-matplotlib/"><em>This post</em></a>
-<em>for a description of the XKCD functionality now built-in to matplotlib!</em></p>
-<p>One of the problems I've had with typical matplotlib figures is that everything in them is so precise, so perfect.  For an example of what I mean, take a look at this figure:</p>
+&lt;p&gt;Lately I've been playing around with interactivity in matplotlib.  A couple
+weeks ago, I discussed briefly how to use event callbacks to implement
+&lt;a href="/blog/2012/11/24/simple-3d-visualization-in-matplotlib/"&gt;simple 3D visualization&lt;/a&gt;
+and later used this as a base for creating a
+&lt;a href="/blog/2012/11/26/3d-interactive-rubiks-cube-in-python"&gt;working 3D Rubik's cube&lt;/a&gt;
+entirely in matplotlib.&lt;/p&gt;
+&lt;p&gt;Today I have a different goal: re-create
+&lt;a href="http://en.wikipedia.org/wiki/Minesweeper_%28computer_game%29"&gt;minesweeper&lt;/a&gt;,
+that ubiquitous single-player puzzle game that most of us will admit to
+having binged on at least once or twice in their lives.  In minesweeper, the
+goal is to discover and avoid hidden mines within a gridded minefield, and
+the process takes some logic and quick thinking.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/minesweeper_2.gif" width="800"&gt;&lt;/p&gt;
+</summary><category term="matplotlib"></category></entry><entry><title>A Primer on Python Metaclasses</title><link href="http://matthewkudija.com/blog/2012/12/01/a-primer-on-python-metaclasses/" rel="alternate"></link><published>2012-12-01T07:25:00-05:00</published><updated>2012-12-01T07:25:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-12-01:blog/2012/12/01/a-primer-on-python-metaclasses/</id><summary type="html">
+Most readers are aware that Python is an object-oriented language.  By
+object-oriented, we mean that Python can define &lt;em&gt;classes&lt;/em&gt;, which bundle
+&lt;strong&gt;data&lt;/strong&gt; and &lt;strong&gt;functionality&lt;/strong&gt; into one entity.  For example, we may
+create a class &lt;code&gt;IntContainer&lt;/code&gt; which stores an integer and allows
+certain operations to be performed:&lt;/p&gt;
 
 
 
@@ -449,8 +58,112 @@ article .meta a.comments_btn:hover {
 
     
 
-<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;http://jakevdp.github.com/figures/xkcd_version.png&#39;</span><span class="p">)</span>
-</pre>
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add_one&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+    
+
+&lt;span class="n"&gt;ic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_one&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;pre&gt;3
+&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+
+&lt;p&gt;This is a bit of a silly example, but shows the fundamental nature of
+classes: their ability to bundle data and operations into a single
+&lt;em&gt;object&lt;/em&gt;, which leads to cleaner, more manageable, and more adaptable code.
+Additionally, classes can inherit properties from parents and add or
+specialize attributes and methods.  This &lt;em&gt;object-oriented&lt;/em&gt;
+approach to programming can be very intuitive and powerful.&lt;/p&gt;
+&lt;p&gt;What many do not realize, though, is that quite literally
+&lt;a href="http://www.diveintopython.net/getting_to_know_python/everything_is_an_object.html"&gt;&lt;em&gt;everything&lt;/em&gt;&lt;/a&gt;
+in the Python language is an object.&lt;/p&gt;
+</summary><category term="metaclasses"></category><category term="tutorial"></category></entry><entry><title>3D Interactive Rubik's Cube in Python</title><link href="http://matthewkudija.com/blog/2012/11/26/3d-interactive-rubiks-cube-in-python/" rel="alternate"></link><published>2012-11-26T22:00:00-05:00</published><updated>2012-11-26T22:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-11-26:blog/2012/11/26/3d-interactive-rubiks-cube-in-python/</id><summary type="html">
+
+&lt;p&gt;Over the weekend, I built a interactive 3D Rubik's cube simulator in python
+using only &lt;a href="http://matplotlib.org"&gt;matplotlib&lt;/a&gt; for all the graphics and
+interaction.  Check out the demonstration here:&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+            &lt;video width="680" height="400" preload="none" controls poster="/downloads/videos/MagicCube_frame.jpg"&gt;&lt;source src='/downloads/videos/MagicCube.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'&gt;&lt;/video&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You can browse the source code at the MagicCube github repository:
+&lt;a href="http://github.com/davidwhogg/MagicCube"&gt;http://github.com/davidwhogg/MagicCube&lt;/a&gt;.&lt;/p&gt;
+</summary><category term="matplotlib"></category></entry><entry><title>Quaternions and Key Bindings: Simple 3D Visualization in Matplotlib</title><link href="http://matthewkudija.com/blog/2012/11/24/simple-3d-visualization-in-matplotlib/" rel="alternate"></link><published>2012-11-24T11:04:00-05:00</published><updated>2012-11-24T11:04:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-11-24:blog/2012/11/24/simple-3d-visualization-in-matplotlib/</id><summary type="html">
+
+&lt;p&gt;Matplotlib is a powerful framework, but its 3D capabilities still have
+a lot of room to grow. The &lt;a href="http://matplotlib.org/mpl_toolkits/mplot3d/index.html"&gt;mplot3d&lt;/a&gt;
+toolkit allows for several kinds of 3D plotting, but the ability to create
+and rotate solid 3D objects is hindered by the inflexibility of the &lt;code&gt;zorder&lt;/code&gt; attribute:
+because it is not updated when the view is rotated, things in the "back" will cover
+things in the "front", obscuring them and leading to very unnatural-looking results.&lt;/p&gt;
+&lt;p&gt;I decided to see if I could create a simple script that addresses this.  Though it would
+be possible to use the built-in &lt;code&gt;mplot3d&lt;/code&gt; architecture to take care of rotating and
+projecting the points, I decided to do it from scratch for the sake of my own education.&lt;/p&gt;
+&lt;p&gt;We'll step through it below: by the end of this post we will have created a 3D viewer in
+matplotlib which I think is quite nice.&lt;/p&gt;
+</summary><category term="matplotlib"></category></entry><entry><title>Sparse Graphs in Python: Playing with Word Ladders</title><link href="http://matthewkudija.com/blog/2012/10/14/scipy-sparse-graph-module-word-ladders/" rel="alternate"></link><published>2012-10-14T21:23:00-04:00</published><updated>2012-10-14T21:23:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-10-14:blog/2012/10/14/scipy-sparse-graph-module-word-ladders/</id><summary type="html">
+
+&lt;p&gt;The recent &lt;a href="http://sourceforge.net/projects/scipy/files/"&gt;0.11 release&lt;/a&gt; of scipy includes several new features,
+one of which is the &lt;a href="http://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html"&gt;sparse graph submodule&lt;/a&gt;
+which I contributed, with help from other developers.  I'm pretty excited about this: there are some
+classic algorithms implemented, and it will open up whole new realms of computational possibilities in Python.&lt;/p&gt;
+&lt;p&gt;Before we start, I should say: this post is based on a &lt;a href="http://pyvideo.org/video/1346/lightning-talks-wednesday"&gt;lightning talk&lt;/a&gt; I gave
+at Scipy 2012, and some of the material below comes from a &lt;a href="http://docs.scipy.org/doc/scipy/reference/tutorial/csgraph.html"&gt;tutorial&lt;/a&gt;
+I wrote for the scipy documentation.&lt;/p&gt;
+</summary><category term="scipy"></category><category term="tutorial"></category></entry><entry><title>XKCD-style plots in Matplotlib</title><link href="http://matthewkudija.com/blog/2012/10/07/xkcd-style-plots-in-matplotlib/" rel="alternate"></link><published>2012-10-07T13:30:00-04:00</published><updated>2012-10-07T13:30:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-10-07:blog/2012/10/07/xkcd-style-plots-in-matplotlib/</id><summary type="html">
+&lt;em&gt;Update: the matplotlib pull request has been merged!  See&lt;/em&gt;
+&lt;a href="http://jakevdp.github.io/blog/2013/07/10/XKCD-plots-in-matplotlib/"&gt;&lt;em&gt;This post&lt;/em&gt;&lt;/a&gt;
+&lt;em&gt;for a description of the XKCD functionality now built-in to matplotlib!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;One of the problems I've had with typical matplotlib figures is that everything in them is so precise, so perfect.  For an example of what I mean, take a look at this figure:&lt;/p&gt;
+
+
+
+
+
+
+
+
+    
+
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://jakevdp.github.com/figures/xkcd_version.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
 
 
 
@@ -468,7 +181,7 @@ article .meta a.comments_btn:hover {
 
 
 
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd4FGXXxu/ZTYP0RkvoJKH3IvAivQsiINIEgUAsgPIJ
 Cq8IAgroqxRRUJpSpCO9ifQSpEgNvYYSCJDek93z/XEyuwkkIWV3Zjd5fte11yxbZu5ZsnvPc57z
 nAMSCCyApUuXUqlSpUiSJKpfvz4dPnzY8Fy1atUoLCwsy/edPXuWiIjS0tLo008/JVtbW5Ik6aVb
@@ -965,7 +678,7 @@ b96M3NxcvP3222qb0mARAiYQCASCBokIoxcIBAJBg0QImEAgEAgaJELABAKBQNAgEQImEAgEggaJ
 EDCBQCAQNEiEgAkEAoGgQSIETCAQCAQNEiFgAoFAIGiQCAETCAQCQYPk/wEPvRJNIO9OCwAAAABJ
 RU5ErkJggg==
 "
->
+&gt;
 
 
 
@@ -978,100 +691,27 @@ RU5ErkJggg==
 
 
 
-<p>Sometimes when showing schematic plots, this is the type of figure I want to display.  But drawing it by hand is a pain: I'd rather just use matplotlib.  The problem is, matplotlib is a bit too precise.  Attempting to duplicate this figure in matplotlib leads to something like this:
+&lt;p&gt;Sometimes when showing schematic plots, this is the type of figure I want to display.  But drawing it by hand is a pain: I'd rather just use matplotlib.  The problem is, matplotlib is a bit too precise.  Attempting to duplicate this figure in matplotlib leads to something like this:
+</summary><category term="matplotlib"></category><category term="xkcd"></category></entry><entry><title>Blogging with IPython in Octopress</title><link href="http://matthewkudija.com/blog/2012/10/04/blogging-with-ipython/" rel="alternate"></link><published>2012-10-04T18:40:00-04:00</published><updated>2012-10-04T18:40:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-10-04:blog/2012/10/04/blogging-with-ipython/</id><summary type="html">
 
-    </div>
+&lt;p&gt;A few weeks ago, Fernando Perez, the creator of IPython, wrote a &lt;a href="http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html"&gt;post&lt;/a&gt; about blogging with IPython notebooks.  I decided to take a stab at making this work in Octopress.&lt;/p&gt;
+&lt;p&gt;I started by following Fernando's outline:  I first went to &lt;a href="http://github.com/ipython/nbconvert"&gt;http://github.com/ipython/nbconvert&lt;/a&gt; and obtained the current version of the notebook converter.  Running &lt;code&gt;nbconvert.py -f blogger-html filename.ipynb&lt;/code&gt; produces a separate html and header file with the notebook content.  I inserted the stylesheet info into my header (in octopress, the default location is &lt;code&gt;source/_includes/custom/head.html&lt;/code&gt;) and copied the html directly into my post.&lt;/p&gt;
+&lt;p&gt;I immediately encountered a problem.  &lt;code&gt;nbconvert&lt;/code&gt; uses global CSS classes and style markups, and some of these (notably the "hightlight" class and the &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; tag formatting) conflict with styles defined in my octopress theme.  The result was that every post in my blog ended up looking like an ugly hybrid of octopress and an ipython notebook.  Not very nice.&lt;/p&gt;
+&lt;p&gt;So I did some surgery.  Admittedly, this is a terrible hack, but the following code takes the files output by nbconvert, slices them up, and creates a specific set of CSS classes for the notebook markup, such that there's no longer a conflict with the native octopress styles
+(you can download this script &lt;a href="http://jakevdp.github.com/downloads/code/convert_notebook.py"&gt;here&lt;/a&gt;):&lt;/p&gt;
+</summary><category term="blogging"></category><category term="octopress"></category><category term="tutorial"></category></entry><entry><title>Optical Illusions in Matplotlib</title><link href="http://matthewkudija.com/blog/2012/09/26/optical-illusions-in-matplotlib/" rel="alternate"></link><published>2012-09-26T07:27:00-04:00</published><updated>2012-09-26T07:27:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-09-26:blog/2012/09/26/optical-illusions-in-matplotlib/</id><summary type="html">
 
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/10/07/xkcd-style-plots-in-matplotlib/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/matplotlib.html" class="tag">matplotlib</a>
-            <a href="http://matthewkudija.com/tag/xkcd.html" class="tag">xkcd</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/10/04/blogging-with-ipython/">Blogging with IPython in Octopress</a></h2>
-      <time datetime="" title="2012-10-04T18:40:00-04:00" pubdate>Thu 04 October 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>A few weeks ago, Fernando Perez, the creator of IPython, wrote a <a href="http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html">post</a> about blogging with IPython notebooks.  I decided to take a stab at making this work in Octopress.</p>
-<p>I started by following Fernando's outline:  I first went to <a href="http://github.com/ipython/nbconvert">http://github.com/ipython/nbconvert</a> and obtained the current version of the notebook converter.  Running <code>nbconvert.py -f blogger-html filename.ipynb</code> produces a separate html and header file with the notebook content.  I inserted the stylesheet info into my header (in octopress, the default location is <code>source/_includes/custom/head.html</code>) and copied the html directly into my post.</p>
-<p>I immediately encountered a problem.  <code>nbconvert</code> uses global CSS classes and style markups, and some of these (notably the "hightlight" class and the <code>&lt;pre&gt;</code> tag formatting) conflict with styles defined in my octopress theme.  The result was that every post in my blog ended up looking like an ugly hybrid of octopress and an ipython notebook.  Not very nice.</p>
-<p>So I did some surgery.  Admittedly, this is a terrible hack, but the following code takes the files output by nbconvert, slices them up, and creates a specific set of CSS classes for the notebook markup, such that there's no longer a conflict with the native octopress styles
-(you can download this script <a href="http://jakevdp.github.com/downloads/code/convert_notebook.py">here</a>):</p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/10/04/blogging-with-ipython/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/blogging.html" class="tag">blogging</a>
-            <a href="http://matthewkudija.com/tag/octopress.html" class="tag">octopress</a>
-            <a href="http://matthewkudija.com/tag/tutorial.html" class="tag">tutorial</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/09/26/optical-illusions-in-matplotlib/">Optical Illusions in Matplotlib</a></h2>
-      <time datetime="" title="2012-09-26T07:27:00-04:00" pubdate>Wed 26 September 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>A while ago I posted some information on the new matplotlib animation
+&lt;p&gt;A while ago I posted some information on the new matplotlib animation
 package (see my tutorial
-<a href="/blog/2012/08/18/matplotlib-animation-tutorial">here</a> and
-a followup post <a href="/blog/2012/09/05/quantum-python">here</a>).  In them, I show
-how easy it is to  use matplotlib to create simple animations.</p>
-<p>This morning I came across this cool optical illusion on
-<a href="http://gizmodo.com/5945194/this-optical-trick-is-annoying-the-hell-out-of-me">gizmodo</a></p>
-<p><img src="/images/original_illusion.gif"></p>
+&lt;a href="/blog/2012/08/18/matplotlib-animation-tutorial"&gt;here&lt;/a&gt; and
+a followup post &lt;a href="/blog/2012/09/05/quantum-python"&gt;here&lt;/a&gt;).  In them, I show
+how easy it is to  use matplotlib to create simple animations.&lt;/p&gt;
+&lt;p&gt;This morning I came across this cool optical illusion on
+&lt;a href="http://gizmodo.com/5945194/this-optical-trick-is-annoying-the-hell-out-of-me"&gt;gizmodo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/original_illusion.gif"&gt;&lt;/p&gt;
+</summary><category term="matplotlib"></category><category term="animation"></category></entry><entry><title>Why Python is the Last Language You'll Have To Learn</title><link href="http://matthewkudija.com/blog/2012/09/20/why-python-is-the-last/" rel="alternate"></link><published>2012-09-20T20:50:00-04:00</published><updated>2012-09-20T20:50:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-09-20:blog/2012/09/20/why-python-is-the-last/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/09/26/optical-illusions-in-matplotlib/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/matplotlib.html" class="tag">matplotlib</a>
-            <a href="http://matthewkudija.com/tag/animation.html" class="tag">animation</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/09/20/why-python-is-the-last/">Why Python is the Last Language You'll Have To Learn</a></h2>
-      <time datetime="" title="2012-09-20T20:50:00-04:00" pubdate>Thu 20 September 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>This week, for part of a textbook I'm helping to write,
+&lt;p&gt;This week, for part of a textbook I'm helping to write,
 I spent some time reading and researching the history of Python as
 a scientific computing tool.  I had heard bits and pieces of this in the past,
 but it was fascinating to put it all together and learn about how all the
@@ -1082,325 +722,116 @@ But what will replace Python?
 Ten years down the road, what language will people be espousing in
 blogs with awkwardly-alliterated titles?  As I thought it through, I
 became more and more convinced that, at least in the scientific computing
-world, Python is here to stay.</p>
+world, Python is here to stay.&lt;/p&gt;
+</summary><category term="opinion"></category><category term="python"></category></entry><entry><title>Dynamic Programming in Python: Bayesian Blocks</title><link href="http://matthewkudija.com/blog/2012/09/12/dynamic-programming-in-python/" rel="alternate"></link><published>2012-09-12T19:02:00-04:00</published><updated>2012-09-12T19:02:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-09-12:blog/2012/09/12/dynamic-programming-in-python/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/09/20/why-python-is-the-last/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/opinion.html" class="tag">opinion</a>
-            <a href="http://matthewkudija.com/tag/python.html" class="tag">python</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/09/12/dynamic-programming-in-python/">Dynamic Programming in Python: Bayesian Blocks</a></h2>
-      <time datetime="" title="2012-09-12T19:02:00-04:00" pubdate>Wed 12 September 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>Of all the programming styles I have learned,
-<a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>
+&lt;p&gt;Of all the programming styles I have learned,
+&lt;a href="http://en.wikipedia.org/wiki/Dynamic_programming"&gt;dynamic programming&lt;/a&gt;
 is perhaps the most beautiful.  It can take problems that, at first glance,
 look ugly and intractable, and solve the problem with clean, concise code.
 Where a simplistic algorithm might accomplish something by brute force,
 dynamic programming steps back, breaks the task into a smaller set of
-sequential parts, and then proceeds in the most efficient way possible.</p>
-<h3>Bayesian Blocks</h3>
-<p>I'll go through an example here where the ideas of dynamic programming
+sequential parts, and then proceeds in the most efficient way possible.&lt;/p&gt;
+&lt;h3&gt;Bayesian Blocks&lt;/h3&gt;
+&lt;p&gt;I'll go through an example here where the ideas of dynamic programming
 are vital to some very cool data analysis resuts.
 This post draws heavily from a recent
-<a href="http://adsabs.harvard.edu/abs/2012arXiv1207.5578S">paper</a> by Jeff Scargle
-and collaborators (this is the Scargle of <em>Lomb-Scargle Periodogram</em>
+&lt;a href="http://adsabs.harvard.edu/abs/2012arXiv1207.5578S"&gt;paper&lt;/a&gt; by Jeff Scargle
+and collaborators (this is the Scargle of &lt;em&gt;Lomb-Scargle Periodogram&lt;/em&gt;
 fame), as well as some conversations I had with Jeff at
-<a href="http://www.astro.caltech.edu/ai12/">Astroinformatics 2012</a>.
+&lt;a href="http://www.astro.caltech.edu/ai12/"&gt;Astroinformatics 2012&lt;/a&gt;.
 The paper discusses
-a framework called <em>Bayesian Blocks</em>, which is essentially a method of
+a framework called &lt;em&gt;Bayesian Blocks&lt;/em&gt;, which is essentially a method of
 creating histograms with bin sizes that adapt to the data (there's a bit
-more to it than that: here we'll focus on histograms for simplicity).</p>
+more to it than that: here we'll focus on histograms for simplicity).&lt;/p&gt;
+</summary><category term="tutorial"></category></entry><entry><title>Quantum Python: Animating the Schrodinger Equation</title><link href="http://matthewkudija.com/blog/2012/09/05/quantum-python/" rel="alternate"></link><published>2012-09-05T20:12:00-04:00</published><updated>2012-09-05T20:12:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-09-05:blog/2012/09/05/quantum-python/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/09/12/dynamic-programming-in-python/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/tutorial.html" class="tag">tutorial</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/09/05/quantum-python/">Quantum Python: Animating the Schrodinger Equation</a></h2>
-      <time datetime="" title="2012-09-05T20:12:00-04:00" pubdate>Wed 05 September 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p><em>Update: a reader contributed some improvements to the Python code presented
+&lt;p&gt;&lt;em&gt;Update: a reader contributed some improvements to the Python code presented
  below.  Please see the
-<a href="https://github.com/jakevdp/pySchrodinger">pySchrodinger</a> github repository
-for updated code</em></p>
-<p>In a <a href="/blog/2012/08/18/matplotlib-animation-tutorial/">previous post</a>
+&lt;a href="https://github.com/jakevdp/pySchrodinger"&gt;pySchrodinger&lt;/a&gt; github repository
+for updated code&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In a &lt;a href="/blog/2012/08/18/matplotlib-animation-tutorial/"&gt;previous post&lt;/a&gt;
 I explored the new animation capabilities of the latest
-<a href="http://matplotlib.sourceforge.net">matplotlib</a> release.
+&lt;a href="http://matplotlib.sourceforge.net"&gt;matplotlib&lt;/a&gt; release.
 It got me wondering whether it would be possible to simulate more complicated
 physical systems in real time in python.  Quantum Mechanics was the first
 thing that came to mind.  It turns out that by mixing a bit of Physics
 knowledge with a bit of computing knowledge, it's quite straightforward
-to simulate and animate a simple quantum mechanical system with python.</p>
-<h2>The Schrodinger Equation</h2>
-<p>The dynamics of a one-dimensional quantum system are governed by the
-time-dependent Schrodinger equation:</p>
-<p>$$
+to simulate and animate a simple quantum mechanical system with python.&lt;/p&gt;
+&lt;h2&gt;The Schrodinger Equation&lt;/h2&gt;
+&lt;p&gt;The dynamics of a one-dimensional quantum system are governed by the
+time-dependent Schrodinger equation:&lt;/p&gt;
+&lt;p&gt;$$
 i\hbar\frac{\partial \psi}{\partial t}
   = \frac{-\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2} + V \psi
-$$</p>
+$$&lt;/p&gt;
+</summary><category term="matplotlib"></category><category term="animation"></category><category term="simulation"></category></entry><entry><title>Numba vs Cython</title><link href="http://matthewkudija.com/blog/2012/08/24/numba-vs-cython/" rel="alternate"></link><published>2012-08-24T10:41:00-04:00</published><updated>2012-08-24T10:41:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-08-24:blog/2012/08/24/numba-vs-cython/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/09/05/quantum-python/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/matplotlib.html" class="tag">matplotlib</a>
-            <a href="http://matthewkudija.com/tag/animation.html" class="tag">animation</a>
-            <a href="http://matthewkudija.com/tag/simulation.html" class="tag">simulation</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/08/24/numba-vs-cython/">Numba vs Cython</a></h2>
-      <time datetime="" title="2012-08-24T10:41:00-04:00" pubdate>Fri 24 August 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p><em>For a more up-to-date comparison of Numba and Cython, see the</em>
-<a href="http://jakevdp.github.io/blog/2013/06/15/numba-vs-cython-take-2/"><em>newer post</em></a>
-<em>on this subject.</em></p>
-<p>Often I'll tell people that I use python for computational analysis, and they
+&lt;p&gt;&lt;em&gt;For a more up-to-date comparison of Numba and Cython, see the&lt;/em&gt;
+&lt;a href="http://jakevdp.github.io/blog/2013/06/15/numba-vs-cython-take-2/"&gt;&lt;em&gt;newer post&lt;/em&gt;&lt;/a&gt;
+&lt;em&gt;on this subject.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Often I'll tell people that I use python for computational analysis, and they
 look at me inquisitively.  "Isn't python pretty slow?"  They have a point.
 Python is an interpreted language, and as such cannot natively perform
 many operations as quickly as a compiled language such as C or Fortran.
 There is also the issue of the oft-misunderstood and much-maligned
-<a href="http://wiki.python.org/moin/GlobalInterpreterLock">GIL</a>,
-which calls into question python's ability to allow true parallel computing.</p>
-<p>Many solutions have been proposed: <a href="http://pypy.org/">PyPy</a> is a much faster
+&lt;a href="http://wiki.python.org/moin/GlobalInterpreterLock"&gt;GIL&lt;/a&gt;,
+which calls into question python's ability to allow true parallel computing.&lt;/p&gt;
+&lt;p&gt;Many solutions have been proposed: &lt;a href="http://pypy.org/"&gt;PyPy&lt;/a&gt; is a much faster
 version of the core python language; 
-<a href="http://code.google.com/p/numexpr/">numexpr</a> provides optimized performance
+&lt;a href="http://code.google.com/p/numexpr/"&gt;numexpr&lt;/a&gt; provides optimized performance
 on certain classes of operations from within python;
-<a href="http://www.scipy.org/Weave/">weave</a> allows inline inclusion of compiled
+&lt;a href="http://www.scipy.org/Weave/"&gt;weave&lt;/a&gt; allows inline inclusion of compiled
 C/C++ code;
-<a href="http://www.cython.org/">cython</a> provides extra markup that allows python
+&lt;a href="http://www.cython.org/"&gt;cython&lt;/a&gt; provides extra markup that allows python
 and/or python-like code to be compiled into C for fast operations.  But
 a naysayer might point out: many of these "python" solutions in practice
-are not really python at all, but clever hacks into Fortran or C.</p>
+are not really python at all, but clever hacks into Fortran or C.&lt;/p&gt;
+</summary><category term="numba"></category><category term="cython"></category><category term="benchmarks"></category></entry><entry><title>Matplotlib Animation Tutorial</title><link href="http://matthewkudija.com/blog/2012/08/18/matplotlib-animation-tutorial/" rel="alternate"></link><published>2012-08-18T08:01:00-04:00</published><updated>2012-08-18T08:01:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-08-18:blog/2012/08/18/matplotlib-animation-tutorial/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/08/24/numba-vs-cython/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/numba.html" class="tag">numba</a>
-            <a href="http://matthewkudija.com/tag/cython.html" class="tag">cython</a>
-            <a href="http://matthewkudija.com/tag/benchmarks.html" class="tag">benchmarks</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/08/18/matplotlib-animation-tutorial/">Matplotlib Animation Tutorial</a></h2>
-      <time datetime="" title="2012-08-18T08:01:00-04:00" pubdate>Sat 18 August 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p><a href="http://matplotlib.sourceforge.net">Matplotlib</a> version 1.1 added some tools
+&lt;p&gt;&lt;a href="http://matplotlib.sourceforge.net"&gt;Matplotlib&lt;/a&gt; version 1.1 added some tools
 for creating
-<a href="http://matplotlib.sourceforge.net/api/animation_api.html">animations</a>
+&lt;a href="http://matplotlib.sourceforge.net/api/animation_api.html"&gt;animations&lt;/a&gt;
 which are really slick.  You can find some good example animations on
 the matplotlib
-<a href="http://matplotlib.sourceforge.net/examples/animation/index.html">examples</a>
+&lt;a href="http://matplotlib.sourceforge.net/examples/animation/index.html"&gt;examples&lt;/a&gt;
 page.  I thought I'd share here some of the things I've learned when playing
-around with these tools.</p>
-<h3>Basic Animation</h3>
-<p>The animation tools center around the <code>matplotlib.animation.Animation</code> base
+around with these tools.&lt;/p&gt;
+&lt;h3&gt;Basic Animation&lt;/h3&gt;
+&lt;p&gt;The animation tools center around the &lt;code&gt;matplotlib.animation.Animation&lt;/code&gt; base
 class, which provides a framework around which the animation functionality
-is built.  The main interfaces are <code>TimedAnimation</code> and <code>FuncAnimation</code>,
+is built.  The main interfaces are &lt;code&gt;TimedAnimation&lt;/code&gt; and &lt;code&gt;FuncAnimation&lt;/code&gt;,
 which you can read more about in the
-<a href="http://matplotlib.sourceforge.net/api/animation_api.html">documentation</a>.
-Here I'll explore using the <code>FuncAnimation</code> tool, which I have found
-to be the most useful.</p>
+&lt;a href="http://matplotlib.sourceforge.net/api/animation_api.html"&gt;documentation&lt;/a&gt;.
+Here I'll explore using the &lt;code&gt;FuncAnimation&lt;/code&gt; tool, which I have found
+to be the most useful.&lt;/p&gt;
+</summary><category term="matplotlib"></category><category term="animation"></category><category term="tutorial"></category><category term="simulation"></category></entry><entry><title>Memoryview Benchmarks 2</title><link href="http://matthewkudija.com/blog/2012/08/16/memoryview-benchmarks-2/" rel="alternate"></link><published>2012-08-16T14:19:00-04:00</published><updated>2012-08-16T14:19:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-08-16:blog/2012/08/16/memoryview-benchmarks-2/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/08/18/matplotlib-animation-tutorial/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/matplotlib.html" class="tag">matplotlib</a>
-            <a href="http://matthewkudija.com/tag/animation.html" class="tag">animation</a>
-            <a href="http://matthewkudija.com/tag/tutorial.html" class="tag">tutorial</a>
-            <a href="http://matthewkudija.com/tag/simulation.html" class="tag">simulation</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/08/16/memoryview-benchmarks-2/">Memoryview Benchmarks 2</a></h2>
-      <time datetime="" title="2012-08-16T14:19:00-04:00" pubdate>Thu 16 August 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>In the <a href="/blog/2012/08/08/memoryview-benchmarks/">previous post</a>, I explored
+&lt;p&gt;In the &lt;a href="/blog/2012/08/08/memoryview-benchmarks/"&gt;previous post&lt;/a&gt;, I explored
 how cython typed memoryviews can be used to speed up repeated array
 operations.  It became clear that typed memoryviews are superior to
 the ndarray syntax for slicing, and as fast as raw pointers for single
 element access.  In the comments, Mathieu brought up an interesting
 question: is the ndarray syntax as good as typed memoryviews if you're
-not doing slicing?</p>
-<p>The answer turns out to be yes, <em>unless</em> the compiler tries to inline your
-function.</p>
+not doing slicing?&lt;/p&gt;
+&lt;p&gt;The answer turns out to be yes, &lt;em&gt;unless&lt;/em&gt; the compiler tries to inline your
+function.&lt;/p&gt;
+</summary><category term="numpy"></category><category term="cython"></category><category term="benchmarks"></category><category term="memoryviews"></category></entry><entry><title>Memoryview Benchmarks</title><link href="http://matthewkudija.com/blog/2012/08/08/memoryview-benchmarks/" rel="alternate"></link><published>2012-08-08T18:50:00-04:00</published><updated>2012-08-08T18:50:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2012-08-08:blog/2012/08/08/memoryview-benchmarks/</id><summary type="html">
 
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/08/16/memoryview-benchmarks-2/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/numpy.html" class="tag">numpy</a>
-            <a href="http://matthewkudija.com/tag/cython.html" class="tag">cython</a>
-            <a href="http://matthewkudija.com/tag/benchmarks.html" class="tag">benchmarks</a>
-            <a href="http://matthewkudija.com/tag/memoryviews.html" class="tag">memoryviews</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="http://matthewkudija.com/blog/2012/08/08/memoryview-benchmarks/">Memoryview Benchmarks</a></h2>
-      <time datetime="" title="2012-08-08T18:50:00-04:00" pubdate>Wed 08 August 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>There was recently a <a href="https://groups.google.com/forum/?fromgroups#!topic/cython-users/8uuxjB_wbBQ[1-25]" title="cython-users archive">thread</a>
+&lt;p&gt;There was recently a &lt;a href="https://groups.google.com/forum/?fromgroups#!topic/cython-users/8uuxjB_wbBQ[1-25]" title="cython-users archive"&gt;thread&lt;/a&gt;
 on cython-users which caught my eye.  It has to do with 
-<a href="http://docs.cython.org/src/userguide/memoryviews.html">memoryviews</a>, a new
-way of working with memory buffers in cython.</p>
-<p>I've been thinking recently about how to do fast
+&lt;a href="http://docs.cython.org/src/userguide/memoryviews.html"&gt;memoryviews&lt;/a&gt;, a new
+way of working with memory buffers in cython.&lt;/p&gt;
+&lt;p&gt;I've been thinking recently about how to do fast
 and flexible memory buffer access in cython.  I contributed the
-<a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html">BallTree</a>
+&lt;a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html"&gt;BallTree&lt;/a&gt;
 implementation for nearest neighbors searching in
-<a href="http://www.scikit-learn.org">scikit-learn</a>, and have been actively thinking
+&lt;a href="http://www.scikit-learn.org"&gt;scikit-learn&lt;/a&gt;, and have been actively thinking
 about how to make it faster and more flexible, including adding the ability
-to specify distance metrics other than euclidean and minkowski.</p>
-<p>In order to accomplish this, I'd like to have a set of distance metric
+to specify distance metrics other than euclidean and minkowski.&lt;/p&gt;
+&lt;p&gt;In order to accomplish this, I'd like to have a set of distance metric
 functions which take two vectors and compute a distance.  There would
 be many functions with similar call signatures which could then be
 plugged into a code that would iterate over a set of vectors and
-compute the appropriate distances.</p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="http://matthewkudija.com/blog/2012/08/08/memoryview-benchmarks/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="http://matthewkudija.com/tag/benchmarks.html" class="tag">benchmarks</a>
-            <a href="http://matthewkudija.com/tag/numpy.html" class="tag">numpy</a>
-            <a href="http://matthewkudija.com/tag/cython.html" class="tag">cython</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-
-  <nav class="pagination row">
-    <div class="col-xs-6 left">
-    </div>
-    <div class="col-xs-6 right">
-        <a class="next" href="http://matthewkudija.com/author/matthew-kudija.html">Future &#8594;</a>
-    </div>
-  </nav>
-
-  </div>
-
-</div>
-
-        </div>
-<!--
-    <footer>
-      <p>
-        © 2012-2017 Matthew Kudija, license <a href="https://github.com/mkudija/pelican/blob/master/LICENSE"> </a>
-        unless otherwise noted.
-        Generated by <a href= "http://docs.getpelican.com/">Pelican</a>.
-      </p>
-    </footer>
--->
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-72240498-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-72240498-1');
-    ga('send', 'pageview');
-</script>
-    </body>
-</html>
+compute the appropriate distances.&lt;/p&gt;
+</summary><category term="benchmarks"></category><category term="numpy"></category><category term="cython"></category></entry></feed>
