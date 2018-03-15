@@ -1,6 +1,6 @@
-# Source for http://jakevdp.github.io
+# Source for http://matthewkudija.com/pelican
 
-This repository contains the source for http://jakevdp.github.io/.
+This repository contains the source for http://matthewkudija.com/pelican/.
 
 ## Building the Blog
 
