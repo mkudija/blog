@@ -107,3 +107,5 @@ plugins/.DS_Store
 
 # output
 #blog-source/output/*
+output/archives.html
+output/*
