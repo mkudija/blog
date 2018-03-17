@@ -49,12 +49,13 @@ NOTEBOOK_DIR = 'downloads/notebooks'
 # THEME SETTINGS
 THEME = './theme/'
 
-ABOUT_PAGE = '/pages/about.html'
+ABOUT_PAGE = 'blog/about.html'
 TWITTER_USERNAME = 'mkudija'
 GITHUB_USERNAME = 'mkudija'
 AUTHOR_WEBSITE = 'http://matthewkudija.com'
 AUTHOR_BLOG = 'http://matthewkudija.com/blog'
 AUTHOR_CV = "http://matthewkudija.com/resume.pdf"
+AUTHOR_EMAIL = "mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A"
 SHOW_ARCHIVES = True
 SHOW_FEED = False  # Need to address large feeds
 
