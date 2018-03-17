@@ -10,15 +10,15 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://matthewkudija.com'
-RELATIVE_URLS = False
+SITEURL = 'http://matthewkudija.com/blog'
+RELATIVE_URLS = True
 
 SHOW_FEED = True
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 FEED_USE_SUMMARY = True  # from the feed_summary plugin
 
-DELETE_OUTPUT_DIRECTORY = True
+DELETE_OUTPUT_DIRECTORY = False
 
 DISQUS_SITENAME = "matthewkudija"
 GOOGLE_ANALYTICS = "UA-72240498-1"
