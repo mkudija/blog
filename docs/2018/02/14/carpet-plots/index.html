@@ -6,7 +6,7 @@
         <meta name="author" content="Matthew Kudija">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Matthew Kudija - Tags | Matthew Kudija</title>
+        <title>Carpet Plots | Matthew Kudija</title>
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -425,15 +425,190 @@ article .meta a.comments_btn:hover {
         </header>
 
         <div id="wrap">
-    <h1>Tags for Matthew Kudija</h1>        <li><a href="./tag/2017.html">2017</a> (1)</li>
-        <li><a href="./tag/example.html">example</a> (1)</li>
-        <li><a href="./tag/jupyter.html">jupyter</a> (1)</li>
-        <li><a href="./tag/make.html">make</a> (2)</li>
-        <li><a href="./tag/makefile.html">makefile</a> (2)</li>
-        <li><a href="./tag/pandas.html">pandas</a> (2)</li>
-        <li><a href="./tag/pelican.html">pelican</a> (1)</li>
-        <li><a href="./tag/plotly.html">plotly</a> (1)</li>
-        <li><a href="./tag/python.html">python</a> (3)</li>
+<div class="container post">
+    <article>
+        <header>
+            <h1>Carpet Plots</h1>
+            <time datetime="article.date.isoformat()" pubdate>Wed 14 February 2018</time>
+        </header>
+
+        <div class="article_content">
+            <p><img alt src="../../../../images/carpet.jpeg"></p>
+
+
+<h2>Why Carpet Plots?</h2>
+<p>A typical scatter plot allows you to compare the impact of one independent variable (<em>x-axis</em>) on one dependent variable (<em>y-axis</em>). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.</p>
+
+
+<p>Options:
+- one variable on x-axis, one variable as different lines on the plot
+- 3d graph to show surface
+- other...?</p>
+<p>The advantage of carpet plots it the ability to quickly identify the impact of the two independent variables. This can be especially helpful when doing a trade study where multiple variables are in play, such as during preliminary aircraft design. </p>
+<h2>Carpet Plots in Python</h2>
+<h3>Data Preparation: using <code>pd.melt()</code></h3>
+<p>Pandas has a number of helpful data reshaping methods, and this exercise gave the opportunity to use <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.melt.html"><code>pd.melt()</code></a>. </p>
+<p>Our starting dataset has the first independent variable values (a) along one axis, and the second independent variable values (b) along the other axis, with the resulting value of the dependent variable (y) filled in. Think of this as the output of an Excel data table. </p>
+<p>[show first data example]</p>
+<p>We can use <code>pd.melt()</code> to <a href="">tidy</a> (include link) this data:</p>
+<p>[show code and result]</p>
+<div class="highlight"><pre><span></span><span class="c1"># assumes df with x values along left, y values along top, and values in the remaining space</span>
+<span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+     <span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">})</span>
+<span class="n">df</span>
+</pre></div>
+
+
+<h3>Plotting with Plotly</h3>
+<p>Now that we have a tidy dataset, we can plot using Plotly. Why Plotly? I have avoided Plotly in the past beacuse of the weird partially-open-source-partially-paid model and needing to authenticate online. Using Plotly's <a href="https://plot.ly/python/carpet-plot/">carpet plot example</a> and some digging on Stackoverflow, I was able to get it to work without the online authentication. I would still prefer to use matplotlib, and may tackle that later. For now, here's the code to generate the Plotly carpet plot:</p>
+<div class="highlight"><pre><span></span><span class="c1"># RESOURCES:</span>
+<span class="c1"># carpet plots: https://en.wikipedia.org/wiki/Carpet_plot</span>
+<span class="c1"># good plotly offline examples: https://github.com/SayaliSonawane/Plotly_Offline_Python/blob/master/Line%20Chart/line_chart.py</span>
+<span class="c1"># other python for carpet plots: https://github.com/steve855/pyCarpetPlot/blob/master/pyCarpetPlot.py</span>
+
+<span class="kn">import</span> <span class="nn">plotly</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="kn">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span><span class="n">Scatter</span>
+
+<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Carpet</span><span class="p">(</span>
+    <span class="c1">#a = [125000,150000,175000,200000],</span>
+    <span class="c1">#b = [1700,1700,1700,1700],</span>
+    <span class="c1">#y = [1.63,1.74,1.86,1.97],</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+    <span class="n">aaxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickprefix</span> <span class="o">=</span> <span class="s1">&#39;a = $&#39;</span><span class="p">,</span>
+        <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">minorgridcount</span> <span class="o">=</span> <span class="mi">9</span>
+        <span class="p">),</span>
+    <span class="n">baxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickprefix</span> <span class="o">=</span> <span class="s1">&#39;b = $&#39;</span><span class="p">,</span>
+        <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s1">&#39;/hr&#39;</span><span class="p">,</span>
+        <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">minorgridcount</span> <span class="o">=</span> <span class="mi">9</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="c1">#trace2 = go.Scattercarpet(</span>
+<span class="c1">#    a = [210000,175000],</span>
+<span class="c1">#    b = [2200,1900],</span>
+<span class="c1">#    line = dict(</span>
+<span class="c1">#      shape = &#39;spline&#39;,</span>
+<span class="c1">#      smoothing = 1,</span>
+<span class="c1">#      color = &#39;blue&#39;</span>
+<span class="c1">#    )</span>
+<span class="c1">#  )</span>
+
+<span class="c1"># this works too, but doesn&#39;t have labels, etc.</span>
+<span class="c1">#data = [trace1, trace2]</span>
+<span class="c1">#fig = go.Figure(data = data)</span>
+<span class="c1">#plotly.offline.plot(fig, filename = &quot;carpet2.jpeg&quot;)</span>
+
+<span class="n">plotly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">plot</span><span class="p">({</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">trace1</span><span class="p">],</span> 
+    <span class="s2">&quot;layout&quot;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Carpet Plot Example&quot;</span><span class="p">,</span>
+                    <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s1">&#39;Arial, sans-serif&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(0,0,0)&#39;</span><span class="p">),</span>
+                    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Y-LABEL&#39;</span><span class="p">,</span>
+                        <span class="n">titlefont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                            <span class="n">family</span><span class="o">=</span><span class="s1">&#39;Arial, sans-serif&#39;</span><span class="p">,</span>
+                            <span class="n">size</span><span class="o">=</span><span class="mi">18</span>
+                            <span class="p">),</span>
+                        <span class="n">showticklabels</span><span class="o">=</span><span class="bp">True</span>
+                        <span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Margin</span><span class="p">(</span>
+                        <span class="n">l</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+                        <span class="n">r</span><span class="o">=</span><span class="mi">50</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+    <span class="p">},</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Carpet.html&#39;</span><span class="p">,</span><span class="n">image</span><span class="o">=</span><span class="s1">&#39;jpeg&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Future Work</h2>
+<p>In the future plan to:
+- use matplotlib instead of plotly (start with &lt;&gt; this example)
+- demonstrate with more than two independent variables</p>
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="../../../../tag/pandas.html" class="tag">pandas</a>
+                    <a href="../../../../tag/plotly.html" class="tag">plotly</a>
+            </div>
+        </div>
+    </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/02/14/carpet-plots/';
+      var disqus_url = '../../../../2018/02/14/carpet-plots/';
+      var disqus_title = 'Carpet Plots';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
         </div>
 <!--
     <footer>

@@ -429,7 +429,7 @@ article .meta a.comments_btn:hover {
 
   <article>
     <header>
-      <h2><a href="../blog/2018/03/16/jupyter/">Jupyter Notebook Post</a></h2>
+      <h2><a href="../2018/03/16/jupyter/">Jupyter Notebook Post</a></h2>
       <time datetime="" title="2018-03-16T06:00:00-04:00" pubdate>Fri 16 March 2018</time>
     </header>
 
@@ -473,7 +473,7 @@ article .meta a.comments_btn:hover {
 
     <div class="meta">
       <div>
-        <a href="../blog/2018/03/16/jupyter/" class="read_more">Read more &#8594;</a>
+        <a href="../2018/03/16/jupyter/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
@@ -487,7 +487,7 @@ article .meta a.comments_btn:hover {
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="../blog/2018/03/15/code-block/">Code Block Highlighting</a></h2>
+      <h2><a href="../2018/03/15/code-block/">Code Block Highlighting</a></h2>
       <time datetime="" title="2018-03-15T06:00:00-04:00" pubdate>Thu 15 March 2018</time>
     </header>
 
@@ -500,7 +500,7 @@ article .meta a.comments_btn:hover {
 
     <div class="meta">
       <div>
-        <a href="../blog/2018/03/15/code-block/" class="read_more">Read more &#8594;</a>
+        <a href="../2018/03/15/code-block/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
@@ -515,7 +515,7 @@ article .meta a.comments_btn:hover {
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="../blog/2018/03/15/makefiles/">Automation Using Makefiles</a></h2>
+      <h2><a href="../2018/03/15/makefiles/">Automation Using Makefiles</a></h2>
       <time datetime="" title="2018-03-15T06:00:00-04:00" pubdate>Thu 15 March 2018</time>
     </header>
 
@@ -528,7 +528,7 @@ article .meta a.comments_btn:hover {
 
     <div class="meta">
       <div>
-        <a href="../blog/2018/03/15/makefiles/" class="read_more">Read more &#8594;</a>
+        <a href="../2018/03/15/makefiles/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
@@ -543,7 +543,7 @@ article .meta a.comments_btn:hover {
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="../blog/2018/03/06/pelican-blog/">Setting Up A Pelican Blog on GitHub Pages</a></h2>
+      <h2><a href="../2018/03/06/pelican-blog/">Setting Up A Pelican Blog on GitHub Pages</a></h2>
       <time datetime="" title="2018-03-06T06:00:00-05:00" pubdate>Tue 06 March 2018</time>
     </header>
 
@@ -556,7 +556,7 @@ article .meta a.comments_btn:hover {
 
     <div class="meta">
       <div>
-        <a href="../blog/2018/03/06/pelican-blog/" class="read_more">Read more &#8594;</a>
+        <a href="../2018/03/06/pelican-blog/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
@@ -569,7 +569,7 @@ article .meta a.comments_btn:hover {
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="../blog/2018/02/14/carpet-plots/">Carpet Plots</a></h2>
+      <h2><a href="../2018/02/14/carpet-plots/">Carpet Plots</a></h2>
       <time datetime="" title="2018-02-14T06:00:00-05:00" pubdate>Wed 14 February 2018</time>
     </header>
 
@@ -583,7 +583,7 @@ article .meta a.comments_btn:hover {
 
     <div class="meta">
       <div>
-        <a href="../blog/2018/02/14/carpet-plots/" class="read_more">Read more &#8594;</a>
+        <a href="../2018/02/14/carpet-plots/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
@@ -597,228 +597,27 @@ article .meta a.comments_btn:hover {
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="../blog/2012/12/19/sparse-svds-in-python/">Sparse SVDs in Python</a></h2>
-      <time datetime="" title="2012-12-19T08:21:00-05:00" pubdate>Wed 19 December 2012</time>
+      <h2><a href="../2017/02/14/2017-example/">Carpet Plots</a></h2>
+      <time datetime="" title="2017-02-14T06:00:00-05:00" pubdate>Tue 14 February 2017</time>
     </header>
 
     <div class="article_content">
       
 
-<p>After <a href="http://fseoane.net/blog/2012/singular-value-decomposition-in-scipy/">Fabian's post</a> on the topic, I have recently returned to thinking about the
-subject of sparse singular value decompositions (SVDs) in Python.</p>
-<p>For those who haven't used it, the SVD is an extremely powerful technique.
-It is the core routine of many applications,
-from filtering to dimensionality
-reduction to graph analysis to supervised classification and much, much more.</p>
-<p>I first came across the need for a fast sparse SVD when applying a technique
-called Locally Linear Embedding (LLE) to astronomy spectra: it was the first
-astronomy paper I published, and you can read it <a href="http://adsabs.harvard.edu/abs/2009AJ....138.1365V">here</a>.  In LLE, one visualizes the nonlinear relationship
-between high-dimensional observations.  The computational cost is extreme: for
-<em>N</em> objects, one must compute the null space (intimately related to the SVD)
-of a <em>N</em> by <em>N</em> matrix.  Using direct methods (e.g. LAPACK), this can scale
-as bad as $\mathcal{O}[N^3]$ in both memory and speed!</p>
+<h2>Why Carpet Plots?</h2>
+<p>A typical scatter plot allows you to compare the impact of one independent variable (<em>x-axis</em>) on one dependent variable (<em>y-axis</em>). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.</p>
 
     </div>
 
     <div class="meta">
       <div>
-        <a href="../blog/2012/12/19/sparse-svds-in-python/" class="read_more">Read more &#8594;</a>
+        <a href="../2017/02/14/2017-example/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="../tag/linear-algebra.html" class="tag">linear algebra</a>
-            <a href="../tag/benchmarks.html" class="tag">benchmarks</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="../blog/2012/12/06/minesweeper-in-matplotlib/">Minesweeper in Matplotlib</a></h2>
-      <time datetime="" title="2012-12-06T18:23:00-05:00" pubdate>Thu 06 December 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>Lately I've been playing around with interactivity in matplotlib.  A couple
-weeks ago, I discussed briefly how to use event callbacks to implement
-<a href="/blog/2012/11/24/simple-3d-visualization-in-matplotlib/">simple 3D visualization</a>
-and later used this as a base for creating a
-<a href="/blog/2012/11/26/3d-interactive-rubiks-cube-in-python">working 3D Rubik's cube</a>
-entirely in matplotlib.</p>
-<p>Today I have a different goal: re-create
-<a href="http://en.wikipedia.org/wiki/Minesweeper_%28computer_game%29">minesweeper</a>,
-that ubiquitous single-player puzzle game that most of us will admit to
-having binged on at least once or twice in their lives.  In minesweeper, the
-goal is to discover and avoid hidden mines within a gridded minefield, and
-the process takes some logic and quick thinking.</p>
-<p><img src="/images/minesweeper_2.gif" width="800"></p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="../blog/2012/12/06/minesweeper-in-matplotlib/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="../blog/2012/12/01/a-primer-on-python-metaclasses/">A Primer on Python Metaclasses</a></h2>
-      <time datetime="" title="2012-12-01T07:25:00-05:00" pubdate>Sat 01 December 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-Most readers are aware that Python is an object-oriented language.  By
-object-oriented, we mean that Python can define <em>classes</em>, which bundle
-<strong>data</strong> and <strong>functionality</strong> into one entity.  For example, we may
-create a class <code>IntContainer</code> which stores an integer and allows
-certain operations to be performed:</p>
-
-
-
-
-
-
-
-
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre>
-
-
-
-
-
-
-
-
-
-
-<span class="n">ic</span><span class="o">.</span><span class="n">add_one</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ic</span><span class="o">.</span><span class="n">i</span><span class="p">)</span>
-</pre>
-
-
-
-
-
-
-
-
-<pre>3
-</pre>
-
-
-
-
-
-
-
-
-
-<p>This is a bit of a silly example, but shows the fundamental nature of
-classes: their ability to bundle data and operations into a single
-<em>object</em>, which leads to cleaner, more manageable, and more adaptable code.
-Additionally, classes can inherit properties from parents and add or
-specialize attributes and methods.  This <em>object-oriented</em>
-approach to programming can be very intuitive and powerful.</p>
-<p>What many do not realize, though, is that quite literally
-<a href="http://www.diveintopython.net/getting_to_know_python/everything_is_an_object.html"><em>everything</em></a>
-in the Python language is an object.</p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="../blog/2012/12/01/a-primer-on-python-metaclasses/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="../tag/metaclasses.html" class="tag">metaclasses</a>
-            <a href="../tag/tutorial.html" class="tag">tutorial</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="../blog/2012/11/26/3d-interactive-rubiks-cube-in-python/">3D Interactive Rubik's Cube in Python</a></h2>
-      <time datetime="" title="2012-11-26T22:00:00-05:00" pubdate>Mon 26 November 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p>Over the weekend, I built a interactive 3D Rubik's cube simulator in python
-using only <a href="http://matplotlib.org">matplotlib</a> for all the graphics and
-interaction.  Check out the demonstration here:</p>
-<p><span class="videobox">
-            <video width="680" height="400" preload="none" controls poster="/downloads/videos/MagicCube_frame.jpg"><source src='/downloads/videos/MagicCube.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></span></p>
-<p>You can browse the source code at the MagicCube github repository:
-<a href="http://github.com/davidwhogg/MagicCube">http://github.com/davidwhogg/MagicCube</a>.</p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="../blog/2012/11/26/3d-interactive-rubiks-cube-in-python/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="../blog/2012/11/24/simple-3d-visualization-in-matplotlib/">Quaternions and Key Bindings: Simple 3D Visualization in Matplotlib</a></h2>
-      <time datetime="" title="2012-11-24T11:04:00-05:00" pubdate>Sat 24 November 2012</time>
-    </header>
-
-    <div class="article_content">
-      
-<p>Matplotlib is a powerful framework, but its 3D capabilities still have
-a lot of room to grow. The <a href="http://matplotlib.org/mpl_toolkits/mplot3d/index.html">mplot3d</a>
-toolkit allows for several kinds of 3D plotting, but the ability to create
-and rotate solid 3D objects is hindered by the inflexibility of the <code>zorder</code> attribute:
-because it is not updated when the view is rotated, things in the "back" will cover
-things in the "front", obscuring them and leading to very unnatural-looking results.</p>
-<p>I decided to see if I could create a simple script that addresses this.  Though it would
-be possible to use the built-in <code>mplot3d</code> architecture to take care of rotating and
-projecting the points, I decided to do it from scratch for the sake of my own education.</p>
-<p>We'll step through it below: by the end of this post we will have created a 3D viewer in
-matplotlib which I think is quite nice.</p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="../blog/2012/11/24/simple-3d-visualization-in-matplotlib/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
+            <a href="../tag/pandas.html" class="tag">pandas</a>
+            <a href="../tag/2017.html" class="tag">2017</a>
+            <a href="../tag/example.html" class="tag">example</a>
       </div>
 
     </div>
@@ -828,7 +627,6 @@ matplotlib which I think is quite nice.</p>
 
   <nav class="pagination row">
     <div class="col-xs-6 left">
-        <a class="prev" href="../category/articles2.html">&#8592; Past</a>
     </div>
     <div class="col-xs-6 right">
     </div>

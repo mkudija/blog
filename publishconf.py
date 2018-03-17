@@ -18,7 +18,7 @@ FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 FEED_USE_SUMMARY = True  # from the feed_summary plugin
 
-DELETE_OUTPUT_DIRECTORY = False
+DELETE_OUTPUT_DIRECTORY = True
 
 DISQUS_SITENAME = "matthewkudija"
 GOOGLE_ANALYTICS = "UA-72240498-1"
