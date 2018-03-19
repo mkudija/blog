@@ -5,7 +5,7 @@ comments: true
 slug: gh-pages-python
 tags: github, pages, python, html, css
 
-![alt]({filename}/images/gh-pages-python-all.png)
+![alt]({filename}/images/gh-pages-python.png)
 <!-- ![alt]({filename}/images/gh-pages-python2.png)
 ![alt]({filename}/images/gh-pages-python3.png)
  -->
@@ -17,7 +17,7 @@ Outline:
 - what this is: 
   - have GitHub pages available
   - want to use Python to automate
-  - want to get up and running quickly
+  - want to get up and running quickly 
 - what this is not: 
   - detailed HTML guide
   - detailed CSS guide
