@@ -6,9 +6,7 @@ slug: gh-pages-python
 tags: github, pages, python, html, css
 
 ![alt]({filename}/images/gh-pages-python.png)
-<!-- ![alt]({filename}/images/gh-pages-python2.png)
-![alt]({filename}/images/gh-pages-python3.png)
- -->
+
 <!-- PELICAN_BEGIN_SUMMARY -->
 
 Introduction
