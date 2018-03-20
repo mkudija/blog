@@ -16,7 +16,8 @@ a:hover {
   text-decoration: none;
 }
 header.main-header {
-  background: none repeat scroll 0% 0% #205F29;
+  /*background: none repeat scroll 0% 0% #205F29;*/
+  background: none repeat scroll 0% 0% #3377B3;
   margin-bottom: 0px;
 }
 header.main-header a {
@@ -142,14 +143,17 @@ article .meta a.comments_btn {
   font-size: 14px;
   font-weight: 800;
   padding: 10px 20px;
-  color: #205F29;
+  /*color: #205F29;*/
+  color: #3377B3;
   background: #FFF;
-  border: 1px solid #205F29;
+  /*border: 1px solid #205F29;*/
+  border: 1px solid #3377B3;
 }
 article .meta a.read_more:hover,
 article .meta a.comments_btn:hover {
   color: #FFF;
-  background: #5C881C;
+  /*background: #5C881C;*/
+  background: #3377B3;
 }
 .index {
   max-width: 700px;
