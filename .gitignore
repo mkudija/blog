@@ -108,3 +108,12 @@ plugins/.DS_Store
 #blog-source/output/*
 output/archives.html
 output/*
+
+*~$*.xlsx
+*~$*.xlsm
+*~$*.pptx
+*~$*.docx
+*checkpoint.ipynb
+*.DS_Store
+.DS_Store
+*.pyc
