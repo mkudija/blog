@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Step-by-Step Manual Guide to GitHub Pages | Matthew Kudija</title>
+    <title>Setting Up A Pelican Blog on GitHub Pages | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -435,7 +435,7 @@ article .meta a.comments_btn:hover {
                 <li><a href="http://github.com/mkudija" title="mkudija's Github" rel="me">Github</a></li>
                 <li><a href="http://twitter.com/mkudija" title="mkudija Twitter" rel="me">Twitter</a></li>
                 <li><a href="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" title="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" rel="me">Email</a></li>
-                <li><a href="blog/archives.html" title="Archive">Archive</a></li>
+                <li><a href="http://matthewkudija.com/blog/archives.html" title="Archive">Archive</a></li>
             </ul>
         </nav>
     </div>
@@ -445,80 +445,63 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>Step-by-Step Manual Guide to GitHub Pages</h1>
-            <time datetime="article.date.isoformat()" pubdate>Wed 25 October 2017</time>
+            <h1>Setting Up A Pelican Blog on GitHub Pages</h1>
+            <time datetime="article.date.isoformat()" pubdate>Tue 06 March 2018</time>
         </header>
 
         <div class="article_content">
-            <p><img alt src="../../../../images/gh-pages-python.png"></p>
+            <p><img alt src="../images/carpet.jpeg"></p>
+<!-- PELICAN_BEGIN_SUMMARY -->
 
+<p>A typical scatter plot allows you to compare the impact of one independent variable (<em>x-axis</em>) on one dependent variable (<em>y-axis</em>). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.</p>
+<!-- PELICAN_END_SUMMARY -->
 
-<p>Introduction</p>
-<p>Outline:
-- what this is: 
-  - have GitHub pages available
-  - want to use Python to automate
-  - want to get up and running quickly 
-- what this is not: 
-  - detailed HTML guide
-  - detailed CSS guide</p>
-
-
-<h1>Setting up GitHub Pages</h1>
+<h1>Why Pelican?</h1>
 <ul>
-<li>how to enable</li>
-<li>options for where to host (master, docs/, gh-pages branch)</li>
+<li>Static</li>
+<li>Python-powered</li>
+<li></li>
 </ul>
-<h1>HTML Template</h1>
-<h2>Selecting a template</h2>
-<h2>Modifying a template</h2>
-<ul>
-<li>Navigating HTML</li>
-<li>CSS colors</li>
-</ul>
-<h1>Using Python to auto-generate your website</h1>
-<ul>
-<li><code>build.py</code></li>
-</ul>
-<h1>Add Extras</h1>
-<ul>
-<li>Google Analytics</li>
-<li>Favicon</li>
-<li>404 page</li>
-</ul>
-<h1>Other Notes</h1>
-<ul>
-<li>previewing locally</li>
-<li>right click-inspect element</li>
-<li>adding password protection</li>
-</ul>
-<h1>Structure</h1>
-<div class="highlight"><pre><span></span>├── LICENSE.txt
-├── README.md
-├── assets
-│   ├── css
-│   ├── fonts
-│   ├── js
-│   └── sass
-├── elements.html
-├── env.txt
-├── images
-├── index.html
-├── releasenotes.html
-└── scripts
-    ├── _template.html
-    ├── build.py
-    └── build.py
+<h1>Setting Up a Pelican Blog</h1>
+<div class="highlight"><pre><span></span>$ conda create -n pelican-blog <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 jupyter notebook
+$ <span class="nb">source</span> activate pelican-blog
+$ pip install pelican
+$ pip install Markdown
+$ pelican-quickstart
+$ git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
+$ git submodule add git://github.com/getpelican/pelican-plugins.git plugins/pelican-plugins
 </pre></div>
+
+
+<h1>Other setup:</h1>
+<ul>
+<li>verify makefile</li>
+</ul>
+<h1>Update Your Blog</h1>
+<h2>Update Content</h2>
+<ul>
+<li>Add/update .md files in <code>content/</code> (reference <a href="http://docs.getpelican.com/en/3.6.3/content.html">docs</a>)</li>
+<li>notes on meta header, etc.</li>
+<li>notes on learning markdown</li>
+<li></li>
+</ul>
+<h2>Build</h2>
+<div class="highlight"><pre><span></span>$ make html
+$ make serve
+</pre></div>
+
+
+<p>Navigate to [http://localhost:8000/]</p>
+<h2>Push to GitHub</h2>
+<ul>
+<li>how to get to GitHub...?</li>
+<li>overview of how GitHub pages work</li>
+</ul>
         </div>
 
         <div class="meta">
             <div>
-                <a href="../../../../tag/github.html" class="tag">github</a>
-                <a href="../../../../tag/pages.html" class="tag">pages</a>
-                <a href="../../../../tag/python.html" class="tag">python</a>
-                <a href="../../../../tag/html.html" class="tag">html</a>
-                <a href="../../../../tag/css.html" class="tag">css</a>
+                <a href="../tag/pelican.html" class="tag">pelican</a>
             </div>
         </div>
     </article>
@@ -540,47 +523,6 @@ article .meta a.comments_btn:hover {
         
         <!--End mc_embed_signup-->
     </div>
-
-
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://matthewkudija.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                            
-
-
-<!--   <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-    <script type="text/javascript">
-      var disqus_shortname = 'matthewkudija';
-      var disqus_identifier = '/2017/10/25/gh-pages-python/';
-      var disqus_url = '../../../../2017/10/25/gh-pages-python/';
-      var disqus_title = 'Step-by-Step Manual Guide to GitHub Pages';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  </section> -->
-
 
 
 </div>

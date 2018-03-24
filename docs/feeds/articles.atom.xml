@@ -3,20 +3,11 @@
 
 &lt;p&gt;Welcome to my blog! As you can see, this is very much still a work in progress. &lt;/p&gt;
 &lt;p&gt;In the meantime, feel free to &lt;a href="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&amp;amp;Body=Hi%20Matthew%2C%0A%0A"&gt;reach out&lt;/a&gt;.&lt;/p&gt;
-</summary><category term="blog"></category></entry><entry><title>xlwings as a Wrapper for a Python Function</title><link href="http://matthewkudija.com/blog/2018/03/21/xlwings-mortgage/" rel="alternate"></link><published>2018-03-21T06:00:00-04:00</published><updated>2018-03-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-21:blog/2018/03/21/xlwings-mortgage/</id><summary type="html">
+</summary><category term="blog"></category></entry><entry><title>Automation Using Makefiles</title><link href="http://matthewkudija.com/blog/2018/03/15/makefiles/" rel="alternate"></link><published>2018-03-15T06:00:00-04:00</published><updated>2018-03-15T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-15:blog/2018/03/15/makefiles/</id><summary type="html">
 
-&lt;p&gt;The Python &lt;a href="https://www.xlwings.org/"&gt;xlwings&lt;/a&gt; library provides easy interaction between Python and a Microsoft Excel workbook. In this example, I demonstrate using xlwings and Excel as a wrapper around a Python function.&lt;/p&gt;
-</summary><category term="python"></category><category term="pandas"></category><category term="xlwings"></category><category term="excel"></category></entry><entry><title>Automation Using Makefiles</title><link href="http://matthewkudija.com/blog/2018/03/15/makefiles/" rel="alternate"></link><published>2018-03-15T06:00:00-04:00</published><updated>2018-03-15T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-15:blog/2018/03/15/makefiles/</id><summary type="html">
-
-&lt;p&gt;Makefiles provide an easy way to group multiple terminal commands into a single command using &lt;code&gt;make &amp;lt;command&amp;gt;&lt;/code&gt;. This gives a brief overview with just enough enformation to write your first Makefile.&lt;/p&gt;
-</summary><category term="python"></category><category term="makefile"></category><category term="make"></category></entry><entry><title>Setting Up A Pelican Blog on GitHub Pages</title><link href="http://matthewkudija.com/blog/2018/03/06/pelican-blog/" rel="alternate"></link><published>2018-03-06T06:00:00-05:00</published><updated>2018-03-06T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-06:blog/2018/03/06/pelican-blog/</id><summary type="html">
-
-&lt;p&gt;A typical scatter plot allows you to compare the impact of one independent variable (&lt;em&gt;x-axis&lt;/em&gt;) on one dependent variable (&lt;em&gt;y-axis&lt;/em&gt;). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.&lt;/p&gt;
-</summary><category term="pelican"></category></entry><entry><title>Carpet Plots</title><link href="http://matthewkudija.com/blog/2018/02/14/carpet-plots/" rel="alternate"></link><published>2018-02-14T06:00:00-05:00</published><updated>2018-02-14T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-02-14:blog/2018/02/14/carpet-plots/</id><summary type="html">
-
-&lt;h2&gt;Why Carpet Plots?&lt;/h2&gt;
-&lt;p&gt;A typical scatter plot allows you to compare the impact of one independent variable (&lt;em&gt;x-axis&lt;/em&gt;) on one dependent variable (&lt;em&gt;y-axis&lt;/em&gt;). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.&lt;/p&gt;
-</summary><category term="pandas"></category><category term="plotly"></category></entry><entry><title>Jupyter Notebook Post</title><link href="http://matthewkudija.com/blog/2018/01/01/jupyter/" rel="alternate"></link><published>2018-01-01T06:00:00-05:00</published><updated>2018-01-01T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-01-01:blog/2018/01/01/jupyter/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;Makefiles provide an easy way to group multiple terminal commands into a single command using &lt;code&gt;make &amp;lt;command&amp;gt;&lt;/code&gt;. This gives a brief overview with just enough information to write your first Makefile.&lt;/p&gt;
+</summary><category term="python"></category><category term="makefile"></category><category term="make"></category></entry><entry><title>Carpet Plots</title><link href="http://matthewkudija.com/blog/2018/02/14/carpet-plots/" rel="alternate"></link><published>2018-02-14T06:00:00-05:00</published><updated>2018-02-14T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-02-14:blog/2018/02/14/carpet-plots/</id><summary type="html">&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/carpet.jpeg"&gt;&lt;/p&gt;
+&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -50,15 +41,4 @@
 .ansigray {
   color: gray;
 }
-/* and light for background, for the …&lt;/style&gt;</summary><category term="python"></category><category term="jupyter"></category></entry><entry><title>Step-by-Step Manual Guide to GitHub Pages</title><link href="http://matthewkudija.com/blog/2017/10/25/gh-pages-python/" rel="alternate"></link><published>2017-10-25T06:00:00-04:00</published><updated>2017-10-25T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2017-10-25:blog/2017/10/25/gh-pages-python/</id><summary type="html">
-
-&lt;p&gt;Introduction&lt;/p&gt;
-&lt;p&gt;Outline:
-- what this is: 
-  - have GitHub pages available
-  - want to use Python to automate
-  - want to get up and running quickly 
-- what this is not: 
-  - detailed HTML guide
-  - detailed CSS guide&lt;/p&gt;
-</summary><category term="github"></category><category term="pages"></category><category term="python"></category><category term="html"></category><category term="css"></category></entry></feed>
+/* and light for background, for the …&lt;/style&gt;</summary><category term="carpet"></category><category term="plotly"></category><category term="pandas"></category><category term="pd.melt()"></category><category term="matplotlib"></category><category term="3Dplot"></category></entry></feed>

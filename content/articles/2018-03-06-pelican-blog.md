@@ -4,6 +4,7 @@ updated: 2018-03-08 06:00
 comments: true
 slug: pelican-blog
 tags: pelican
+status: draft
 
 ![alt]({filename}/images/carpet.jpeg)
 

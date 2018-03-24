@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Archives | Matthew Kudija</title>
+    <title>Step-by-Step Manual Guide to GitHub Pages | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -435,27 +435,164 @@ article .meta a.comments_btn:hover {
                 <li><a href="http://github.com/mkudija" title="mkudija's Github" rel="me">Github</a></li>
                 <li><a href="http://twitter.com/mkudija" title="mkudija Twitter" rel="me">Twitter</a></li>
                 <li><a href="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" title="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" rel="me">Email</a></li>
-                <li><a href="blog/archives.html" title="Archive">Archive</a></li>
+                <li><a href="http://matthewkudija.com/blog/archives.html" title="Archive">Archive</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <div id="wrap">
-<div class="container list">
+<div class="container post">
     <article>
-        <h1 style="margin-bottom: 30px;">Tag: jupyter</h1>
+        <header>
+            <h1>Step-by-Step Manual Guide to GitHub Pages</h1>
+            <time datetime="article.date.isoformat()" pubdate>Wed 25 October 2017</time>
+        </header>
 
-        <ul class="double-list">
-            <li>
-                <a href='/2018/01/01/jupyter/'>
-                    <h2>Jupyter Notebook Post</h2>
-                    <span>01.01.2018</span>
-                </a>
-            </li>
-        </ul>
+        <div class="article_content">
+            <p><img alt src="../images/gh-pages-python.png"></p>
+<!-- PELICAN_BEGIN_SUMMARY -->
+
+<p>Introduction</p>
+<p>Outline:
+- what this is: 
+  - have GitHub pages available
+  - want to use Python to automate
+  - want to get up and running quickly 
+- what this is not: 
+  - detailed HTML guide
+  - detailed CSS guide</p>
+<!-- PELICAN_END_SUMMARY -->
+
+<h1>Setting up GitHub Pages</h1>
+<ul>
+<li>how to enable</li>
+<li>options for where to host (master, docs/, gh-pages branch)</li>
+</ul>
+<h1>HTML Template</h1>
+<h2>Selecting a template</h2>
+<h2>Modifying a template</h2>
+<ul>
+<li>Navigating HTML</li>
+<li>CSS colors</li>
+</ul>
+<h1>Using Python to auto-generate your website</h1>
+<ul>
+<li><code>build.py</code></li>
+</ul>
+<h1>Add Extras</h1>
+<ul>
+<li>Google Analytics</li>
+<li>Favicon</li>
+<li>404 page</li>
+</ul>
+<h1>Other Notes</h1>
+<ul>
+<li>previewing locally</li>
+<li>right click-inspect element</li>
+<li>adding password protection</li>
+</ul>
+<h1>Structure</h1>
+<div class="highlight"><pre><span></span>├── LICENSE.txt
+├── README.md
+├── assets
+│   ├── css
+│   ├── fonts
+│   ├── js
+│   └── sass
+├── elements.html
+├── env.txt
+├── images
+├── index.html
+├── releasenotes.html
+└── scripts
+    ├── _template.html
+    ├── build.py
+    └── build.py
+</pre></div>
+        </div>
+
+        <div class="meta">
+            <div>
+                <a href="../tag/github.html" class="tag">github</a>
+                <a href="../tag/pages.html" class="tag">pages</a>
+                <a href="../tag/python.html" class="tag">python</a>
+                <a href="../tag/html.html" class="tag">html</a>
+                <a href="../tag/css.html" class="tag">css</a>
+            </div>
+        </div>
     </article>
+
+    <div class="container">
+        <!-- Begin MailChimp Signup Form -->
+
+        <div id="mc_embed_signup">
+            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+        
+        <!--End mc_embed_signup-->
+    </div>
+
+
 </div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
 </div>
 
 <section id="footer">
