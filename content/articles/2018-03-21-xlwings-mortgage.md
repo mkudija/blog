@@ -24,7 +24,7 @@ Great reasons to use xlwings include:
 Using xlwings to link Excel and Python can bring the best of both worlds. Let's get started.
 
 # Wrapping a Python Function
-The easiest way to get started with xlwings is to download and modify a working example. There are great examples on the [xlwings page](https://www.xlwings.org/examples), or you can download all the files used to create this example [here **ADD LINK**](). 
+The easiest way to get started with xlwings is to download and modify a working example. There are great examples on the [xlwings page](https://www.xlwings.org/examples), or you can download all the files used to create this example [here](https://github.com/mkudija/blog/tree/master/content/downloads/code/xlwings-mortgage). 
 
 ## Basic Structure
 
