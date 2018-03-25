@@ -177,3 +177,6 @@ You will notice the `if __name__ == '__main__':` statement at the end of **`mort
 # Closing Thoughts
 I hope this illustrates the ability to connect Excel to Pyton and prompts you to think about useful applications for this. All that is needed is a bit of glue to hold the two together, for which xlwings is a great tool.
 
+<!-- NOTES:
+- used LICEcap for GIF screen animations: https://www.cockos.com/licecap/
+ -->
