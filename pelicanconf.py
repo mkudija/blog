@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Matthew Kudija'
 SITENAME = 'Matthew Kudija'
 SITESUBTITLE = u'Notes on Python and beyond'
-SITEURL = ''
+SITEURL = 'matthewkudija.com/blog'
 PATH = 'content'
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'

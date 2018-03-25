@@ -41,7 +41,7 @@
 .ansigray {
   color: gray;
 }
-/* and light for background, for the …&lt;/style&gt;</summary><category term="carpet"></category><category term="plotly"></category><category term="pandas"></category><category term="pd.melt()"></category><category term="matplotlib"></category><category term="3Dplot"></category></entry><entry><title>Where I Travelled in 2016 with Basemap</title><link href="http://matthewkudija.com/blog/2017/12/17/travel-map/" rel="alternate"></link><published>2017-12-17T06:00:00-05:00</published><updated>2017-12-17T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2017-12-17:blog/2017/12/17/travel-map/</id><summary type="html">
+/* and light for background, for the …&lt;/style&gt;</summary><category term="carpet"></category><category term="plotly"></category><category term="pandas"></category><category term="pd.melt()"></category><category term="matplotlib"></category><category term="3Dplot"></category></entry><entry><title>Where I Travelled in 2016 with Basemap</title><link href="http://matthewkudija.com/blog/2016/12/17/travel-map/" rel="alternate"></link><published>2016-12-17T06:00:00-05:00</published><updated>2016-12-17T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2016-12-17:blog/2016/12/17/travel-map/</id><summary type="html">
 
 &lt;p&gt;For me 2016 was quite a year for travel: a cross-country road trip, visiting family in Alabama, and a trip to Europe for work. In this example I'll show how to illustrate a year of travel using Python's Basemap library.&lt;/p&gt;
 </summary><category term="basemap"></category><category term="map"></category><category term="python"></category><category term="matplotlib"></category></entry></feed>
