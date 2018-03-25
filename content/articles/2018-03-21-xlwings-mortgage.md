@@ -17,6 +17,7 @@ The Python [xlwings](https://www.xlwings.org/) library provides easy interaction
 Python and Excel have complementary strengths and it can be useful to use them together. Excel is great for lightweight data exploration where you need some interactivity. Since Excel is the default tool for data analysis in the corporate world an average user is probably much less intimidated by an Excel spreadsheet than a .py or .ipynb file. Python provides heavy-duty analytics, has thousands of libraries freely available to add functionality, and allows you to make your analysis more reproducable since it can be version-controlled and quickly re-run with new data. 
 
 Great reasons to use xlwings include:
+
 - **Extending Excel:** Let's face it—Excel has limits. When you want to run a loop or add some additional analytics power to Excel without writing VBA, Python is a great option.
 - **Python Front End:** For all of Python's power there are situations where it can be tedious to continually interact with a function. While there are much more elegant (and Python-native) solutions available, Excel can be a low-overhead front end for interacting with Python in certain situations.
 - **Sharing:** We already acknowledged that most people are more comfortable with Excel than Python. But in my experience, average Excel users perfectly alright to use a tool in Excel that uses some Python (and even intrigued by the experience), as long as the proper support was provided to get them up and running.
