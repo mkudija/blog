@@ -3,7 +3,7 @@ date: 2017-10-25 06:00
 updated: 2018-03-17 06:00
 comments: true
 slug: gh-pages-python
-tags: github, pages, python, html, css
+tags: gh-pages, python, html, css
 status: draft
 
 ![alt]({filename}/images/gh-pages-python.png)
