@@ -7,7 +7,8 @@ from dateutil.relativedelta import *
 
 def amortize(principal, interest_rate, years, addl_principal=0, annual_payments=12, start_date=date.today()):
     """
-    The below code, which may have been edited, was originally written by Chris Moffitt of pbpython.com:
+    The below code, which may have been edited, was originally written by 
+    Chris Moffitt of pbpython.com (used with permission):
     - Blog Post: http://pbpython.com/amortization-model-revised.html
     - Code: https://github.com/chris1610/pbpython/blob/63e810a42d30c8297b82f6da43e5e962b8a6f15a/notebooks/Amortization-Corrected-Final.ipynb
     - License: https://github.com/chris1610/pbpython/blob/63e810a42d30c8297b82f6da43e5e962b8a6f15a/LICENSE

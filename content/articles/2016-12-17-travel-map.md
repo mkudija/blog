@@ -5,9 +5,8 @@ comments: true
 slug: travel-map
 tags: basemap, map, python, matplotlib
 
-![alt]({filename}/images/2016_travel.png)
-
 <!-- PELICAN_BEGIN_SUMMARY -->
+![alt]({filename}/images/2016_travel.png)
 
 For me 2016 was quite a year for travel: a cross-country road trip, visiting family in Alabama, and a trip to Europe for work. In this example I'll show how to illustrate a year of travel using Python's Basemap library.
 

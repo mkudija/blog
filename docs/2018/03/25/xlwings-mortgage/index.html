@@ -446,23 +446,25 @@ article .meta a.comments_btn:hover {
     <article>
         <header>
             <h1>xlwings: Use Python and Excel to Calculate Your Mortgage</h1>
-            <time datetime="article.date.isoformat()" pubdate>Wed 21 March 2018</time>
+            <time datetime="article.date.isoformat()" pubdate>Sun 25 March 2018</time>
         </header>
 
         <div class="article_content">
-            <p><img alt src="../images/xlwings-mortgage-1.png"></p>
-<!-- PELICAN_BEGIN_SUMMARY -->
+            <!-- status: draft -->
 
+
+
+<p><img alt src="../../../../images/xlwings-mortgage-1.gif"></p>
 <p>The Python <a href="https://www.xlwings.org/">xlwings</a> library provides easy interaction between Python and a Microsoft Excel workbook. In this example, I'll demonstrate using Excel as a wrapper around a Python function, with xlwings providing the link between the two.</p>
-<!-- PELICAN_END_SUMMARY -->
+
 
 <h1>When to use xlwings</h1>
-<p>Python and Excel have complementary strengths and it can be useful to use them together. Excel is great for lightweight data exploration where you need some interactivity. Since Excel is the default tool for data analysis in the corporate world an average user is probably much less intimidated by an Excel spreadsheet than a .py or .ipynb file. Python provides heavy-duty analytics, has thousands of libraries freely available to add functionality, and allows you to make your analysis more reproducable since it can be version-controlled and quickly re-run with new data. </p>
+<p>Python and Excel have complementary strengths and it can be useful to use them together. Excel is great for lightweight data exploration where you need some interactivity. Since Excel is the default tool for data analysis in the corporate world an average user is probably much less intimidated by an Excel spreadsheet than a <code>.py</code> or <code>.ipynb</code> file. Python provides heavy-duty analytics, has thousands of libraries freely available to add functionality, and allows you to make your analysis more reproducable since it can be version-controlled and quickly re-run with new data. </p>
 <p>Great reasons to use xlwings include:</p>
 <ul>
 <li><strong>Extending Excel:</strong> Let's face it—Excel has limits. When you want to run a loop or add some additional analytics power to Excel without writing VBA, Python is a great option.</li>
 <li><strong>Python Front End:</strong> For all of Python's power there are situations where it can be tedious to continually interact with a function. While there are much more elegant (and Python-native) solutions available, Excel can be a low-overhead front end for interacting with Python in certain situations.</li>
-<li><strong>Sharing:</strong> We already acknowledged that most people are more comfortable with Excel than Python. But in my experience, average Excel users perfectly alright to use a tool in Excel that uses some Python (and even intrigued by the experience), as long as the proper support was provided to get them up and running.</li>
+<li><strong>Sharing:</strong> We already acknowledged that most people are more comfortable with Excel than Python. But in my experience, average Excel users are perfectly alright to use a tool in Excel that uses some Python behind the scenes (and even intrigued by the experience), as long as the proper support is provided to get them up and running.</li>
 </ul>
 <p>Using xlwings to link Excel and Python can bring the best of both worlds. Let's get started.</p>
 <h1>Wrapping a Python Function</h1>
@@ -474,13 +476,20 @@ article .meta a.comments_btn:hover {
 </pre></div>
 
 
-<p>Notice that <strong><code>Mortgage.xlsm</code></strong> is a macro-enabled Excel workbook. A macro—assigned to a button—will be used to initiate the connection to the Python script. Our Python file <strong><code>mortgage.py</code></strong> contains our function, as well as the xlwings code to read from and write to the Excel workbook.</p>
-<p><img alt src="../images/xlwings-mortgage-2.png"></p>
+<p>Notice that <strong><code>Mortgage.xlsm</code></strong> is a macro-enabled Excel workbook. A macro—assigned to a button—will be used to initiate the the Python script. Our Python file <strong><code>mortgage.py</code></strong> contains our function, as well as the xlwings code to read from and write to the Excel workbook.</p>
+<p><img alt src="../../../../images/xlwings-mortgage-1.png"></p>
 <h2>Python Function</h2>
 <p>The Python function we will use as an example is a financial model in pandas written by <a href="https://twitter.com/chris1610">Chris Moffitt</a>. We will take this function as an input, but please see Chris' <a href="http://pbpython.com/amortization-model-revised.html">original post</a> for the details. This model builds a loan amortization table, such as you would need to evaluate a mortgage. Given the required inputs of loan principal, interest rate, term, etc. this Python function returns a pandas DataFrame giving the amortization table. </p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">amortize</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">addl_principal</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annual_payments</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">amortize</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">addl_principal</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annual_payments</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The below code, which may have been edited, was originally written by Chris Moffitt of pbpython.com:</span>
+<span class="sd">    The below code, which may have been edited, was originally written by </span>
+<span class="sd">    Chris Moffitt of pbpython.com (used with permission):</span>
 <span class="sd">    - Blog Post: http://pbpython.com/amortization-model-revised.html</span>
 <span class="sd">    - Code: https://github.com/chris1610/pbpython/blob/63e810a42d30c8297b82f6da43e5e962b8a6f15a/notebooks/Amortization-Corrected-Final.ipynb</span>
 <span class="sd">    - License: https://github.com/chris1610/pbpython/blob/63e810a42d30c8297b82f6da43e5e962b8a6f15a/LICENSE</span>
@@ -524,19 +533,12 @@ article .meta a.comments_btn:hover {
 <p>Remember that while we are using a financial model as an example, just about anything you can do in Python is fair game for extending the capabilities of Excel.</p>
 <h2>Set up the workbook</h2>
 <p>First, let's set up the Excel workbook. Our user will set values for the required inputs, press the "Calculate" button, and see outputs written by xlwings. The chart is a native Excel chart constructed off the table in the outputs, but xlwings <a href="http://docs.xlwings.org/en/stable/matplotlib.html">can write image files</a> to Excel so you could generate charts in matplotlib or another Python plotting library as well. This is a standard <code>.xlsm</code> macro-enabled Excel workbook, so you can apply formatting and add charts as you like.</p>
-<p><img alt src="../images/xlwings-mortgage-3.png"></p>
+<p><img alt src="../../../../images/xlwings-mortgage-2.png"></p>
 <h2>Set up Python with xlwings</h2>
-<p>Our Python script <strong><code>mortgage.py</code></strong> uses xlwigns to interface with Excel. First we include the <code>amortize()</code> function discussed previously. All the Excel interaction is in the <code>main()</code> function, where we define the sheet(s) to pull from, clear previous values as necessary, perform calculations, and write calculated values to Excel.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="o">*</span>
-
-
-<span class="k">def</span> <span class="nf">amortize</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">addl_principal</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annual_payments</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
+<p>Our Python script <strong><code>mortgage.py</code></strong> uses xlwigns to interface with Excel. First we include the <code>amortize()</code> function discussed previously. All the xlwings for interacting with the workbook is in the <code>main()</code> function. Here we define the sheet(s) to pull from, clear previous values as necessary, perform calculations, and write calculated values to Excel.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">amortize</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">addl_principal</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annual_payments</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Function not copied...see above</span>
+<span class="sd">    Function shown above</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
@@ -587,17 +589,19 @@ article .meta a.comments_btn:hover {
 <p>Note that in this macro <code>mortgage</code> is the name of our script, and <code>main</code> is the function to call from within our script. You can easily have different buttons call different functions from the same script. This can be helpful for more complicated workbooks. For example, with multiple buttons you could load data with one, enter values or modify the data, and then use another button to load the modified data and perform final calculations.</p>
 <h2>Run it</h2>
 <p>Running the workbook is as simple as updating your inputs and clicking <strong>Calculate</strong>. </p>
+<p><img alt src="../../../../images/xlwings-mortgage-1.gif"></p>
 <p>You will notice the <code>if __name__ == '__main__':</code> statement at the end of <strong><code>mortgage.py</code></strong>. This allows us to run the script by calling <code>python mortgage.py</code> from the command line instead of pressing the <strong>Calculate</strong> button in the workbook. This can be especially helpful for debugging when you want to print values or read error messages. </p>
+<p><img alt src="../../../../images/xlwings-mortgage-3.gif"></p>
 <h1>Closing Thoughts</h1>
-<p>As you can see, there are many opportunities to extend Excel with Python or interact with Python using Excel. All that is needed is a bit of glue to hold the two together, for which xlwings is a great example.</p>
+<p>I hope this illustrates the ability to connect Excel to Pyton and prompts you to think about useful applications for this. All that is needed is a bit of glue to hold the two together, for which xlwings is a great tool.</p>
         </div>
 
         <div class="meta">
             <div>
-                <a href="../tag/python.html" class="tag">python</a>
-                <a href="../tag/pandas.html" class="tag">pandas</a>
-                <a href="../tag/xlwings.html" class="tag">xlwings</a>
-                <a href="../tag/excel.html" class="tag">excel</a>
+                <a href="../../../../tag/python.html" class="tag">python</a>
+                <a href="../../../../tag/pandas.html" class="tag">pandas</a>
+                <a href="../../../../tag/xlwings.html" class="tag">xlwings</a>
+                <a href="../../../../tag/excel.html" class="tag">excel</a>
             </div>
         </div>
     </article>
@@ -619,6 +623,50 @@ article .meta a.comments_btn:hover {
         
         <!--End mc_embed_signup-->
     </div>
+
+
+
+<section>
+  <!-- <h1>Comments</h1> -->
+  <div id="disqus_thread"></div>
+  <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://matthewkudija.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>                        
+
+
+<!--   <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/03/25/xlwings-mortgage/';
+      var disqus_url = '../../../../2018/03/25/xlwings-mortgage/';
+      var disqus_title = 'xlwings: Use Python and Excel to Calculate Your Mortgage';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section> -->
+
 
 
 </div>
