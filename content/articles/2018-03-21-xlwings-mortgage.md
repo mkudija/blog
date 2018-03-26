@@ -105,7 +105,7 @@ First, let's set up the Excel workbook. Our user will set values for the require
 
 
 ## Set up Python with xlwings
-Our Python script **`mortgage.py`** uses xlwigns to interface with Excel. First we include the `amortize()` function discussed previously. All the xlwings for interacting with the workbook is in the `main()` function. Here we define the sheet(s) to pull from, clear previous values as necessary, perform calculations, and write calculated values to Excel.
+Our Python script **`mortgage.py`** uses xlwings to interface with Excel. First we include the `amortize()` function discussed previously. All the xlwings for interacting with the workbook is in the `main()` function. Here we define the sheet(s) to pull from, clear previous values as necessary, perform calculations, and write calculated values to Excel.
 
 
 
