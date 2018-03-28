@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Setting Up A Pelican Blog on GitHub Pages | Matthew Kudija</title>
+    <title>Where I Travelled in 2018 with Cartopy | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -445,63 +445,106 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>Setting Up A Pelican Blog on GitHub Pages</h1>
-            <time datetime="article.date.isoformat()" pubdate>Tue 06 March 2018</time>
+            <h1>Where I Travelled in 2018 with Cartopy</h1>
+            <time datetime="article.date.isoformat()" pubdate>Tue 27 March 2018</time>
         </header>
 
         <div class="article_content">
-            <p><img alt src="../images/carpet.jpeg"></p>
-<!-- PELICAN_BEGIN_SUMMARY -->
+            <!-- PELICAN_BEGIN_SUMMARY -->
 
-<p>A typical scatter plot allows you to compare the impact of one independent variable (<em>x-axis</em>) on one dependent variable (<em>y-axis</em>). There are several ways to show the impact of two or more independent variables, but carpet plots offer some distinct advantages.</p>
+<p><img alt src="../images/2018_travel.png"></p>
+<p>See former post about <a href="http://matthewkudija.com/blog/2016/12/17/travel-map/">2016 travel</a> plotted with Basemap. This post uses Cartopy.</p>
 <!-- PELICAN_END_SUMMARY -->
 
-<h1 id="why-pelican">Why Pelican?</h1>
-<ul>
-<li>Static</li>
-<li>Python-powered</li>
-<li></li>
-</ul>
-<h1 id="setting-up-a-pelican-blog">Setting Up a Pelican Blog</h1>
-<div class="highlight"><pre><span></span>$ conda create -n pelican-blog <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 jupyter notebook
-$ <span class="nb">source</span> activate pelican-blog
-$ pip install pelican
-$ pip install Markdown
-$ pelican-quickstart
-$ git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
-$ git submodule add git://github.com/getpelican/pelican-plugins.git plugins/pelican-plugins
+<div class="highlight"><pre><span></span><span class="c1"># # basic line plot</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import cartopy.crs as ccrs</span>
+
+<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
+<span class="c1"># ax.set_global()</span>
+<span class="c1"># ax.coastlines()</span>
+
+<span class="c1"># plt.plot([-0.08, 132], [51.53, 43.17], color=&#39;#2E5FAC&#39;,  transform=ccrs.Geodetic())</span>
+<span class="c1"># # plt.plot([-0.08, 132], [51.53, 43.17], color=&#39;blue&#39;, transform=ccrs.PlateCarree())</span>
+
+<span class="c1"># plt.savefig(&#39;cartopy.png&#39;,bbox_inches=&#39;tight&#39;)</span>
+
+
+
+<span class="c1"># # shade land</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import cartopy.crs as ccrs</span>
+<span class="c1"># import cartopy</span>
+
+<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
+<span class="c1"># ax.set_global()</span>
+<span class="c1"># ax.coastlines()</span>
+
+<span class="c1"># # color land and water</span>
+<span class="c1"># ax.add_feature(cartopy.feature.LAND, zorder=0, edgecolor=&#39;#7f7f7f&#39;, facecolor=&#39;#B1B2B4&#39;)</span>
+<span class="c1"># ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=&#39;white&#39;)</span>
+
+<span class="c1"># # [lng1, lng2], [lat1, lat2]</span>
+<span class="c1"># plt.plot([-6.26, -82.99], [53.35, 39.96], color=&#39;#2E5FAC&#39;,  transform=ccrs.Geodetic())</span>
+
+<span class="c1"># plt.savefig(&#39;cartopy.png&#39;,bbox_inches=&#39;tight&#39;)</span>
+
+
+<span class="c1"># # zoom in on region</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import cartopy.crs as ccrs</span>
+<span class="c1"># import cartopy</span>
+
+<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
+<span class="c1"># ax.set_global()</span>
+<span class="c1"># ax.coastlines()</span>
+
+<span class="c1"># # [lon_min, lon_max, lat_min, lat_max]</span>
+<span class="c1"># ax.set_extent([-140, 20, 20, 65])</span>
+
+<span class="c1"># # color land and water</span>
+<span class="c1"># ax.add_feature(cartopy.feature.LAND, zorder=0, edgecolor=&#39;#7f7f7f&#39;, facecolor=&#39;#B1B2B4&#39;)</span>
+<span class="c1"># ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=&#39;white&#39;)</span>
+
+<span class="c1"># # [lon1, lon2], [lat1, lat2]</span>
+<span class="c1"># plt.plot([-6.26, -82.99], [53.35, 39.96], color=&#39;#2E5FAC&#39;,  transform=ccrs.Geodetic())</span>
+
+<span class="c1"># plt.savefig(&#39;cartopy.png&#39;,bbox_inches=&#39;tight&#39;)</span>
+
+<span class="c1"># change projection</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Mercator</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=-</span><span class="mi">60</span><span class="p">,</span> <span class="n">min_latitude</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">max_latitude</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">latitude_true_scale</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># [lon_min, lon_max, lat_min, lat_max]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="o">-</span><span class="mi">140</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">])</span>
+
+<span class="c1"># color land and water</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#7f7f7f&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#B1B2B4&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># [lon1, lon2], [lat1, lat2]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">6.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">82.99</span><span class="p">],</span> <span class="p">[</span><span class="mf">53.35</span><span class="p">,</span> <span class="mf">39.96</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#2E5FAC&#39;</span><span class="p">,</span>  <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cartopy.png&#39;</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 
 
-<h1 id="other-setup">Other setup:</h1>
-<ul>
-<li>verify makefile</li>
-</ul>
-<h1 id="update-your-blog">Update Your Blog</h1>
-<h2 id="update-content">Update Content</h2>
-<ul>
-<li>Add/update .md files in <code>content/</code> (reference <a href="http://docs.getpelican.com/en/3.6.3/content.html">docs</a>)</li>
-<li>notes on meta header, etc.</li>
-<li>notes on learning markdown</li>
-<li></li>
-</ul>
-<h2 id="build">Build</h2>
-<div class="highlight"><pre><span></span>$ make html
-$ make serve
-</pre></div>
-
-
-<p>Navigate to [http://localhost:8000/]</p>
-<h2 id="push-to-github">Push to GitHub</h2>
-<ul>
-<li>how to get to GitHub...?</li>
-<li>overview of how GitHub pages work</li>
-</ul>
+<h2 id="cartopy-resources">CARTOPY RESOURCES</h2>
+<h1 id="httpsuoftcodersgithubiostudygrouplessonspythoncartographylesson">https://uoftcoders.github.io/studyGroup/lessons/python/cartography/lesson/</h1>
         </div>
 
         <div class="meta">
             <div>
-                <a href="../tag/pelican.html" class="tag">pelican</a>
+                <a href="../tag/cartopy.html" class="tag">cartopy</a>
+                <a href="../tag/map.html" class="tag">map</a>
+                <a href="../tag/python.html" class="tag">python</a>
+                <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
             </div>
         </div>
     </article>

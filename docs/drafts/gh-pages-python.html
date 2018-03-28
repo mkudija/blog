@@ -453,7 +453,7 @@ article .meta a.comments_btn:hover {
             <p><img alt src="../images/gh-pages-python.png"></p>
 <!-- PELICAN_BEGIN_SUMMARY -->
 
-<p>Introduction</p>
+<p>Introduction text...</p>
 <p>Outline:
 - what this is: 
   - have GitHub pages available
@@ -464,35 +464,77 @@ article .meta a.comments_btn:hover {
   - detailed CSS guide</p>
 <!-- PELICAN_END_SUMMARY -->
 
-<h1>Setting up GitHub Pages</h1>
+<div class="toc"><span class="toctitle">Contents:</span><ul>
+<li><a href="#part-i-why-this-matters">Part I: Why This Matters</a></li>
+<li><a href="#part-ii-choosing-tools-services">Part II: Choosing Tools &amp; Services</a></li>
+<li><a href="#part-iii-tutorial">Part III: Tutorial</a><ul>
+<li><a href="#setting-up-github-pages">Setting up GitHub Pages</a></li>
+<li><a href="#html-template">HTML Template</a><ul>
+<li><a href="#selecting-a-template">Selecting a template</a></li>
+<li><a href="#modifying-a-template">Modifying a template</a></li>
+</ul>
+</li>
+<li><a href="#using-python-to-auto-generate-your-website">Using Python to auto-generate your website</a></li>
+<li><a href="#add-extras">Add Extras</a></li>
+<li><a href="#other-notes">Other Notes</a></li>
+<li><a href="#structure">Structure</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="part-i-why-this-matters">Part I: Why This Matters</h1>
+<blockquote>
+<p>I think every young person who regularly uses a computer should learn the following:</p>
+<p>how to choose a domain name<br>
+how to buy a domain<br>
+how to choose a good domain name provider<br>
+how to choose a good website-hosting service<br>
+how to find a good free text editor<br>
+how to transfer files to and from a server<br>
+how to write basic HTML, including links to CSS (Cascading Style Sheet) files<br>
+how to find free CSS templates<br>
+how to fiddle around in those templates to adjust them to your satisfaction<br>
+how to do basic photograph editing<br>
+how to cite your sources and link to the originals<br>
+how to use social media to share what you’ve created on your own turf rather than create within a walled factory<br></p>
+<p>One could add considerably to this list, but these, I believe, are the rudimentary skills that should be possessed by anyone who wants to be a responsible citizen of the open Web—and not to be confined to living on the bounty of the digital headmasters.</p>
+</blockquote>
+<p>–<a href="http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php"><em>Tending the Digital Commons: A Small Ethics toward the Future</em></a> by Alan Jacobs<sup id="fnref-hedgehog"><a class="footnote-ref" href="#fn-hedgehog">1</a></sup></p>
+<h1 id="part-ii-choosing-tools-services">Part II: Choosing Tools &amp; Services</h1>
+<ul>
+<li>GitHub is free, and that make this more accessible</li>
+<li>Alan Jacobs actually recommends GitHub in his article</li>
+</ul>
+<h1 id="part-iii-tutorial">Part III: Tutorial</h1>
+<h2 id="setting-up-github-pages">Setting up GitHub Pages</h2>
 <ul>
 <li>how to enable</li>
 <li>options for where to host (master, docs/, gh-pages branch)</li>
 </ul>
-<h1>HTML Template</h1>
-<h2>Selecting a template</h2>
-<h2>Modifying a template</h2>
+<h2 id="html-template">HTML Template</h2>
+<h3 id="selecting-a-template">Selecting a template</h3>
+<h3 id="modifying-a-template">Modifying a template</h3>
 <ul>
 <li>Navigating HTML</li>
 <li>CSS colors</li>
 </ul>
-<h1>Using Python to auto-generate your website</h1>
+<h2 id="using-python-to-auto-generate-your-website">Using Python to auto-generate your website</h2>
 <ul>
 <li><code>build.py</code></li>
 </ul>
-<h1>Add Extras</h1>
+<h2 id="add-extras">Add Extras</h2>
 <ul>
 <li>Google Analytics</li>
 <li>Favicon</li>
 <li>404 page</li>
 </ul>
-<h1>Other Notes</h1>
+<h2 id="other-notes">Other Notes</h2>
 <ul>
 <li>previewing locally</li>
 <li>right click-inspect element</li>
 <li>adding password protection</li>
 </ul>
-<h1>Structure</h1>
+<h2 id="structure">Structure</h2>
 <div class="highlight"><pre><span></span>├── LICENSE.txt
 ├── README.md
 ├── assets
@@ -510,6 +552,16 @@ article .meta a.comments_btn:hover {
     ├── build.py
     └── build.py
 </pre></div>
+
+
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn-hedgehog">
+<p><a href="http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php"><em>Tending the Digital Commons: A Small Ethics toward the Future</em></a> by Alan Jacobs, The Hedgehog Review: VOL. 20 NO. 1 (Spring 2018)&#160;<a class="footnote-backref" href="#fnref-hedgehog" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
         </div>
 
         <div class="meta">

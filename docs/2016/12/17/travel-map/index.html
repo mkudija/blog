@@ -457,7 +457,7 @@ article .meta a.comments_btn:hover {
 
 
 <p><a href="https://matplotlib.org/basemap/users/intro.html#">Basemap</a> was written by the Jeff Whitaker to visualize weather patterns. Since Basemap is written on top of matplotlib you are able to add to maps just as you would add to any other matplotlib figure.</p>
-<h2>Data Preparation</h2>
+<h2 id="data-preparation">Data Preparation</h2>
 <p>Since we will be plotting great circle lines of travel the data required is a simple list of origin and destination points with latitude and longitude coordinates. </p>
 <style type="text/css">/*!
 *
@@ -1559,9 +1559,9 @@ h6:hover .anchor-link {
 </script>
 
 
-<h2>Installing Basemap</h2>
+<h2 id="installing-basemap">Installing Basemap</h2>
 <p>Installing Basemap was more of an adventure than I thought it would be. Take a look at the <a href="https://matplotlib.org/basemap/users/download.html">download</a> page on the Basemap documentation, or <a href="https://github.com/mkudija/Map-Tools/blob/master/README.md">my notes</a> on how I got it installed for help.</p>
-<h2>Plot with Basemap</h2>
+<h2 id="plot-with-basemap">Plot with Basemap</h2>
 <p>Once Basemap is installed, plotting is relatively straightforward. Glancing through the <a href="https://matplotlib.org/basemap/users/examples.html">examples</a> is helpful for seeing the parameters to work with.</p>
 <div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
@@ -1615,9 +1615,9 @@ h6:hover .anchor-link {
 </pre></div>
 
 
-<h2>Closing Thoughts</h2>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
 <p>I like the output and plan to do this for future years. </p>
-<h3>Cartopy Update</h3>
+<h3 id="cartopy-update">Cartopy Update</h3>
 <p>As an update, the Basemap project has moved over to Cartopy, so I may try to generate the same map in Cartopy in the future. From the <a href="https://matplotlib.org/basemap/users/intro.html#cartopy-new-management-and-eol-announcement">Basemap documentation</a>:</p>
 <blockquote>
 <p>Starting in 2016, Basemap came under new management. The Cartopy project will replace Basemap, but it hasn’t yet implemented all of Basemap’s features. All new software development should try to use Cartopy whenever possible, and existing software should start the process of switching over to use Cartopy. All maintenance and development efforts should be focused on Cartopy.</p>
