@@ -42,6 +42,19 @@ PLUGINS = [
 ]
 IGNORE_FILES = ['.ipynb_checkpoints']
 
+# add [TOC] in markdown article to add table of contents
+MARKDOWN = {
+  'extension_configs': {
+    'markdown.extensions.toc': {
+      'title': 'Contents:' 
+    },
+    'markdown.extensions.codehilite': {'css_class': 'highlight'},
+    'markdown.extensions.extra': {},
+    'markdown.extensions.meta': {},
+  },
+  'output_format': 'html5',
+}
+
 # for liquid tags
 CODE_DIR = 'downloads/code'
 NOTEBOOK_DIR = 'downloads/notebooks'
