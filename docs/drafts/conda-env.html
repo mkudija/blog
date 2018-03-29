@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Step-by-Step Manual Guide to GitHub Pages | Matthew Kudija</title>
+    <title>Conda Environments | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -445,175 +445,36 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>Step-by-Step Manual Guide to GitHub Pages</h1>
-            <time datetime="article.date.isoformat()" pubdate>Wed 25 October 2017</time>
+            <h1>Conda Environments</h1>
+            <time datetime="article.date.isoformat()" pubdate>Wed 28 March 2018</time>
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            <!-- ![alt]({filename}/images/welcome.png) -->
 
-<p><img alt src="../images/gh-pages-python-2.png"></p>
-<p>Building a basic website is an important skill for the entrepreneur, employee, and citizen of the internet. My goal is that after reading this post you will:</p>
-<ol>
-<li>Agree that controlling your web domain has benefits, and that basic web design skills can aid in this.</li>
-<li>Understand the basic concepts required to build and operate a website, regardless of technology choices.</li>
-<li>Be able to build your own simple static website by following my detailed instructions which use a set of popular (and free) technologies. </li>
-</ol>
-<p>The sections below are aligned with these goals. Let's get started.</p>
+<!-- PELICAN_BEGIN_SUMMARY -->
+
+<p>Info on conda environemnts...</p>
 <!-- PELICAN_END_SUMMARY -->
 
-<div class="toc"><span class="toctitle">Contents:</span><ul>
-<li><a href="#part-i-why-your-domain-matters">Part I: Why Your Domain Matters</a></li>
-<li><a href="#part-ii-introductory-concepts">Part II: Introductory Concepts</a><ul>
-<li><a href="#domain-names">Domain Names</a></li>
-<li><a href="#web-hosting">Web Hosting</a></li>
-<li><a href="#static-website">Static Website</a></li>
-<li><a href="#html">HTML</a></li>
-<li><a href="#css">CSS</a></li>
-<li><a href="#javascript">JavaScript</a></li>
-<li><a href="#python">Python</a></li>
-</ul>
-</li>
-<li><a href="#part-iii-tutorial">Part III: Tutorial</a><ul>
-<li><a href="#choosing-tools-services">Choosing Tools &amp; Services</a></li>
-<li><a href="#setting-up-github-pages">Setting up GitHub Pages</a></li>
-<li><a href="#html-template">HTML Template</a><ul>
-<li><a href="#selecting-a-template">Selecting a template</a></li>
-<li><a href="#modifying-a-template">Modifying a template</a></li>
-</ul>
-</li>
-<li><a href="#using-python-to-auto-generate-your-website">Using Python to auto-generate your website</a></li>
-<li><a href="#add-extras">Add Extras</a><ul>
-<li><a href="#google-analytics">Google Analytics</a></li>
-<li><a href="#disqus-comments">Disqus Comments</a></li>
-<li><a href="#mailchimp-subscribe-email-is-the-way-to-build-your-platform-from-ryan-holiday-in-perennial-seller">Mailchimp Subscribe (email is the way to build your platform, from Ryan Holiday in Perennial Seller)</a></li>
-<li><a href="#formspree">Formspree</a></li>
-<li><a href="#favicon">Favicon</a></li>
-<li><a href="#404-page">404 page</a></li>
-<li><a href="#cname">CNAME</a></li>
-</ul>
-</li>
-<li><a href="#other-notes">Other Notes</a></li>
-</ul>
-</li>
-<li><a href="#closing-thoughts">Closing Thoughts</a><ul>
-<li><a href="#resources">Resources</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<h1 id="part-i-why-your-domain-matters">Part I: Why Your Domain Matters</h1>
-<p>The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
-[^vision] <a href="https://www.w3.org/Consortium/mission#vision">World Wide Web Consortium (W3C) Mission</a></p>
-<p>The emergence of major web companies that control content creation—Facebook, etc.—endanger some of this vision by:</p>
-<ul>
-<li>pragmatic</li>
-<li>allows you to own your platform and message</li>
-<li>contributes to a healthy internet (control personal data and information spread; not [too] relient on the corporations that own the internet)</li>
-<li>take responsibility for what we say</li>
-<li>helps you understand how the internet really works and impacts your life</li>
-</ul>
-<p>Writing in <em>The Hedgehog Review</em>, Alan Jacobs shares his thoughts about the dangers of </p>
-<p><a href="http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php"><em>Tending the Digital Commons: A Small Ethics toward the Future</em></a> by Alan Jacobs<sup id="fnref-hedgehog"><a class="footnote-ref" href="#fn-hedgehog">1</a></sup></p>
-<blockquote>
-<p>I think every young person who regularly uses a computer should learn the following:</p>
-<ol>
-<li>how to choose a domain name<br></li>
-<li>how to buy a domain<br></li>
-<li>how to choose a good domain name provider<br></li>
-<li>how to choose a good website-hosting service<br></li>
-<li>how to find a good free text editor<br></li>
-<li>how to transfer files to and from a server<br></li>
-<li>how to write basic HTML, including links to CSS (Cascading Style Sheet) files<br></li>
-<li>how to find free CSS templates<br></li>
-<li>how to fiddle around in those templates to adjust them to your satisfaction<br></li>
-<li>how to do basic photograph editing<br></li>
-<li>how to cite your sources and link to the originals<br></li>
-<li>how to use social media to share what you’ve created on your own turf rather than create within a walled factory<br></li>
-</ol>
-<p>One could add considerably to this list, but these, I believe, are the rudimentary skills that should be possessed by anyone who wants to be a responsible citizen of the open Web—and not to be confined to living on the bounty of the digital headmasters.</p>
-</blockquote>
-<p>Cite this: http://hackeducation.com/2017/04/04/domains<sup id="fnref-domains"><a class="footnote-ref" href="#fn-domains">2</a></sup></p>
-<h1 id="part-ii-introductory-concepts">Part II: Introductory Concepts</h1>
-<h2 id="domain-names">Domain Names</h2>
-<h2 id="web-hosting">Web Hosting</h2>
-<h2 id="static-website">Static Website</h2>
-<h2 id="html">HTML</h2>
-<h2 id="css">CSS</h2>
-<h2 id="javascript">JavaScript</h2>
-<h2 id="python">Python</h2>
-<h1 id="part-iii-tutorial">Part III: Tutorial</h1>
-<p>Describe the example we will build....(recipes)</p>
-<h2 id="choosing-tools-services">Choosing Tools &amp; Services</h2>
-<ul>
-<li>GitHub is free, and that make this more accessible</li>
-<li>Alan Jacobs actually recommends GitHub in his article</li>
-<li>also includes version control</li>
-<li>don't need to choose a domain name if you don't want to</li>
-<li>text editor</li>
-</ul>
-<h2 id="setting-up-github-pages">Setting up GitHub Pages</h2>
-<ul>
-<li>how to enable</li>
-<li>options for where to host (master, docs/, gh-pages branch)</li>
-</ul>
-<h2 id="html-template">HTML Template</h2>
-<h3 id="selecting-a-template">Selecting a template</h3>
-<h3 id="modifying-a-template">Modifying a template</h3>
-<ul>
-<li>Navigating HTML</li>
-<li>CSS colors</li>
-</ul>
-<h2 id="using-python-to-auto-generate-your-website">Using Python to auto-generate your website</h2>
-<p>There are many great static site genrators
-- <code>build.py</code></p>
-<h2 id="add-extras">Add Extras</h2>
-<h3 id="google-analytics">Google Analytics</h3>
-<h3 id="disqus-comments">Disqus Comments</h3>
-<h3 id="mailchimp-subscribe-email-is-the-way-to-build-your-platform-from-ryan-holiday-in-perennial-seller">Mailchimp Subscribe (email is the way to build your platform, from Ryan Holiday in <em>Perennial Seller</em>)</h3>
-<h3 id="formspree">Formspree</h3>
-<h3 id="favicon">Favicon</h3>
-<h3 id="404-page">404 page</h3>
-<h3 id="cname">CNAME</h3>
-<h2 id="other-notes">Other Notes</h2>
-<ul>
-<li>previewing locally</li>
-<li>right click-inspect element</li>
-<li>adding password protection</li>
-</ul>
-<h1 id="closing-thoughts">Closing Thoughts</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>github</li>
-<li>html</li>
-<li>html5up templates</li>
-<li>css</li>
-<li>gh-pages</li>
-<li>markdown</li>
-<li>markdown2.py</li>
-<li>pelican</li>
-</ul>
-<div class="footnote">
-<hr>
-<ol>
-<li id="fn-hedgehog">
-<p>Jacobs, Alan. "<a href="http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php">Tending the Digital Commons: A Small Ethics toward the Future.</a>" <em>The Hedgehog Review</em> Vol. 20, No. 1 (2018): The Hedgehog Review. Web. 28 Mar. 2018.&#160;<a class="footnote-backref" href="#fnref-hedgehog" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn-domains">
-<p>http://hackeducation.com/2017/04/04/domains&#160;<a class="footnote-backref" href="#fnref-domains" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<h1 id="other-considerations">Other Considerations</h1>
+<h2 id="conda-envs-with-jupyter-notebooks">Conda envs with jupyter notebooks</h2>
+<p>First, activate the environment:
+<code>source activate env_name</code></p>
+<p>Then install jupyter if required:
+<code>conda install jupyter</code></p>
+<p>Also install watermark if you plan to use that to print package versions:
+<code>pip install watermark</code></p>
+<p>Then launch the jupyter notebook:
+<code>jupyter notebook</code></p>
+<p>Now importing the modules will show the appropriate version:</p>
+<p>(show img)</p>
+<h2 id="conda-envs-with-xlwings">Conda envs with xlwings</h2>
         </div>
 
         <div class="meta">
             <div>
-                <a href="../tag/gh-pages.html" class="tag">gh-pages</a>
-                <a href="../tag/python.html" class="tag">python</a>
-                <a href="../tag/html.html" class="tag">html</a>
-                <a href="../tag/css.html" class="tag">css</a>
-                <a href="../tag/javascript.html" class="tag">javascript</a>
-                <a href="../tag/website.html" class="tag">website</a>
+                <a href="../tag/blog.html" class="tag">blog</a>
             </div>
         </div>
     </article>
