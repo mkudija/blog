@@ -29,10 +29,11 @@ div.output_prompt {
 div.input_area {
     margin: .2em 0.4em;
     max-width: 580px;
+    background-color: #272822;
 }
 
 table.dataframe {
-    font-family: Arial, sans-serif;
+    font-family: Courier, sans-serif;
     font-size: 13px;
     line-height: 20px;
 }

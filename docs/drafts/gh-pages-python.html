@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Step-by-Step Manual Guide to GitHub Pages | Matthew Kudija</title>
+    <title>How to Share Your Work on the Internet and Why It's Important | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -15,68 +15,83 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/theme/css/icons.css"/>
-    <style>.highlight .hll { background-color: #ffffcc }
-.highlight .c { color: #60a0b0; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #007020; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #007020 } /* Comment.Preproc */
-.highlight .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
+    <style>.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #808080 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0040D0 } /* Generic.Traceback */
-.highlight .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #007020 } /* Keyword.Pseudo */
-.highlight .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #902000 } /* Keyword.Type */
-.highlight .m { color: #40a070 } /* Literal.Number */
-.highlight .s { color: #4070a0 } /* Literal.String */
-.highlight .na { color: #4070a0 } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
-.highlight .no { color: #60add5 } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #d55537; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #007020 } /* Name.Exception */
-.highlight .nf { color: #06287e } /* Name.Function */
-.highlight .nl { color: #002070; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #062873; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #bb60d5 } /* Name.Variable */
-.highlight .ow { color: #007020; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mf { color: #40a070 } /* Literal.Number.Float */
-.highlight .mh { color: #40a070 } /* Literal.Number.Hex */
-.highlight .mi { color: #40a070 } /* Literal.Number.Integer */
-.highlight .mo { color: #40a070 } /* Literal.Number.Oct */
-.highlight .sb { color: #4070a0 } /* Literal.String.Backtick */
-.highlight .sc { color: #4070a0 } /* Literal.String.Char */
-.highlight .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #4070a0 } /* Literal.String.Double */
-.highlight .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #4070a0 } /* Literal.String.Heredoc */
-.highlight .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
-.highlight .sx { color: #c65d09 } /* Literal.String.Other */
-.highlight .sr { color: #235388 } /* Literal.String.Regex */
-.highlight .s1 { color: #4070a0 } /* Literal.String.Single */
-.highlight .ss { color: #517918 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #bb60d5 } /* Name.Variable.Class */
-.highlight .vg { color: #bb60d5 } /* Name.Variable.Global */
-.highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
-.highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
-    <style>body {
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */</style>
+    <style>.highlight pre, .highlighttable pre {
+  /*note: this is for code block background-color;*/
+    background: #272822;
+    color: #f8f8f2;
+}
+
+body {
   margin: 0;
   padding: 0;
   font: 15px 'Source Sans Pro', sans-serif;
@@ -445,25 +460,36 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>Step-by-Step Manual Guide to GitHub Pages</h1>
+            <h1>How to Share Your Work on the Internet and Why It's Important</h1>
             <time datetime="article.date.isoformat()" pubdate>Wed 25 October 2017</time>
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            <!-- Title: Step-by-Step Manual Guide to GitHub Pages -->
 
-<p><img alt src="../images/gh-pages-python-2.png"></p>
+<!-- PELICAN_BEGIN_SUMMARY -->
+
+<!-- ![alt]({filename}/images/gh-pages-python-2.png) -->
+
 <p>Building a basic website is an important skill for the entrepreneur, employee, and citizen of the internet. My goal is that after reading this post you will:</p>
 <ol>
 <li>Agree that controlling your web domain has benefits, and that basic web design skills can aid in this.</li>
 <li>Understand the basic concepts required to build and operate a website, regardless of technology choices.</li>
 <li>Be able to build your own simple static website by following my detailed instructions which use a set of popular (and free) technologies. </li>
 </ol>
-<p>The sections below are aligned with these goals. Let's get started.</p>
+<p>The sections below are aligned with these three goals. Let's get started.</p>
 <!-- PELICAN_END_SUMMARY -->
 
 <div class="toc"><span class="toctitle">Contents:</span><ul>
-<li><a href="#part-i-why-your-domain-matters">Part I: Why Your Domain Matters</a></li>
+<li><a href="#part-i-why-to-share-on-the-internet-from-your-own-domain">Part I: Why to Share on the Internet (from your own domain)</a><ul>
+<li><a href="#why-to-share-on-the-internet">Why to Share on the Internet</a><ul>
+<li><a href="#benefits-to-you">Benefits to You</a></li>
+<li><a href="#benefits-to-others">Benefits to Others</a></li>
+</ul>
+</li>
+<li><a href="#why-you-should-share-from-your-own-domain">Why You Should Share From Your Own Domain</a></li>
+</ul>
+</li>
 <li><a href="#part-ii-introductory-concepts">Part II: Introductory Concepts</a><ul>
 <li><a href="#domain-names">Domain Names</a></li>
 <li><a href="#web-hosting">Web Hosting</a></li>
@@ -502,7 +528,46 @@ article .meta a.comments_btn:hover {
 </li>
 </ul>
 </div>
-<h1 id="part-i-why-your-domain-matters">Part I: Why Your Domain Matters</h1>
+<h1 id="part-i-why-to-share-on-the-internet-from-your-own-domain">Part I: Why to Share on the Internet (from your own domain)</h1>
+<h2 id="why-to-share-on-the-internet">Why to Share on the Internet</h2>
+<h3 id="benefits-to-you">Benefits to You</h3>
+<ul>
+<li><strong>Learning</strong>: sharing publicly forces you to learn</li>
+<li>"teaching is the best way to learn": on the internet your students are anyone who finds what you share to be useful or interesting (as well as your future self)</li>
+<li>publich sharing/teaching forces you to refine your thinking so as to not embarass yourself. This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the internet.</li>
+<li><strong>Feedback</strong>: </li>
+<li>"you are who you spend your time with" and you need to challenge yourself by people better than yourself: even if physically isolated the internet provides ready access to the people you want in your life</li>
+<li><strong>Body of Work</strong>: practical and satisfaction</li>
+<li>it gives you a public body of work to point to</li>
+<li>yes there are practical benefits, but those are not the focus: job, portfolio, connections, etc.</li>
+<li>more important is the learning in yourself and the satisfaction you receive from distilling some knowledge or wisdom</li>
+<li><strong>Offload and record your thoughts</strong>:</li>
+<li>doesn't need to be public, but doing the above publicly serves this end</li>
+<li>notes to your future self (useful and ...)</li>
+<li>serves as a journal of your intellectual development</li>
+</ul>
+<h3 id="benefits-to-others">Benefits to Others</h3>
+<ul>
+<li><strong>Share info</strong>: </li>
+<li>image of "on your computer" vs. "on the internet"</li>
+<li>David Robinson "why you should blog"</li>
+<li>think of all that you've learned from blogs, etc.</li>
+<li>feeling of just discovering someone and being nourished by their thinking: recently JMW, AJ, MMM</li>
+<li>contributes to the original vision of the internet</li>
+<li><strong>Domocracy in the public square</strong>: need to have a voice in the public square</li>
+<li>builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the internet is a public square</li>
+<li>FT, etc.</li>
+<li>Toqueville...?</li>
+</ul>
+<h2 id="why-you-should-share-from-your-own-domain">Why You Should Share From Your Own Domain</h2>
+<ul>
+<li><strong>Control Your Data</strong>:</li>
+<li><strong>Control Your Message</strong>:</li>
+<li><strong>Better Understand the Internet</strong>:</li>
+<li><strong>Support the good parts of the internet, not the bad</strong>:</li>
+<li>does not support corporations that want to own your attention and sell your data</li>
+<li>does not support a culture of anonymous sharing that leads to misinformation and ad homenin</li>
+</ul>
 <p>The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
 [^vision] <a href="https://www.w3.org/Consortium/mission#vision">World Wide Web Consortium (W3C) Mission</a></p>
 <p>The emergence of major web companies that control content creation—Facebook, etc.—endanger some of this vision by:</p>
@@ -671,10 +736,11 @@ div.output_prompt {
 div.input_area {
     margin: .2em 0.4em;
     max-width: 580px;
+    background-color: #272822;
 }
 
 table.dataframe {
-    font-family: Arial, sans-serif;
+    font-family: Courier, sans-serif;
     font-size: 13px;
     line-height: 20px;
 }
