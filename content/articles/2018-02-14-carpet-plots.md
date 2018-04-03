@@ -1,5 +1,6 @@
 Title: Carpet Plots
 date: 2018-02-14 06:00
+authors: Matthew Kudija
 comments: true
 slug: carpet-plots
 tags: carpet, plotly, pandas, pd.melt(), matplotlib, 3Dplot

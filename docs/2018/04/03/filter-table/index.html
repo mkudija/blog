@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Filter Table | Matthew Kudija</title>
+    <title>Table Filtering in HTML and JavaScript | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -460,35 +460,44 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>Filter Table</h1>
-            <time datetime="article.date.isoformat()" pubdate>Mon 02 April 2018</time>
+            <h1>Table Filtering in HTML and JavaScript</h1>
+            <time datetime="article.date.isoformat()" pubdate>Tue 03 April 2018</time>
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            
 
-<p><img alt src="../images/filter-table-1.gif"></p>
-<p>Recently I wanted to make a table of data available on GitHub Pages for quick reference. Since there were a lot of rows (over 1,000) I really needed a way to filter the table down. You could <code>CTRL + F</code> your way through the table, but this would be annoying and only all you to search on one column at a time.</p>
-<!-- PELICAN_END_SUMMARY -->
+<p><img alt src="../../../../images/filter-table-1.gif"></p>
+<p>GitHub pages makes it easy to share information: just send the URL instead of emailing a file attachment. When I wanted to share the contents of an Excel file this was a natural platform, but with over 1,000 rows of data I needed a way to filter the table on the webpage.</p>
+<p>With my knowledge at the time limited to some basic HTML and very little JavaScript, this is an exercise in hacking together a solution. Keep reading to see how I implemented a solution using the <a href="http://koalyptus.github.io/TableFilter/">TableFilter</a> JavaScript library. </p>
 
-<blockquote>
-<p><strong>Note:</strong> All names in this dataset are fake. Any resemblance to real persons, living or dead, is purely coincidental.</p>
-</blockquote>
-<h1 id="requirements">Requirements</h1>
-<p>The data to share is in a spreadsheet on my computer, and the motivation for this in the first place was to make it accessible to others without needing to email the spreadsheet. The basic requirements, therefore, is the ability to filter on multiple columns as you can in a spreadsheet:</p>
-<p><img alt src="../images/filter-table-2.gif"></p>
-<p>The original source of this 
-Replacing a spreadsheet
-- filter by multiple columns
-- quick</p>
-<!-- <gif of spreadsheet filter> -->
 
-<h1 id="initial-looking">Initial Looking</h1>
-<p>Some initial poking around showed that there some options that </p>
-<h1 id="the-process">The Process</h1>
-<p>After some searching, I came across <a href="http://koalyptus.github.io/TableFilter/">TableFilter</a> library</p>
-<h1 id="example">Example</h1>
-<p>Example code <a href="https://github.com/mkudija/General-Examples/tree/master/Web/HTML_Table_Filter">here</a></p>
+<h1 id="requirements-research">Requirements &amp; Research</h1>
+<p>With our data to share in a local spreadsheet, the basic requirement is the ability to filter a table on a website on multiple columns just as you can in a spreadsheet:</p>
+<p><img alt src="../../../../images/filter-table-2.gif"></p>
+<p>Being comfortable in Python my first instinct is to <a href="https://github.com/mkudija/General-Examples/blob/master/Pandas/filter.md">filter</a> a Pandas DataFrame. But we are hosting this on GitHub pages as a static website and unable to run the filtering server-side. Therefore, we'll use JavaScript to filter the table client-side in the browser.</p>
+<p>I was able to find a <a href="https://www.w3schools.com/howto/howto_js_filter_table.asp">number</a> of <a href="https://stackoverflow.com/questions/9127498/how-to-perform-a-real-time-search-and-filter-on-a-html-table">examples</a> that provide basic filtering capability with JavaScript, but these are limited to filtering on one column. Eventually I came across the <a href="http://koalyptus.github.io/TableFilter/">TableFilter</a> JavaScript library, which has great <a href="http://koalyptus.github.io/TableFilter/docs/">documentation</a> and plenty of <a href="http://koalyptus.github.io/TableFilter/examples.html">examples</a>. </p>
+<h1 id="using-tablefilter">Using TableFilter</h1>
+<p>To get started, I cloned TableFilter into my repository:</p>
+<div class="highlight"><pre><span></span><span class="go">git clone https://github.com/koalyptus/TableFilter.git</span>
+</pre></div>
+
+
+<p>We will edit <code>index.html</code>, the HTML file that holds our table and uses <code>tablefilter.js</code> to perform the filtering.</p>
+<div class="highlight"><pre><span></span><span class="go">├── assets</span>
+<span class="go">├── index.html</span>
+<span class="go">└── tablefilter</span>
+<span class="go">    └── tablefilter.js</span>
+</pre></div>
+
+
+<p>The strategy I used to get a working product is simple and applicable to more general technical challenges:</p>
+<ol>
+<li>Start with a working example that does approximately what you need or more</li>
+<li>Remove or modify features to better align with your use case</li>
+<li>Repeat step 2 until you have what you want</li>
+</ol>
+<p>The key here is maintaining a working example throughout and taking a step back if you break something. Iterating a few times on the <code>index.html</code> I borrowed from one of the basic examples, I was left with this: </p>
 <div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
@@ -565,19 +574,27 @@ Replacing a spreadsheet
 </pre></div>
 
 
-<p><a href="http://matthewkudija.com/General-Examples/Web/HTML_Table_Filter/index.html">Live example</a></p>
+<p><em>You can view the original <a href="https://github.com/mkudija/General-Examples/tree/master/Web/HTML_Table_Filter">code</a> or a <a href="http://matthewkudija.com/General-Examples/Web/HTML_Table_Filter/index.html">live example</a> of the final product.</em></p>
+<p>Customize this by including the HTML defining the table between <code>&lt;!-- TABLE CODE START --&gt;</code> and <code>&lt;!-- TABLE CODE END --&gt;</code> (easy to automate with Python if you need to update the data often). Just below the table definition, we call the <code>tablefilter.js</code> script and define the configuration items. </p>
+<p>This leaves us with an easy to filter table:</p>
+<p><img alt src="../../../../images/filter-table-1.gif"></p>
 <h1 id="closing-thoughts">Closing Thoughts</h1>
+<p>Is this the best way to share data? Certainly not. But it was a quick solution to a problem I had in a situation (work) where speed and ease are valued at a premium. Furthermore this solution utilizes existing GitHub pages infrastructure and a great <a href="https://github.com/koalyptus/TableFilter/blob/master/LICENSE">open source</a> library. </p>
+<p>I hope this example either provides you with a quick solution to a problem I previously had or demonstrates how you may be able to hack together a solution by iterating on a similar working example you can find online.</p>
+<hr>
 <ul>
-<li>is this the best way to share this information? no, but it works</li>
-<li>show this example to demonstrate how you don't need to have an intimate understanding to make something work</li>
+<li><em>All names in this dataset are fake. Any resemblance to real persons, living or dead, is purely coincidental...I made up some data since the data motivating this example is proprietary.</em></li>
+<li><em>You can view the original <a href="https://github.com/mkudija/General-Examples/tree/master/Web/HTML_Table_Filter">code</a> or a <a href="http://matthewkudija.com/General-Examples/Web/HTML_Table_Filter/index.html">live example</a> of the final product.</em></li>
+<li><em>While writing this up I discovered <a href="https://github.com/brython-dev/brython">Brython</a>, an implementation of Python 3 in the browser. This is worth checking out in the future.</em></li>
 </ul>
         </div>
 
         <div class="meta">
             <div>
-                <a href="../tag/html.html" class="tag">html</a>
-                <a href="../tag/javascript.html" class="tag">javascript</a>
-                <a href="../tag/web.html" class="tag">web</a>
+                <a href="../../../../tag/html.html" class="tag">html</a>
+                <a href="../../../../tag/javascript.html" class="tag">javascript</a>
+                <a href="../../../../tag/web.html" class="tag">web</a>
+                <a href="../../../../tag/tablefilter.html" class="tag">TableFilter</a>
             </div>
         </div>
     </article>
@@ -599,6 +616,50 @@ Replacing a spreadsheet
         
         <!--End mc_embed_signup-->
     </div>
+
+
+
+<section>
+  <!-- <h1>Comments</h1> -->
+  <div id="disqus_thread"></div>
+  <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://matthewkudija.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>                        
+
+
+<!--   <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/04/03/filter-table/';
+      var disqus_url = '../../../../2018/04/03/filter-table/';
+      var disqus_title = 'Table Filtering in HTML and JavaScript';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section> -->
+
 
 
 </div>

@@ -1,6 +1,7 @@
 Title: Where I Travelled in 2016 with Basemap
 date: 2016-12-17 06:00
 updated: 2018-03-25 06:00
+authors: Matthew Kudija
 comments: true
 slug: travel-map
 tags: basemap, map, python, matplotlib

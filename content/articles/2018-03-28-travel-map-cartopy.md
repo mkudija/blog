@@ -1,6 +1,7 @@
 Title: Where I Travelled in 2018 with Cartopy
 date: 2018-03-27 06:00
 updated: 2018-03-27 06:00
+authors: Matthew Kudija
 comments: true
 slug: travel-map-cartopy
 tags: cartopy, map, python, matplotlib

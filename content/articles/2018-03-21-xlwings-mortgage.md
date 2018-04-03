@@ -1,6 +1,7 @@
 Title: xlwings: Use Python and Excel to Calculate Your Mortgage
 date: 2018-03-25 06:00
 updated: 2018-03-25 06:00
+authors: Matthew Kudija
 comments: true
 slug: xlwings-mortgage
 tags: python, pandas, xlwings, excel

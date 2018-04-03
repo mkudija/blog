@@ -1,6 +1,7 @@
 Title: Setting Up A Pelican Blog on GitHub Pages
 date: 2018-03-06 06:00
 updated: 2018-03-08 06:00
+authors: Matthew Kudija
 comments: true
 slug: pelican-blog
 tags: pelican
