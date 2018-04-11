@@ -10,7 +10,7 @@ $ git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
 $ git submodule add git://github.com/getpelican/pelican-plugins.git plugins/pelican-plugins
 ```
 
-Theme from here: http://danielfrg.com/
+Theme from here: http://jakevdp.github.io/ and http://danielfrg.com/
 
 Output to `docs/` for gh-pages
 
