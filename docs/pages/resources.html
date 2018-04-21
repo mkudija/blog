@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Where I Travelled in 2018 with Cartopy | Matthew Kudija</title>
+    <title>Resources | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -457,184 +457,50 @@ article .meta a.comments_btn:hover {
 </header>
 
 <div id="wrap">
+
 <div class="container post">
-    <article>
-        <header>
-            <h1>Where I Travelled in 2018 with Cartopy</h1>
-            <time datetime="article.date.isoformat()" pubdate>Tue 27 March 2018</time>
-        </header>
+  <article>
+    <header class="about">
+      <h1>Resources</h1>
+      <div class="social-links">
+       <ul>
+         <li><a href="http://matthewkudija.com" rel="me">website</a></li>
+         <li><a href="http://matthewkudija.com/blog" rel="me">blog</a></li>
+         <li><a class="nodec icon-twitter" href="http://twitter.com/mkudija" rel="me"></a></li>
+         <li><a class="nodec icon-github" href="http://github.com/mkudija" rel="me"></a></li>
+       </ul>
+     </header>
 
-        <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
-
-<p><img alt src="../images/2018_travel.png"></p>
-<p>See former post about <a href="http://matthewkudija.com/blog/2016/12/17/travel-map/">2016 travel</a> plotted with Basemap. This post uses Cartopy.</p>
-<!-- PELICAN_END_SUMMARY -->
-
-<div class="highlight"><pre><span></span><span class="c1"># # basic line plot</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
-<span class="c1"># import cartopy.crs as ccrs</span>
-
-<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
-<span class="c1"># ax.set_global()</span>
-<span class="c1"># ax.coastlines()</span>
-
-<span class="c1"># plt.plot([-0.08, 132], [51.53, 43.17], color=&#39;#2E5FAC&#39;,  transform=ccrs.Geodetic())</span>
-<span class="c1"># # plt.plot([-0.08, 132], [51.53, 43.17], color=&#39;blue&#39;, transform=ccrs.PlateCarree())</span>
-
-<span class="c1"># plt.savefig(&#39;cartopy.png&#39;,bbox_inches=&#39;tight&#39;)</span>
-
-
-
-<span class="c1"># # shade land</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
-<span class="c1"># import cartopy.crs as ccrs</span>
-<span class="c1"># import cartopy</span>
-
-<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
-<span class="c1"># ax.set_global()</span>
-<span class="c1"># ax.coastlines()</span>
-
-<span class="c1"># # color land and water</span>
-<span class="c1"># ax.add_feature(cartopy.feature.LAND, zorder=0, edgecolor=&#39;#7f7f7f&#39;, facecolor=&#39;#B1B2B4&#39;)</span>
-<span class="c1"># ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=&#39;white&#39;)</span>
-
-<span class="c1"># # [lng1, lng2], [lat1, lat2]</span>
-<span class="c1"># plt.plot([-6.26, -82.99], [53.35, 39.96], color=&#39;#2E5FAC&#39;,  transform=ccrs.Geodetic())</span>
-
-<span class="c1"># plt.savefig(&#39;cartopy.png&#39;,bbox_inches=&#39;tight&#39;)</span>
-
-
-<span class="c1"># # zoom in on region</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
-<span class="c1"># import cartopy.crs as ccrs</span>
-<span class="c1"># import cartopy</span>
-
-<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
-<span class="c1"># ax.set_global()</span>
-<span class="c1"># ax.coastlines()</span>
-
-<span class="c1"># # [lon_min, lon_max, lat_min, lat_max]</span>
-<span class="c1"># ax.set_extent([-140, 20, 20, 65])</span>
-
-<span class="c1"># # color land and water</span>
-<span class="c1"># ax.add_feature(cartopy.feature.LAND, zorder=0, edgecolor=&#39;#7f7f7f&#39;, facecolor=&#39;#B1B2B4&#39;)</span>
-<span class="c1"># ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=&#39;white&#39;)</span>
-
-<span class="c1"># # [lon1, lon2], [lat1, lat2]</span>
-<span class="c1"># plt.plot([-6.26, -82.99], [53.35, 39.96], color=&#39;#2E5FAC&#39;,  transform=ccrs.Geodetic())</span>
-
-<span class="c1"># plt.savefig(&#39;cartopy.png&#39;,bbox_inches=&#39;tight&#39;)</span>
-
-<span class="c1"># change projection</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">cartopy</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Mercator</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=-</span><span class="mi">60</span><span class="p">,</span> <span class="n">min_latitude</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-    <span class="n">max_latitude</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">latitude_true_scale</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-
-<span class="c1"># [lon_min, lon_max, lat_min, lat_max]</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="o">-</span><span class="mi">140</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">])</span>
-
-<span class="c1"># color land and water</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#7f7f7f&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#B1B2B4&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-
-<span class="c1"># [lon1, lon2], [lat1, lat2]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">6.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">82.99</span><span class="p">],</span> <span class="p">[</span><span class="mf">53.35</span><span class="p">,</span> <span class="mf">39.96</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#2E5FAC&#39;</span><span class="p">,</span>  <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">())</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cartopy.png&#39;</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-</pre></div>
-
-
-<h2 id="cartopy-resources">CARTOPY RESOURCES</h2>
-<h1 id="httpsuoftcodersgithubiostudygrouplessonspythoncartographylesson">https://uoftcoders.github.io/studyGroup/lessons/python/cartography/lesson/</h1>
-        </div>
-
-        <div class="meta">
-            <div>
-                <a href="../tag/cartopy.html" class="tag">cartopy</a>
-                <a href="../tag/map.html" class="tag">map</a>
-                <a href="../tag/python.html" class="tag">python</a>
-                <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
-            </div>
-        </div>
-    </article>
-
-    <div class="container">
-        <!-- Begin MailChimp Signup Form -->
-
-        <div id="mc_embed_signup">
-            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
-                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </div>
-            </form>
-        </div>
-        
-        <!--End mc_embed_signup-->
+     <div class="article_content">
+      <p>This page is inspired by <a href="https://kieranhealy.org/resources/">Kieran Healy's resources page</a> and <a href="https://www.matthewgraybosch.com/colophon/">Matthew Graybosch's colophon page</a>.</p>
+<h2 id="personal-website">Personal Website</h2>
+<p>The theme is borrowed from <a href="https://html5up.net/editorial">Editorial by HTML5UP</a>.</p>
+<h2 id="personal-blog">Personal Blog</h2>
+<p>My blog is powered by <a href="">Pelican</a> and <a href="">GitHub Pages</a>. The theme is derived from that used by <a href="http://jakevdp.github.io/">Jake Vanderplas</a>, which is in turn derived from that used by <a href="http://danielfrg.com/">Daniel Rodriguez</a>.</p>
+<p>Add license info from here: https://www.matthewgraybosch.com/colophon/</p>
     </div>
 
+  </article>
 
+  <div class="container">
+    <!-- Begin MailChimp Signup Form -->
+
+    <div id="mc_embed_signup">
+      <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+      </form>
+    </div>
+    
+    <!--End mc_embed_signup-->
+  </div>
+  
 </div>
-
-<style type="text/css">
-{
-    max-width: 700px;
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    padding: 0;
-}
-
-div.text_cell_render {
-    padding: 0;
-}
-
-div.prompt {
-    font-size: 13px;
-}
-
-div.input_prompt {
-    padding: .7em 0.2em;
-}
-
-div.output_prompt {
-    padding: .4em .2em;
-}
-
-div.input_area {
-    margin: .2em 0.4em;
-    max-width: 580px;
-    background-color: #272822;
-}
-
-table.dataframe {
-    font-family: Courier, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-pre code {
-    background-color: inherit;
-}</style>
-
 </div>
 
 <section id="footer">

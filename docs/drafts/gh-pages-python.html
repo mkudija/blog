@@ -491,8 +491,8 @@ article .meta a.comments_btn:hover {
 </ul>
 </li>
 <li><a href="#part-ii-introductory-concepts">Part II: Introductory Concepts</a><ul>
-<li><a href="#domain-names">Domain Names</a></li>
 <li><a href="#web-hosting">Web Hosting</a></li>
+<li><a href="#domain-names">Domain Names</a></li>
 <li><a href="#static-website">Static Website</a></li>
 <li><a href="#html">HTML</a></li>
 <li><a href="#css">CSS</a></li>
@@ -535,6 +535,8 @@ article .meta a.comments_btn:hover {
 <li><strong>Learning</strong>: sharing publicly forces you to learn</li>
 <li>"teaching is the best way to learn": on the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self)</li>
 <li>publich sharing/teaching forces you to refine your thinking so as to not embarass yourself. This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the Internet.</li>
+<li>"The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem." -<a href="https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html">CS Ph.D. lessons to my younger self</a>, 2018-04-10</li>
+<li>"The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic." -<a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">Blogging Like a Hacker</a>, 2018-04-10</li>
 <li><strong>Feedback</strong>: </li>
 <li>"you are who you spend your time with" and you need to challenge yourself by people better than yourself: even if physically isolated the Internet provides ready access to the people you want in your life</li>
 <li><strong>Body of Work</strong>: practical and satisfaction</li>
@@ -548,6 +550,8 @@ article .meta a.comments_btn:hover {
 <li><strong>Business</strong>:</li>
 <li>if you are an entrepreneur, you need to reach customers</li>
 <li>helps you network, etc.</li>
+<li><strong>Fame</strong>:</li>
+<li>notice that fame isn't on this list: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."-<a href="https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/">Ryan Holiday</a></li>
 </ul>
 <h3 id="benefits-to-others">Benefits to Others</h3>
 <ul>
@@ -557,6 +561,7 @@ article .meta a.comments_btn:hover {
 <li>think of all that you've learned from blogs, etc.</li>
 <li>feeling of just discovering someone and being nourished by their thinking: recently JMW, AJ, MMM</li>
 <li>contributes to the original vision of the Internet</li>
+<li>"The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors; and failing them, to himself: for when he helps others, he advances the general interests of mankind." - Seneca, <a href="http://www.bartleby.com/library/prose/4636.html"><em>On Leisure</em></a></li>
 <li><strong>Domocracy in the public square</strong>: need to have a voice in the public square</li>
 <li>builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square</li>
 <li>FT, etc.</li>
@@ -605,13 +610,43 @@ article .meta a.comments_btn:hover {
 <p>Cite this: http://hackeducation.com/2017/04/04/domains<sup id="fnref-domains"><a class="footnote-ref" href="#fn-domains">2</a></sup></p>
 <h1 id="part-ii-introductory-concepts">Part II: Introductory Concepts</h1>
 <p>Since one of the benefits of sharing your work through your domain is building a basic understanding of the technologies that power the Internet, let's review those technologies.</p>
-<h2 id="domain-names">Domain Names</h2>
 <h2 id="web-hosting">Web Hosting</h2>
+<p>A website is just a collection of files, and those files need to stored somewhere. That somewhere is a computer connected to the internet, a server (TK). </p>
+<h2 id="domain-names">Domain Names</h2>
+<p>The domain name is the address of your website, familiar as: <code>https://domain.com</code>. You can accept the default domain provided by the web hosting company you use (<code>.github.io</code> or <code>wordpress.com</code> for example), or you can purchase a custom domain (<code>your_name.com</code>). </p>
 <h2 id="static-website">Static Website</h2>
 <h2 id="html">HTML</h2>
+<p>Again, a website is just a collection of files. The primary files are written in HTML, or hyper-text markup language. The basic building block of your website is the <code>index.html</code> file, which gives the text to render on your webpage along with simple formatting tags. A line of HTML looks like this to define a heading and paragraph:</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Heading<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Text of your paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+
+
 <h2 id="css">CSS</h2>
+<p>While HTML defines the content of your website, CSS (Cascading Style Sheet) defines how that content is formatted. CSS, usually given in <code>main.css</code>, defines the layout, colors, typeface, and other formatting elements of your website. Example CSS to determine the fontsize of a paragraph element looks like this:</p>
+<div class="highlight"><pre><span></span><span class="nt">p</span> <span class="p">{</span>
+    <span class="n">fontsize</span><span class="p">:</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="n">fontcolor</span><span class="p">:</span> <span class="n">Red</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>We reference a stylesheet in HTML like this:</p>
+<div class="highlight"><pre><span></span>assets/main.css...
+</pre></div>
+
+
 <h2 id="javascript">JavaScript</h2>
+<p>HTML and CSS are primarily static. Dynamic elements of a website are commonly written in JavaScript. JavaScript looks like this</p>
+<p>We reference a JavaScript script in HTML like this:</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">javascript</span><span class="p">.</span><span class="nx">js</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
 <h2 id="python">Python</h2>
+<!-- Python is not required  -->
+
 <h1 id="part-iii-tutorial">Part III: Tutorial</h1>
 <p>Describe the example we will build....(recipes)</p>
 <h2 id="choosing-tools-services">Choosing Tools &amp; Services</h2>

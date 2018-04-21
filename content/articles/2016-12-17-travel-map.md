@@ -1,9 +1,9 @@
-Title: Where I Travelled in 2016 with Basemap
+Title: Travel Map With Basemap
 date: 2016-12-17 06:00
-updated: 2018-03-25 06:00
+updated: 2018-04-21 06:00
 authors: Matthew Kudija
 comments: true
-slug: travel-map
+slug: travel-map-basemap
 tags: basemap, map, python, matplotlib
 
 <!-- PELICAN_BEGIN_SUMMARY -->
@@ -18,7 +18,7 @@ For me 2016 was quite a year for travel: a cross-country road trip, visiting fam
 ## Data Preparation
 Since we will be plotting great circle lines of travel the data required is a simple list of origin and destination points with latitude and longitude coordinates. 
 
-{% notebook downloads/notebooks/BasemapTravel/Basemap.ipynb cells[:1] %}
+{% notebook downloads/notebooks/travel-map-basemap/Basemap.ipynb cells[:1] %}
 
 ## Installing Basemap
 Installing Basemap was more of an adventure than I thought it would be. Take a look at the [download](https://matplotlib.org/basemap/users/download.html) page on the Basemap documentation, or [my notes](https://github.com/mkudija/Map-Tools/blob/master/README.md) on how I got it installed for help.
