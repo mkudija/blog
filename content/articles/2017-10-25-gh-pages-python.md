@@ -32,6 +32,8 @@ The sections below are aligned with these three goals. Let's get started.
 - **Learning**: sharing publicly forces you to learn
   - "teaching is the best way to learn": on the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self)
   - publich sharing/teaching forces you to refine your thinking so as to not embarass yourself. This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the Internet.
+  - "The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem." -[CS Ph.D. lessons to my younger self](https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html), 2018-04-10
+  - "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic." -[Blogging Like a Hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html), 2018-04-10
 - **Feedback**: 
   - "you are who you spend your time with" and you need to challenge yourself by people better than yourself: even if physically isolated the Internet provides ready access to the people you want in your life
 - **Body of Work**: practical and satisfaction
@@ -45,6 +47,8 @@ The sections below are aligned with these three goals. Let's get started.
 - **Business**:
   - if you are an entrepreneur, you need to reach customers
   - helps you network, etc.
+- **Fame**:
+  - notice that fame isn't on this list: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."-[Ryan Holiday](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/)
 
 ### Benefits to Others
 - **Share info**: 
@@ -53,6 +57,7 @@ The sections below are aligned with these three goals. Let's get started.
   - think of all that you've learned from blogs, etc.
   - feeling of just discovering someone and being nourished by their thinking: recently JMW, AJ, MMM
   - contributes to the original vision of the Internet
+  - "The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors; and failing them, to himself: for when he helps others, he advances the general interests of mankind." - Seneca, [*On Leisure*](http://www.bartleby.com/library/prose/4636.html)
 - **Domocracy in the public square**: need to have a voice in the public square
   - builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square
   - FT, etc.
@@ -119,13 +124,56 @@ Cite this: http://hackeducation.com/2017/04/04/domains[^domains]
 
 # Part II: Introductory Concepts
 Since one of the benefits of sharing your work through your domain is building a basic understanding of the technologies that power the Internet, let's review those technologies.
-## Domain Names
+
 ## Web Hosting
+A website is just a collection of files, and those files need to stored somewhere. That somewhere is a computer connected to the internet, a server (TK). 
+
+## Domain Names
+The domain name is the address of your website, familiar as: `https://domain.com`. You can accept the default domain provided by the web hosting company you use (`.github.io` or `wordpress.com` for example), or you can purchase a custom domain (`your_name.com`). 
+
 ## Static Website
+
+
 ## HTML
+Again, a website is just a collection of files. The primary files are written in HTML, or hyper-text markup language. The basic building block of your website is the `index.html` file, which gives the text to render on your webpage along with simple formatting tags. A line of HTML looks like this to define a heading and paragraph:
+
+```html
+<h1>Heading</h1>
+
+<p>Text of your paragraph.</p>
+```
+
+
 ## CSS
+While HTML defines the content of your website, CSS (Cascading Style Sheet) defines how that content is formatted. CSS, usually given in `main.css`, defines the layout, colors, typeface, and other formatting elements of your website. Example CSS to determine the fontsize of a paragraph element looks like this:
+
+```css
+p {
+	fontsize: 14;
+	fontcolor: Red;
+}
+```
+
+We reference a stylesheet in HTML like this:
+```html
+assets/main.css...
+```
+
+
+
 ## JavaScript
+HTML and CSS are primarily static. Dynamic elements of a website are commonly written in JavaScript. JavaScript looks like this
+
+
+We reference a JavaScript script in HTML like this:
+```html
+<script>javascript.js</script>
+```
+
+
 ## Python
+<!-- Python is not required  -->
+
 
 # Part III: Tutorial
 Describe the example we will build....(recipes)
