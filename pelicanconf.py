@@ -62,7 +62,7 @@ NOTEBOOK_DIR = 'downloads/notebooks'
 # THEME SETTINGS
 THEME = './theme/'
 
-ABOUT_PAGE = 'http://matthewkudija.com/blog/pages/about.html'
+ABOUT_PAGE = 'http://matthewkudija.com/about.html'
 TWITTER_USERNAME = 'mkudija'
 GITHUB_USERNAME = 'mkudija'
 AUTHOR_WEBSITE = 'http://matthewkudija.com'
