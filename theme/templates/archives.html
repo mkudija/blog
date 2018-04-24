@@ -16,7 +16,7 @@
         <ul class="double-list">
         {% for article in articles %}
             <li>
-                <a href='blog/{{ article.url }}'>
+                <a href='{{ article.url }}'>
                     <h2>{{ article.title }}</h2>
                     <span>{{ article.date.strftime('%Y-%m-%d') }}</span>
                 </a>
