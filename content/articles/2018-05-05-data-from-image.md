@@ -129,6 +129,8 @@ A few days after doing the above I came across the [WebPlotDigitizer](https://au
 
 In a talk at PLOTCON 2017 Ankit demonstrated the tool and its many features.
 
-<iframe width="675" height="400" src="https://www.youtube.com/embed/QaS49WQsXd4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="video-container">
+        <iframe width="750" height="500" src="https://www.youtube.com/embed/QaS49WQsXd4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
 
 I plan to use WebPlotDigitizer in the future when I come across a similar problem, but it was fun figuring out the basics in Python.
