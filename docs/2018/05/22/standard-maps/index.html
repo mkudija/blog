@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Matthew Kudija - Authors | Matthew Kudija</title>
+    <title>Standard Maps with Cartopy | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -472,10 +472,212 @@ article .meta a.comments_btn:hover {
 </header>
 
 <div id="wrap">
-    <h1>Authors on Matthew Kudija</h1>
+<div class="container post">
+    <article>
+        <header>
+            <h1>Standard Maps with Cartopy</h1>
+            <time datetime="article.date.isoformat()" pubdate>Tue 22 May 2018</time>
+        </header>
 
-    <ul>        <li><a href="./author/matthew-kudija.html">Matthew Kudija</a> (9)</li>
-    </ul>
+        <div class="article_content">
+            
+
+<p><img alt src="../../../../images/standard-maps/maps/world_Robinson_blue.png"></p>
+<p>Here are some examples of base world maps (excluding Antarctica which is cropped out) using Cartopy.</p>
+
+
+<h2 id="robinson-projection">Robinson Projection</h2>
+<p>These examples use the <a href="https://scitools.org.uk/cartopy/docs/v0.16/crs/projections.html#robinson">Robinson projection</a>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="c1"># configure chart</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;mag&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Mollweide</span><span class="p">())</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mo">001</span><span class="p">,</span>
+               <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#B1B2B4&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">outline_patch</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="c1"># grey</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;maps/world_Mollweide_grey.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saved: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+    <span class="c1"># blue</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#3377b3&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mo">001</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;maps/world_Mollweide_blue.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saved: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+    <span class="c1"># blue countries</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;maps/world_Mollweide_blue_countries.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saved: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+    <span class="c1"># grey countries</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#B1B2B4&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mo">001</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;maps/world_Mollweide_grey_countries.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saved: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt src="../../../../images/standard-maps/maps/world_Robinson_grey.png"></p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Robinson_grey_countries.png"></p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Robinson_blue.png"></p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Robinson_blue_countries.png"></p>
+<h2 id="mollweide-projection">Mollweide Projection</h2>
+<p>These examples use the <a href="https://scitools.org.uk/cartopy/docs/v0.16/crs/projections.html#mollweide">Mollweide projection</a>. The code is the same for this but uses <code>ax = plt.axes(projection=ccrs.Mollweide())</code> for the Mollweide projection.</p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Mollweide_grey.png"></p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Mollweide_grey_countries.png"></p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Mollweide_blue.png"></p>
+<p><img alt src="../../../../images/standard-maps/maps/world_Mollweide_blue_countries.png"></p>
+<p><em>Library versions:</em></p>
+<div class="highlight"><pre><span></span>cartopy     0.16.0
+matplotlib  2.2.2
+</pre></div>
+        </div>
+
+        <div class="meta">
+            <div>
+                <a href="../../../../tag/python.html" class="tag">python</a>
+                <a href="../../../../tag/cartopy.html" class="tag">cartopy</a>
+                <a href="../../../../tag/map.html" class="tag">map</a>
+                <a href="../../../../tag/matplotlib.html" class="tag">matplotlib</a>
+            </div>
+        </div>
+    </article>
+
+    <div class="container">
+        <!-- Begin MailChimp Signup Form -->
+
+        <div id="mc_embed_signup">
+            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+        
+        <!--End mc_embed_signup-->
+    </div>
+
+
+
+<section>
+  <!-- <h1>Comments</h1> -->
+  <div id="disqus_thread"></div>
+  <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://matthewkudija.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>                        
+
+
+<!--   <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/05/22/standard-maps/';
+      var disqus_url = '../../../../2018/05/22/standard-maps/';
+      var disqus_title = 'Standard Maps with Cartopy';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section> -->
+
+
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+    background-color: #272822;
+}
+
+table.dataframe {
+    font-family: Courier, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
 </div>
 
 <section id="footer">
