@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import cartopy
 import cartopy.crs as ccrs
+import cartopy.feature as cfeature
 
 
 def main():
@@ -14,6 +15,7 @@ def main():
     ax.add_feature(cartopy.feature.LAND, zorder=0, linewidth=.001,
                facecolor='#B1B2B4')
     ax.add_feature(cartopy.feature.OCEAN, facecolor='white')
+    ax.add_feature(cfeature.LAKES, facecolor='white', linewidth=.001)
     ax.set_global()
     ax.outline_patch.set_edgecolor('white')
 
