@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Matthew Kudija">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Standard Maps with Cartopy | Matthew Kudija</title>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" title="Matthew Kudija blog atom feed" href="/feeds/all.atom.xml" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/theme/css/icons.css"/>
+    <style>.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */</style>
+    <style>.highlight pre, .highlighttable pre {
+  /*note: this is for code block background-color;*/
+    background: #272822;
+    color: #f8f8f2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 15px 'Source Sans Pro', sans-serif;
+  line-height: 1.6em;
+  color: #222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: #007EE5;
+  text-decoration: none;
+}
+a:hover {
+  color: #007EE5;
+  text-decoration: none;
+}
+header.main-header {
+  /*background: none repeat scroll 0% 0% #205F29;*/
+  background: none repeat scroll 0% 0% #3377B3;
+  margin-bottom: 0px;
+}
+header.main-header a {
+  color: #fff;
+}
+header.main-header .container {
+  max-width: 1000px;
+}
+header.main-header .container nav a:hover {
+  background-color: #5C881C;
+}
+article {
+  margin: 0;
+}
+article header.about {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+article header {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+article header h1 {
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: #000;
+}
+article header time {
+  color: #9E9E9E;
+  font-size: 0.85em;
+  float: right;
+}
+article header time.left {
+  color: #9E9E9E;
+  font-size: 0.85em;
+  float: left;
+}
+article div.social-links ul {
+  padding: 0px;
+}
+article div.social-links li {
+  display: inline;
+  font-size: 20px;
+}
+article div.social-links li a {
+  color: #000;
+  padding: 10px;
+}
+article div.social-links li a:hover {
+  color: #666;
+  text-decoration: none;
+}
+article p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6em;
+}
+article p.note {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 0.533em 0.733em;
+}
+article p.update {
+  background-color: #FEEFB3;
+  border: 1px solid #e6e68a;
+  padding: 0.533em 0.733em;
+}
+article p.alert {
+  background-color: #ffe2e2;
+  border: 1px solid #ffb2b2;
+  padding: 0.533em 0.733em;
+}
+article ul,
+article ol {
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+article li {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+article a:hover {
+  text-decoration: underline;
+}
+article blockquote {
+  border-left: 2px solid #c7c7cc;
+  color: #666;
+  margin: 30px 0;
+  padding: 0 0 0 25px;
+}
+article img {
+  max-width: 100%;
+}
+article code {
+  color: #333;
+  background-color: #EEE;
+  border-radius: 0;
+  font-size: 13px;
+}
+article .meta {
+  font-size: 11px;
+}
+article .meta a:hover {
+  text-decoration: none;
+}
+article .meta div {
+  margin-bottom: 20px;
+  display: block;
+}
+article .meta a.tag {
+  margin: 0 10px 10px 0;
+  padding: 1px 12px;
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.05);
+}
+article .meta a.tag:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+article .meta a.read_more,
+article .meta a.comments_btn {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 20px;
+  /*color: #205F29;*/
+  color: #3377B3;
+  background: #FFF;
+  /*border: 1px solid #205F29;*/
+  border: 1px solid #3377B3;
+}
+article .meta a.read_more:hover,
+article .meta a.comments_btn:hover {
+  color: #FFF;
+  /*background: #5C881C;*/
+  background: #3377B3;
+}
+.index {
+  max-width: 700px;
+}
+.index article header h2 {
+  font-size: 36px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.index article header h2 a {
+  color: #000;
+}
+.index article header h2 a:hover {
+  color: #007EE5;
+  text-decoration: none;
+}
+.index .separator {
+  padding: 40px 0 0 0;
+  margin: 0 0 40px 0;
+  height: 10px;
+  border-bottom: solid 1px #CCC;
+}
+.index .pagination {
+  display: block;
+  margin-bottom: 100px;
+}
+.index .pagination .left {
+  text-align: right;
+}
+.index .pagination .right {
+  text-align: left;
+}
+.index .pagination a {
+  display: inline-block;
+  border: 2px solid #5C881C;
+  margin: 0 5px;
+  padding: 8px 20px;
+  font-weight: bold;
+  color: #5C881C;
+}
+.index .pagination a:hover {
+  color: #FFF;
+  background: #5C881C;
+}
+.post {
+  max-width: 700px;
+}
+.post h2:before {
+  content: "# ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h3:before {
+  content: "## ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h4:before {
+  content: "### ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post article .meta {
+  margin: 50px 0 100px;
+}
+.list {
+  max-width: 700px;
+}
+.list ul.double-list {
+  margin: 0 auto 60px;
+  padding: 0;
+  list-style-type: none;
+}
+.list ul.double-list li {
+  padding: 5px 0;
+}
+.list ul.double-list li h2 {
+  font-size: 1em;
+  display: inline;
+  font-weight: normal;
+}
+.list ul.double-list li span {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  float: right;
+  padding-top: 3px;
+  font-size: 12px;
+  color: #999;
+}
+.full-width-content {
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}</style>
+
+    <!-- Begin Mailchimp Style -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px 'Source Sans Pro',Helvetica,Arial,sans-serif; }
+
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <!-- End Mailchimp Style -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+    <script type="text/javascript">
+        init_mathjax = function() {
+            if (window.MathJax) {
+                // MathJax loaded
+                MathJax.Hub.Config({
+                    tex2jax: {
+                        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                    },
+                    displayAlign: 'left', // Change this to 'center' to center equations.
+                    "HTML-CSS": {
+                        styles: {'.MathJax_Display': {"margin": 0}}
+                    }
+                });
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            }
+        }
+        init_mathjax();
+    </script>
+
+</head>
+
+<body>
+    <header class="navbar navbar-inverse bs-docs-nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="/" title="Home" class="title">Matthew Kudija</a>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://matthewkudija.com/blog" title="Blog">Blog</a></li>
+                <li><a href="http://matthewkudija.com/about.html" title="About">About</a></li>
+                <li><a href="http://github.com/mkudija" target="_blank" title="mkudija's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/mkudija" target="_blank" title="mkudija Twitter" rel="me">Twitter</a></li>
+                <li><a href="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" title="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" rel="me">Email</a></li>
+                <li><a href="http://matthewkudija.com/blog/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="wrap">
+<div class="container post">
+    <article>
+        <header>
+            <h1>Standard Maps with Cartopy</h1>
+            <time datetime="article.date.isoformat()" pubdate>Fri 25 May 2018</time>
+        </header>
+
+        <div class="article_content">
+            
+
+<!-- ![alt]({filename}/images/country-maps/maps/EU-Members.png) -->
+
+<p style="text-align:center;"><img src="../../../../images/country-maps/maps/EU-Members.png" width="75%" height="75%"></p>
+
+<p>Here is how to highlight select countries with Cartopy. </p>
+
+
+<p>Define which countries to highlight in <a href="../images/country-maps/countries.csv"><strong><code>countries.csv</code></strong></a>. The script below </p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.io.shapereader</span> <span class="kn">as</span> <span class="nn">shpreader</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">plot_countries</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">projection</span><span class="p">,</span><span class="n">colors</span><span class="p">,</span><span class="n">annotation</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">edgecolor</span><span class="p">):</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">outline_patch</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">edgecolor</span><span class="p">)</span>
+
+    <span class="n">shpfilename</span> <span class="o">=</span> <span class="n">shpreader</span><span class="o">.</span><span class="n">natural_earth</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;110m&#39;</span><span class="p">,</span>
+                                          <span class="n">category</span><span class="o">=</span><span class="s1">&#39;cultural&#39;</span><span class="p">,</span>
+                                          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;admin_0_countries&#39;</span><span class="p">)</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">shpreader</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">shpfilename</span><span class="p">)</span>
+    <span class="n">countries</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">records</span><span class="p">()</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">title</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+        <span class="n">attribute</span> <span class="o">=</span> <span class="s1">&#39;ADM0_A3&#39;</span>
+        <span class="n">ADM0_A3</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;ADM0_A3&#39;</span><span class="p">]</span>
+
+        <span class="c1"># get classification</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">classification</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">country</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">]][</span><span class="n">title</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">country</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+                          <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="n">values</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">classification</span><span class="p">)]),</span>
+                          <span class="n">label</span><span class="o">=</span><span class="n">country</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">],</span>
+                          <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
+                          <span class="n">linewidth</span><span class="o">=.</span><span class="mi">25</span><span class="p">)</span>
+
+    <span class="c1"># legend</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="kn">as</span> <span class="nn">mpatches</span>
+    <span class="n">handles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+        <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span>
+                   <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.025</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">),</span> 
+                   <span class="n">fancybox</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># annotate</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">annotation</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>  <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;figure fraction&#39;</span><span class="p">,</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0275</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.025</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;maps/&#39;</span><span class="o">+</span><span class="n">title</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saved: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;countries.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ISO_CODE&#39;</span><span class="p">)</span>
+
+    <span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Four Regions With The Same Population&#39;</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#f4b042&#39;</span><span class="p">,</span> <span class="s1">&#39;#92D050&#39;</span><span class="p">,</span><span class="s1">&#39;#71a2d6&#39;</span><span class="p">,</span><span class="s1">&#39;#b282ac&#39;</span><span class="p">,</span><span class="s1">&#39;#DDDDDD&#39;</span><span class="p">]</span>
+    <span class="c1">#colors = [&#39;#orange&#39; ,&#39;#green&#39;,&#39;#blue &#39;,&#39;#purple&#39;,&#39;#grey  &#39;]</span>
+    <span class="n">annotation</span> <span class="o">=</span> <span class="s1">&#39;Four Regions With The Same Population: https://mapchart.net/showcase.html&#39;</span>
+    <span class="n">plot_countries</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">projection</span><span class="p">,</span><span class="n">colors</span><span class="p">,</span><span class="n">annotation</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Orthographic</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#71a2d6&#39;</span><span class="p">,</span><span class="s1">&#39;#DDDDDD&#39;</span><span class="p">]</span>
+    <span class="n">annotation</span> <span class="o">=</span> <span class="s1">&#39;NATO Member Countries: https://en.wikipedia.org/wiki/Member_states_of_NATO&#39;</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;NATO Members&#39;</span>
+    <span class="n">plot_countries</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">projection</span><span class="p">,</span><span class="n">colors</span><span class="p">,</span><span class="n">annotation</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+
+    <span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Orthographic</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#000099&#39;</span><span class="p">,</span><span class="s1">&#39;#DDDDDD&#39;</span><span class="p">]</span>
+    <span class="n">annotation</span> <span class="o">=</span> <span class="s1">&#39;EU Member Countries: https://en.wikipedia.org/wiki/Member_state_of_the_European_Union&#39;</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;EU Members&#39;</span>
+    <span class="n">plot_countries</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">projection</span><span class="p">,</span><span class="n">colors</span><span class="p">,</span><span class="n">annotation</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Two interesting examples are to show EU Members (above) or NATO members (below). 
+<img src="../../../../images/country-maps/maps/NATO-Members.png"></p>
+<p>Another interesting example is the world split into four regions with the same population (idea from <a href="https://mapchart.net/showcase.html">mapchart.net</a>).
+<img src="../../../../images/country-maps/maps/Four-Regions-With-The-Same-Population.png"></p>
+<p>Note: I don't know how to highlight France without highlighting French Guiana (in South America). If you do, let me know.</p>
+        </div>
+
+        <div class="meta">
+            <div>
+                <a href="../../../../tag/python.html" class="tag">python</a>
+                <a href="../../../../tag/cartopy.html" class="tag">cartopy</a>
+                <a href="../../../../tag/map.html" class="tag">map</a>
+                <a href="../../../../tag/matplotlib.html" class="tag">matplotlib</a>
+            </div>
+        </div>
+    </article>
+
+    <div class="container">
+        <!-- Begin MailChimp Signup Form -->
+
+        <div id="mc_embed_signup">
+            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+        
+        <!--End mc_embed_signup-->
+    </div>
+
+
+
+<section>
+  <!-- <h1>Comments</h1> -->
+  <div id="disqus_thread"></div>
+  <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://matthewkudija.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>                        
+
+
+<!--   <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/05/25/country-maps/';
+      var disqus_url = '../../../../2018/05/25/country-maps/';
+      var disqus_title = 'Standard Maps with Cartopy';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section> -->
+
+
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+    background-color: #272822;
+}
+
+table.dataframe {
+    font-family: Courier, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
+</div>
+
+<section id="footer">
+    <div class="container">
+        <p>
+            &copy; 2005<script>new Date().getFullYear()>2005&&document.write("-"+new Date().getFullYear());</script> <a href=http://matthewkudija.com target="_blank">Matthew Kudija</a>
+        </p>
+        <p>
+            <a href="https://github.com/mkudija/blog" target="_blank">Source</a> | Built with <a href= "http://docs.getpelican.com/">Pelican</a> and <a href= "https://pages.github.com/">GitHub Pages</a>.
+        </p>   
+    </div>
+</section>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-72240498-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72240498-1');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>
