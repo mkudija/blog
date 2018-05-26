@@ -1,4 +1,4 @@
-Title: Standard Maps with Cartopy
+Title: Highlighting Countries With Cartopy
 date: 2018-05-25 06:00
 updated: 2018-05-25 06:00
 authors: Matthew Kudija
@@ -15,7 +15,7 @@ Here is how to highlight select countries with Cartopy.
 
 <!-- PELICAN_END_SUMMARY -->
 
-Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/images/country-maps/countries.csv). The script below 
+Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/images/country-maps/countries.csv), and run this script:
 
 
 ```python
