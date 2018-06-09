@@ -67,6 +67,7 @@ TWITTER_USERNAME = 'mkudija'
 GITHUB_USERNAME = 'mkudija'
 AUTHOR_WEBSITE = 'http://matthewkudija.com'
 AUTHOR_BLOG = 'http://matthewkudija.com/blog'
+PHOTOS_PAGE = 'http://matthewkudija.com/photos'
 #AUTHOR_CV = "http://matthewkudija.com/resume.pdf"
 AUTHOR_EMAIL = "mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A"
 SHOW_ARCHIVES = True
