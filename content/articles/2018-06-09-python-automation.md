@@ -15,6 +15,7 @@ I previously wrote about [automation using Makefiles](http://matthewkudija.com/b
 # Why Python?
 
 Make is a quick and easy to use tool for automation, and may be a good option. But Python offers certain advantages:
+
 - Make isn't necessarily installed on Windows machines, but if the scripts you are automating are in Python it may be easier to automate with Python.
 - Likewise, if you are already working in Python there is not new Make syntax to learn. 
 
