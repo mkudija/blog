@@ -2,10 +2,8 @@ Title: Automation Using Makefiles
 date: 2018-03-15 06:00
 authors: Matthew Kudija
 comments: true
-slug: makefiles
-tags: python, makefile, make
-
-<!-- ![alt]({filename}/images/carpet.jpeg) -->
+slug: makefile-automation
+tags: python, makefile, make, automation
 
 <!-- PELICAN_BEGIN_SUMMARY -->
 
@@ -94,7 +92,7 @@ Back to our example, the previous process required us to:
 - `cd` into each repo
 - run `python build.py` update files
 - commit the changes
-- repeat or each
+- repeat for each
 
 Using this Makefile, the process now is simply:
 

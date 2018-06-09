@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Automation Using Makefiles | Matthew Kudija</title>
+    <title>Archives | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -472,225 +472,26 @@ article .meta a.comments_btn:hover {
 </header>
 
 <div id="wrap">
-<div class="container post">
+<div class="container list">
     <article>
-        <header>
-            <h1>Automation Using Makefiles</h1>
-            <time datetime="article.date.isoformat()" pubdate>Thu 15 March 2018</time>
-        </header>
+        <h1 style="margin-bottom: 30px;">Tag: automation</h1>
 
-        <div class="article_content">
-            <!-- ![alt]({filename}/images/carpet.jpeg) -->
-
-
-
-<p>Makefiles provide an easy way to group multiple terminal commands into a single command using <code>make &lt;command&gt;</code>. This gives a brief overview with just enough information to write your first Makefile.</p>
-
-
-<h1 id="why-make">Why Make?</h1>
-<p>Apparently Make was originally developed to build executable programs, but I have seen an <a href="https://github.com/mwilliamson/python-makefile/blob/master/makefile">number</a> of <a href="https://github.com/getsentry/raven-python/blob/master/Makefile">examples</a> of people using Make to manage Python workflows. In this example, let's say we have a Python script in several repositories that we use to update files in each respective repository. From the command line, we can easily <code>cd</code> into each and <code>python build.py</code> to run the update script and then commit the changes. Using a Makefile, however, we can automate all of that into a single command: <code>make publish</code>. Let's take a look at how to do this.</p>
-<h1 id="writing-a-makefile">Writing a Makefile</h1>
-<p>To start, our entire Makefile is below (and available for download <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/Makefile">here</a>):. </p>
-<div class="highlight"><pre><span></span>PY?=python3
-
-
-help:
-    @echo &#39;                                                                          &#39;
-    @echo &#39;Makefile to update websites on MAG GitHub pages                           &#39;
-    @echo &#39;                                                                          &#39;
-    @echo &#39;Usage:                                                                    &#39;
-    @echo &#39;   make data                MILE_file_copy and update_utilization         &#39;
-    @echo &#39;   make html                regenerate the websites                       &#39;
-    @echo &#39;   make publish             regenerate websites, then publish to GitHub   &#39;
-    @echo &#39;                                                                          &#39;
-
-data:
-    python ../MILE_Data/MILE_file_copy.py
-    cd ../Aircraft-Data/Utilization/Scripts; python update_utilization.py
-
-html: data
-    cd ../CommercialData/scripts; python build.py
-    cd ../MarketView/scripts; python build.py
-    cd ../FleetView/scripts; python build.py
-
-publish: html
-    @echo &#39; &#39;
-    cd ../CommercialData; git pull origin master
-    cd ../CommercialData; git add -A
-    cd ../CommercialData; git commit -m &quot;auto-regenerate from make&quot;
-    cd ../CommercialData; git push origin master
-
-    @echo &#39; &#39;
-    cd ../MarketView; git pull origin master
-    cd ../MarketView; git add -A
-    cd ../MarketView; git commit -m &quot;auto-regenerate from make&quot;
-    cd ../MarketView; git push origin master
-
-    @echo &#39; &#39;
-    cd ../FleetView; git pull origin master
-    cd ../FleetView; git add -A
-    cd ../FleetView; git commit -m &quot;auto-regenerate from make&quot;
-    cd ../FleetView; git push origin master
-</pre></div>
-
-
-<p>Let's break this down to understand how to construct a Makefile. A Makefile has this basic structure (see the complete <a href="https://www.gnu.org/software/make/manual/make.html">Make documentation, particularly section 2.1</a>):</p>
-<div class="highlight"><pre><span></span>target … : prerequisites …
-        recipe
-        …
-        …
-</pre></div>
-
-
-<ul>
-<li><strong><code>target</code></strong> is name of the make command we are constructing. In our Makefile, <code>data: ...</code> means we can enter the command <code>make data</code> from the command line.</li>
-<li><strong><code>prerequisites</code></strong> are targets to call before calling our <code>recipe</code>. In our Makefile, when we call <code>make publish</code>, <code>make html</code> will be automatically be executed first because it is a prerequisite.</li>
-<li><strong><code>recipe</code></strong> is the group of commands our make command performs. Each line is a command, but commands can be given on the same line separated by <code>;</code>. When we call <code>make data</code> in our Makefile, the first command run is executing <code>python ../MILE_Data/MILE_file_copy.py</code>, and so on until all commands are completed.</li>
-</ul>
-<p>We can now define Make commands, group tasks we want to perform, and define prerequisites as necessary. As with anything there is much more to learn about Makefiles, but this is enough to get you started. </p>
-<h2 id="a-note-on-directories">A Note on Directories</h2>
-<p>The <code>cwd</code> of Python when run from a Makefile will by default be the directory that contains the Makefile. This may be an issue if you are running Python scripts that assume a <code>cwd</code> where they are located. To address this, you can enter the appropriate directory and execute the script on the same line in the Makefile, for example: <code>cd ../MarketView/scripts; python build.py</code></p>
-<h1 id="executing-makefiles">Executing Makefiles</h1>
-<p>Back to our example, the previous process required us to:</p>
-<ul>
-<li><code>cd</code> into each repo</li>
-<li>run <code>python build.py</code> update files</li>
-<li>commit the changes</li>
-<li>repeat or each</li>
-</ul>
-<p>Using this Makefile, the process now is simply:</p>
-<ul>
-<li><code>cd</code> in to the directory containing <code>Makefile</code></li>
-<li><code>make publish</code></li>
-</ul>
-<h1 id="conclusion">Conclusion</h1>
-<p>Whenever you find yourself doing the same rote task often it may be a good time to ask yourself if some simple automation is appropriate. For anything you perform at the command line, Makefiles can be a lightweight automation solution.</p>
-        </div>
-
-        <div class="meta">
-            <div>
-                <a href="../../../../tag/python.html" class="tag">python</a>
-                <a href="../../../../tag/makefile.html" class="tag">makefile</a>
-                <a href="../../../../tag/make.html" class="tag">make</a>
-            </div>
-        </div>
+        <ul class="double-list">
+            <li>
+                <a href='/2018/06/08/python-automation/'>
+                    <h2>Automation Using Python</h2>
+                    <span>08.06.2018</span>
+                </a>
+            </li>
+            <li>
+                <a href='/2018/03/15/makefile-automation/'>
+                    <h2>Automation Using Makefiles</h2>
+                    <span>15.03.2018</span>
+                </a>
+            </li>
+        </ul>
     </article>
-
-    <div class="container">
-        <!-- Begin MailChimp Signup Form -->
-
-        <div id="mc_embed_signup">
-            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
-                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </div>
-            </form>
-        </div>
-        
-        <!--End mc_embed_signup-->
-    </div>
-
-
-
-<section>
-  <!-- <h1>Comments</h1> -->
-  <div id="disqus_thread"></div>
-  <script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://matthewkudija.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>                        
-
-
-<!--   <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-    <script type="text/javascript">
-      var disqus_shortname = 'matthewkudija';
-      var disqus_identifier = '/2018/03/15/makefiles/';
-      var disqus_url = '../../../../2018/03/15/makefiles/';
-      var disqus_title = 'Automation Using Makefiles';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  </section> -->
-
-
-
 </div>
-
-<style type="text/css">
-{
-    max-width: 700px;
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    padding: 0;
-}
-
-div.text_cell_render {
-    padding: 0;
-}
-
-div.prompt {
-    font-size: 13px;
-}
-
-div.input_prompt {
-    padding: .7em 0.2em;
-}
-
-div.output_prompt {
-    padding: .4em .2em;
-}
-
-div.input_area {
-    margin: .2em 0.4em;
-    max-width: 580px;
-    background-color: #272822;
-}
-
-table.dataframe {
-    font-family: Courier, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-pre code {
-    background-color: inherit;
-}</style>
-
 </div>
 
 <section id="footer">
