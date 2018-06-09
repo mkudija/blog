@@ -28,6 +28,8 @@ To start, our entire Python equivalent of a [Makefile](https://github.com/mkudij
 import sys
 import subprocess
 
+cwds = ['../CommercialData/', '../MarketView/', '../FleetView/']
+
 def help():
     print('\nMakefile to update websites on MAG GitHub pages                                   ')
     print('                                                                                    ')
@@ -44,36 +46,23 @@ def help():
 
 
 def data():
+    subprocess.call('python value_pickle.py', cwd='../MILE_Data/', shell=True)
     subprocess.call('python MILE_file_copy.py', cwd='../MILE_Data/', shell=True)
     subprocess.call('python update_utilization.py', cwd='../MILE_Data/', shell=True)
 
+
 def html():
-    subprocess.call('python build.py', cwd='../CommercialData/scripts/', shell=True)
-    subprocess.call('python build.py', cwd='../MarketView/scripts/', shell=True)
-    subprocess.call('python build.py', cwd='../FleetView/scripts/', shell=True)
+    for cwd in cwds:
+        subprocess.call('python build.py', cwd=cwd, shell=True)
+
 
 def publish():
-    print('\n')
-    cwd = '../CommercialData/'
-    subprocess.call('git pull origin master', cwd=cwd, shell=True)
-    subprocess.call('git add -A', cwd=cwd, shell=True)
-    subprocess.call('git commit -m "auto-regenerate from python"', cwd=cwd, shell=True)
-    subprocess.call('git push origin master', cwd=cwd, shell=True)
-
-    print('\n')
-    cwd = '../MarketView/'
-    subprocess.call('git pull origin master', cwd=cwd, shell=True)
-    subprocess.call('git add -A', cwd=cwd, shell=True)
-    subprocess.call('git commit -m "auto-regenerate from python"', cwd=cwd, shell=True)
-    subprocess.call('git push origin master', cwd=cwd, shell=True)
-
-    print('\n')
-    cwd = '../FleetView/'
-    subprocess.call('git pull origin master', cwd=cwd, shell=True)
-    subprocess.call('git add -A', cwd=cwd, shell=True)
-    subprocess.call('git commit -m "auto-regenerate from python"', cwd=cwd, shell=True)
-    subprocess.call('git push origin master', cwd=cwd, shell=True)
-
+    for cwd in cwds:
+        print('\n')
+        subprocess.call('git pull origin master', cwd=cwd, shell=True)
+        subprocess.call('git add -A', cwd=cwd, shell=True)
+        subprocess.call('git commit -m "auto-regenerate from python"', cwd=cwd, shell=True)
+        subprocess.call('git push origin master', cwd=cwd, shell=True)
     print('\nDone.')
 
 
@@ -89,8 +78,6 @@ if __name__=='__main__':
     elif sys.argv[1]=='html-only':
         html()
     elif sys.argv[1]=='publish':
-        data()
-        html()
         publish()
 ```
 
