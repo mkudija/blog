@@ -9,6 +9,22 @@
 {% if 'jquery' in article.include %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 {% endif %}
+{% if 'vega' in article.include %}
+<style>
+.vega-actions a {
+    margin-right: 12px;
+    color: #757575;
+    font-weight: normal;
+    font-size: 13px;
+}
+.error {
+    color: red;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm//vega@3.3.1"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-lite@2.4.3"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-embed@3.11"></script>
+{% endif %}
 {% endblock %}
 
 {% block content %}
