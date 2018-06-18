@@ -33,7 +33,7 @@ header.main-header .container {
   max-width: 1000px;
 }
 header.main-header .container nav a:hover {
-  background-color: #5C881C;
+  background-color: #3377B3;
 }
 article {
   margin: 0;
@@ -158,7 +158,7 @@ article .meta a.comments_btn {
 article .meta a.read_more:hover,
 article .meta a.comments_btn:hover {
   color: #FFF;
-  /*background: #5C881C;*/
+  /*background: #3377B3;*/
   background: #3377B3;
 }
 .index {
@@ -194,15 +194,15 @@ article .meta a.comments_btn:hover {
 }
 .index .pagination a {
   display: inline-block;
-  border: 2px solid #5C881C;
+  border: 2px solid #3377B3;
   margin: 0 5px;
   padding: 8px 20px;
   font-weight: bold;
-  color: #5C881C;
+  color: #3377B3;
 }
 .index .pagination a:hover {
   color: #FFF;
-  background: #5C881C;
+  background: #3377B3;
 }
 .post {
   max-width: 700px;

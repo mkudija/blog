@@ -34,6 +34,19 @@
   <div class="separator"></div>
   {% endfor %}
 
+  <nav class="pagination row">
+    <div class="col-xs-6 left">
+      {% if articles_page.has_next() %}
+      <a class="prev" href="{{ SITEURL }}/{{ articles_next_page.url }}">&#8592; Past</a>
+      {% endif %}
+    </div>
+    <div class="col-xs-6 right">
+      {% if articles_page.has_previous() %}
+      <a class="next" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Future &#8594;</a>
+      {% endif %}
+    </div>
+  </nav>
+
   <div class="container">
     <!-- Begin MailChimp Signup Form -->
 
@@ -50,20 +63,9 @@
     </div>
     
     <!--End mc_embed_signup-->
+      <hr>
   </div>
-
-  <nav class="pagination row">
-    <div class="col-xs-6 left">
-      {% if articles_page.has_next() %}
-      <a class="prev" href="{{ SITEURL }}/{{ articles_next_page.url }}">&#8592; Past</a>
-      {% endif %}
-    </div>
-    <div class="col-xs-6 right">
-      {% if articles_page.has_previous() %}
-      <a class="next" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Future &#8594;</a>
-      {% endif %}
-    </div>
-  </nav>
+  
 
 </div>
 
