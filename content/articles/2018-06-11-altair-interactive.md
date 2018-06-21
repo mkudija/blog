@@ -11,26 +11,140 @@ status: draft
 
 ![alt]({filename}/images/altair-interactive.png)
 
-Adding interactivity to data visualizations can be extremely helpful, espcially with large, multi-dimensional datasets. Sharing them online extends the benefits to others. In this article I will show some examples of using the Altair library to create and share some simple interactive visualizations.
+Adding interactivity to data visualizations can be extremely helpful, espcially with large, multi-dimensional datasets. Sharing them online extends the benefits to others. In this article I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from examples in the excellent Altiar gallery. I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. 
 
 <!-- PELICAN_END_SUMMARY -->
 
 # Intro to Altair
-Altair is a "... library" developed by Jake VanderPlas and Brian Granger. Thanks to them! Give some more introduction info...
+[Altair](https://altair-viz.github.io) is a visualization library for Python notable for the fact that is takes a *declarative* approach and is based on [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/).
+
+Every Altair chart is made up of **Data**, **Marks**, and **Encodings**, which can be modified with **Binning and Aggregation**. With a dataset of columns of x, y, and color, we can define a barebones Altair chart like this:
+
+```python
+alt.Chart(data).mark_point().encode(
+    x='x:Q',
+    y='mean(y)',
+    color='color:O'
+)
+```
+
+A quick summary of the properties available is given in the table below, with links to the Altair documentation of the corresponding section:
+
+| [\| Marks \|](https://altair-viz.github.io/user_guide/marks.html) | [\| Encodings \|](https://altair-viz.github.io/user_guide/encoding.html) | [\| Data Types \|](https://altair-viz.github.io/user_guide/encoding.html#data-types) | [\| Binning & Aggregation \|](https://altair-viz.github.io/user_guide/encoding.html#binning-and-aggregation) | 
+| :---: | :---: | :---: | :---: | 
+| `mark_area`  | `x`: x-axis value | `:Q` Quantitative | `average` | 
+| `mark_bar` | `y`: y-axis value| `:N` Nominal| `average`|
+| `mark_circle` | `color`| `:O` Ordinal| `sum`|
+| `mark_geoshape` | `opacity`| `:T` Temporal| `count`|
+| `mark_line` | `shape`| | `distinct`|
+| `mark_point` | `size`| | `max`|
+| `mark_rect` | `row`| | `q1`/`q3`|
+| `mark_rule` | `column`| | `ci0`/`ci1`|
+| `mark_square` | `tooltip`| | etc...|
+| `mark_text` | etc...| | |
+| `mark_tick` | | | |
+| `mark_trail` | | | |
 
 
-### Resources:
-- Data: https://github.com/vega/vega-datasets/tree/gh-pages/data
-- Example: https://altair-viz.github.io/user_guide/saving_charts.html#json-format
-
-- [Jake VanderPlas' Pycon 2018 tutorial](https://youtu.be/ms29ZPUKxbU?t=2149)
-- [This Intro](http://vallandingham.me/altair_intro.html)
-- [pbpython](http://pbpython.com/altair-intro.html)
 
 
 
 
 # Building Interactive Altair Charts
+
+## Cars Example
+
+Start with a basic chart:
+
+```python
+import altair as alt
+from vega_datasets import data
+
+cars = data.cars.url
+
+alt.Chart(cars).mark_point().encode(
+    x='Horsepower:Q',
+    y='Miles_per_Gallon:Q',
+    color='Origin:N'
+)
+```
+
+<div id="vis00"></div>
+<script type="text/javascript">
+var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"color":{"type":"nominal","field":"Origin"},"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var embed_opt00 = {"mode": "vega-lite"};
+
+function showError(el00, error){
+el.innerHTML = ('<div class="error">'
++ '<p>JavaScript Error: ' + error.message + '</p>'
++ "<p>This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.</p>"
++ '</div>');
+throw error;
+}
+const el00 = document.getElementById('vis00');
+vegaEmbed("#vis00", spec00, embed_opt00)
+.catch(error => showError(el00, error));
+</script>
+
+
+
+Then we add in some interactivity, including tooltips and a selectable legend:
+```python
+import altair as alt
+from vega_datasets import data
+
+cars = data.cars.url
+
+# define selection
+click = alt.selection_multi(encodings=['color'])
+
+# scatter plots of points
+scatter = alt.Chart(cars).mark_circle().encode(
+    x='Horsepower:Q',
+    y='Miles_per_Gallon:Q',
+    size=alt.Size('Cylinders:O',
+        scale=alt.Scale(range=(20,100))
+    ),
+    color=alt.Color('Origin:N', legend=None),
+    tooltip=['Name:N','Horsepower:Q','Miles_per_Gallon:Q',
+             'Cylinders:O','Origin:N'],
+).transform_filter(
+    click
+).interactive()
+
+# legend
+legend = alt.Chart(cars).mark_rect().encode(
+    y=alt.Y('Origin:N', axis=alt.Axis(title='Select Origin')),
+    color=alt.condition(click, 'Origin:N', 
+                        alt.value('lightgray'), legend=None),
+    size=alt.value(250)
+).properties(
+    selection=click
+)
+
+chart = (scatter | legend)
+chart.save('cars-clickable-legend.html')
+```
+
+<div id="vis0"></div>
+<script type="text/javascript">
+var spec0 = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "circle", "encoding": {"color": {"type": "nominal", "field": "Origin", "legend": null}, "size": {"type": "ordinal", "field": "Cylinders", "scale": {"range": [20, 100]}}, "tooltip": [{"type": "nominal", "field": "Name"}, {"type": "quantitative", "field": "Horsepower"}, {"type": "quantitative", "field": "Miles_per_Gallon"}, {"type": "ordinal", "field": "Cylinders"}, {"type": "nominal", "field": "Origin"}], "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector005": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": {"selection": "selector004"}}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector004"}, "value": "lightgray"}, "size": {"value": 250}, "y": {"type": "nominal", "axis": {"title": "Select Origin"}, "field": "Origin"}}, "selection": {"selector004": {"type": "multi", "encodings": ["color"]}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var embed_opt0 = {"mode": "vega-lite"};
+
+function showError(el0, error){
+el.innerHTML = ('<div class="error">'
++ '<p>JavaScript Error: ' + error.message + '</p>'
++ "<p>This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.</p>"
++ '</div>');
+throw error;
+}
+const el0 = document.getElementById('vis0');
+vegaEmbed("#vis0", spec0, embed_opt0)
+.catch(error => showError(el0, error));
+</script>
+
 
 ## Stocks Example
 
@@ -242,17 +356,6 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 
 
 
-
-
-
-## Another Example
-Another example could go here
-
-
-
-
-
-
 # Sharing Interactive Altair Charts
 
 <!-- {% notebook downloads/notebooks/altair-interactive/Altair-interactive.ipynb cells[:] %} -->
@@ -337,13 +440,25 @@ vegaEmbed("#vis2", spec2, embed_opt2)
 ```
 
 # Closing Thoughts
-....
+Next step is to make full dashbaords...
+Other...
+
+
+# Resources:
+- Data to play with: https://github.com/vega/vega-datasets/tree/gh-pages/data
+- Example: https://altair-viz.github.io/user_guide/saving_charts.html#json-format
+- [Altair Tutorials](https://github.com/altair-viz/altair-tutorial/tree/master/notebooks)
+- [This Intro](http://vallandingham.me/altair_intro.html)
+- [pbpython](http://pbpython.com/altair-intro.html)
+
+- Jake VanderPlas' Pycon 2018 tutorial:
+<div class="video-container">
+        <iframe width="750" height="500" src="https://www.youtube.com/embed/ms29ZPUKxbU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+
 
 
 ---
 
 - *You can view the original [Jupyter Notebook](https://github.com/mkudija/General-Examples/blob/master/Altair/Altair-interactive.ipynb) that was used to generate these examples.*
-
-
-
-
+- *All code examples in this notebook use Altair 2.1.0*
