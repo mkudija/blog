@@ -1,30 +1,34 @@
 title: Altair: Interactive Plots on the Web
-date: 2018-06-11 06:00
+date: 2018-06-22 06:00
 authors: Matthew Kudija
 comments: true
 slug: altair-interactive
-tags: python, altair, vega
+tags: python, altair, vega, interactive
 include: vega
 status: draft
 
-<!-- **Contents**
+**Contents**
 
-- [Intro to Altair](#Intro-to-Altair)
-- [Building Interactive Altair Charts](#Building-Interactive-Altair-Charts)
-- [Sharing Interactive Altair Charts on the Web](#Sharing-Interactive-Altair-Charts-on-the-Web)
- -->
+- [Intro to Altair](#intro-to-altair)
+- [Building Interactive Altair Charts](#building-interactive-altair-charts)
+- [Sharing Interactive Altair Charts on the Web](#sharing-interactive-altair-charts-on-the-web)
+- [Resources](#resources)
+
 <!-- PELICAN_BEGIN_SUMMARY -->
 
 ![alt]({filename}/images/altair-interactive.png)
 
-Adding interactivity to data visualizations can be both helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from examples in the excellent Altiar [gallery](https://altair-viz.github.io/gallery/index.html). I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. 
+Adding interactivity to data visualizations can be helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from the excellent Altair [gallery](https://altair-viz.github.io/gallery/index.html)—I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. 
 
 <!-- PELICAN_END_SUMMARY -->
 
 # Intro to Altair
-[Altair](https://altair-viz.github.io) is a visualization library for Python notable for the fact that is takes a *declarative* approach based on a grammar of graphics using [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/). As Jake VanderPlas explains when presenting Altair, this allows visualization *concepts* to map directly to visualization *implementation*.
+[Altair](https://altair-viz.github.io) is a visualization library for Python notable for taking a *declarative* approach based on a grammar of graphics using [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/). As Jake VanderPlas explains when presenting Altair, this allows visualization *concepts* to map directly to visualization *implementation*. 
 
-Every Altair chart is made up of **Data**, **Marks**, and **Encodings**, which can be modified with **Binning and Aggregation**. With a dataset of columns of `x` and `y` we can define a barebones Altair chart like this:
+Instead of imperatively specifying *how* to render the visualization as in matplotlib, with Altair (and vega/vega-lite) you specify *what* to visualize. This approach makes for rapid exploration of your data and iteration between chart types.
+
+
+Every Altair chart is made up of **Data**, **Marks**, and **Encodings**, which can be modified with **Binning and Aggregation**. Given a simple dataset with columns of `x` and `y` we can define a barebones Altair chart like this:
 
 ```python
 alt.Chart(data).mark_point().encode(
@@ -51,15 +55,17 @@ A quick summary of the properties available is given in the table below, with li
 | `mark_trail` | | | |
 
 <br>
-<br>
-Altair is well-documented with a number of helpful examples. See the [resources](#resources) at the bottom of this page for links to more information.
+
+Altair is well-documented with many helpful examples—see the [resources](#resources) at the bottom of this page for links to more information.
 
 
 # Building Interactive Altair Charts
 
+Next I'll walk through several examples of interactive Altair charts. These are also available in the original [Jupyter Notebook](https://github.com/mkudija/General-Examples/blob/master/Altair/Altair-interactive.ipynb). Note that the interactivity is best supported by viewing this on a laptop rather than mobile.
+
 ## Cars Example
 
-We'll start with a basic scatter plot showing the relationship between Horsepower and Gas Mileage for a number of cars.
+We'll start with a basic static scatter plot showing the relationship between Horsepower and Gas Mileage for a number of cars. Again we simply specify the data (along with data types for each value denoted by `:Q` in this case), chart type, and encoding.
 
 ```python
 import altair as alt
@@ -73,7 +79,7 @@ alt.Chart(cars).mark_point().encode(
 )
 ```
 
-The result is a simple 
+The result is a familiar scatter plot. 
 
 <div id="vis00"></div>
 <script type="text/javascript">
@@ -97,7 +103,8 @@ vegaEmbed("#vis00", spec00, embed_opt00)
 
 
 
-Then we add in some interactivity, including tooltips and a selectable legend:
+Then we add in some interactivity, including tooltips and a selectable legend, which was inspired by [Jake VanderPlas' PyCon 2018 tutorial](https://www.youtube.com/watch?v=ms29ZPUKxbU):
+
 ```python
 import altair as alt
 from vega_datasets import data
@@ -135,6 +142,8 @@ chart = (scatter | legend)
 chart.save('cars-clickable-legend.html')
 ```
 
+For about 3x the amount of code we get a lot more information and ease of exploring this data. By adding encodings for origin of manufacture (color) and size (number of cylinders) we can view more dimensions of the dataset. With the `.interactive()` method we can scroll on the chart to zoom in and out as well as pan around. By adding a "legend" (actually another chart with interactivity) we can click to highlight one or multiple origins while hiding the others.  
+
 <div id="vis0"></div>
 <script type="text/javascript">
 var spec0 = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "circle", "encoding": {"color": {"type": "nominal", "field": "Origin", "legend": null}, "size": {"type": "ordinal", "field": "Cylinders", "scale": {"range": [20, 100]}}, "tooltip": [{"type": "nominal", "field": "Name"}, {"type": "quantitative", "field": "Horsepower"}, {"type": "quantitative", "field": "Miles_per_Gallon"}, {"type": "ordinal", "field": "Cylinders"}, {"type": "nominal", "field": "Origin"}], "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector005": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": {"selection": "selector004"}}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector004"}, "value": "lightgray"}, "size": {"value": 250}, "y": {"type": "nominal", "axis": {"title": "Select Origin"}, "field": "Origin"}}, "selection": {"selector004": {"type": "multi", "encodings": ["color"]}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
@@ -155,14 +164,8 @@ vegaEmbed("#vis0", spec0, embed_opt0)
 
 
 ## Stocks Example
-Pass data url so we don't have to encode all the data here.
-Built from these examples:
 
-
-- multi series line chart: https://altair-viz.github.io/gallery/multi_series_line.html
-- multi-line tooltip: https://altair-viz.github.io/gallery/multiline_tooltip.html
-
-
+This next example visualizes stocks data over time with a helpful multiline tooltip (original examples [here](https://altair-viz.github.io/gallery/multi_series_line.html) and [here](https://altair-viz.github.io/gallery/multiline_tooltip.html)). 
 
 ```python
 import altair as alt
@@ -210,6 +213,9 @@ stockChart = alt.layer(line, selectors, points, rules, text,
 stockChart.save('stocks.html')
 ```
 
+By layering a line chart, selection based on the points nearest our mouseover, and text/points/line to visualize the selected data we now have a visually appealing way to explore this stock history.
+
+
 <div id="vis1"></div>
 <script type="text/javascript">
 var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"mark": {"type": "line", "interpolate": "basis"}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "axis": {"title": ""}, "field": "date"}, "y": {"type": "quantitative", "axis": {"format": "$f", "title": ""}, "field": "price"}}}, {"mark": "point", "encoding": {"opacity": {"value": 0}, "x": {"type": "temporal", "field": "date"}}, "selection": {"selector006": {"type": "single", "nearest": true, "on": "mouseover", "fields": ["date"], "empty": "none"}}}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector006"}, "value": 0}, "x": {"type": "temporal", "axis": {"title": ""}, "field": "date"}, "y": {"type": "quantitative", "axis": {"format": "$f", "title": ""}, "field": "price"}}}, {"mark": {"type": "rule", "color": "gray"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector006"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"condition": {"type": "quantitative", "field": "price", "selection": "selector006"}, "value": " "}, "x": {"type": "temporal", "axis": {"title": ""}, "field": "date"}, "y": {"type": "quantitative", "axis": {"format": "$f", "title": ""}, "field": "price"}}}], "data": {"url": "https://raw.githubusercontent.com/altair-viz/vega_datasets/master/vega_datasets/_data/stocks.csv"}, "height": 300, "title": "Stock History", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
@@ -230,12 +236,9 @@ vegaEmbed("#vis1", spec, embed_opt)
 
 
 
-
 ## Airports Example
 
-Here's the first chart, US airports based on this example: https://altair-viz.github.io/gallery/airports.html
-
-Also, I would love to recreate this [vega example chart](http://vega.github.io/vega-tutorials/airports/) that shows flights between cities in the US.
+Altair also supports [geographic projections](https://altair-viz.github.io/gallery/world_projections.html) to visualize geospatial data. 
 
 ```python
 import altair as alt
@@ -267,6 +270,8 @@ chart.save('airports.html')
 chart
 ```
 
+In this example we extend the simple [airports example](https://altair-viz.github.io/gallery/airports.html) to include tooltips with additional information about the airport you hover over. (Another cool example to replicate in Altair is visualizing flights between each city in [this example](http://vega.github.io/vega-tutorials/airports/)).
+
 <div id="vis2"></div>
 <script type="text/javascript">
 var spec2 = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 500, "projection": {"type": "albersUsa"}, "width": 800}, {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "mark": "circle", "encoding": {"color": {"value": "#3377B3"}, "latitude": {"type": "quantitative", "field": "latitude"}, "longitude": {"type": "quantitative", "field": "longitude"}, "size": {"value": 15}, "tooltip": [{"type": "nominal", "field": "iata"}, {"type": "nominal", "field": "name"}, {"type": "nominal", "field": "city"}, {"type": "nominal", "field": "state"}, {"type": "quantitative", "field": "latitude"}, {"type": "quantitative", "field": "longitude"}]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
@@ -289,9 +294,7 @@ vegaEmbed("#vis2", spec2, embed_opt2)
 
 ## Birdstrikes Example
 
-This example borrows heavily from the Seattle Weather Interactive example:
--  https://altair-viz.github.io/gallery/seattle_weather_interactive.html
-
+At this point you are probably thinking that these building blocks Altair provides are easy stepping stones to a full web dashboard. This example (based off the [Seattle weather example](https://altair-viz.github.io/gallery/seattle_weather_interactive.html)) shows how you can use selection in one chart to filter data in antoher. 
 
 
 ```python
@@ -341,6 +344,7 @@ alt.vconcat(points, bars,
 ).save('birdstrikes.html')
 ```
 
+By selecting one (click) or multiple (shift-click) species in the bar chart at the bottom, the scatter plot on top will update to show only those data points. It's easy to see how adding more of these building blocks could produce a nice dashboard. 
 
 <div id="vis3"></div>
 <script type="text/javascript">
@@ -361,22 +365,24 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 </script>
 
 
+Looking back at the examples above, we have seen some helpful capabilities built into Altair:
+- Use [selectors](https://altair-viz.github.io/user_guide/selections.html) (`alt.selection_single`, `alt.selection_multi`, `alt.selection_interval`) to highlight data interactively.
+- [Combine](https://altair-viz.github.io/user_guide/compound_charts.html) charts by layering or concatenation to show multiple views of the data.
+- [Export](https://altair-viz.github.io/user_guide/saving_charts.html) charts in a variety of formats, including HTML for sharing on the web.
+
 
 
 # Sharing Interactive Altair Charts on the Web
 
-<!-- {% notebook downloads/notebooks/altair-interactive/Altair-interactive.ipynb cells[:] %} -->
-Tried notebook, but does not render interctive plots..., so do manually
+I was initially drawn to Altair because of this ease of use offered by the declarative approach to visualization. The further ability to easily generate and share interactive visualizations on the web makes it even more useful.
 
+The simplest way to share an Altair plot on the web is to simply [export](https://altair-viz.github.io/user_guide/saving_charts.html) as html using `.save('chartName.html')`. This HTML file includes the Vega, Vega-Lite, and vegaEmbed scripts, a JSON specification of your chart, and the JavaScript needed for interactivity. This makes it easy to share a single chart. 
 
+This blog is generated with Pelican, and as you can see above includes multiple interactive charts written in Altair. Below I walk through the process for including interactive Altair charts with Pelican.
 
 ## Pelican Template
 
-Add to `<article-name>.md`:
-
-`include: vega`
-
-Add to `theme/templates/article.html`. This loads the vega javascript libraries and style if required. 
+Since we need to load some styling and the Vega, Vega-Lite, and vegaEmbed scripts on any page that includes an Altair chart, we will add these to the article template in `theme/templates/article.html`.
 
 ```html
 {% if 'vega' in article.include %}
@@ -397,15 +403,17 @@ Add to `theme/templates/article.html`. This loads the vega javascript libraries 
 {% endif %}
 ```
 
+Now, whenever we add the `include: vega` tag at the top of an article's markdown file, these items will be included.
 
-## Single Plot in MD
 
-To add a single plot, we open the `<chart-name>.html` file and copy this portion (note that you need to remove indentation): 
+## Add a Single Plot
+
+To add a single plot to an article, we open the `chartName.html` file we exported from Altair and copy the below portion which defines a `<div>` for our chart and contains the JSON specification and JavaScript for the chart. Note that when placing this into a markdown document we need to un-indent so Pelican can generate the page properly. 
 
 ```html
-<div id="vis1"></div>
+<div id="vis"></div>
 <script type="text/javascript">
-var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 500, "projection": {"type": "albersUsa"}, "width": 800}, {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "mark": "circle", "encoding": {"color": {"value": "#3377B3"}, "latitude": {"type": "quantitative", "field": "latitude"}, "longitude": {"type": "quantitative", "field": "longitude"}, "size": {"value": 15}, "tooltip": [{"type": "nominal", "field": "iata"}, {"type": "nominal", "field": "name"}, {"type": "nominal", "field": "city"}, {"type": "nominal", "field": "state"}, {"type": "quantitative", "field": "latitude"}, {"type": "quantitative", "field": "longitude"}]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var spec = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt = {"mode": "vega-lite"};
 
 function showError(el, error){
@@ -417,19 +425,19 @@ el.innerHTML = ('<div class="error">'
 throw error;
 }
 const el = document.getElementById('vis1');
-vegaEmbed("#vis1", spec, embed_opt)
+vegaEmbed("#vis", spec, embed_opt)
 .catch(error => showError(el, error));
 </script>
 ```
 
-## Multiple Plots in MD
+## Add Multiple Plots
 
-When adding subsequent plots to the same page, we need to increment certain variables to enable the additional plot to render:
+As shown above it is entirely possible to add multiple visualizations to a single page, but you'll need to rename some variables to make them unique and allow the subsequent charts to render. I simply incremented the required variables (`vis`, `spec`, `el`, and `embed_opt`) so they are unique.
 
 ```html
 <div id="vis2"></div>
 <script type="text/javascript">
-var spec2 = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "circle", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector094"}, "value": "lightgray"}, "tooltip": [{"type": "nominal", "field": "Airport__Name"}, {"type": "nominal", "field": "Aircraft__Make_Model"}, {"type": "temporal", "field": "Flight_Date"}, {"type": "nominal", "field": "Aircraft__Airline_Operator"}, {"type": "nominal", "field": "Origin_State"}, {"type": "nominal", "field": "When__Phase_of_flight"}, {"type": "nominal", "field": "Wildlife__Species"}, {"type": "nominal", "field": "Wildlife__Size"}, {"type": "nominal", "field": "Speed_IAS_in_knots"}], "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "Flight_Date"}, "y": {"type": "quantitative", "axis": {"title": "Indicated Airspeed (kts)"}, "field": "Speed_IAS_in_knots"}}, "height": 300, "selection": {"selector094": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector095"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector095"}, "value": "lightgray"}, "x": {"type": "nominal", "field": "Wildlife__Species", "sort": {"op": "count", "field": "sort_order", "order": "descending"}}, "y": {"type": "quantitative", "aggregate": "count", "scale": {"type": "log"}}}, "selection": {"selector095": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector094"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/birdstrikes.json"}, "title": "Aircraft Birdstrikes: 1990-2003", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var spec2 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt2 = {"mode": "vega-lite"};
 
 function showError(el2, error){
@@ -446,19 +454,19 @@ vegaEmbed("#vis2", spec2, embed_opt2)
 </script>
 ```
 
+Set up in this manner, generating your Pelican site will pull in the required external scripts, style, and then display your interactive visualizations. You can view the full [markdown file](https://raw.githubusercontent.com/mkudija/blog/master/content/articles/2018-06-11-altair-interactive.md) that generated the [HTML - ADD LINK]() of this post to see how it all fits together. 
+
 # Closing Thoughts
-Next step is to make full dashbaords...
-Other...
+A successful visualization is all about finding the right tool for the job. I'm increasingly convinced that if you want to quickly interact with your data or share it online Altair is a great option. I'm excited to learn more about Altair as more features are added. Thanks to Jake VanderPlas, Brian Granger, and all those who have contributed to Altair and the technologies it is built on.
 
 
 # Resources:
-- Data to play with: https://github.com/vega/vega-datasets/tree/gh-pages/data
-- Example: https://altair-viz.github.io/user_guide/saving_charts.html#json-format
+- [Altair Docs](https://altair-viz.github.io/index.html)
 - [Altair Tutorials](https://github.com/altair-viz/altair-tutorial/tree/master/notebooks)
-- [This Intro](http://vallandingham.me/altair_intro.html)
-- [pbpython](http://pbpython.com/altair-intro.html)
-
-- Jake VanderPlas' Pycon 2018 tutorial:
+- Example data to play with: [vega-datasets](https://github.com/vega/vega-datasets/tree/gh-pages/data)
+- Jim Vallandingham's [Altair write-up](http://vallandingham.me/altair_intro.html)
+- pbpython's [Altair write-up](http://pbpython.com/altair-intro.html)
+- Jake VanderPlas' PyCon 2018 tutorial:
 <div class="video-container">
         <iframe width="750" height="500" src="https://www.youtube.com/embed/ms29ZPUKxbU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 </div>
