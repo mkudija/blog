@@ -1,4 +1,4 @@
-title: Altair: Interactive Plots in Jupyter and on a Webpage
+title: Altair: Interactive Plots on the Web
 date: 2018-06-11 06:00
 authors: Matthew Kudija
 comments: true
@@ -7,24 +7,29 @@ tags: python, altair, vega
 include: vega
 status: draft
 
+<!-- **Contents**
+
+- [Intro to Altair](#Intro-to-Altair)
+- [Building Interactive Altair Charts](#Building-Interactive-Altair-Charts)
+- [Sharing Interactive Altair Charts on the Web](#Sharing-Interactive-Altair-Charts-on-the-Web)
+ -->
 <!-- PELICAN_BEGIN_SUMMARY -->
 
 ![alt]({filename}/images/altair-interactive.png)
 
-Adding interactivity to data visualizations can be extremely helpful, espcially with large, multi-dimensional datasets. Sharing them online extends the benefits to others. In this article I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from examples in the excellent Altiar gallery. I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. 
+Adding interactivity to data visualizations can be both helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from examples in the excellent Altiar [gallery](https://altair-viz.github.io/gallery/index.html). I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. 
 
 <!-- PELICAN_END_SUMMARY -->
 
 # Intro to Altair
-[Altair](https://altair-viz.github.io) is a visualization library for Python notable for the fact that is takes a *declarative* approach and is based on [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/).
+[Altair](https://altair-viz.github.io) is a visualization library for Python notable for the fact that is takes a *declarative* approach based on a grammar of graphics using [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/). As Jake VanderPlas explains when presenting Altair, this allows visualization *concepts* to map directly to visualization *implementation*.
 
-Every Altair chart is made up of **Data**, **Marks**, and **Encodings**, which can be modified with **Binning and Aggregation**. With a dataset of columns of x, y, and color, we can define a barebones Altair chart like this:
+Every Altair chart is made up of **Data**, **Marks**, and **Encodings**, which can be modified with **Binning and Aggregation**. With a dataset of columns of `x` and `y` we can define a barebones Altair chart like this:
 
 ```python
 alt.Chart(data).mark_point().encode(
     x='x:Q',
     y='mean(y)',
-    color='color:O'
 )
 ```
 
@@ -45,16 +50,16 @@ A quick summary of the properties available is given in the table below, with li
 | `mark_tick` | | | |
 | `mark_trail` | | | |
 
-
-
-
+<br>
+<br>
+Altair is well-documented with a number of helpful examples. See the [resources](#resources) at the bottom of this page for links to more information.
 
 
 # Building Interactive Altair Charts
 
 ## Cars Example
 
-Start with a basic chart:
+We'll start with a basic scatter plot showing the relationship between Horsepower and Gas Mileage for a number of cars.
 
 ```python
 import altair as alt
@@ -65,13 +70,16 @@ cars = data.cars.url
 alt.Chart(cars).mark_point().encode(
     x='Horsepower:Q',
     y='Miles_per_Gallon:Q',
-    color='Origin:N'
 )
 ```
 
+The result is a simple 
+
 <div id="vis00"></div>
 <script type="text/javascript">
-var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"color":{"type":"nominal","field":"Origin"},"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+// below gives color by origin
+// var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"color":{"type":"nominal","field":"Origin"},"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt00 = {"mode": "vega-lite"};
 
 function showError(el00, error){
@@ -355,7 +363,7 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 
 
 
-# Sharing Interactive Altair Charts
+# Sharing Interactive Altair Charts on the Web
 
 <!-- {% notebook downloads/notebooks/altair-interactive/Altair-interactive.ipynb cells[:] %} -->
 Tried notebook, but does not render interctive plots..., so do manually

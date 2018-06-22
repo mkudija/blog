@@ -6,7 +6,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Altair: Interactive Plots in Jupyter and on a Webpage | Matthew Kudija</title>
+    <title>Altair: Interactive Plots on the Web | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -490,24 +490,30 @@ article .meta a.comments_btn:hover {
 <div class="container post">
     <article>
         <header>
-            <h1>Altair: Interactive Plots in Jupyter and on a Webpage</h1>
+            <h1>Altair: Interactive Plots on the Web</h1>
             <time datetime="article.date.isoformat()" pubdate>Mon 11 June 2018</time>
         </header>
 
         <div class="article_content">
-            <!-- PELICAN_BEGIN_SUMMARY -->
+            <!-- **Contents**
+
+- [Intro to Altair](#Intro-to-Altair)
+- [Building Interactive Altair Charts](#Building-Interactive-Altair-Charts)
+- [Sharing Interactive Altair Charts on the Web](#Sharing-Interactive-Altair-Charts-on-the-Web)
+ -->
+
+<!-- PELICAN_BEGIN_SUMMARY -->
 
 <p><img alt src="../images/altair-interactive.png"></p>
-<p>Adding interactivity to data visualizations can be extremely helpful, espcially with large, multi-dimensional datasets. Sharing them online extends the benefits to others. In this article I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from examples in the excellent Altiar gallery. I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. </p>
+<p>Adding interactivity to data visualizations can be both helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from examples in the excellent Altiar <a href="https://altair-viz.github.io/gallery/index.html">gallery</a>. I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. </p>
 <!-- PELICAN_END_SUMMARY -->
 
 <h1 id="intro-to-altair">Intro to Altair</h1>
-<p><a href="https://altair-viz.github.io">Altair</a> is a visualization library for Python notable for the fact that is takes a <em>declarative</em> approach and is based on <a href="https://vega.github.io/vega/">Vega</a> and <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>.</p>
-<p>Every Altair chart is made up of <strong>Data</strong>, <strong>Marks</strong>, and <strong>Encodings</strong>, which can be modified with <strong>Binning and Aggregation</strong>. With a dataset of columns of x, y, and color, we can define a barebones Altair chart like this:</p>
+<p><a href="https://altair-viz.github.io">Altair</a> is a visualization library for Python notable for the fact that is takes a <em>declarative</em> approach based on a grammar of graphics using <a href="https://vega.github.io/vega/">Vega</a> and <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. As Jake VanderPlas explains when presenting Altair, this allows visualization <em>concepts</em> to map directly to visualization <em>implementation</em>.</p>
+<p>Every Altair chart is made up of <strong>Data</strong>, <strong>Marks</strong>, and <strong>Encodings</strong>, which can be modified with <strong>Binning and Aggregation</strong>. With a dataset of columns of <code>x</code> and <code>y</code> we can define a barebones Altair chart like this:</p>
 <div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(y)&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;color:O&#39;</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -597,9 +603,12 @@ article .meta a.comments_btn:hover {
 </tr>
 </tbody>
 </table>
+<p><br>
+<br>
+Altair is well-documented with a number of helpful examples. See the <a href="#resources">resources</a> at the bottom of this page for links to more information.</p>
 <h1 id="building-interactive-altair-charts">Building Interactive Altair Charts</h1>
 <h2 id="cars-example">Cars Example</h2>
-<p>Start with a basic chart:</p>
+<p>We'll start with a basic scatter plot showing the relationship between Horsepower and Gas Mileage for a number of cars.</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
@@ -608,15 +617,17 @@ article .meta a.comments_btn:hover {
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Origin:N&#39;</span>
 <span class="p">)</span>
 </pre></div>
 
 
+<p>The result is a simple </p>
 <div id="vis00"></div>
 
 <script type="text/javascript">
-var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"color":{"type":"nominal","field":"Origin"},"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+// below gives color by origin
+// var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"color":{"type":"nominal","field":"Origin"},"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt00 = {"mode": "vega-lite"};
 
 function showError(el00, error){
@@ -882,7 +893,7 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 .catch(error => showError(el3, error));
 </script>
 
-<h1 id="sharing-interactive-altair-charts">Sharing Interactive Altair Charts</h1>
+<h1 id="sharing-interactive-altair-charts-on-the-web">Sharing Interactive Altair Charts on the Web</h1>
 <!-- {% notebook downloads/notebooks/altair-interactive/Altair-interactive.ipynb cells[:] %} -->
 
 <p>Tried notebook, but does not render interctive plots..., so do manually</p>
