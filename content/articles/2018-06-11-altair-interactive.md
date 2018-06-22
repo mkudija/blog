@@ -5,7 +5,6 @@ comments: true
 slug: altair-interactive
 tags: python, altair, vega, interactive
 include: vega
-status: draft
 
 **Contents**
 
