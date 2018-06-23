@@ -310,11 +310,13 @@ click = alt.selection_multi(encodings=['color'])
 
 # Top panel is scatter plot of temperature vs time
 points = alt.Chart().mark_circle().encode(
-    alt.X('Flight_Date:T', axis=alt.Axis(title='Date')),
+    alt.X('yearmonthdate(Flight_Date):T', axis=alt.Axis(title='Date')),
     alt.Y('Speed_IAS_in_knots:Q',
         axis=alt.Axis(title='Indicated Airspeed (kts)'),
     ),
     color=alt.condition(brush, color, alt.value('lightgray')),
+    tooltip=['Airport__Name:N','Aircraft__Make_Model:N','Flight_Date:T',
+            'When__Phase_of_flight:N','Wildlife__Species:N','Speed_IAS_in_knots:Q'],
 ).properties(
     width=600,
     height=300
@@ -327,7 +329,8 @@ points = alt.Chart().mark_circle().encode(
 # Bottom panel is a bar chart of species
 bars = alt.Chart().mark_bar().encode(
     alt.Y('count()', scale=alt.Scale(type='log')),
-    alt.X('Wildlife__Species:N', sort=alt.SortField(field='sort_order', op='count', order='descending')),
+    alt.X('Wildlife__Species:N', sort=alt.SortField(field='sort_order', 
+            op='count', order='descending')),
     color=alt.condition(click, color, alt.value('lightgray')),
 ).transform_filter(
     brush
@@ -343,11 +346,11 @@ alt.vconcat(points, bars,
 ).save('birdstrikes.html')
 ```
 
-By selecting one (click) or multiple (shift-click) species in the bar chart at the bottom, the scatter plot on top will update to show only those data points. It's easy to see how adding more of these building blocks could produce a nice dashboard. 
+By selecting one (click) or multiple (shift-click) species in the bar chart at the bottom, the scatter plot on top will update to show only those data points. You can also select a section on the time axis of the scatter plot and see how the distribution of species varies (note that we add the `yearmonthdate(Flight_Date)` property to enable this selection—thanks to Greg Schivley for [pointing this out](https://twitter.com/gschivley/status/1010239788581040130)). It's easy to see how adding more of these building blocks could produce a nice dashboard. 
 
 <div id="vis3"></div>
 <script type="text/javascript">
-var spec3 = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "circle", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector094"}, "value": "lightgray"}, "tooltip": [{"type": "nominal", "field": "Airport__Name"}, {"type": "nominal", "field": "Aircraft__Make_Model"}, {"type": "temporal", "field": "Flight_Date"}, {"type": "nominal", "field": "Aircraft__Airline_Operator"}, {"type": "nominal", "field": "Origin_State"}, {"type": "nominal", "field": "When__Phase_of_flight"}, {"type": "nominal", "field": "Wildlife__Species"}, {"type": "nominal", "field": "Wildlife__Size"}, {"type": "nominal", "field": "Speed_IAS_in_knots"}], "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "Flight_Date"}, "y": {"type": "quantitative", "axis": {"title": "Indicated Airspeed (kts)"}, "field": "Speed_IAS_in_knots"}}, "height": 300, "selection": {"selector094": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector095"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector095"}, "value": "lightgray"}, "x": {"type": "nominal", "field": "Wildlife__Species", "sort": {"op": "count", "field": "sort_order", "order": "descending"}}, "y": {"type": "quantitative", "aggregate": "count", "scale": {"type": "log"}}}, "selection": {"selector095": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector094"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/birdstrikes.json"}, "title": "Aircraft Birdstrikes: 1990-2003", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+var spec3 = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "circle", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector002"}, "value": "lightgray"}, "tooltip": [{"type": "nominal", "field": "Airport__Name"}, {"type": "nominal", "field": "Aircraft__Make_Model"}, {"type": "temporal", "field": "Flight_Date"}, {"type": "nominal", "field": "When__Phase_of_flight"}, {"type": "nominal", "field": "Wildlife__Species"}, {"type": "quantitative", "field": "Speed_IAS_in_knots"}], "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "Flight_Date", "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "axis": {"title": "Indicated Airspeed (kts)"}, "field": "Speed_IAS_in_knots"}}, "height": 300, "selection": {"selector002": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector003"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector003"}, "value": "lightgray"}, "x": {"type": "nominal", "field": "Wildlife__Species", "sort": {"op": "count", "field": "sort_order", "order": "descending"}}, "y": {"type": "quantitative", "aggregate": "count", "scale": {"type": "log"}}}, "selection": {"selector003": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector002"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/birdstrikes.json"}, "title": "Aircraft Birdstrikes: 1990-2003", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt3 = {"mode": "vega-lite"};
 
 function showError(el3, error){
