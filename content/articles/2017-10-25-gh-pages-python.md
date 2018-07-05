@@ -32,6 +32,7 @@ The sections below are aligned with these three goals. Let's get started.
 - **Learning**: sharing publicly forces you to learn
   - "teaching is the best way to learn": on the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self)
   - publich sharing/teaching forces you to refine your thinking so as to not embarass yourself. This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the Internet.
+  - People point out your mistakes and you learn
   - "The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem." -[CS Ph.D. lessons to my younger self](https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html), 2018-04-10
   - "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic." -[Blogging Like a Hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html), 2018-04-10
 - **Feedback**: 
