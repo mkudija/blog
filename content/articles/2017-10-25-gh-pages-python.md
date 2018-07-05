@@ -22,6 +22,13 @@ The sections below are aligned with these three goals. Let's get started.
 
 <!-- PELICAN_END_SUMMARY -->
 
+BIGFOOT
+
+could also try barefoot or littlefoot:
+- https://github.com/philgruneich/barefoot
+- https://github.com/goblindegook/littlefoot
+
+
 [TOC]
 
 # Part I: Why to Share Online (from your own domain)
