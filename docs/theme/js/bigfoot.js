@@ -444,7 +444,7 @@
                 })();
                 maxWidth = relativeToWidth * maxWidthInCSS;
               }
-              maxWidth = Math.min(maxWidth, $this.find(".bigfoot-footnote__content").outerWidth() + 1);
+              maxWidth = Math.min(maxWidth, $this.find(".bigfoot-footnote__content").outerWidth() + 1)*7;
               $mainWrap.css("max-width", maxWidth + "px");
               $this.css({
                 left: (-roomLeft.leftRelative * maxWidth + parseFloat($button.css("margin-left")) + $button.outerWidth() / 2) + "px"
