@@ -1,4 +1,4 @@
-Title: How to Share Your Work on the Internet and Why It's Important
+Title: How and Why to Share Your Work Online
 date: 2017-10-25 06:00
 updated: 2018-03-30 06:00
 authors: Matthew Kudija
@@ -24,9 +24,9 @@ The sections below are aligned with these three goals. Let's get started.
 
 [TOC]
 
-# Part I: Why to Share on the Internet (from your own domain)
+# Part I: Why to Share Online (from your own domain)
 
-## Why to Share on the Internet
+## Why to Share Online
 
 ### Benefits to You
 - **Learning**: sharing publicly forces you to learn
@@ -40,6 +40,7 @@ The sections below are aligned with these three goals. Let's get started.
   - it gives you a public body of work to point to
   - yes there are practical benefits, but those are not the focus: job, portfolio, connections, etc.
   - more important is the learning in yourself and the satisfaction you receive from distilling some knowledge or wisdom
+  - "During [WWI Churchill] had carefully filed memoranda, documents, and letters, explaining , in a letter to Clementine on July 17, 1915, 'Someday I shd like the truth to be known.'" (*The Last Lion*, 767)
 - **Offload and record your thoughts**:
   - doesn't need to be public, but doing the above publicly serves this end
   - notes to your future self (useful and ...)
@@ -53,7 +54,19 @@ The sections below are aligned with these three goals. Let's get started.
 ### Benefits to Others
 - **Share info**: 
   - image of "on your computer" vs. "on the Internet"
-  - David Robinson "why you should blog"
+
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Things that are still on your computer are approximately useless.&quot; -<a href="https://twitter.com/drob?ref_src=twsrc%5Etfw">@drob</a> <a href="https://twitter.com/hashtag/eUSR?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR</a> <a href="https://twitter.com/hashtag/eUSR2017?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR2017</a> <a href="https://t.co/nS3IBiRHBn">pic.twitter.com/nS3IBiRHBn</a></p>&mdash; Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/926509282874585089?ref_src=twsrc%5Etfw">November 3, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+  - David Robinson "why you should blog" [^robinson]
+
+  [^robinson]: [*Advice to aspiring data scientists: start a blog*](http://varianceexplained.org/r/start-blog/) by David Robinson
+
+
+
   - think of all that you've learned from blogs, etc.
   - feeling of just discovering someone and being nourished by their thinking: recently JMW, AJ, MMM
   - contributes to the original vision of the Internet
@@ -66,8 +79,25 @@ The sections below are aligned with these three goals. Let's get started.
 
 
 Independent research notes: https://nadiaeghbal.com/independent-research
+
 - "Do whatever you can’t stop thinking about. Documenting your findings in public (regardless of outcomes!) is a worthy contribution to society, full stop. If you’re doing something new, and you care about understanding the problem, people will pay attention."
 - "You don’t need a PhD to study something you care about. You don’t need to publish papers in academic journals to become widely respected. You just need a curious mind, a bankroll, and a commitment to learning in public."
+
+
+Show Your Work
+
+- Learn in front of others: "The best way to get started on the path to sharing your work is to think about what you want to learn, and make a commitment to learning it in front of others." (19)
+- "in this day and age, if your work isn't online, it doesn't exist" (23)
+- Domain: "Social networks are great, but they come and go...If you're really interested in sharing your work and expressing yourself, nothing beats owning your own space online." (66)
+- Domain: "The beauty of owning your own turf is that your can do whatever you want with it...You don't have to make compromises." (69)
+- Body of work: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salong. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet." (66-67)
+- "The minute you learn something, turn around and teach it to others." (117)
+
+Silence in the age of noise
+
+- “Sometimes it makes more sense to make life more difficult than necessary” (46)
+
+
 
 
 
@@ -85,7 +115,7 @@ Independent research notes: https://nadiaeghbal.com/independent-research
 
 
 The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
-[^vision] [World Wide Web Consortium (W3C) Mission](https://www.w3.org/Consortium/mission#vision)
+[^vision]: [World Wide Web Consortium (W3C) Mission](https://www.w3.org/Consortium/mission#vision)
 
 The emergence of major web companies that control content creation—Facebook, etc.—endanger some of this vision by:
 
@@ -225,6 +255,7 @@ There are many great static site genrators
 
 ## Other Notes
 - previewing locally
+- mobile preview
 - right click-inspect element
 - adding password protection
 
