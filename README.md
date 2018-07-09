@@ -54,11 +54,11 @@ For fun I changed the color of the footnote when activated (line 41 in `bigfoot-
 
 
 Add the following to `theme/templates/base.html`:
-- `<link rel="stylesheet" href="../theme/css/bigfoot-default.css" />` (within the `<head>` tag)
+- `<link rel="stylesheet" href="../../../../theme/css/bigfoot-default.css" />` (within the `<head>` tag)
 - just before the close of the `</body>` tag: 
 
 ```javascript
-<script type="text/javascript" src="../theme/js/bigfoot.js"></script>
+<script type="text/javascript" src="../../../../theme/js/bigfoot.js"></script>
 <script type="text/javascript">
     $.bigfoot (
     {
