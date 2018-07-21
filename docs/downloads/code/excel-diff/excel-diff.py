@@ -11,8 +11,6 @@ def excel_diff(path_OLD, path_NEW):
     dfDiff = df_OLD.copy()
     for row in range(dfDiff.shape[0]):
         for col in range(dfDiff.shape[1]):
-            # value_OLD = str(df_OLD.iloc[row,col])
-            # value_NEW = str(df_NEW.iloc[row,col])
             value_OLD = df_OLD.iloc[row,col]
             value_NEW = df_NEW.iloc[row,col]
             if value_OLD==value_NEW:
