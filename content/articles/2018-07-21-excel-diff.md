@@ -103,7 +103,7 @@ python excel-diff.py
 ```
 
 
-And here you go! A name misspelled, favorite color changing, some height and IQ massaging, and bumping up a balance limit. 
+And here you go! Our diff report, [`table_OLD vs table_NEW.xlsx`](https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/table_OLD%20vs%20table_NEW.xlsx), shows a name misspelled, favorite color changing, some height and IQ massaging, and bumping up a balance limit. 
 
 ![alt]({filename}/images/excel-diff/diff.png)
 
@@ -112,6 +112,8 @@ Wrapped in some functions, here is the whole script:
 
 <details>
 	<summary>Click to expand...</summary>
+
+[`excel-diff.py`](https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff.py)
 
 ```python
 import pandas as pd
@@ -197,7 +199,7 @@ This is a simple way to view the difference between two Excel files, but easily 
 ---
 
 - *All names in this dataset are fake. Any resemblance to real persons, living or dead, is purely coincidental.*
-- *You can view the original [code and files](https://github.com/mkudija/General-Examples/tree/master/Web/HTML_Table_Filter) or a [live example](http://matthewkudija.com/General-Examples/Web/HTML_Table_Filter/index.html) of the final product.*
+- *You can view the original [code and files](https://github.com/mkudija/blog/tree/master/content/downloads/code/excel-diff).*
 
 *Library versions:*
 ```
