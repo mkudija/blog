@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enable bigfoot footnotes -->
+    <!-- <link rel="stylesheet" href="/docs/theme/css/bigfoot-default.css" /> -->
+    <link rel="stylesheet" href="../../../../theme/css/bigfoot-default.css" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Matthew Kudija">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Diff Two Excel Files with Python | Matthew Kudija</title>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" title="Matthew Kudija blog atom feed" href="/feeds/all.atom.xml" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/theme/css/icons.css"/>
+    <style>.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */</style>
+    <style>.highlight pre, .highlighttable pre {
+  /*note: this is for code block background-color;*/
+    background: #272822;
+    color: #f8f8f2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 15px 'Source Sans Pro', sans-serif;
+  line-height: 1.6em;
+  color: #222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: #007EE5;
+  text-decoration: none;
+}
+a:hover {
+  color: #007EE5;
+  text-decoration: none;
+}
+header.main-header {
+  /*background: none repeat scroll 0% 0% #205F29;*/
+  background: none repeat scroll 0% 0% #3377B3;
+  margin-bottom: 0px;
+}
+header.main-header a {
+  color: #fff;
+}
+header.main-header .container {
+  max-width: 1000px;
+}
+header.main-header .container nav a:hover {
+  background-color: #3377B3;
+}
+article {
+  margin: 0;
+}
+article header.about {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+article header {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+article header h1 {
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: #000;
+}
+article header time {
+  color: #9E9E9E;
+  font-size: 0.85em;
+  float: right;
+}
+article header time.left {
+  color: #9E9E9E;
+  font-size: 0.85em;
+  float: left;
+}
+article div.social-links ul {
+  padding: 0px;
+}
+article div.social-links li {
+  display: inline;
+  font-size: 20px;
+}
+article div.social-links li a {
+  color: #000;
+  padding: 10px;
+}
+article div.social-links li a:hover {
+  color: #666;
+  text-decoration: none;
+}
+article p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6em;
+}
+article p.note {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 0.533em 0.733em;
+}
+article p.update {
+  background-color: #FEEFB3;
+  border: 1px solid #e6e68a;
+  padding: 0.533em 0.733em;
+}
+article p.alert {
+  background-color: #ffe2e2;
+  border: 1px solid #ffb2b2;
+  padding: 0.533em 0.733em;
+}
+article ul,
+article ol {
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+article li {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+article a:hover {
+  text-decoration: underline;
+}
+article blockquote {
+  border-left: 2px solid #c7c7cc;
+  color: #666;
+  margin: 30px 0;
+  padding: 0 0 0 25px;
+}
+article img {
+  max-width: 100%;
+}
+article code {
+  color: #333;
+  background-color: #EEE;
+  border-radius: 0;
+  font-size: 13px;
+}
+article .meta {
+  font-size: 11px;
+}
+article .meta a:hover {
+  text-decoration: none;
+}
+article .meta div {
+  margin-bottom: 20px;
+  display: block;
+}
+article .meta a.tag {
+  margin: 0 10px 10px 0;
+  padding: 1px 12px;
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.05);
+}
+article .meta a.tag:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+article .meta a.read_more,
+article .meta a.comments_btn {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 20px;
+  /*color: #205F29;*/
+  color: #3377B3;
+  background: #FFF;
+  /*border: 1px solid #205F29;*/
+  border: 1px solid #3377B3;
+}
+article .meta a.read_more:hover,
+article .meta a.comments_btn:hover {
+  color: #FFF;
+  /*background: #3377B3;*/
+  background: #3377B3;
+}
+.index {
+  max-width: 700px;
+}
+.index article header h2 {
+  font-size: 36px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.index article header h2 a {
+  color: #000;
+}
+.index article header h2 a:hover {
+  color: #007EE5;
+  text-decoration: none;
+}
+.index .separator {
+  padding: 40px 0 0 0;
+  margin: 0 0 40px 0;
+  height: 10px;
+  border-bottom: solid 1px #CCC;
+}
+.index .pagination {
+  display: block;
+  margin-bottom: 100px;
+}
+.index .pagination .left {
+  text-align: right;
+}
+.index .pagination .right {
+  text-align: left;
+}
+.index .pagination a {
+  display: inline-block;
+  border: 2px solid #3377B3;
+  margin: 0 5px;
+  padding: 8px 20px;
+  font-weight: bold;
+  color: #3377B3;
+}
+.index .pagination a:hover {
+  color: #FFF;
+  background: #3377B3;
+}
+.post {
+  max-width: 700px;
+}
+.post h2:before {
+  content: "# ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h3:before {
+  content: "## ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h4:before {
+  content: "### ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post article .meta {
+  margin: 50px 0 100px;
+}
+.list {
+  max-width: 700px;
+}
+.list ul.double-list {
+  margin: 0 auto 60px;
+  padding: 0;
+  list-style-type: none;
+}
+.list ul.double-list li {
+  padding: 5px 0;
+}
+.list ul.double-list li h2 {
+  font-size: 1em;
+  display: inline;
+  font-weight: normal;
+}
+.list ul.double-list li span {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  float: right;
+  padding-top: 3px;
+  font-size: 12px;
+  color: #999;
+}
+.full-width-content {
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}</style>
+
+    <!-- Begin Mailchimp Style -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px 'Source Sans Pro',Helvetica,Arial,sans-serif; }
+
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<!-- End Mailchimp Style -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+    init_mathjax = function() {
+        if (window.MathJax) {
+                // MathJax loaded
+                MathJax.Hub.Config({
+                    tex2jax: {
+                        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                    },
+                    displayAlign: 'left', // Change this to 'center' to center equations.
+                    "HTML-CSS": {
+                        styles: {'.MathJax_Display': {"margin": 0}}
+                    }
+                });
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            }
+        }
+        init_mathjax();
+    </script>
+
+</head>
+
+<body>
+    <header class="navbar navbar-inverse bs-docs-nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="/" title="Home" class="title">Matthew Kudija</a>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://matthewkudija.com/blog" title="Blog">Blog</a></li>
+                <li><a href="http://matthewkudija.com/about.html" title="About">About</a></li>
+                <li><a href="http://matthewkudija.com/photos" target="_blank" title="Photos">Photos</a></li>
+                <li><a href="http://github.com/mkudija" target="_blank" title="mkudija's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/mkudija" target="_blank" title="mkudija Twitter" rel="me">Twitter</a></li>
+                <li><a href="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" title="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" rel="me">Email</a></li>
+                <li><a href="http://matthewkudija.com/blog/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="wrap">
+<div class="container post">
+    <article>
+        <header>
+            <h1>Diff Two Excel Files with Python</h1>
+            <time datetime="article.date.isoformat()" pubdate>Sat 21 July 2018</time>
+        </header>
+
+        <div class="article_content">
+            
+
+<p><img alt src="../../../../images/excel-diff/excel-diff1.png"></p>
+<p>It's handy to be able to quickly find the differences between two Excel files. Below is a quick example of doing so using Python and pandas. </p>
+
+
+<p>Plenty of others have solved this problem. Here's a good write-up by <a href="http://pbpython.com/excel-diff-pandas.html">pbpython</a> and a version by <a href="https://gist.github.com/yassineAlouini/9b36ee91560445ce28b06733a362ced8">yassineAlouini</a>. Wanting a simple tool with a specific output, I opted to write up my own version. </p>
+<h2 id="write-python-diff">Write Python Diff</h2>
+<p>For my version, I assume that both files are similarly structured with few changes: the goal is to flag changes between two versions of the same file. This is helpful to confirm that nothing unexpected has changed, particularly with a file provided to you by a third party.</p>
+<p>Our output will highlight anything that has changed while graying out anything that stayed the same, letting us perform a quick visual inspection. The output will also include the two versions being compared in separate sheets for quick reference.</p>
+<p>We'll use pandas DataFrames for the comparison, so we first import pandas and read the files:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">df_OLD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_NEW</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_NEW</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Next we create a new DataFrame for the diff and loop through the originals to identify changes:</p>
+<div class="highlight"><pre><span></span><span class="n">dfDiff</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfDiff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfDiff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">value_OLD</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
+        <span class="n">value_NEW</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">value_OLD</span><span class="o">==</span><span class="n">value_NEW</span><span class="p">:</span>
+            <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}→{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Looping through the rows and columns of the DataFrame and accessing values with <code>df.loc</code> is not the fastest way to perform this operation (see <a href="https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas">this stackoverflow discussion</a> for some alternatives, including <code>df.apply()</code> and <code>df.iterrows()</code>). It is, however, simple for me to understand and straightforward to implement.</p>
+<p>For each cell (looping over rows and columns), we check to see if the values in the two files are the same. If the same, we keep the unchanged value. If different, we show the change from old value to new value using an arrow: <code>→</code>. </p>
+<p>Next we want to format the output to highlight changed cells. Since pandas uses <a href="https://xlsxwriter.readthedocs.io/working_with_pandas.html">XlsxWriter</a> to save files, we can access XlsxWriter's formatting options. </p>
+<p>To start the export, we specify that we are using XlsxWriter and assign the DataFrames to sheets.</p>
+<div class="highlight"><pre><span></span><span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;xlsxwriter&#39;</span><span class="p">)</span>
+
+<span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Then we'll select the <code>DIFF</code> sheet to apply formatting to, and define a <code>grey_fmt</code> for non-changed values, and a <code>highlight_fmt</code> for changed values. </p>
+<div class="highlight"><pre><span></span><span class="n">workbook</span>  <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">book</span>
+<span class="n">worksheet</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">sheets</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span>
+<span class="n">worksheet</span><span class="o">.</span><span class="n">hide_gridlines</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># define formats</span>
+<span class="n">grey_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#E0E0E0&#39;</span><span class="p">})</span>
+<span class="n">highlight_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;bg_color&#39;</span><span class="p">:</span><span class="s1">&#39;#B1B3B3&#39;</span><span class="p">})</span>
+</pre></div>
+
+
+<p>Using <a href="https://xlsxwriter.readthedocs.io/working_with_conditional_formats.html">XlsxWriter conditional formatting</a>, we can apply the appropriate format to changed and unchanged cells, using the arrow (<code>→</code>) defined previously in the diff.</p>
+<div class="highlight"><pre><span></span><span class="c1">## highlight changed cells</span>
+<span class="n">worksheet</span><span class="o">.</span><span class="n">conditional_format</span><span class="p">(</span><span class="s1">&#39;A1:ZZ1000&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;criteria&#39;</span><span class="p">:</span> <span class="s1">&#39;containing&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;→&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">highlight_fmt</span><span class="p">})</span>
+<span class="c1">## highlight unchanged cells</span>
+<span class="n">worksheet</span><span class="o">.</span><span class="n">conditional_format</span><span class="p">(</span><span class="s1">&#39;A1:ZZ1000&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;criteria&#39;</span><span class="p">:</span> <span class="s1">&#39;not containing&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;→&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">grey_fmt</span><span class="p">})</span>
+<span class="c1"># save</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="run-python-diff">Run Python Diff</h2>
+<p>Our starting file, <code>table_OLD.xlsx</code>, includes some dummy data. 
+<img alt src="../../../../images/excel-diff/table_OLD.png"></p>
+<p>For the purposes of testing, we'll change a few cells in <code>table_NEW.xlsx</code>. Perhaps you can spot them:
+<img alt src="../../../../images/excel-diff/table_NEW.png"></p>
+<p>Do you see all 6 cells that changed? If not don't worry, we'll run our <code>excel-diff.py</code> script to highlight the changes.</p>
+<div class="highlight"><pre><span></span>python excel-diff.py
+</pre></div>
+
+
+<p>And here you go! A name misspelled, favorite color changing, some height and IQ massaging, and bumping up a balance limit. </p>
+<p><img alt src="../../../../images/excel-diff/diff.png"></p>
+<p>Wrapped in some functions, here is the whole script:</p>
+<p><details>
+    <summary>Click to expand...</summary></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="k">def</span> <span class="nf">excel_diff</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">,</span> <span class="n">path_NEW</span><span class="p">):</span>
+
+    <span class="n">df_OLD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df_NEW</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_NEW</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Perform Diff</span>
+    <span class="n">dfDiff</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfDiff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfDiff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">value_OLD</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
+            <span class="n">value_NEW</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">value_OLD</span><span class="o">==</span><span class="n">value_NEW</span><span class="p">:</span>
+                <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}→{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
+
+    <span class="c1"># Save output and format</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;{} vs {}.xlsx&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;xlsxwriter&#39;</span><span class="p">)</span>
+
+    <span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="c1"># get xlsxwriter objects</span>
+    <span class="n">workbook</span>  <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">book</span>
+    <span class="n">worksheet</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">sheets</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span>
+    <span class="n">worksheet</span><span class="o">.</span><span class="n">hide_gridlines</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># define formats</span>
+    <span class="n">date_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;align&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;num_format&#39;</span><span class="p">:</span> <span class="s1">&#39;yyyy-mm-dd&#39;</span><span class="p">})</span>
+    <span class="n">center_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;align&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">})</span>
+    <span class="n">number_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;align&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;num_format&#39;</span><span class="p">:</span> <span class="s1">&#39;#,##0.00&#39;</span><span class="p">})</span>
+    <span class="n">cur_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;align&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;num_format&#39;</span><span class="p">:</span> <span class="s1">&#39;$#,##0.00&#39;</span><span class="p">})</span>
+    <span class="n">perc_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;align&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;num_format&#39;</span><span class="p">:</span> <span class="s1">&#39;0%&#39;</span><span class="p">})</span>
+    <span class="n">grey_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#E0E0E0&#39;</span><span class="p">})</span>
+    <span class="n">highlight_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;bg_color&#39;</span><span class="p">:</span><span class="s1">&#39;#B1B3B3&#39;</span><span class="p">})</span>
+
+    <span class="c1"># set column width and format over columns</span>
+    <span class="c1"># worksheet.set_column(&#39;J:AX&#39;, 5, number_fmt)</span>
+
+    <span class="c1"># set format over range</span>
+    <span class="c1">## highlight changed cells</span>
+    <span class="n">worksheet</span><span class="o">.</span><span class="n">conditional_format</span><span class="p">(</span><span class="s1">&#39;A1:ZZ1000&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;criteria&#39;</span><span class="p">:</span> <span class="s1">&#39;containing&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;→&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">highlight_fmt</span><span class="p">})</span>
+    <span class="c1">## highlight unchanged cells</span>
+    <span class="n">worksheet</span><span class="o">.</span><span class="n">conditional_format</span><span class="p">(</span><span class="s1">&#39;A1:ZZ1000&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;criteria&#39;</span><span class="p">:</span> <span class="s1">&#39;not containing&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;→&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">grey_fmt</span><span class="p">})</span>
+
+    <span class="c1"># save</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">path_OLD</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;table_OLD.xlsx&#39;</span><span class="p">)</span>
+    <span class="n">path_NEW</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;table_NEW.xlsx&#39;</span><span class="p">)</span>
+
+    <span class="n">excel_diff</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">,</span> <span class="n">path_NEW</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p></details></p>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>This is a simple way to view the difference between two Excel files, but easily modified to fit a particular dataset or use case. Since we're using pandas DataFrames, the original data could be csv files or a database table or any other format pandas can read from. We could also reformat the output to show only changes, or present the data differently, or specify data types by column, for instance.</p>
+<hr>
+<ul>
+<li><em>All names in this dataset are fake. Any resemblance to real persons, living or dead, is purely coincidental.</em></li>
+<li><em>You can view the original <a href="https://github.com/mkudija/General-Examples/tree/master/Web/HTML_Table_Filter">code and files</a> or a <a href="http://matthewkudija.com/General-Examples/Web/HTML_Table_Filter/index.html">live example</a> of the final product.</em></li>
+</ul>
+<p><em>Library versions:</em></p>
+<div class="highlight"><pre><span></span>pandas      0.22.0
+Python      3.6.3
+</pre></div>
+        </div>
+
+        <div class="meta">
+            <div>
+                <a href="../../../../tag/python.html" class="tag">python</a>
+                <a href="../../../../tag/pandas.html" class="tag">pandas</a>
+                <a href="../../../../tag/excel.html" class="tag">excel</a>
+            </div>
+        </div>
+    </article>
+
+    <div class="container">
+        <!-- Begin MailChimp Signup Form -->
+
+        <div id="mc_embed_signup">
+            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+        
+        <!--End mc_embed_signup-->
+    </div>
+
+
+
+<section>
+  <!-- <h1>Comments</h1> -->
+  <div id="disqus_thread"></div>
+  <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://matthewkudija.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>                        
+
+
+<!--   <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/07/21/excel-diff/';
+      var disqus_url = '../../../../2018/07/21/excel-diff/';
+      var disqus_title = 'Diff Two Excel Files with Python';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section> -->
+
+
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+    background-color: #272822;
+}
+
+table.dataframe {
+    font-family: Courier, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
+</div>
+
+<section id="footer">
+    <div class="container">
+        <p>
+            &copy; 2005<script>new Date().getFullYear()>2005&&document.write("-"+new Date().getFullYear());</script> <a href=http://matthewkudija.com target="_blank">Matthew Kudija</a>
+        </p>
+        <p>
+            <a href="https://github.com/mkudija/blog" target="_blank">Source</a> | Built with <a href= "http://docs.getpelican.com/">Pelican</a> and <a href= "https://pages.github.com/">GitHub Pages</a>.
+        </p>   
+    </div>
+</section>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-72240498-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72240498-1');
+    ga('send', 'pageview');
+</script>
+<!-- <script type="text/javascript" src="/docs/theme/js/bigfoot.js"></script> -->
+<script type="text/javascript" src="../../../../theme/js/bigfoot.js"></script>
+<script type="text/javascript">
+    $.bigfoot (
+    {
+
+    }
+    );
+</script>
+</body>
+</html>
