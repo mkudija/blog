@@ -10,9 +10,9 @@
         <ul class="double-list">
         {% for article in articles %}
             <li>
-                <a href='blog/{{ article.url }}'>
+                <a href='/blog/{{ article.url }}'>
                     <h2>{{ article.title }}</h2>
-                    <span>{{ article.date.strftime('%d.%m.%Y') }}</span>
+                    <span>{{ article.date.strftime('%Y-%m-%d') }}</span>
                 </a>
             </li>
         {% endfor %}
