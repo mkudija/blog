@@ -36,19 +36,31 @@ could also try barefoot or littlefoot:
 ## Why to Share Online
 
 ### Benefits to You
+Sharing your work online brings benefits that can't be had working in seclusion. 
+
+**Learning**
+
+The single most important reason to share your work is for the learning it fosters in you. Sharing publicly can be uncomfortable but it forces you to learn. In fact, the discomfort may have a great deal to do with it.
+
+Sharing is a risk, in that others may ignore you, or at worst ridicule you. But public sharing/teaching forces you to refine your thinking so as to not embarass yourself. But people pointing out your mistakes is a quick way to learn.
+
+This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the Internet.
+
+They say that "teaching is the best way to learn". On the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self, who very well may thank you for taking the time to write up your findings). 
+
 - **Learning**: sharing publicly forces you to learn
-  - "teaching is the best way to learn": on the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self)
-  - publich sharing/teaching forces you to refine your thinking so as to not embarass yourself. This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the Internet.
-  - People point out your mistakes and you learn
+  
+  
   - "The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem." -[CS Ph.D. lessons to my younger self](https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html), 2018-04-10
   - "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic." -[Blogging Like a Hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html), 2018-04-10
 - **Feedback**: 
   - "you are who you spend your time with" and you need to challenge yourself by people better than yourself: even if physically isolated the Internet provides ready access to the people you want in your life
-- **Body of Work**: practical and satisfaction
+- **Build a Body of Work**: practical and satisfaction
   - it gives you a public body of work to point to
   - yes there are practical benefits, but those are not the focus: job, portfolio, connections, etc.
   - more important is the learning in yourself and the satisfaction you receive from distilling some knowledge or wisdom
-  - "During [WWI Churchill] had carefully filed memoranda, documents, and letters, explaining , in a letter to Clementine on July 17, 1915, 'Someday I shd like the truth to be known.'" (*The Last Lion*, 767)
+  - "During [WWI Churchill] had carefully filed memoranda, documents, and letters, explaining , in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'" (*The Last Lion*, 767)
+  - Body of work: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salong. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet." (Show Your Work 66-67)
 - **Offload and record your thoughts**:
   - doesn't need to be public, but doing the above publicly serves this end
   - notes to your future self (useful and ...)
@@ -56,8 +68,18 @@ could also try barefoot or littlefoot:
 - **Business**:
   - if you are an entrepreneur, you need to reach customers
   - helps you network, etc.
-- **Fame**:
-  - notice that fame isn't on this list: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."-[Ryan Holiday](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/)
+- **Not Fame**:
+  - You'll notice that fame isn't on this list: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."-[Ryan Holiday](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/)
+
+
+
+
+
+
+
+
+
+
 
 ### Benefits to Others
 - **Share info**: 
@@ -98,7 +120,6 @@ Show Your Work
 - "in this day and age, if your work isn't online, it doesn't exist" (23)
 - Domain: "Social networks are great, but they come and go...If you're really interested in sharing your work and expressing yourself, nothing beats owning your own space online." (66)
 - Domain: "The beauty of owning your own turf is that your can do whatever you want with it...You don't have to make compromises." (69)
-- Body of work: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salong. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet." (66-67)
 - "The minute you learn something, turn around and teach it to others." (117)
 
 Silence in the age of noise
@@ -111,12 +132,12 @@ Silence in the age of noise
 
 
 ## Why You Should Share From Your Own Domain
-- **Control Your Data**:
+- **Control Your Data**: cultivate your own garden, rather than someone else's garden; link to it from Facebook/Twitter, but content resides on your domain
 - **Control Your Message**:
 - **Better Understand the Internet**:
 - **Support the good parts of the Internet, not the bad**:
   - does not support corporations that want to own your attention and sell your data
-  - does not support a culture of anonymous sharing that leads to misinformation and ad homenin
+  - does not support a culture of anonymous sharing that leads to misinformation and ad homenin attacks
 
 
 
@@ -134,7 +155,6 @@ The emergence of major web companies that control content creation—Facebook, e
 - helps you understand how the Internet really works and impacts your life
 
 Writing in *The Hedgehog Review*, Alan Jacobs shares his thoughts about the dangers of 
-
 
 [*Tending the Digital Commons: A Small Ethics toward the Future*](http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php) by Alan Jacobs[^hedgehog]
 
@@ -155,12 +175,21 @@ Writing in *The Hedgehog Review*, Alan Jacobs shares his thoughts about the dang
 > 
 > One could add considerably to this list, but these, I believe, are the rudimentary skills that should be possessed by anyone who wants to be a responsible citizen of the open Web—and not to be confined to living on the bounty of the digital headmasters.
 
-[^hedgehog]: Jacobs, Alan. "[Tending the Digital Commons: A Small Ethics toward the Future.](http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php)" *The Hedgehog Review* Vol. 20, No. 1 (2018): The Hedgehog Review. Web. 28 Mar. 2018.
-
-Cite this: http://hackeducation.com/2017/04/04/domains[^domains]
-[^domains]: http://hackeducation.com/2017/04/04/domains
+[^hedgehog]: Alan Jacobs. "[Tending the Digital Commons: A Small Ethics toward the Future.](http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php)" *The Hedgehog Review* Vol. 20, No. 1 (2018): The Hedgehog Review. Web. 28 Mar. 2018.
 
 
+
+Cite this: Audrey Watters: http://hackeducation.com/2017/04/04/domains [^hackeducation]
+- "Students and staff can start to see how digital technologies work – those that underpin the Web and elsewhere. They can think about how these technologies shape the formation of their understanding of the world – how knowledge is formed and shared; how identity is formed and expressed."
+- "But you can publish stuff on your own site first, and then syndicate it to these other for-profit, ad-based venues."
+- "That’s your domain. You cultivate ideas there – quite carefully, no doubt, because others might pop by for a think. But also because it’s your space for a think."
+
+[^hackeducation]: Audrey Watters, “Why 'A Domain of One's Own' Matters (For the Future of Knowledge),” Hack Education, April 4, 2017, [`http://hackeducation.com/2017/04/04/domains`](http://hackeducation.com/2017/04/04/domains).
+
+
+Cite this: https://dancohen.org/2018/03/21/back-to-the-blog/ [^dancohen]
+
+[^dancohen]: Dan Cohen, “Back to the Blog,” Dan Cohen's Blog, March 21, 2018, [`https://dancohen.org/2018/03/21/back-to-the-blog/`](https://dancohen.org/2018/03/21/back-to-the-blog/).
 
 
 # Part II: Introductory Concepts
