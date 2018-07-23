@@ -12,24 +12,44 @@ status: draft
 <!-- PELICAN_BEGIN_SUMMARY -->
 <!-- ![alt]({filename}/images/gh-pages-python-2.png) -->
 
-Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. My goal is that after reading this post you will:
+Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. Using these skills to share your work online has benefits to you and others that justify the costs in time and effort required. My goal is that after reading this post you will:
 
-1. Agree that controlling your web domain has benefits, and that basic web design skills can aid in this.
+1. Agree that controlling your web domain and sharing your work online has benefits, and that basic web design skills can aid in this.
 2. Understand the basic concepts required to build and operate a website, regardless of technology choices.
-3. Be able to build your own simple static website by following my detailed instructions which use a set of popular (and free) technologies. 
+3. Be able to build a simple static website by following my detailed instructions which use a set of popular (and free) technologies. 
 
 The sections below are aligned with these three goals. Let's get started.
 
 <!-- PELICAN_END_SUMMARY -->
 
-BIGFOOT
 
-could also try barefoot or littlefoot:
-- https://github.com/philgruneich/barefoot
-- https://github.com/goblindegook/littlefoot
+<!-- [TOC] -->
 
+<!-- MarkdownTOC autolink="true" levels="1,2" -->
 
-[TOC]
+- [Part I: Why to Share Online \(from your own domain\)](#part-i-why-to-share-online-from-your-own-domain)
+  - [Why to Share Online](#why-to-share-online)
+  - [Why You Should Share From Your Own Domain](#why-you-should-share-from-your-own-domain)
+- [Part II: Introductory Concepts](#part-ii-introductory-concepts)
+  - [Web Hosting](#web-hosting)
+  - [Domain Names](#domain-names)
+  - [Static Website](#static-website)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [JavaScript](#javascript)
+  - [Python](#python)
+- [Part III: Tutorial](#part-iii-tutorial)
+  - [Choosing Tools & Services](#choosing-tools--services)
+  - [Setting up GitHub Pages](#setting-up-github-pages)
+  - [HTML Template](#html-template)
+  - [Using Python to auto-generate your website](#using-python-to-auto-generate-your-website)
+  - [Add Extras](#add-extras)
+  - [Other Notes](#other-notes)
+- [Closing Thoughts](#closing-thoughts)
+  - [Resources](#resources)
+
+<!-- /MarkdownTOC -->
+
 
 # Part I: Why to Share Online (from your own domain)
 
@@ -48,32 +68,68 @@ This post, for instance, started as a simple gh-pages tutorial but caused me to 
 
 They say that "teaching is the best way to learn". On the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self, who very well may thank you for taking the time to write up your findings). 
 
-- **Learning**: sharing publicly forces you to learn
+Even if you have already gone through the work of developing an idea or program or other finished product, *explaining* it helps cement your learning: "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic"[^preston-werner].
+
+[^preston-werner]: Tom Preston-Werner, “Blogging Like a Hacker,” Tom Preston-Werner's Blog, November 11, 2008, [`http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html`](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html).
+
+Plus, it freezes the topic in its freshest form for your later self to revisit and re-learn from. Notes to a future self are often reason enough to write something down in the first place.
   
-  
-  - "The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem." -[CS Ph.D. lessons to my younger self](https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html), 2018-04-10
-  - "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic." -[Blogging Like a Hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html), 2018-04-10
-- **Feedback**: 
-  - "you are who you spend your time with" and you need to challenge yourself by people better than yourself: even if physically isolated the Internet provides ready access to the people you want in your life
-- **Build a Body of Work**: practical and satisfaction
-  - it gives you a public body of work to point to
+> The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem.<br>–Nipun Batra[^nipunbatra]
+
+[^nipunbatra]: Nipun Batra, “CS Ph.D. lessons to my younger self,” Nipun Batra's Blog, January 7, 2018, [`https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html`](https://nipunbatra.github.io/blog/2018/cs-phd-lessons.html).
+
+
+**Build a Body of Work**
+
+Sharing your work online is the first step in building a meaningful body of work. You will be able to take pride in pointing to something you created, and it might open other opportunities for you as well.
+
+Academics, artists, craftsmen might have a body of work built more naturally by virtue of the products they produce. For a typical knowledge worker this might not be so easy. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be shared online is a way to allow your...What you write up and share may be the first steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known'"[^manchester]. He went on to write *The World Crisis*, his 6-volume history of the war that secured his family's livelihood for many years. 
+
+[^manchester]: William Mancheseter, [*The Last Lion: Winston Spencer Churchill: Visions of Glory, 1874-1932*](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=the+last+lion+visions+of+glory) (New York: Little, Brown, and Company, 1983), 767.
+
+
+A spacecraft's heatshield is ablative in that it peels away as it rejects heat. Let your work be the opposite and be an accretive force. 
+
+Building anything worthwile takes time and energy. More than actively pursuing a goal, sharing online is a mindset of always improving and adding. 
+
+>One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salon. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet.<br>–Austin Kleon[^kleon]
+
+[^kleon]: Austin Kleon, [*Show Your Work!*](https://www.amazon.com/Show-Your-Work-Austin-Kleon/dp/076117897X/ref=sr_1_1?ie=UTF8&qid=1532378760&sr=8-1&keywords=show+your+work) (New York: Workman, 2014), 66-67.
+
+
+Beyond the satisfacion of having something to point to, there may be practical benefits as well (though understand there is change involved also): 
   - yes there are practical benefits, but those are not the focus: job, portfolio, connections, etc.
   - more important is the learning in yourself and the satisfaction you receive from distilling some knowledge or wisdom
-  - "During [WWI Churchill] had carefully filed memoranda, documents, and letters, explaining , in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'" (*The Last Lion*, 767)
-  - Body of work: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salong. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet." (Show Your Work 66-67)
-- **Offload and record your thoughts**:
+
+
+
+
+**Feedback**
+
+I haven't gotten much feedback on what I have just recently started sharing online, but I imagine this could be a key benefit. The reality of the internet is that it shrinks the world making geographic proximity irrelevant in finding and conversing with people who share similar interests. 
+
+Rude feedback can be ignored, but even negative feedback will help you if received in the right frame of mind. There's no quicker way to learn than by having others point out your mistakes.
+
+  - "you are who you spend your time with" and you need to challenge yourself by people better than yourself: even if physically isolated the Internet provides ready access to the people you want in your life
+
+
+
+**Business**
+
+It goes without saying that if you want to build a business in today's world an online presence is required for all but the rarest exceptions. You need a way to reach customers, accept payments, respond to questions, and build a network. A website need not be complex or expensive (or built by a professional) to meet these basic needs. 
+
+
+**Not Fame**
+
+You'll notice that fame isn't on this list, though an honest self-examination by any author will probably reveal some desire for accolades. This is a poor reason to share online. Simple math says that your chances of achieving fame are not high, and I'll wager that the majority of what people post online languishes in obscurity. Plus, you might not even want what you're looking for: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera"[^holiday].
+
+[^holiday]: Ryan Holiday, “The Most Successful People Are The Ones You’ve Never Heard Of (And Why They Want It That Way),” Thought Catalog, March 20, 2018, [`https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/`](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/).
+
+
+**Offload and record your thoughts**:
   - doesn't need to be public, but doing the above publicly serves this end
   - notes to your future self (useful and ...)
   - serves as a journal of your intellectual development
-- **Business**:
-  - if you are an entrepreneur, you need to reach customers
-  - helps you network, etc.
-- **Not Fame**:
-  - You'll notice that fame isn't on this list: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."-[Ryan Holiday](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/)
-
-
-
-
 
 
 
@@ -93,7 +149,8 @@ They say that "teaching is the best way to learn". On the Internet your students
 
   - David Robinson "why you should blog" [^robinson]
 
-  [^robinson]: [*Advice to aspiring data scientists: start a blog*](http://varianceexplained.org/r/start-blog/) by David Robinson
+[^robinson]: David Robinson, “Advice to aspiring data scientists: start a blog,” Variance Explained, November 14, 2017, [`http://varianceexplained.org/r/start-blog/`](http://varianceexplained.org/r/start-blog/).
+
 
 
 
