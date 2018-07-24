@@ -96,6 +96,16 @@ Building anything worthwile takes time and energy. More than actively pursuing a
 
 [^kleon]: Austin Kleon, [*Show Your Work!*](https://www.amazon.com/Show-Your-Work-Austin-Kleon/dp/076117897X/ref=sr_1_1?ie=UTF8&qid=1532378760&sr=8-1&keywords=show+your+work) (New York: Workman, 2014), 66-67.
 
+"If you do one little thing each week, imagine how much you can learn in a year."[^little]
+
+[^little]: Derya Little, [*From Islam to Christ*](https://www.amazon.com/Islam-Christ-Womans-through-Riddles/dp/1621641120/ref=sr_1_1?ie=UTF8&qid=1532269958&sr=8-1&keywords=from+islam+to+christ) (San Francisco: Ignatius, 2017), 201.
+
+
+** by 
+
+(San Francisco: Ignatius, 2017), 204
+
+
 
 Beyond the satisfacion of having something to point to, there may be practical benefits as well (though understand there is change involved also): 
   - yes there are practical benefits, but those are not the focus: job, portfolio, connections, etc.
