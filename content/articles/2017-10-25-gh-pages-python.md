@@ -68,7 +68,7 @@ This post, for instance, started as a simple gh-pages tutorial but caused me to 
 
 They say that "teaching is the best way to learn". On the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self, who very well may thank you for taking the time to write up your findings). 
 
-Even if you have already gone through the work of developing an idea or program or other finished product, *explaining* it helps cement your learning: "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic"[^preston-werner].
+Even if you have already gone through the work of developing an idea or program or other finished product, *explaining* it helps cement your learning: "The act of transforming ideas into words is an amazingly efficient way to solidify and refine your thoughts about a given topic."[^preston-werner]
 
 [^preston-werner]: Tom Preston-Werner, “Blogging Like a Hacker,” Tom Preston-Werner's Blog, November 11, 2008, [`http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html`](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html).
 
@@ -83,7 +83,7 @@ Plus, it freezes the topic in its freshest form for your later self to revisit a
 
 Sharing your work online is the first step in building a meaningful body of work. You will be able to take pride in pointing to something you created, and it might open other opportunities for you as well.
 
-Academics, artists, craftsmen might have a body of work built more naturally by virtue of the products they produce. For a typical knowledge worker this might not be so easy. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be shared online is a way to allow your...What you write up and share may be the first steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known'"[^manchester]. He went on to write *The World Crisis*, his 6-volume history of the war that secured his family's livelihood for many years. 
+Academics, artists, craftsmen might have a body of work built more naturally by virtue of the products they produce. For a typical knowledge worker this might not be so easy. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be shared online is a way to allow your...What you write up and share may be the first steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'"[^manchester] He went on to write *The World Crisis*, his 6-volume history of the war that secured his family's livelihood for many years. 
 
 [^manchester]: William Mancheseter, [*The Last Lion: Winston Spencer Churchill: Visions of Glory, 1874-1932*](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=the+last+lion+visions+of+glory) (New York: Little, Brown, and Company, 1983), 767.
 
@@ -121,7 +121,7 @@ It goes without saying that if you want to build a business in today's world an 
 
 **Not Fame**
 
-You'll notice that fame isn't on this list, though an honest self-examination by any author will probably reveal some desire for accolades. This is a poor reason to share online. Simple math says that your chances of achieving fame are not high, and I'll wager that the majority of what people post online languishes in obscurity. Plus, you might not even want what you're looking for: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera"[^holiday].
+You'll notice that fame isn't on this list, though an honest self-examination by any author will probably reveal some desire for accolades. This is a poor reason to share online. Simple math says that your chances of achieving fame are not high, and I'll wager that the majority of what people post online languishes in obscurity. Plus, you might not even want what you're looking for: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."[^holiday]
 
 [^holiday]: Ryan Holiday, “The Most Successful People Are The Ones You’ve Never Heard Of (And Why They Want It That Way),” Thought Catalog, March 20, 2018, [`https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/`](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/).
 
@@ -132,18 +132,33 @@ You'll notice that fame isn't on this list, though an honest self-examination by
   - serves as a journal of your intellectual development
 
 
+Wow, so sharing your work can benefit you a lot. But guess what, it can help other people too.
 
 
 
 
 
 ### Benefits to Others
-- **Share info**: 
-  - image of "on your computer" vs. "on the Internet"
 
+A lot of what I know—apart from what I have read in [books](http://matthewkudija.com/reading)—I learned from what other people have shared online. Since you're reading this you probably have as well. Sharing some of your knowledge online is the best way to pay it forward to others. 
+
+One challenge to overcome is the desire to only share what is *perfect*. But much of what you produce will be *useful* long before it is *perfect*. 
+
+![alt]({filename}/images/sharing.png)
+
+Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning somehting you are probably underestimating rather than overestimating what may be useful. 
+
+Just remember that it must be *shared on the internet* to ever be useful to someone else. What you produce cannot help other people if it exists soley in your head, in a notebook, or on your computer. 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Things that are still on your computer are approximately useless.&quot; -<a href="https://twitter.com/drob?ref_src=twsrc%5Etfw">@drob</a> <a href="https://twitter.com/hashtag/eUSR?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR</a> <a href="https://twitter.com/hashtag/eUSR2017?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR2017</a> <a href="https://t.co/nS3IBiRHBn">pic.twitter.com/nS3IBiRHBn</a></p>&mdash; Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/926509282874585089?ref_src=twsrc%5Etfw">November 3, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+"Documenting your findings in public (regardless of outcomes!) is a worthy contribution to society, full stop. If you’re doing something new, and you care about understanding the problem, people will pay attention."[^nadiaeghbal]
+
+[^nadiaeghbal]: Nadia Eghbal, “The independent researcher,” Nadia Eghbal's Blog, June 27, 2018, [`https://nadiaeghbal.com/independent-research`](https://nadiaeghbal.com/independent-research).
+
+
 
 
 
@@ -158,16 +173,21 @@ You'll notice that fame isn't on this list, though an honest self-examination by
   - feeling of just discovering someone and being nourished by their thinking: recently JMW, AJ, MMM
   - contributes to the original vision of the Internet
   - "The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors; and failing them, to himself: for when he helps others, he advances the general interests of mankind." - Seneca, [*On Leisure*](http://www.bartleby.com/library/prose/4636.html)
-- **Domocracy in the public square**: need to have a voice in the public square
-  - builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square
-  - FT, etc.
-  - Toqueville...?
   - Helpful: In a remarkable essay titled “On Leisure,” published after Seneca retired, the philosopher wrote in an oblique way about his own experiences: “The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors, and, failing them, to himself: for when he helps others, he advances the general interests of mankind.”
 
 
-Independent research notes: https://nadiaeghbal.com/independent-research
+**Domocracy in the public square**: need to have a voice in the public square
 
-- "Do whatever you can’t stop thinking about. Documenting your findings in public (regardless of outcomes!) is a worthy contribution to society, full stop. If you’re doing something new, and you care about understanding the problem, people will pay attention."
+  - builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square
+  - FT, etc.
+  - Toqueville...?
+
+
+
+
+
+
+Independent research notes: https://nadiaeghbal.com/independent-research
 - "You don’t need a PhD to study something you care about. You don’t need to publish papers in academic journals to become widely respected. You just need a curious mind, a bankroll, and a commitment to learning in public."
 
 
@@ -304,6 +324,8 @@ We reference a JavaScript script in HTML like this:
 
 # Part III: Tutorial
 Describe the example we will build....(recipes)
+
+Can still be frustrating though: http://veekaybee.github.io/2015/05/30/static-sites-suck/
 
 ## Choosing Tools & Services
 - GitHub is free, and that make this more accessible
