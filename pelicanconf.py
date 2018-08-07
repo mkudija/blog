@@ -62,12 +62,12 @@ NOTEBOOK_DIR = 'downloads/notebooks'
 # THEME SETTINGS
 THEME = './theme/'
 
-ABOUT_PAGE = 'http://matthewkudija.com/about.html'
+ABOUT_PAGE = 'https://matthewkudija.com/about.html'
 TWITTER_USERNAME = 'mkudija'
 GITHUB_USERNAME = 'mkudija'
-AUTHOR_WEBSITE = 'http://matthewkudija.com'
-AUTHOR_BLOG = 'http://matthewkudija.com/blog'
-PHOTOS_PAGE = 'http://matthewkudija.com/photos'
+AUTHOR_WEBSITE = 'https://matthewkudija.com'
+AUTHOR_BLOG = 'https://matthewkudija.com/blog'
+PHOTOS_PAGE = 'https://matthewkudija.com/photos'
 #AUTHOR_CV = "http://matthewkudija.com/resume.pdf"
 AUTHOR_EMAIL = "mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A"
 SHOW_ARCHIVES = True

@@ -31,19 +31,15 @@ The sections below are aligned with these three goals. Let's get started.
   - [Why to Share Online](#why-to-share-online)
   - [Why You Should Share From Your Own Domain](#why-you-should-share-from-your-own-domain)
 - [Part II: Introductory Concepts](#part-ii-introductory-concepts)
-  - [Web Hosting](#web-hosting)
-  - [Domain Names](#domain-names)
-  - [Static Website](#static-website)
-  - [HTML](#html)
-  - [CSS](#css)
-  - [JavaScript](#javascript)
-  - [Python](#python)
 - [Part III: Tutorial](#part-iii-tutorial)
   - [Choosing Tools & Services](#choosing-tools--services)
-  - [Setting up GitHub Pages](#setting-up-github-pages)
-  - [HTML Template](#html-template)
-  - [Using Python to auto-generate your website](#using-python-to-auto-generate-your-website)
-  - [Add Extras](#add-extras)
+  - [1. Set Up GitHub Pages](#1-set-up-github-pages)
+  - [2. Download Theme](#2-download-theme)
+  - [3. Set Up Extras](#3-set-up-extras)
+  - [4. Enable Bigfoot Footnotes](#4-enable-bigfoot-footnotes)
+  - [5. Update Books](#5-update-books)
+  - [6. Update Reading](#6-update-reading)
+  - [7. Particle background](#7-particle-background)
   - [Other Notes](#other-notes)
 - [Closing Thoughts](#closing-thoughts)
   - [Resources](#resources)
@@ -60,11 +56,9 @@ Sharing your work online brings benefits that can't be had working in seclusion.
 
 **Learning**
 
-The single most important reason to share your work is for the learning it fosters in you. Sharing publicly can be uncomfortable but it forces you to learn. In fact, the discomfort may have a great deal to do with it.
+The single most important reason to share your work online is for the learning it enables. Sharing publicly can be uncomfortable but the the additional pressure can help you learn with a rigor that would otherwise be lacking if it was just for yourself. 
 
-Sharing is a risk, in that others may ignore you, or at worst ridicule you. But public sharing/teaching forces you to refine your thinking so as to not embarass yourself. But people pointing out your mistakes is a quick way to learn.
-
-This post, for instance, started as a simple gh-pages tutorial but caused me to think deeply about the purpose of the Internet.
+Sharing is a risk in that others may ignore you or even ridicule you. Polishing your ideas enough to share online is often the final step needed to solidify your understanding of a topic. Also, hearing people point out your mistakes might not be fun but it is a quick way to learn from them.
 
 They say that "teaching is the best way to learn". On the Internet your students are anyone who finds what you share to be useful or interesting (as well as your future self, who very well may thank you for taking the time to write up your findings). 
 
@@ -72,7 +66,7 @@ Even if you have already gone through the work of developing an idea or program 
 
 [^preston-werner]: Tom Preston-Werner, “Blogging Like a Hacker,” Tom Preston-Werner's Blog, November 11, 2008, [`http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html`](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html).
 
-Plus, it freezes the topic in its freshest form for your later self to revisit and re-learn from. Notes to a future self are often reason enough to write something down in the first place.
+Plus, it freezes the topic while it is fresh in your mind for your later self to revisit and re-learn from. Notes to a future self are often reason enough to write something down in the first place.
   
 > The learning in writing these blog posts was immense. While these blog posts are public, I think I am the biggest beneficiary. Not only does one gain a good understanding of the concept involved, but one also gains confidence about the subject and one's ability to understand! The key lesson is to document your learnings, understandings, and try to abstract out your specific problem and think of teaching the concept to someone who doesn't know much about your problem.<br>–Nipun Batra[^nipunbatra]
 
@@ -83,35 +77,19 @@ Plus, it freezes the topic in its freshest form for your later self to revisit a
 
 Sharing your work online is the first step in building a meaningful body of work. You will be able to take pride in pointing to something you created, and it might open other opportunities for you as well.
 
-Academics, artists, craftsmen might have a body of work built more naturally by virtue of the products they produce. For a typical knowledge worker this might not be so easy. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be shared online is a way to allow your...What you write up and share may be the first steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'"[^manchester] He went on to write *The World Crisis*, his 6-volume history of the war that secured his family's livelihood for many years. 
+A typical knowledge worker may not as naturally create this body of work as an academic, artist, or craftsman for instance. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be shared online is a way to ensure your work accumulates over time rather than simply being lost to time. 
 
-[^manchester]: William Mancheseter, [*The Last Lion: Winston Spencer Churchill: Visions of Glory, 1874-1932*](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=the+last+lion+visions+of+glory) (New York: Little, Brown, and Company, 1983), 767.
+Building anything worthwile takes time and energy. More than actively pursuing a goal, sharing online should come from a mindset of always improving.  What you write up and share may be the first tentative steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters" away for inclusion in his memoirs.[^manchester] He went on to write *The World Crisis*, a 6-volume history of the war that secured his family's livelihood for many years. What could have been lost was instead built up in small pieces as events happened and later assembled into a meaningful body of work. 
 
+[^manchester]: William Mancheseter, [*The Last Lion: Winston Spencer Churchill: Visions of Glory, 1874-1932*](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=the+last+lion+visions+of+glory) (New York: Little, Brown, and Company, 1983), 767. Full quote: "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'"
 
-A spacecraft's heatshield is ablative in that it peels away as it rejects heat. Let your work be the opposite and be an accretive force. 
+Little pieces of effort and examples of work add up over time. A little bit each day is great. A little  each week adds up quickly: "If you do one little thing each week, imagine how much you can learn in a year."[^little] Even at a monthly cadence you can build a solid foundation over a few year's time, and a lot of the blogs I have learned from average maybe 12 posts per year, or one per month. With patience and a long horizon, every little bit bit counts: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work."[^kleon]
 
-Building anything worthwile takes time and energy. More than actively pursuing a goal, sharing online is a mindset of always improving and adding. 
-
->One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salon. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet.<br>–Austin Kleon[^kleon]
-
-[^kleon]: Austin Kleon, [*Show Your Work!*](https://www.amazon.com/Show-Your-Work-Austin-Kleon/dp/076117897X/ref=sr_1_1?ie=UTF8&qid=1532378760&sr=8-1&keywords=show+your+work) (New York: Workman, 2014), 66-67.
-
-"If you do one little thing each week, imagine how much you can learn in a year."[^little]
+[^kleon]: Austin Kleon, [*Show Your Work!*](https://www.amazon.com/Show-Your-Work-Austin-Kleon/dp/076117897X/ref=sr_1_1?ie=UTF8&qid=1532378760&sr=8-1&keywords=show+your+work) (New York: Workman, 2014), 66-67. Full quote: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work. My blog has been my sketchbook, my studio, my gallery, my storefront, and my salon. Absolutely everything good that has happened in my career can be traced back to my blog. My books, my art shows, my speaking gigs, some of my best friendships—they all exist because I have my own little piece of turf on the Internet."
 
 [^little]: Derya Little, [*From Islam to Christ*](https://www.amazon.com/Islam-Christ-Womans-through-Riddles/dp/1621641120/ref=sr_1_1?ie=UTF8&qid=1532269958&sr=8-1&keywords=from+islam+to+christ) (San Francisco: Ignatius, 2017), 201.
 
-
-** by 
-
-(San Francisco: Ignatius, 2017), 204
-
-
-
-Beyond the satisfacion of having something to point to, there may be practical benefits as well (though understand there is change involved also): 
-  - yes there are practical benefits, but those are not the focus: job, portfolio, connections, etc.
-  - more important is the learning in yourself and the satisfaction you receive from distilling some knowledge or wisdom
-
-
+Practical benefits may come from this (job offers, friendships, etc.), but the intrinsic benefits will suffice. This body of work is a journal of your intellectual development, an online repository of knowledge for future reference, and something you can point to with satisfaction and say, "I did that."
 
 
 **Feedback**
@@ -135,14 +113,18 @@ You'll notice that fame isn't on this list, though an honest self-examination by
 
 [^holiday]: Ryan Holiday, “The Most Successful People Are The Ones You’ve Never Heard Of (And Why They Want It That Way),” Thought Catalog, March 20, 2018, [`https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/`](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/).
 
+Wow, so sharing your work can benefit you a lot. But guess what, it can help other people too.
+
+
+<details>
+  <summary>Click to expand</summary>
 
 **Offload and record your thoughts**:
   - doesn't need to be public, but doing the above publicly serves this end
   - notes to your future self (useful and ...)
   - serves as a journal of your intellectual development
 
-
-Wow, so sharing your work can benefit you a lot. But guess what, it can help other people too.
+</details>
 
 
 
@@ -152,13 +134,15 @@ Wow, so sharing your work can benefit you a lot. But guess what, it can help oth
 
 A lot of what I know—apart from what I have read in [books](http://matthewkudija.com/reading)—I learned from what other people have shared online. Since you're reading this you probably have as well. Sharing some of your knowledge online is the best way to pay it forward to others. 
 
-One challenge to overcome is the desire to only share what is *perfect*. But much of what you produce will be *useful* long before it is *perfect*. 
+One challenge to overcome is the desire to only share what is *perfect*. But much of what you produce will be *useful to others* long before it is *perfect*. 
 
 ![alt]({filename}/images/sharing.png)
 
-Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning somehting you are probably underestimating rather than overestimating what may be useful. 
+Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning somehting you are probably underestimating rather than overestimating how useful it could be. 
 
-Just remember that it must be *shared on the internet* to ever be useful to someone else. What you produce cannot help other people if it exists soley in your head, in a notebook, or on your computer. 
+Just remember that it must be *shared on the internet* to ever be useful to someone else. What you produce cannot help other people if it exists soley in your head, in a notebook, or on your computer.[^robinson] 
+
+[^robinson]: I came across this tweet here: David Robinson, “Advice to aspiring data scientists: start a blog,” Variance Explained, November 14, 2017, [`http://varianceexplained.org/r/start-blog/`](http://varianceexplained.org/r/start-blog/).
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Things that are still on your computer are approximately useless.&quot; -<a href="https://twitter.com/drob?ref_src=twsrc%5Etfw">@drob</a> <a href="https://twitter.com/hashtag/eUSR?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR</a> <a href="https://twitter.com/hashtag/eUSR2017?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR2017</a> <a href="https://t.co/nS3IBiRHBn">pic.twitter.com/nS3IBiRHBn</a></p>&mdash; Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/926509282874585089?ref_src=twsrc%5Etfw">November 3, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -172,11 +156,10 @@ Just remember that it must be *shared on the internet* to ever be useful to some
 
 
 
-  - David Robinson "why you should blog" [^robinson]
-
-[^robinson]: David Robinson, “Advice to aspiring data scientists: start a blog,” Variance Explained, November 14, 2017, [`http://varianceexplained.org/r/start-blog/`](http://varianceexplained.org/r/start-blog/).
 
 
+<details>
+  <summary>Click to expand</summary>
 
 
   - think of all that you've learned from blogs, etc.
@@ -213,21 +196,42 @@ Silence in the age of noise
 
 - “Sometimes it makes more sense to make life more difficult than necessary” (46)
 
-
+</details>
 
 
 
 
 ## Why You Should Share From Your Own Domain
-- **Control Your Data**: cultivate your own garden, rather than someone else's garden; link to it from Facebook/Twitter, but content resides on your domain
-- **Control Your Message**:
-- **Better Understand the Internet**:
-- **Support the good parts of the Internet, not the bad**:
+If we agree sharing your work online benefits you and others, let's discuss why sharing from your own domain is helpful, and it boils down to this: control. Control over your message, control over your data, learning how the internet works and participating in how it was originally envisioned.
+
+
+**Control Your Message and Data**: cultivate your own garden, rather than someone else's garden; link to it from Facebook/Twitter, but content resides on your domain
+
+
+Cite this: https://dancohen.org/2018/03/21/back-to-the-blog/ [^dancohen]
+- “re-decentralize” the web
+
+[^dancohen]: Dan Cohen, “Back to the Blog,” Dan Cohen's Blog, March 21, 2018, [`https://dancohen.org/2018/03/21/back-to-the-blog/`](https://dancohen.org/2018/03/21/back-to-the-blog/).
+
+
+
+https://dancohen.org/2018/06/26/going-indie-on-social-media/
+- notmywebsite.com/dancohen
+- 
+
+**Better Understand the Internet**
+
+Cite this: Audrey Watters: http://hackeducation.com/2017/04/04/domains [^hackeducation]
+- "Students and staff can start to see how digital technologies work – those that underpin the Web and elsewhere. They can think about how these technologies shape the formation of their understanding of the world – how knowledge is formed and shared; how identity is formed and expressed."
+- "But you can publish stuff on your own site first, and then syndicate it to these other for-profit, ad-based venues."
+- "That’s your domain. You cultivate ideas there – quite carefully, no doubt, because others might pop by for a think. But also because it’s your space for a think."
+
+[^hackeducation]: Audrey Watters, “Why 'A Domain of One's Own' Matters (For the Future of Knowledge),” Hack Education, April 4, 2017, [`http://hackeducation.com/2017/04/04/domains`](http://hackeducation.com/2017/04/04/domains).
+
+
+**Support the good parts of the Internet, not the bad**:
   - does not support corporations that want to own your attention and sell your data
   - does not support a culture of anonymous sharing that leads to misinformation and ad homenin attacks
-
-
-
 
 
 The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
@@ -265,33 +269,25 @@ Writing in *The Hedgehog Review*, Alan Jacobs shares his thoughts about the dang
 [^hedgehog]: Alan Jacobs. "[Tending the Digital Commons: A Small Ethics toward the Future.](http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php)" *The Hedgehog Review* Vol. 20, No. 1 (2018): The Hedgehog Review. Web. 28 Mar. 2018.
 
 
-
-Cite this: Audrey Watters: http://hackeducation.com/2017/04/04/domains [^hackeducation]
-- "Students and staff can start to see how digital technologies work – those that underpin the Web and elsewhere. They can think about how these technologies shape the formation of their understanding of the world – how knowledge is formed and shared; how identity is formed and expressed."
-- "But you can publish stuff on your own site first, and then syndicate it to these other for-profit, ad-based venues."
-- "That’s your domain. You cultivate ideas there – quite carefully, no doubt, because others might pop by for a think. But also because it’s your space for a think."
-
-[^hackeducation]: Audrey Watters, “Why 'A Domain of One's Own' Matters (For the Future of Knowledge),” Hack Education, April 4, 2017, [`http://hackeducation.com/2017/04/04/domains`](http://hackeducation.com/2017/04/04/domains).
+With that as inspiration, the rest of this post is devoted to building up the 12 points Jacobs suggests. 
 
 
-Cite this: https://dancohen.org/2018/03/21/back-to-the-blog/ [^dancohen]
 
-[^dancohen]: Dan Cohen, “Back to the Blog,” Dan Cohen's Blog, March 21, 2018, [`https://dancohen.org/2018/03/21/back-to-the-blog/`](https://dancohen.org/2018/03/21/back-to-the-blog/).
 
 
 # Part II: Introductory Concepts
-Since one of the benefits of sharing your work through your domain is building a basic understanding of the technologies that power the Internet, let's review those technologies.
+Since one of the benefits of sharing your work through your domain is building a basic understanding of the technologies that power the Internet, let's review the basics of those technologies.
 
-## Web Hosting
+**Web Hosting**
 A website is just a collection of files, and those files need to stored somewhere. That somewhere is a computer connected to the internet, a server (TK). 
 
-## Domain Names
+**Domain Names**
 The domain name is the address of your website, familiar as: `https://domain.com`. You can accept the default domain provided by the web hosting company you use (`.github.io` or `wordpress.com` for example), or you can purchase a custom domain (`your_name.com`). 
 
-## Static Website
+**Static Website**
 
 
-## HTML
+**HTML**
 Again, a website is just a collection of files. The primary files are written in HTML, or hyper-text markup language. The basic building block of your website is the `index.html` file, which gives the text to render on your webpage along with simple formatting tags. A line of HTML looks like this to define a heading and paragraph:
 
 ```html
@@ -301,7 +297,7 @@ Again, a website is just a collection of files. The primary files are written in
 ```
 
 
-## CSS
+**CSS**
 While HTML defines the content of your website, CSS (Cascading Style Sheet) defines how that content is formatted. CSS, usually given in `main.css`, defines the layout, colors, typeface, and other formatting elements of your website. Example CSS to determine the fontsize of a paragraph element looks like this:
 
 ```css
@@ -318,7 +314,7 @@ assets/main.css...
 
 
 
-## JavaScript
+**JavaScript**
 HTML and CSS are primarily static. Dynamic elements of a website are commonly written in JavaScript. JavaScript looks like this
 
 
@@ -328,16 +324,21 @@ We reference a JavaScript script in HTML like this:
 ```
 
 
-## Python
+**Python**
 <!-- Python is not required  -->
 
 
 # Part III: Tutorial
-Describe the example we will build....(recipes)
 
-Can still be frustrating though: http://veekaybee.github.io/2015/05/30/static-sites-suck/
+The rest of this post is a step-by-step guide to building a static website. The example we will work through is a webiste my wife and I made to record and share the recipes we make: [`kudijakitchen.com`](http://kudijakitchen.com/)
 
 ## Choosing Tools & Services
+Take this for what is it: an example illustrating just one of a myriad of ways to accomplish the goal of getting your work online. I made decisions about what technologies and services to use motivated by a desire to control my content and take advantage of free services, but you can find many easier[^easier], or just different, solutions to meet your preferences.
+
+[^easier]: Yes, building a static website can be frustrating while you learn how to do so: Vicki Boykis, “Man, do static sites suck,” Vicki Boykis's Blog, May 30, 2015, [`http://veekaybee.github.io/2015/05/30/static-sites-suck/`](http://veekaybee.github.io/2015/05/30/static-sites-suck/).
+
+For this tutorial, we will host our webiste using [GitHub Pages](https://pages.github.com/). Some benefits of this approach are that it is free, version controlled, and 
+
 - GitHub is free, and that make this more accessible
   - Alan Jacobs actually recommends GitHub in his article
   - also includes version control
@@ -345,38 +346,130 @@ Can still be frustrating though: http://veekaybee.github.io/2015/05/30/static-si
 - text editor
 
 
+## 1. Set Up GitHub Pages
+The first step is to set up a GitHub repository to host the files for your webiste. [GitHub](https://github.com/) is a hosting service for version controlled projects, and you'll want to start by making an account if you don't already have one. Then you can create your `<username>.github.io` repository (folder). 
 
-## Setting up GitHub Pages
-- how to enable
-- options for where to host (master, docs/, gh-pages branch)
+The next step is to configure GitHub Pages. The [GitHub Pages welcom page](https://pages.github.com/) has simple instructions
 
-
-## HTML Template
-### Selecting a template
-###Modifying a template
-- Navigating HTML
-- CSS colors
+- Setup your `<user>.github.io` repository.
+- Under **Settings** > **GitHub Pages** you can enable GitHub Pages and select the source as either the master branch (root) of your repository, or the Docs folder. Select one and commit your website assets to that location (`index.html`, assets, etc.)
+- If you have an active website at `<user>.github.io`, enabling GitHub Pages in other repositories on your account will make them visible from your main website. For instance, my website home is [matthewkudija.com](http://matthewkudija.com/), hosted in my [mkudija.github.io](https://github.com/mkudija/mkudija.github.io) repository. My blog is in the [blog](https://github.com/mkudija/blog) repository, and located therefore at [matthewkudija.com/blog](http://matthewkudija.com/blog).
 
 
-## Using Python to auto-generate your website
-There are many great static site genrators
-- `build.py`
+## 2. Download Theme
+- Find and download a theme. Some good (free) places to look include:
+  - [HTML5UP](https://html5up.net/)
+  - [Pelican Themes](https://github.com/getpelican/pelican-themes)
+  - Find a website you like and inspect it, or better yet find a site hosted publicly on GitHub pages to view its whole source code.
+- Customize theme to your liking.
+  - This can be little things like changing the colors and typeface to larger things like adding functionality.
+  - You don't need to commit your changes to GitHub to see the results. You can view them locally by right clicking on the file and opening in a web browser. Tip: using Safari you can go to **Develop** > **Enter Responsive Design Mode** to see how your site will look on different screens. This is great for making sure that what you see on a desktop when editing it will work well on mobile.
+  - If you get stuck, it's easy to get help. You can hire someone on Fiverr for as little as $5 ($7 with their fee) to fix an issue on your website. I recommend [musebkhalid](https://www.fiverr.com/musebkhalid/create-remix-update-and-recover-web-pages?ref_ctx_id=1ca3bd97-b64d-4042-90b4-70582610f333).
+- Alternatively, with a little HTML and CSS you can build a simple website yourself from scratch.
 
+## 3. Set Up Extras
+### 404.html
+The default 404 page on GitHub pages is this:
 
-## Add Extras
-### Google Analytics
+![alt text](images/GitHub_404.png)
 
-### Disqus Comments
-
-### Mailchimp Subscribe (email is the way to build your platform, from Ryan Holiday in *Perennial Seller*)
-
-### Formspree
-
-### Favicon
-
-### 404 page
+If you would like a 404 page to match your theme, you can add a custom [`404.html`](https://github.com/mkudija/mkudija.github.io/blob/master/404.html) to your root directory.
 
 ### CNAME
+If you want a custom domain (i.e. matthewkudija.com instead of mkudija.github.io), perform the following:
+1. Buy the domain from your preferred DNS provider. I use Host Gator.
+2. Add a [CNAME](CNAME) file to your directory. This should contain just the domain: `matthewkudija.com`. 
+3. Configure the A-record with the DNS provider to point to GitHub pages. I called Host Gator customer service and they got it set up. Refer to the [documentation](https://help.github.com/articles/setting-up-an-apex-domain/).
+4. For Hostgator, set nameservers as:
+- NS1.LAUNCHPAD.COM 
+- NS2.LAUNCHPAD.COM
+- NS3.LAUNCHPAD.COM 
+- NS4.LAUNCHPAD.COM
+
+#### HTTPS
+
+https://help.github.com/articles/troubleshooting-custom-domains/#https-errors
+Custom domains configured with A records
+If you configured your custom domain using an A record, your A record must point to one of the following IP addresses for HTTPS to work:
+
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+
+### favicon.ico
+Create or find a square image to use as your favicon. Go to one of the many favicon generator sites (such as [this](https://realfavicongenerator.net/)) to generate your favicon.
+
+### robots.txt
+I added a robots.txt but removed it after seeing that it messed up Google search results.
+
+### sitemap.xml
+I added a sitemap to aid in searching (and perhaps eventually get sitelinks on the search result) from [xml-sitemaps.com](https://www.xml-sitemaps.com).
+
+### meta tag
+I updated the meta tag to improve search results.
+
+```html
+<meta name="description" content="add a description of your site here">
+<meta name="keywords" content="add, some, keywords, you, want, here"> 
+```
+
+### Google Analytics
+Set up [Google Analytics](https://analytics.google.com/analytics/web/) to get your unique tracking ID and then copy the required code in to your HTML pages:
+
+> This is the Global Site Tag (gtag.js) tracking code for this property. Copy and paste this code as the first item into the `<HEAD>` of every webpage you want to track. If you already have a Global Site Tag on your page, simply add the **config** line from the snippet below to your existing Global Site Tag.
+
+```html
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOURID-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-YOURID-1');
+  </script>
+```
+
+
+## 4. Enable Bigfoot Footnotes
+See [this commit](https://github.com/mkudija/mkudija.github.io/commit/8f6ed3f882466ee92a2aa00a8afec854b9b390ec)
+- to change button appearance, customize class "bigfoot-footnote__button" properties in [`bigfoot-default.css`](assets/css/bigfoot-default.css)
+- to change popup appearance, customize class "bigfoot-footnote__content" properties in [`bigfoot-default.css`](assets/css/bigfoot-default.css)
+
+
+## 5. Update Books
+1. write book review in markdown
+  * See [easybib](http://www.easybib.com/guides/citation-guides/chicago-turabian/footnotes/) exmple for footnote formatting: `Henry James, The Ambassadors (Rockville: Serenity, 2009), 34-40.` Footnotes in Markdown use this format:
+```
+"Blah blah blah."[^id] More words and more words.[^id2] Finally, let's add more words
+
+[^id]: Footnote text for id1 goes here...
+[^id2]: Footnote text for id2 goes here...
+```
+
+2. add cover image to [`images/books/`](images/books/)
+3. add data in [`books/md/_content.xlsx`](books/md/_content.xlsx)
+4. run [`books/md/_build.py`](books/md/_build.py) which creates an HTML file for each MD file defined in `_content.xlsx`\*
+5. commit changes (including newly created html file)
+
+\*Alternatively, individually convert from MD to HTML in the commany line by running [`markdown2.py`](/book-reviews/md/markdown2.py) (See [here](https://github.com/trentm/python-markdown2) for more information about markdown2 from @trentm):
+
+```
+python markdown2.py -x footnotes,smarty-pants,cuddled-lists,target-blank-links FNAME.md > FNAME.html
+```
+
+
+## 6. Update Reading
+Run [`reading.py`](/reading/reading.py) to covert book list from Markdown to HTML. This also generates a plot.
+
+```
+python reading.py
+```
+
+
+## 7. Particle background
+- Add particle background from http://jnicol.github.io/particleground/
+- Config ~380 in `assets/js/jquery.particleground.js`
 
 
 ## Other Notes
@@ -384,7 +477,7 @@ There are many great static site genrators
 - mobile preview
 - right click-inspect element
 - adding password protection
-
+- how to choose a license for your site
 
 # Closing Thoughts
 
