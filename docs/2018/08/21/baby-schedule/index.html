@@ -481,7 +481,7 @@ article .meta a.comments_btn:hover {
     <article>
         <header>
             <h1>Visualizing An Infant's Schedule</h1>
-            <time datetime="article.date.isoformat()" pubdate>Mon 20 August 2018</time>
+            <time datetime="article.date.isoformat()" pubdate>Tue 21 August 2018</time>
         </header>
 
         <div class="article_content">
@@ -492,16 +492,16 @@ article .meta a.comments_btn:hover {
 <p>A newborn may only eat, sleep, and poop, but they sure do it a lot! Here is a sample of two weeks of an an infant's schedule visualized with matplotlib.</p>
 
 
-<p>I came across a radial sleep schedule plot and thought it was a creative way to visualize this type of data.</p>
+<p>A while ago I came across a radial sleep schedule plot and thought it was a creative way to visualize this type of data.</p>
 <p><center>
     <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">300 days of a baby&#39;s sleeping data. <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a><br><br>One continuous spiral starting on the inside, each revolution representing a single day. Midnight is at the top, midday at the bottom (24 hour clock). Orange represents wake periods, blue represents sleep.<a href="https://t.co/AJ9zwRYn7K">https://t.co/AJ9zwRYn7K</a> <a href="https://t.co/fgQimcNrUD">pic.twitter.com/fgQimcNrUD</a></p>&mdash; Randy Olson (@randal_olson) <a href="https://twitter.com/randal_olson/status/922079669805076480?ref_src=twsrc%5Etfw">October 22, 2017</a></blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center></p>
 <p>Since my wife and I have been tracking data for use with the doctor already using the <a href="https://itunes.apple.com/us/app/baby-tracker-newborn-log/id779656557?mt=8">Baby Tracker app</a>, and since it has a convenient exoprt to csv feature, I decided to make a similar chart.</p>
-<p>Export the data from the Baby Tracker app by going to Settings &gt; Export to CSV.</p>
+<p>To export the data from the Baby Tracker app go to Settings &gt; Export Data to CSV.</p>
 <p><img alt src="../../../../downloads/code/baby-schedule/export-to-csv.png"></p>
-<p>This will generate a <code>csv.zip</code> file that you can email to yourself. Unzipping the file gives one csv for each activity: sleep, nursing, diaper, etc.</p>
-<p>Using sleep as an example, we will start by loading the data into a Pandas DataFrame:</p>
+<p>This will generate a <code>csv.zip</code> file that you can email to yourself. Unzipping the file gives one csv for each category: sleep, nursing, diaper, etc.</p>
+<p>Using sleep as an example, we start by loading the data into a Pandas DataFrame:</p>
 <style type="text/css">/*!
 *
 * IPython notebook
@@ -1590,11 +1590,11 @@ h6:hover .anchor-link {
 </script>
 
 
-<p>Note that this gives us the start time and duration of each period of sleep. Our matplotlib chart is a <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html">bar chart</a> on a polar projection. Therefore, we need to define the center, thickness, width, bottom of each bar:</p>
+<p>This gives us the start time and duration of each period of sleep. Our matplotlib chart is a <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html">bar chart</a> on a polar projection. Therefore, we need to define the center, thickness, width, bottom of each bar:</p>
 <ul>
-<li><strong>center</strong> is the midpoint of the nap, or <code>(end time - start time) / 2</code>, which we then convert to polar coordinates</li>
+<li><strong>center</strong> is the midpoint of the nap, or <code>(end time - start time) / 2</code>, which we then convert to polar coordinates and offset so midnight is at the bottom</li>
 <li><strong>thickness</strong> is a constant, we use 1</li>
-<li><strong>width</strong> is the duration of the nap converted to polar coordinates</li>
+<li><strong>width</strong> is the duration of the nap converted to polar coordinates and rotated</li>
 <li><strong>bottom</strong> is the radial position of the bar, which corresponds to the date since each "ring" on the chart is a day</li>
 </ul>
 <p>Putting this together with some hour labels, we get a simple chart of baby's sleep pattern over two weeks:</p>
@@ -2691,7 +2691,7 @@ h6:hover .anchor-link {
 <p>For these, we plot a simple point instead of a bar. Adding a nice legend and a some story time, we get the final chart:</p>
 <p style="text-align:center;"><img src="../../../../downloads/code/baby-schedule/plot_all_radial.png" width="100%" height="100%"></p>
 
-<p>Here is the full code to plot this (or download <a href="">here</a>):</p>
+<p>Here is the full code (or download <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/baby-schedule/baby_plot.py">here</a>):</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -2970,8 +2970,8 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
     <script type="text/javascript">
       var disqus_shortname = 'matthewkudija';
-      var disqus_identifier = '/2018/08/20/baby-schedule/';
-      var disqus_url = '../../../../2018/08/20/baby-schedule/';
+      var disqus_identifier = '/2018/08/21/baby-schedule/';
+      var disqus_url = '../../../../2018/08/21/baby-schedule/';
       var disqus_title = 'Visualizing An Infant\'s Schedule';
       (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
