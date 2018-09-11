@@ -217,7 +217,12 @@ Cite this: https://dancohen.org/2018/03/21/back-to-the-blog/ [^dancohen]
 
 https://dancohen.org/2018/06/26/going-indie-on-social-media/
 - notmywebsite.com/dancohen
-- 
+
+
+> Anthony DeRosa, a product manager at Reuters, has likened the present age to a "digital feudalism". Amateur entertainment creators are so seduced by sites like Facebook, Twitter, or YouTube that they put their own time, energy, and money into creating engaging content that benefits someone else—the media platforms—more than themselves. Like serfs during the Middle Ages, these creators don't own the "land" on which they reside; rather, it is "owned by someone else, be it Facebook or Twitter or Tumblr." [^mele]
+
+[^mele]: Nicco Mele, [*The End of Big*](https://www.amazon.com/End-Big-Internet-Goliath-2013-04-23/dp/B01FKTQKLI/ref=sr_1_2?ie=UTF8&qid=1536676201&sr=8-2&keywords=the+end+of+big) (New York: St. Martin's, 2013), 120. His footnote cites this NYT article: [At Media Companies, a Nation of Serfs](https://www.nytimes.com/2011/02/14/business/media/14carr.html)
+
 
 **Better Understand the Internet**
 

@@ -99,7 +99,6 @@ def plot_exposure(years, book, market, CMV, currentYear):
                               markersize=7, solid_capstyle='round'),
                        Line2D([0], [0], color=market_color, lw=3, 
                               label='Current Exposure', solid_capstyle='round'),
-
                       ]
     ax.legend(handles=legend_elements, loc='upper right', fontsize=8)
 
