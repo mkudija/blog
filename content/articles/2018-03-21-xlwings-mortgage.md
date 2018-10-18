@@ -1,6 +1,6 @@
 Title: xlwings: Use Python and Excel to Calculate Your Mortgage
 date: 2018-03-25 06:00
-updated: 2018-03-25 06:00
+updated: 2018-10-18 06:00
 authors: Matthew Kudija
 comments: true
 slug: xlwings-mortgage
@@ -176,7 +176,11 @@ You will notice the `if __name__ == '__main__':` statement at the end of **`mort
 
 
 # Closing Thoughts
-I hope this illustrates the ability to connect Excel to Pyton and prompts you to think about useful applications for this. All that is needed is a bit of glue to hold the two together, for which xlwings is a great tool.
+I hope this illustrates the ability to connect Excel to Pyton and prompts you to think about useful applications for this. All that is needed is a bit of glue to hold the two together, for which xlwings is a great tool. To learn more about xlwings and other options for interacting with worksheets using Python, have a look at the links below: 
+
+- [Tools for Working with Excel and Python](https://www.pyxll.com/blog/tools-for-working-with-excel-and-python/): written by the developers of pyxll (a subscription based package), this also gives a nice overview of multiple options for working with Excel.
+- [Automate the Boring Stuff](https://automatetheboringstuff.com/chapter12/): Al Sweigart's great overview of using openpyxl, which was my first introduction to the topic.
+- [DataCamp](https://www.datacamp.com/community/tutorials/python-excel-tutorial) also has a good Excel tutorial.
 
 <!-- NOTES:
 - used LICEcap for GIF screen animations: https://www.cockos.com/licecap/
