@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enable bigfoot footnotes -->
+    <!-- <link rel="stylesheet" href="/docs/theme/css/bigfoot-default.css" /> -->
+    <link rel="stylesheet" href="../../../../theme/css/bigfoot-default.css" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Matthew Kudija">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Get Coordinates from Google Maps API | Matthew Kudija</title>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" title="Matthew Kudija blog atom feed" href="/feeds/all.atom.xml" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/theme/css/icons.css"/>
+    <style>.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */</style>
+    <style>.highlight pre, .highlighttable pre {
+  /*note: this is for code block background-color;*/
+    background: #272822;
+    color: #f8f8f2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 15px 'Source Sans Pro', sans-serif;
+  line-height: 1.6em;
+  color: #222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: #007EE5;
+  text-decoration: none;
+}
+a:hover {
+  color: #007EE5;
+  text-decoration: none;
+}
+header.main-header {
+  /*background: none repeat scroll 0% 0% #205F29;*/
+  background: none repeat scroll 0% 0% #3377B3;
+  margin-bottom: 0px;
+}
+header.main-header a {
+  color: #fff;
+}
+header.main-header .container {
+  max-width: 1000px;
+}
+header.main-header .container nav a:hover {
+  background-color: #3377B3;
+}
+article {
+  margin: 0;
+}
+article header.about {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+article header {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+article header h1 {
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: #000;
+}
+article header time {
+  color: #9E9E9E;
+  font-size: 0.85em;
+  float: right;
+}
+article header time.left {
+  color: #9E9E9E;
+  font-size: 0.85em;
+  float: left;
+}
+article div.social-links ul {
+  padding: 0px;
+}
+article div.social-links li {
+  display: inline;
+  font-size: 20px;
+}
+article div.social-links li a {
+  color: #000;
+  padding: 10px;
+}
+article div.social-links li a:hover {
+  color: #666;
+  text-decoration: none;
+}
+article p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6em;
+}
+article p.note {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 0.533em 0.733em;
+}
+article p.update {
+  background-color: #FEEFB3;
+  border: 1px solid #e6e68a;
+  padding: 0.533em 0.733em;
+}
+article p.alert {
+  background-color: #ffe2e2;
+  border: 1px solid #ffb2b2;
+  padding: 0.533em 0.733em;
+}
+article ul,
+article ol {
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+article li {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+article a:hover {
+  text-decoration: underline;
+}
+article blockquote {
+  border-left: 2px solid #c7c7cc;
+  color: #666;
+  margin: 30px 0;
+  padding: 0 0 0 25px;
+}
+article img {
+  max-width: 100%;
+}
+article code {
+  color: #333;
+  background-color: #EEE;
+  border-radius: 0;
+  font-size: 13px;
+}
+article .meta {
+  font-size: 11px;
+}
+article .meta a:hover {
+  text-decoration: none;
+}
+article .meta div {
+  margin-bottom: 20px;
+  display: block;
+}
+article .meta a.tag {
+  margin: 0 10px 10px 0;
+  padding: 1px 12px;
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.05);
+}
+article .meta a.tag:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+article .meta a.read_more,
+article .meta a.comments_btn {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 20px;
+  /*color: #205F29;*/
+  color: #3377B3;
+  background: #FFF;
+  /*border: 1px solid #205F29;*/
+  border: 1px solid #3377B3;
+}
+article .meta a.read_more:hover,
+article .meta a.comments_btn:hover {
+  color: #FFF;
+  /*background: #3377B3;*/
+  background: #3377B3;
+}
+.index {
+  max-width: 700px;
+}
+.index article header h2 {
+  font-size: 36px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.index article header h2 a {
+  color: #000;
+}
+.index article header h2 a:hover {
+  color: #007EE5;
+  text-decoration: none;
+}
+.index .separator {
+  padding: 40px 0 0 0;
+  margin: 0 0 40px 0;
+  height: 10px;
+  border-bottom: solid 1px #CCC;
+}
+.index .pagination {
+  display: block;
+  margin-bottom: 100px;
+}
+.index .pagination .left {
+  text-align: right;
+}
+.index .pagination .right {
+  text-align: left;
+}
+.index .pagination a {
+  display: inline-block;
+  border: 2px solid #3377B3;
+  margin: 0 5px;
+  padding: 8px 20px;
+  font-weight: bold;
+  color: #3377B3;
+}
+.index .pagination a:hover {
+  color: #FFF;
+  background: #3377B3;
+}
+.post {
+  max-width: 700px;
+}
+.post h2:before {
+  content: "# ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h3:before {
+  content: "## ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h4:before {
+  content: "### ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post article .meta {
+  margin: 50px 0 100px;
+}
+.list {
+  max-width: 700px;
+}
+.list ul.double-list {
+  margin: 0 auto 60px;
+  padding: 0;
+  list-style-type: none;
+}
+.list ul.double-list li {
+  padding: 5px 0;
+}
+.list ul.double-list li h2 {
+  font-size: 1em;
+  display: inline;
+  font-weight: normal;
+}
+.list ul.double-list li span {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  float: right;
+  padding-top: 3px;
+  font-size: 12px;
+  color: #999;
+}
+.full-width-content {
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}</style>
+
+    <!-- Begin Mailchimp Style -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px 'Source Sans Pro',Helvetica,Arial,sans-serif; }
+
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<!-- End Mailchimp Style -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+    init_mathjax = function() {
+        if (window.MathJax) {
+                // MathJax loaded
+                MathJax.Hub.Config({
+                    tex2jax: {
+                        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                    },
+                    displayAlign: 'left', // Change this to 'center' to center equations.
+                    "HTML-CSS": {
+                        styles: {'.MathJax_Display': {"margin": 0}}
+                    }
+                });
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            }
+        }
+        init_mathjax();
+    </script>
+
+</head>
+
+<body>
+    <header class="navbar navbar-inverse bs-docs-nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="/" title="Home" class="title">Matthew Kudija</a>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://matthewkudija.com/blog" title="Blog">Blog</a></li>
+                <li><a href="https://matthewkudija.com/about.html" title="About">About</a></li>
+                <li><a href="https://matthewkudija.com/photos" target="_blank" title="Photos">Photos</a></li>
+                <li><a href="http://github.com/mkudija" target="_blank" title="mkudija's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/mkudija" target="_blank" title="mkudija Twitter" rel="me">Twitter</a></li>
+                <li><a href="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" title="mailto:m.kudija@gmail.com?Subject=Blog%3A%20&Body=Hi%20Matthew%2C%0A%0A" rel="me">Email</a></li>
+                <li><a href="https://matthewkudija.com/blog/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="wrap">
+<div class="container post">
+    <article>
+        <header>
+            <h1>Get Coordinates from Google Maps API</h1>
+            <time datetime="article.date.isoformat()" pubdate>Mon 19 November 2018</time>
+        </header>
+
+        <div class="article_content">
+            
+
+<p style="text-align:center;"><img src="../../../../downloads/code/google-maps-api/googleMaps.png" width="100%" height="100%"></p>
+
+<p>The Google Maps Platform offers a number of APIs to get maps, routes, and places information. In this example, I will demonstrate how to get coordinates of an address using the Geocoding API.</p>
+
+
+<h1 id="google-maps-api">Google Maps API</h1>
+<p>While access to the Google Maps APIs used to be free for small requests, since July 2018 you must provide billing information and register for an API key. Not to worry, for small requests this should still be free. </p>
+<p>First navigate to the <a href="https://cloud.google.com/maps-platform/">Google Maps Platform</a> page and select "Get Started". Follow the steps to get your API key, something that will look like this: <strong><code>AIzaSyAqDsnMnOTAyNKXKt3HRuIvLTCctaFVCLQ</code></strong> (note this API key has been disabled, so you will need to provide your own). Save this API key in a <code>.txt</code> file for later use.</p>
+<p>In the Google Cloud Platform dashboard you can see the APIs you have access to. To get the coordinates of an address we will use the <a href="https://developers.google.com/maps/documentation/geocoding/start">Geocoding API</a>. If the Geocoding API is not show in your list of <strong>In Use APIs</strong> select it from <strong>Unused APIs</strong> and select "Enable". </p>
+<p style="text-align:center;"><img src="../../../../downloads/code/google-maps-api/APIs.png" width="100%" height="100%"></p>
+
+<p>As shown in the <a href="https://developers.google.com/maps/documentation/geocoding/start">Geocoding API</a>, we can get information about an address by accessing a URL of the form: <strong><code>https://maps.googleapis.com/maps/api/geocode/json?address=1600+Pennsylvania+Ave,+Washington,+DC&amp;key=YOUR_API_KEY</code></strong></p>
+<p>If you replace <strong><code>YOUR_API_KEY</code></strong> in the above with your actual API key and drop the URL in a browser you will get a result like this:</p>
+<p style="text-align:center;"><img src="../../../../downloads/code/google-maps-api/APIresult.png" width="100%" height="100%"></p>
+
+<p>Scrolling down you'll notice that this contains the coordinates data we want. Great! Now we just need to automate getting this information with Python.</p>
+<h1 id="geocoding-api-with-python">Geocoding API with Python</h1>
+<p>Using the Python requests library we can quickly get the coordinates for multiple addresses. We can write a <code>get_lat_lng</code> function that constructs the URL given an address and the API key and returns the latitude and longitude. Note that we read the API key from a local file to keep it private.</p>
+<p>The full <a href=""><code>google-maps-geocoding.py</code></a> script is below:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_lat_lng</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the latitude and longitude of a location using the Google Maps Geocoding API. </span>
+<span class="sd">    API: https://developers.google.com/maps/documentation/geocoding/start</span>
+
+<span class="sd">    # INPUT -------------------------------------------------------------------</span>
+<span class="sd">    apiKey                  [str]</span>
+<span class="sd">    address                 [str]</span>
+
+<span class="sd">    # RETURN ------------------------------------------------------------------</span>
+<span class="sd">    lat                     [float] </span>
+<span class="sd">    lng                     [float] </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">requests</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://maps.googleapis.com/maps/api/geocode/json?address={}&amp;key={}&#39;</span>
+           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">),</span> <span class="n">apiKey</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">resp_json_payload</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">resp_json_payload</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
+        <span class="n">lng</span> <span class="o">=</span> <span class="n">resp_json_payload</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;lng&#39;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ERROR: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lng</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># get key</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;/Desktop/GoogleMapsAPIKey.txt&#39;</span>
+    <span class="nb">file</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">apiKey</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># get coordinates </span>
+    <span class="n">address</span> <span class="o">=</span> <span class="s1">&#39;1 Rocket Road, Hawthorne, CA&#39;</span>
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span> <span class="o">=</span> <span class="n">get_lat_lng</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{} Coordinates:</span><span class="se">\n</span><span class="s1">Latitude:  {}°</span><span class="se">\n</span><span class="s1">Longitude: {}°&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Running this script produces the following output:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> python google-maps-api.py
+
+<span class="go">1 Rocket Road, Hawthorne, CA Coordinates:</span>
+<span class="go">Latitude:  33.9206814°</span>
+<span class="go">Longitude: -118.3280263°</span>
+</pre></div>
+
+
+<h1 id="distance-matrix-api-with-python">Distance Matrix API with Python</h1>
+<p>Similarly, we can get information about the distance or drive time between locations using the <a href="https://developers.google.com/maps/documentation/distance-matrix/start">Google Maps Distance Matrix API</a>. </p>
+<p>The full <a href=""><code>google-maps-distance.py</code></a> script is below:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_drive_time</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the driving time between using the Google Maps Distance Matrix API. </span>
+<span class="sd">    API: https://developers.google.com/maps/documentation/distance-matrix/start</span>
+
+
+<span class="sd">    # INPUT -------------------------------------------------------------------</span>
+<span class="sd">    apiKey                  [str]</span>
+<span class="sd">    origin                  [str]</span>
+<span class="sd">    destination             [str]</span>
+
+<span class="sd">    # RETURN ------------------------------------------------------------------</span>
+<span class="sd">    drive_tim               [float] (minutes)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">requests</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&amp;origins={}&amp;destinations={}&amp;key={}&#39;</span>
+           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">),</span>
+                   <span class="n">destination</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">),</span>
+                   <span class="n">apiKey</span>
+                  <span class="p">)</span>
+          <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">resp_json_payload</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">drive_time</span> <span class="o">=</span> <span class="n">resp_json_payload</span><span class="p">[</span><span class="s1">&#39;rows&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;duration&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">60</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ERROR: {}, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
+        <span class="n">drive_time</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">drive_time</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># get key</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;/Users/matthewkudija/Desktop/GoogleMapsAPIKey.txt&#39;</span>
+    <span class="nb">file</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">apiKey</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># get coordinates </span>
+    <span class="n">origin</span> <span class="o">=</span> <span class="s1">&#39;1 Rocket Road, Hawthorne, CA&#39;</span>
+    <span class="n">destination</span> <span class="o">=</span> <span class="s1">&#39;1 Rocket Road, McGregor, TX&#39;</span>
+    <span class="n">drive_time</span> <span class="o">=</span> <span class="n">get_drive_time</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Origin:      {}</span><span class="se">\n</span><span class="s1">Destination: {}</span><span class="se">\n</span><span class="s1">Drive Time:  {} hr&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">drive_time</span><span class="o">/</span><span class="mi">60</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Running this script produces the following output:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> python google-maps-distance.py
+
+<span class="go">Origin:      1 Rocket Road, Hawthorne, CA</span>
+<span class="go">Destination: 1 Rocket Road, McGregor, TX</span>
+<span class="go">Drive Time:  20.6625 hr</span>
+</pre></div>
+
+
+<hr>
+<ul>
+<li><em>You can view the original <a href="https://github.com/mkudija/blog/tree/master/content/downloads/code/google-maps-api">code and files</a>.</em></li>
+</ul>
+<p><em>Versions:</em></p>
+<div class="highlight"><pre><span></span>Python      3.6.3
+</pre></div>
+        </div>
+
+        <div class="meta">
+            <div>
+                <a href="../../../../tag/google-maps-api.html" class="tag">Google Maps API</a>
+                <a href="../../../../tag/python.html" class="tag">python</a>
+            </div>
+        </div>
+    </article>
+
+    <div class="container">
+        <!-- Begin MailChimp Signup Form -->
+
+        <div id="mc_embed_signup">
+            <form action="https://matthewkudija.us12.list-manage.com/subscribe/post?u=55dc59a5176654a0fed6d8145&amp;id=74322d0c56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55dc59a5176654a0fed6d8145_74322d0c56" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+        
+        <!--End mc_embed_signup-->
+    </div>
+
+
+
+<section>
+  <!-- <h1>Comments</h1> -->
+  <div id="disqus_thread"></div>
+  <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://matthewkudija.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>                        
+
+
+<!--   <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'matthewkudija';
+      var disqus_identifier = '/2018/11/19/google-maps-api/';
+      var disqus_url = '../../../../2018/11/19/google-maps-api/';
+      var disqus_title = 'Get Coordinates from Google Maps API';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section> -->
+
+
+    <p>&copy; 2005<script>new Date().getFullYear()>2005&&document.write("-"+new Date().getFullYear());</script> <a href=https://matthewkudija.com target="_blank">Matthew Kudija</a> | <a href="https://github.com/mkudija/blog" target="_blank">Source</a></p>
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+    background-color: #272822;
+}
+
+table.dataframe {
+    font-family: Courier, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
+</div>
+
+<!-- <section id="footer">
+    <div class="container">
+        <p>
+            &copy; 2005<script>new Date().getFullYear()>2005&&document.write("-"+new Date().getFullYear());</script> <a href=https://matthewkudija.com target="_blank">Matthew Kudija</a>
+        </p>
+        <p>
+            <a href="https://github.com/mkudija/blog" target="_blank">Source</a> | Built with <a href= "http://docs.getpelican.com/">Pelican</a> and <a href= "https://pages.github.com/">GitHub Pages</a>.
+        </p>   
+    </div>
+</section>
+ -->
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-72240498-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72240498-1');
+    ga('send', 'pageview');
+</script>
+<!-- <script type="text/javascript" src="/docs/theme/js/bigfoot.js"></script> -->
+<script type="text/javascript" src="../../../../theme/js/bigfoot.js"></script>
+<script type="text/javascript">
+    $.bigfoot (
+    {
+
+    }
+    );
+</script>
+</body>
+</html>
