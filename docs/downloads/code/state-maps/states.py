@@ -1,24 +1,3 @@
-Title: Highlighting States With Cartopy
-date: 2019-01-05 06:00
-updated: 2019-01-05 06:00
-authors: Matthew Kudija
-comments: true
-slug: state-maps
-tags: python, cartopy, map, matplotlib
-
-<!-- PELICAN_BEGIN_SUMMARY -->
-![alt]({filename}/downloads/code/state-maps/13%20Original%20Colonies.png)
-
-<!-- <p style="text-align:center;"><img src="{filename}/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"></p> -->
-
-Here is how to highlight select US States with Cartopy. (You can also [highlight select countries with Cartopy](https://matthewkudija.com/blog/2018/05/25/country-maps/).)
-
-<!-- PELICAN_END_SUMMARY -->
-
-Define which states to highlight in [**`states.csv`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/states.csv), and run [**`states.py`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/states.py):
-
-
-```python
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import shapely.geometry as sgeom
@@ -29,6 +8,7 @@ import cartopy.io.shapereader as shpreader
 import pandas as pd
 
 # derived from this example: https://scitools.org.uk/cartopy/docs/v0.15/examples/hurricane_katrina.html
+
 
 def plot_states(df,projection,colors,annotation,title,edgecolor):
 
@@ -63,6 +43,7 @@ def plot_states(df,projection,colors,annotation,title,edgecolor):
                           edgecolor='#FFFFFF',
                           linewidth=.25)
 
+
     # legend
     import matplotlib.patches as mpatches
     handles = []
@@ -83,6 +64,7 @@ def plot_states(df,projection,colors,annotation,title,edgecolor):
     title = title+'.png'
     plt.savefig(title, bbox_inches='tight', pad_inches=.2, dpi=300)
     print('Saved: {}'.format(title))
+
 
 
 def main():
@@ -108,14 +90,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-```
-
-For example, here are the 13 original colonies: 
-![alt]({filename}/downloads/code/state-maps/13%20Original%20Colonies.png)
-
-
-Or you can make a map of all states you have visited:
-![alt]({filename}/downloads/code/state-maps/States%20Visited.png)
-
-
-Note: [This post](https://carlcolglazier.com/notes/plotting-2018-house-midterms-cartopy/) may be helpful for adding Alaska and Hawaii.

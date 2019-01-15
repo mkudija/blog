@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija</title><link href="http://matthewkudija.com/blog/" rel="alternate"></link><link href="http://matthewkudija.com/blog/feeds/all.atom.xml" rel="self"></link><id>http://matthewkudija.com/blog/</id><updated>2018-11-19T06:00:00-05:00</updated><entry><title>Python with the Google Maps API</title><link href="http://matthewkudija.com/blog/2018/11/19/google-maps-api/" rel="alternate"></link><published>2018-11-19T06:00:00-05:00</published><updated>2018-11-19T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-11-19:blog/2018/11/19/google-maps-api/</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija</title><link href="http://matthewkudija.com/blog/" rel="alternate"></link><link href="http://matthewkudija.com/blog/feeds/all.atom.xml" rel="self"></link><id>http://matthewkudija.com/blog/</id><updated>2019-01-05T06:00:00-05:00</updated><entry><title>Highlighting States With Cartopy</title><link href="http://matthewkudija.com/blog/2019/01/05/state-maps/" rel="alternate"></link><published>2019-01-05T06:00:00-05:00</published><updated>2019-01-05T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-01-05:blog/2019/01/05/state-maps/</id><summary type="html">
+
+&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/state-maps/13 Original Colonies.png"&gt;&lt;/p&gt;
+&lt;!-- &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;Here is how to highlight select US States with Cartopy. (You can also &lt;a href="https://matthewkudija.com/blog/2018/05/25/country-maps/"&gt;highlight select countries with Cartopy&lt;/a&gt;.)&lt;/p&gt;
+</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Python with the Google Maps API</title><link href="http://matthewkudija.com/blog/2018/11/19/google-maps-api/" rel="alternate"></link><published>2018-11-19T06:00:00-05:00</published><updated>2018-11-19T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-11-19:blog/2018/11/19/google-maps-api/</id><summary type="html">
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/google-maps-api/googleMaps.png" width="100%" height="100%"&gt;&lt;/p&gt;
 
@@ -41,7 +47,7 @@
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"&gt;&lt;/p&gt;
 
-&lt;p&gt;Here is how to highlight select countries with Cartopy. &lt;/p&gt;
+&lt;p&gt;Here is how to highlight select countries with Cartopy. (You can also &lt;a href="https://matthewkudija.com/blog/2019/01/15/state-maps/"&gt;highlight select states with Cartopy&lt;/a&gt;.)&lt;/p&gt;
 </summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Standard Maps with Cartopy</title><link href="http://matthewkudija.com/blog/2018/05/22/standard-maps/" rel="alternate"></link><published>2018-05-22T06:00:00-04:00</published><updated>2018-05-22T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-22:blog/2018/05/22/standard-maps/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/standard-maps/maps/world_Robinson_blue.png"&gt;&lt;/p&gt;

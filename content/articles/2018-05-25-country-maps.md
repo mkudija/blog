@@ -11,11 +11,12 @@ tags: python, cartopy, map, matplotlib
 
 <p style="text-align:center;"><img src="{filename}/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"></p>
 
-Here is how to highlight select countries with Cartopy. 
+Here is how to highlight select countries with Cartopy. (You can also [highlight select states with Cartopy](https://matthewkudija.com/blog/2019/01/15/state-maps/).)
+
 
 <!-- PELICAN_END_SUMMARY -->
 
-Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv), and run this script:
+Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv), and run [**`countries.py`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/countries.py):
 
 
 ```python
