@@ -44,7 +44,7 @@
 &lt;p&gt;Here is how to highlight select countries with Cartopy. &lt;/p&gt;
 </summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Standard Maps with Cartopy</title><link href="http://matthewkudija.com/blog/2018/05/22/standard-maps/" rel="alternate"></link><published>2018-05-22T06:00:00-04:00</published><updated>2018-05-22T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-22:blog/2018/05/22/standard-maps/</id><summary type="html">
 
-&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/standard-maps/maps/world_Robinson_blue.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/standard-maps/maps/world_Robinson_blue.png"&gt;&lt;/p&gt;
 &lt;p&gt;Here are some examples of base world maps (excluding Antarctica which is cropped out) using Cartopy.&lt;/p&gt;
 </summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Digitize a Graph</title><link href="http://matthewkudija.com/blog/2018/05/05/digitize-graph/" rel="alternate"></link><published>2018-05-05T06:00:00-04:00</published><updated>2018-05-05T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-05:blog/2018/05/05/digitize-graph/</id><summary type="html">
 

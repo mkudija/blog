@@ -7,7 +7,7 @@ slug: standard-maps
 tags: python, cartopy, map, matplotlib
 
 <!-- PELICAN_BEGIN_SUMMARY -->
-![alt]({filename}/images/standard-maps/maps/world_Robinson_blue.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Robinson_blue.png)
 
 Here are some examples of base world maps (excluding Antarctica which is cropped out) using Cartopy.
 
@@ -66,25 +66,25 @@ if __name__ == '__main__':
     main()
 ```
 
-![alt]({filename}/images/standard-maps/maps/world_Robinson_grey.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Robinson_grey.png)
 
-![alt]({filename}/images/standard-maps/maps/world_Robinson_grey_countries.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Robinson_grey_countries.png)
 
-![alt]({filename}/images/standard-maps/maps/world_Robinson_blue.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Robinson_blue.png)
 
-![alt]({filename}/images/standard-maps/maps/world_Robinson_blue_countries.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Robinson_blue_countries.png)
 
 
 ## Mollweide Projection
 These examples use the [Mollweide projection](https://scitools.org.uk/cartopy/docs/v0.16/crs/projections.html#mollweide). The code is the same for this but uses `ax = plt.axes(projection=ccrs.Mollweide())` for the Mollweide projection.
 
-![alt]({filename}/images/standard-maps/maps/world_Mollweide_grey.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Mollweide_grey.png)
 
-![alt]({filename}/images/standard-maps/maps/world_Mollweide_grey_countries.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Mollweide_grey_countries.png)
 
-![alt]({filename}/images/standard-maps/maps/world_Mollweide_blue.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Mollweide_blue.png)
 
-![alt]({filename}/images/standard-maps/maps/world_Mollweide_blue_countries.png)
+![alt]({filename}/downloads/code/standard-maps/maps/world_Mollweide_blue_countries.png)
 
 
 
