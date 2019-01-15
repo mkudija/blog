@@ -9,7 +9,6 @@ import pandas as pd
 
 # derived from this example: https://scitools.org.uk/cartopy/docs/v0.15/examples/hurricane_katrina.html
 
-
 def plot_states(df,projection,colors,annotation,title,edgecolor):
 
     ax = plt.axes([0, 0, 1, 1],
@@ -43,7 +42,6 @@ def plot_states(df,projection,colors,annotation,title,edgecolor):
                           edgecolor='#FFFFFF',
                           linewidth=.25)
 
-
     # legend
     import matplotlib.patches as mpatches
     handles = []
@@ -64,7 +62,6 @@ def plot_states(df,projection,colors,annotation,title,edgecolor):
     title = title+'.png'
     plt.savefig(title, bbox_inches='tight', pad_inches=.2, dpi=300)
     print('Saved: {}'.format(title))
-
 
 
 def main():

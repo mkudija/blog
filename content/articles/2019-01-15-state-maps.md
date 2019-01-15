@@ -1,6 +1,6 @@
 Title: Highlighting States With Cartopy
-date: 2019-01-05 06:00
-updated: 2019-01-05 06:00
+date: 2019-01-15 06:00
+updated: 2019-01-15 06:00
 authors: Matthew Kudija
 comments: true
 slug: state-maps
