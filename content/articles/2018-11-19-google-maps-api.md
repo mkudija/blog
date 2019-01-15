@@ -1,10 +1,10 @@
-Title: Get Coordinates from Google Maps API
+Title: Python with the Google Maps API
 date: 2018-11-19 06:00
 updated: 2018-11-19 06:00
 authors: Matthew Kudija
 comments: true
 slug: google-maps-api
-tags: Google Maps API, python
+tags: Google Maps API, python, map
 
 <!-- PELICAN_BEGIN_SUMMARY -->
 
