@@ -1,21 +1,20 @@
-Title: Highlighting Countries With Cartopy
-date: 2018-05-25 06:00
-updated: 2018-05-25 06:00
+Title: Highlighting States With Cartopy
+date: 2019-01-05 06:00
+updated: 2019-01-05 06:00
 authors: Matthew Kudija
 comments: true
-slug: country-maps
+slug: state-maps
 tags: python, cartopy, map, matplotlib
-
+status: draft
 <!-- PELICAN_BEGIN_SUMMARY -->
-<!-- ![alt]({filename}/downloads/code/country-maps/maps/EU-Members.png) -->
 
-<p style="text-align:center;"><img src="{filename}/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"></p>
+<p style="text-align:center;"><img src="{filename}/images/country-maps/maps/EU-Members.png" width="75%" height="75%"></p>
 
 Here is how to highlight select countries with Cartopy. 
 
 <!-- PELICAN_END_SUMMARY -->
 
-Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv), and run this script:
+Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/images/country-maps/countries.csv), and run this script:
 
 
 ```python
@@ -106,11 +105,11 @@ if __name__ == '__main__':
 ```
 
 Two interesting examples are to show EU Members (above) or NATO members (below). 
-<img src="{filename}/downloads/code/country-maps/maps/NATO-Members.png">
+<img src="{filename}/images/country-maps/maps/NATO-Members.png">
 
 
 Another interesting example is the world split into four regions with the same population (idea from [mapchart.net](https://mapchart.net/showcase.html)).
-<img src="{filename}/downloads/code/country-maps/maps/Four-Regions-With-The-Same-Population.png">
+<img src="{filename}/images/country-maps/maps/Four-Regions-With-The-Same-Population.png">
 
 
 Note: I don't know how to highlight France without highlighting French Guiana (in South America). If you do, let me know.
