@@ -28,7 +28,7 @@
 &lt;p&gt;A newborn may only eat, sleep, and poop, but they sure do it a lot! Here is a sample of two weeks of an an infant's schedule visualized with matplotlib.&lt;/p&gt;
 </summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Diff Two Excel Files with Python</title><link href="http://matthewkudija.com/blog/2018/07/21/excel-diff/" rel="alternate"></link><published>2018-07-21T06:00:00-04:00</published><updated>2018-07-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-07-21:blog/2018/07/21/excel-diff/</id><summary type="html">
 
-&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/excel-diff/excel-diff1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/excel-diff/images/excel-diff1.png"&gt;&lt;/p&gt;
 &lt;p&gt;It's handy to be able to quickly find the differences between two Excel files. Below is a quick example of doing so using Python and pandas. &lt;/p&gt;
 </summary><category term="python"></category><category term="pandas"></category><category term="excel"></category></entry><entry><title>US Airports and Heliports</title><link href="http://matthewkudija.com/blog/2018/07/03/us-airports/" rel="alternate"></link><published>2018-07-03T06:00:00-04:00</published><updated>2018-07-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-07-03:blog/2018/07/03/us-airports/</id><summary type="html">
 
