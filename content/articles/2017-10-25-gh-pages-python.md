@@ -12,13 +12,7 @@ status: draft
 <!-- PELICAN_BEGIN_SUMMARY -->
 <!-- ![alt]({filename}/images/gh-pages-python-2.png) -->
 
-Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. Using these skills to share your work online has benefits to you and others that justify the costs in time and effort required. My goal is that after reading this post you will:
-
-1. Agree that controlling your web domain and sharing your work online has benefits, and that basic web design skills can aid in this.
-2. Understand the basic concepts required to build and operate a website, regardless of technology choices.
-3. Be able to build a simple static website by following my detailed instructions which use a set of popular (and free) technologies. 
-
-The sections below are aligned with these three goals. Let's get started.
+Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. Using these skills to share your work online has benefits to you and others that justify the costs in time and effort required. My goal is that after reading this post you will understand the benefits of controlling your own web domain and sharing your work online.
 
 <!-- PELICAN_END_SUMMARY -->
 
