@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija - articles</title><link href="http://matthewkudija.com/blog/" rel="alternate"></link><link href="http://matthewkudija.com/blog/feeds/articles.atom.xml" rel="self"></link><id>http://matthewkudija.com/blog/</id><updated>2019-01-15T06:00:00-05:00</updated><entry><title>Highlighting States With Cartopy</title><link href="http://matthewkudija.com/blog/2019/01/15/state-maps/" rel="alternate"></link><published>2019-01-15T06:00:00-05:00</published><updated>2019-01-15T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-01-15:blog/2019/01/15/state-maps/</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija - articles</title><link href="http://matthewkudija.com/blog/" rel="alternate"></link><link href="http://matthewkudija.com/blog/feeds/articles.atom.xml" rel="self"></link><id>http://matthewkudija.com/blog/</id><updated>2019-02-13T06:00:00-05:00</updated><entry><title>Matplotlib: Multiple Y-Axis Scales</title><link href="http://matthewkudija.com/blog/2019/02/13/matplotlib-twin-axes/" rel="alternate"></link><published>2019-02-13T06:00:00-05:00</published><updated>2019-02-13T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-02-13:blog/2019/02/13/matplotlib-twin-axes/</id><summary type="html">
+
+&lt;!-- ![alt]({filename}/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png) --&gt;
+
+&lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png" width="75%" height="75%"&gt;&lt;/p&gt;
+
+&lt;p&gt;Matplotlib's flexibility allows you to show a second scale on the y-axis. This example allows us to show monthly data with the corresponding annual total at those monthly rates. &lt;/p&gt;
+</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Highlighting States With Cartopy</title><link href="http://matthewkudija.com/blog/2019/01/15/state-maps/" rel="alternate"></link><published>2019-01-15T06:00:00-05:00</published><updated>2019-01-15T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-01-15:blog/2019/01/15/state-maps/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/state-maps/13 Original Colonies.png"&gt;&lt;/p&gt;
 &lt;!-- &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"&gt;&lt;/p&gt; --&gt;
