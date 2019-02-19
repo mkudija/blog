@@ -75,20 +75,20 @@
           <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
               <ul class="nav navbar-nav navbar-right">
                 {% if AUTHOR_BLOG %}
-                <li><a href="{{ AUTHOR_BLOG }}" title="Blog">Blog</a></li>
+                <li><a href="{{ AUTHOR_BLOG }}" title="Blog">Notes</a></li>
                 {% endif %}
                 {% if ABOUT_PAGE %}
                 <li><a href="{{ ABOUT_PAGE }}" title="About">About</a></li>
                 {% endif %}
-                {% if PHOTOS_PAGE %}
+                <!-- {% if PHOTOS_PAGE %}
                 <li><a href="{{ PHOTOS_PAGE }}" target="_blank" title="Photos">Photos</a></li>
-                {% endif %}
-                {% if GITHUB_USERNAME %}
+                {% endif %} -->
+                <!-- {% if GITHUB_USERNAME %}
                 <li><a href="http://github.com/{{ GITHUB_USERNAME }}" target="_blank" title="{{ GITHUB_USERNAME }}'s Github" rel="me">Github</a></li>
-                {% endif %}
-                {% if TWITTER_USERNAME %}
+                {% endif %} -->
+                <!-- {% if TWITTER_USERNAME %}
                 <li><a href="http://twitter.com/{{ TWITTER_USERNAME }}" target="_blank" title="{{ TWITTER_USERNAME }} Twitter" rel="me">Twitter</a></li>
-                {% endif %}
+                {% endif %} -->
                 {% if AUTHOR_EMAIL %}
                 <li><a href="{{ AUTHOR_EMAIL }}" title="{{ AUTHOR_EMAIL }}" rel="me">Email</a></li>
                 {% endif %}
