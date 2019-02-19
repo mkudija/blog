@@ -1,6 +1,6 @@
 Title: Analytics Principles
 date: 2019-02-15 06:00
-updated: 2019-02-15 06:00
+updated: 2019-02-18 06:00
 authors: Matthew Kudija
 comments: true
 slug: analytics-principles
@@ -88,6 +88,9 @@ Ideally, data is queried from a common source and no `data/` directory is requir
 
 **Cite data and analysis sources**: Always cite the data and/or analysis used to arrive at what is presented. For example, a PowerPoint slide that provides a table of data should include a footnote with the link to the data source, date of data refresh, and filters applied. When possible, include references in footnotes rather than end notes so that a presentation page can stand by itself when it is inevitably printed and removed from the rest of the presentation. Endnotes (or appendix slide) is helpful for providing more detailed information. The goal is to enable someone in the future to reproduce the same presentation.
 
+**Ask "Is it beautiful?"**[^oratory]: First, feauty is something to be sought for its own sake. Pragmatically, when presenting an idea, the visualized beauty can be just as impactful—if not more so—than the underlying data in getting your message across. Start with using [color](https://blog.datawrapper.de/colors/) well, following [visual design principles](https://www.edwardtufte.com/tufte/books_vdqi), and using [templates](https://matplotlib.org/gallery/style_sheets/style_sheets_reference.html) to standardize your graphics.
+
+[^oratory]: David Clayton & Leila Lawler, *The Little Oratory* (Manchester: Sophia, 2014), 160.
 
 
 ## Essential Reading:
@@ -98,3 +101,4 @@ Ideally, data is queried from a common source and no `data/` directory is requir
 - [Hadley's Data Science Reading List](https://github.com/hadley/stats337)
 - [The Plain Person’s Guide to Plain Text Social Science by Kieran Healy](http://kieranhealy.org/files/papers/plain-person-text.pdf)
 - [Visualization Colors](https://blog.datawrapper.de/colors/)
+- [The Visual Display of Quantitative Information](https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130) by Edward Tufte
