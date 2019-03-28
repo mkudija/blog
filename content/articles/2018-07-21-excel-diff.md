@@ -188,9 +188,9 @@ if __name__ == '__main__':
 
 ## 2. Updated Rows & Columns
 
-*Updated 2019-02-01*
+*Updated 2019-03-28*
 
-Suppose the rows may have been added or deleted in addition to single values changed. This updated [`excel-diff-2.py`](https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff-2.py) will highlight changes in red, new rows in green, and dropped rows in grey. Here's the full script:
+Suppose the rows may have been added or deleted in addition to single values changed. This updated [`excel-diff-2.py`](https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff-2.py) will highlight changes in red, new rows in green, and dropped rows in grey. Note that this chooses the first column in your data as the `index_col` for the purposes of determining row changes. Here's the full script:
 
 <details>
     <summary>Click to expand...</summary>
