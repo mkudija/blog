@@ -739,7 +739,11 @@ article .meta a.comments_btn:hover {
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">path_OLD</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;v1.xlsx&#39;</span><span class="p">)</span>
     <span class="n">path_NEW</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;v2.xlsx&#39;</span><span class="p">)</span>
-    <span class="n">index_col</span> <span class="o">=</span> <span class="s1">&#39;uid&#39;</span>
+
+    <span class="c1"># get index col from data</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_NEW</span><span class="p">)</span>
+    <span class="n">index_col</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Index column: {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index_col</span><span class="p">))</span>
 
     <span class="n">excel_diff</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">,</span> <span class="n">path_NEW</span><span class="p">,</span> <span class="n">index_col</span><span class="p">)</span>
 

@@ -84,7 +84,11 @@ def excel_diff(path_OLD, path_NEW, index_col):
 def main():
     path_OLD = Path('v1.xlsx')
     path_NEW = Path('v2.xlsx')
-    index_col = 'uid'
+
+    # get index col from data
+    df = pd.read_excel(path_NEW)
+    index_col = df.columns[0]
+    print('\nIndex column: {}\n'.format(index_col))
 
     excel_diff(path_OLD, path_NEW, index_col)
 
