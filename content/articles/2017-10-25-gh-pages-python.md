@@ -1,47 +1,22 @@
 Title: How and Why to Share Your Work Online
-date: 2017-10-25 06:00
-updated: 2018-03-30 06:00
+date: 2018-03-30 06:00
+updated: 2019-03-30 06:00
 authors: Matthew Kudija
 comments: true
 slug: gh-pages-python
 tags: gh-pages, python, html, css, javascript, web
 status: draft
-<!-- Title: Step-by-Step Manual Guide to GitHub Pages -->
-
 
 <!-- PELICAN_BEGIN_SUMMARY -->
-<!-- ![alt]({filename}/images/gh-pages-python-2.png) -->
 
 Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. Using these skills to share your work online has benefits to you and others that justify the costs in time and effort required. My goal is that after reading this post you will understand the benefits of controlling your own web domain and sharing your work online.
 
+My time spent "learning in public" so far has taught me a lot and also helped out some other like-minded strangers on the internet.[^nadiaeghbal] I hope to share how you can experience this as well.
+
+[^nadiaeghbal]: Nadia Eghbal, “The independent researcher,” Nadia Eghbal's Blog, June 27, 2018, [`https://nadiaeghbal.com/independent-research`](https://nadiaeghbal.com/independent-research).
+
+
 <!-- PELICAN_END_SUMMARY -->
-
-
-<!-- [TOC] -->
-
-<!-- MarkdownTOC autolink="true" levels="1,2" -->
-
-- [Part I: Why to Share Online \(from your own domain\)](#part-i-why-to-share-online-from-your-own-domain)
-  - [Why to Share Online](#why-to-share-online)
-  - [Why You Should Share From Your Own Domain](#why-you-should-share-from-your-own-domain)
-- [Part II: Introductory Concepts](#part-ii-introductory-concepts)
-- [Part III: Tutorial](#part-iii-tutorial)
-  - [Choosing Tools & Services](#choosing-tools--services)
-  - [1. Set Up GitHub Pages](#1-set-up-github-pages)
-  - [2. Download Theme](#2-download-theme)
-  - [3. Set Up Extras](#3-set-up-extras)
-  - [4. Enable Bigfoot Footnotes](#4-enable-bigfoot-footnotes)
-  - [5. Update Books](#5-update-books)
-  - [6. Update Reading](#6-update-reading)
-  - [7. Particle background](#7-particle-background)
-  - [Other Notes](#other-notes)
-- [Closing Thoughts](#closing-thoughts)
-  - [Resources](#resources)
-
-<!-- /MarkdownTOC -->
-
-
-# Part I: Why to Share Online (from your own domain)
 
 ## Why to Share Online
 
@@ -88,7 +63,7 @@ Practical benefits may come from this (job offers, friendships, etc.), but the i
 
 **Feedback**
 
-I haven't gotten much feedback on what I have just recently started sharing online, but I imagine this could be a key benefit. The reality of the internet is that it shrinks the world making geographic proximity irrelevant in finding and conversing with people who share similar interests. 
+The feedback I haven't gotten much feedback on what I have just recently started sharing online, but I imagine this could be a key benefit. The reality of the internet is that it shrinks the world making geographic proximity irrelevant in finding and conversing with people who share similar interests. 
 
 Rude feedback can be ignored, but even negative feedback will help you if received in the right frame of mind. There's no quicker way to learn than by having others point out your mistakes.
 
@@ -101,13 +76,13 @@ Rude feedback can be ignored, but even negative feedback will help you if receiv
 It goes without saying that if you want to build a business in today's world an online presence is required for all but the rarest exceptions. You need a way to reach customers, accept payments, respond to questions, and build a network. A website need not be complex or expensive (or built by a professional) to meet these basic needs. 
 
 
-**Not Fame**
+**Not Recognition**
 
-You'll notice that fame isn't on this list, though an honest self-examination by any author will probably reveal some desire for accolades. This is a poor reason to share online. Simple math says that your chances of achieving fame are not high, and I'll wager that the majority of what people post online languishes in obscurity. Plus, you might not even want what you're looking for: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."[^holiday]
+You'll notice that recognition or fame isn't on this list, though an honest self-examination by any author will probably reveal some desire for accolades. This is a poor reason to share online. Simple math says that your chances of achieving fame are not high, and I'll wager that the majority of what people post online languishes in obscurity. Plus, you might not even want what you're looking for: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."[^holiday]
 
 [^holiday]: Ryan Holiday, “The Most Successful People Are The Ones You’ve Never Heard Of (And Why They Want It That Way),” Thought Catalog, March 20, 2018, [`https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/`](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/).
 
-Wow, so sharing your work can benefit you a lot. But guess what, it can help other people too.
+Sharing online can clearly benefit you a lot. The best part about sharing online is that it benefits other too.
 
 
 <details>
@@ -121,33 +96,20 @@ Wow, so sharing your work can benefit you a lot. But guess what, it can help oth
 </details>
 
 
-
-
-
 ### Benefits to Others
 
-A lot of what I know—apart from what I have read in [books](http://matthewkudija.com/reading)—I learned from what other people have shared online. Since you're reading this you probably have as well. Sharing some of your knowledge online is the best way to pay it forward to others. 
+A lot of what I know—apart from [what I have read in books](http://matthewkudija.com/reading)—I learned from what other people have shared online. Since you're reading this you probably have as well. Sharing some of your knowledge online is the best way to pay it forward to others. 
 
 One challenge to overcome is the desire to only share what is *perfect*. But much of what you produce will be *useful to others* long before it is *perfect*. 
 
 ![alt]({filename}/images/sharing.png)
 
-Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning somehting you are probably underestimating rather than overestimating how useful it could be. 
+Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning somehting you are probably underestimating rather than overestimating how useful it could be.
 
-Just remember that it must be *shared on the internet* to ever be useful to someone else. What you produce cannot help other people if it exists soley in your head, in a notebook, or on your computer.[^robinson] 
+Just remember that it must be *shared on the internet* to ever be useful to someone else. Remember that "things that are still on your computer are approximately useless." What you produce cannot help other people if it exists only in your head, in a notebook, or on your computer.[^robinson] 
 
-[^robinson]: I came across this tweet here: David Robinson, “Advice to aspiring data scientists: start a blog,” Variance Explained, November 14, 2017, [`http://varianceexplained.org/r/start-blog/`](http://varianceexplained.org/r/start-blog/).
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Things that are still on your computer are approximately useless.&quot; -<a href="https://twitter.com/drob?ref_src=twsrc%5Etfw">@drob</a> <a href="https://twitter.com/hashtag/eUSR?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR</a> <a href="https://twitter.com/hashtag/eUSR2017?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR2017</a> <a href="https://t.co/nS3IBiRHBn">pic.twitter.com/nS3IBiRHBn</a></p>&mdash; Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/926509282874585089?ref_src=twsrc%5Etfw">November 3, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-"Documenting your findings in public (regardless of outcomes!) is a worthy contribution to society, full stop. If you’re doing something new, and you care about understanding the problem, people will pay attention."[^nadiaeghbal]
-
-[^nadiaeghbal]: Nadia Eghbal, “The independent researcher,” Nadia Eghbal's Blog, June 27, 2018, [`https://nadiaeghbal.com/independent-research`](https://nadiaeghbal.com/independent-research).
-
-
-
+[^robinson]: <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Things that are still on your computer are approximately useless.&quot; -<a href="https://twitter.com/drob?ref_src=twsrc%5Etfw">@drob</a> <a href="https://twitter.com/hashtag/eUSR?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR</a> <a href="https://twitter.com/hashtag/eUSR2017?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR2017</a> <a href="https://t.co/nS3IBiRHBn">pic.twitter.com/nS3IBiRHBn</a></p>&mdash; Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/926509282874585089?ref_src=twsrc%5Etfw">November 3, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> I came across this tweet here: David Robinson, “Advice to aspiring data scientists: start a blog,” Variance Explained, November 14, 2017, [`http://varianceexplained.org/r/start-blog/`](http://varianceexplained.org/r/start-blog/).
 
 
 
@@ -168,8 +130,6 @@ Just remember that it must be *shared on the internet* to ever be useful to some
   - builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square
   - FT, etc.
   - Toqueville...?
-
-
 
 
 
@@ -195,58 +155,25 @@ Silence in the age of noise
 
 
 
-## Why You Should Share From Your Own Domain
-If we agree sharing your work online benefits you and others, let's discuss why sharing from your own domain is helpful, and it boils down to this: control. Control over your message, control over your data, learning how the internet works and participating in how it was originally envisioned.
+## Share From Your Own Domain
 
+Data—or "content"—is an increasingly valuable commodity in our information economy. Media platforms effectively exchange this user-generated data for user attention, which they can then sell to advertisers. By sharing your thoughts and ideas on these platforms you are contributing to the enrichment of the platform owners as well as a whole host of negative outcomes for the users of the platforms.[^newport]
 
-**Control Your Message and Data**: cultivate your own garden, rather than someone else's garden; link to it from Facebook/Twitter, but content resides on your domain
+[^newport]: See Cal Newport's *Digital Minimalism* for more about this phenomenon and how to now be a victim of the "attention economy", c.f. this quote that references *The Attention Merchants* by Tim Wu "Extracting eyeball minutes, the key resource for companies like Google and Facebook, has become significantly more lucrative than extracting oil" (216).
 
+What results is a form of "digital feudalism" in which we cultivate the platforms for the benefit of the platform owners rather than ourselves.[^mele] Publishing on your domain is the way to step out of this paradigm. Limit your use of Facebook and Twitter to posting links to the work you publish on the platform *you* control.[^hackeducation]
 
-Cite this: https://dancohen.org/2018/03/21/back-to-the-blog/ [^dancohen]
-- “re-decentralize” the web
-
-[^dancohen]: Dan Cohen, “Back to the Blog,” Dan Cohen's Blog, March 21, 2018, [`https://dancohen.org/2018/03/21/back-to-the-blog/`](https://dancohen.org/2018/03/21/back-to-the-blog/).
-
-
-
-https://dancohen.org/2018/06/26/going-indie-on-social-media/
-- notmywebsite.com/dancohen
-
-
-> Anthony DeRosa, a product manager at Reuters, has likened the present age to a "digital feudalism". Amateur entertainment creators are so seduced by sites like Facebook, Twitter, or YouTube that they put their own time, energy, and money into creating engaging content that benefits someone else—the media platforms—more than themselves. Like serfs during the Middle Ages, these creators don't own the "land" on which they reside; rather, it is "owned by someone else, be it Facebook or Twitter or Tumblr." [^mele]
-
-[^mele]: Nicco Mele, [*The End of Big*](https://www.amazon.com/End-Big-Internet-Goliath-2013-04-23/dp/B01FKTQKLI/ref=sr_1_2?ie=UTF8&qid=1536676201&sr=8-2&keywords=the+end+of+big) (New York: St. Martin's, 2013), 120. His footnote cites this NYT article: [At Media Companies, a Nation of Serfs](https://www.nytimes.com/2011/02/14/business/media/14carr.html)
-
-
-**Better Understand the Internet**
-
-Cite this: Audrey Watters: http://hackeducation.com/2017/04/04/domains [^hackeducation]
-- "Students and staff can start to see how digital technologies work – those that underpin the Web and elsewhere. They can think about how these technologies shape the formation of their understanding of the world – how knowledge is formed and shared; how identity is formed and expressed."
-- "But you can publish stuff on your own site first, and then syndicate it to these other for-profit, ad-based venues."
-- "That’s your domain. You cultivate ideas there – quite carefully, no doubt, because others might pop by for a think. But also because it’s your space for a think."
+[^mele]: "Anthony DeRosa, a product manager at Reuters, has likened the present age to a 'digital feudalism'. Amateur entertainment creators are so seduced by sites like Facebook, Twitter, or YouTube that they put their own time, energy, and money into creating engaging content that benefits someone else—the media platforms—more than themselves. Like serfs during the Middle Ages, these creators don't own the 'land' on which they reside; rather, it is 'owned by someone else, be it Facebook or Twitter or Tumblr.'" from Nicco Mele, [*The End of Big*](https://www.amazon.com/End-Big-Internet-Goliath-2013-04-23/dp/B01FKTQKLI/ref=sr_1_2?ie=UTF8&qid=1536676201&sr=8-2&keywords=the+end+of+big) (New York: St. Martin's, 2013), 120. His footnote cites this NYT article: [At Media Companies, a Nation of Serfs](https://www.nytimes.com/2011/02/14/business/media/14carr.html)
 
 [^hackeducation]: Audrey Watters, “Why 'A Domain of One's Own' Matters (For the Future of Knowledge),” Hack Education, April 4, 2017, [`http://hackeducation.com/2017/04/04/domains`](http://hackeducation.com/2017/04/04/domains).
 
+It will take effort to climb the walls keeping us trapped in these feudal digital estates, both the *technical* effort to set up a domain and maintain a website, as well as the *psychological* courage to leave the popular places of online congragation. But doing so furthers the “re-decentralize” the web and the empowerment of individuals rather than platform owners exclusively.[^dancohen]
 
-**Support the good parts of the Internet, not the bad**:
-  - does not support corporations that want to own your attention and sell your data
-  - does not support a culture of anonymous sharing that leads to misinformation and ad homenin attacks
+[^dancohen]: Dan Cohen, “Back to the Blog,” Dan Cohen's Blog, March 21, 2018, [`https://dancohen.org/2018/03/21/back-to-the-blog/`](https://dancohen.org/2018/03/21/back-to-the-blog/).
 
+Conquering the technical hurdles and sharing from your own domain also builds your knowledge of how the internet functions, allowing you to "think about how these technologies shape the formation of [your] understanding of the world".[^hackeducation2] Alan Jacobs suggests some of the skills citizens of the internet need to achieve this vision:
 
-The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
-[^vision]: [World Wide Web Consortium (W3C) Mission](https://www.w3.org/Consortium/mission#vision)
-
-The emergence of major web companies that control content creation—Facebook, etc.—endanger some of this vision by:
-
-- pragmatic
-- allows you to own your platform and message
-- contributes to a healthy Internet (control personal data and information spread; not [too] relient on the corporations that own the Internet)
-- take responsibility for what we say
-- helps you understand how the Internet really works and impacts your life
-
-Writing in *The Hedgehog Review*, Alan Jacobs shares his thoughts about the dangers of 
-
-[*Tending the Digital Commons: A Small Ethics toward the Future*](http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php) by Alan Jacobs[^hedgehog]
+[^hackeducation2]: Audrey Watters, “Why 'A Domain of One's Own' Matters (For the Future of Knowledge),” Hack Education, April 4, 2017, [`http://hackeducation.com/2017/04/04/domains`](http://hackeducation.com/2017/04/04/domains).
 
 > I think every young person who regularly uses a computer should learn the following:
 > 
@@ -263,15 +190,37 @@ Writing in *The Hedgehog Review*, Alan Jacobs shares his thoughts about the dang
 > 11. how to cite your sources and link to the originals<br>
 > 12. how to use social media to share what you’ve created on your own turf rather than create within a walled factory<br>
 > 
-> One could add considerably to this list, but these, I believe, are the rudimentary skills that should be possessed by anyone who wants to be a responsible citizen of the open Web—and not to be confined to living on the bounty of the digital headmasters.
+> One could add considerably to this list, but these, I believe, are the rudimentary skills that should be possessed by anyone who wants to be a responsible citizen of the open Web—and not to be confined to living on the bounty of the digital headmasters.[^hedgehog]
 
-[^hedgehog]: Alan Jacobs. "[Tending the Digital Commons: A Small Ethics toward the Future.](http://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php)" *The Hedgehog Review* Vol. 20, No. 1 (2018): The Hedgehog Review. Web. 28 Mar. 2018.
+[^hedgehog]: Alan Jacobs. "[Tending the Digital Commons: A Small Ethics toward the Future.](https://web.archive.org/web/20190213022950/https://iasc-culture.org/THR/THR_article_2018_Spring_Jacobs.php)" *The Hedgehog Review* Vol. 20, No. 1 (2018): The Hedgehog Review. Web. 28 Mar. 2018.
+
+Multiple of these points stress the importance of sharing from your own domain. For the others, you might find my [GitHub Pages Example](https://matthewkudija.com/GitHub-Pages-Example/) helpful for learning the basics.
+
+
+## Closing Thoughts
+
+"Learning to code" for everyone is misguided, but learning a little bit about code as it relates to the internet is not a bad skill to have for any citizen of the internet...
+
+
+<details>
+  <summary>Click to expand</summary>
+
+
+
+Cite this: Audrey Watters: http://hackeducation.com/2017/04/04/domains [^hackeducation]
+- "Students and staff can start to see how digital technologies work – those that underpin the Web and elsewhere. They can think about how these technologies shape the formation of their understanding of the world – how knowledge is formed and shared; how identity is formed and expressed."
+- "But you can publish stuff on your own site first, and then syndicate it to these other for-profit, ad-based venues."
+- "That’s your domain. You cultivate ideas there – quite carefully, no doubt, because others might pop by for a think. But also because it’s your space for a think."
+
+
+The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
+[^vision]: [World Wide Web Consortium (W3C) Mission](https://www.w3.org/Consortium/mission#vision)
+
+The emergence of major web companies that control content creation—Facebook, etc.—endanger some of this vision by:
+
 
 
 With that as inspiration, the rest of this post is devoted to building up the 12 points Jacobs suggests. 
-
-
-
 
 
 # Part II: Introductory Concepts
@@ -326,167 +275,5 @@ We reference a JavaScript script in HTML like this:
 **Python**
 <!-- Python is not required  -->
 
+</details>
 
-# Part III: Tutorial
-
-The rest of this post is a step-by-step guide to building a static website. The example we will work through is a webiste my wife and I made to record and share the recipes we make: [`kudijakitchen.com`](http://kudijakitchen.com/)
-
-## Choosing Tools & Services
-Take this for what is it: an example illustrating just one of a myriad of ways to accomplish the goal of getting your work online. I made decisions about what technologies and services to use motivated by a desire to control my content and take advantage of free services, but you can find many easier[^easier], or just different, solutions to meet your preferences.
-
-[^easier]: Yes, building a static website can be frustrating while you learn how to do so: Vicki Boykis, “Man, do static sites suck,” Vicki Boykis's Blog, May 30, 2015, [`http://veekaybee.github.io/2015/05/30/static-sites-suck/`](http://veekaybee.github.io/2015/05/30/static-sites-suck/).
-
-For this tutorial, we will host our webiste using [GitHub Pages](https://pages.github.com/). Some benefits of this approach are that it is free, version controlled, and 
-
-- GitHub is free, and that make this more accessible
-  - Alan Jacobs actually recommends GitHub in his article
-  - also includes version control
-  - don't need to choose a domain name if you don't want to
-- text editor
-
-
-## 1. Set Up GitHub Pages
-The first step is to set up a GitHub repository to host the files for your webiste. [GitHub](https://github.com/) is a hosting service for version controlled projects, and you'll want to start by making an account if you don't already have one. Then you can create your `<username>.github.io` repository (folder). 
-
-The next step is to configure GitHub Pages. The [GitHub Pages welcom page](https://pages.github.com/) has simple instructions
-
-- Setup your `<user>.github.io` repository.
-- Under **Settings** > **GitHub Pages** you can enable GitHub Pages and select the source as either the master branch (root) of your repository, or the Docs folder. Select one and commit your website assets to that location (`index.html`, assets, etc.)
-- If you have an active website at `<user>.github.io`, enabling GitHub Pages in other repositories on your account will make them visible from your main website. For instance, my website home is [matthewkudija.com](http://matthewkudija.com/), hosted in my [mkudija.github.io](https://github.com/mkudija/mkudija.github.io) repository. My blog is in the [blog](https://github.com/mkudija/blog) repository, and located therefore at [matthewkudija.com/blog](http://matthewkudija.com/blog).
-
-
-## 2. Download Theme
-- Find and download a theme. Some good (free) places to look include:
-  - [HTML5UP](https://html5up.net/)
-  - [Pelican Themes](https://github.com/getpelican/pelican-themes)
-  - Find a website you like and inspect it, or better yet find a site hosted publicly on GitHub pages to view its whole source code.
-- Customize theme to your liking.
-  - This can be little things like changing the colors and typeface to larger things like adding functionality.
-  - You don't need to commit your changes to GitHub to see the results. You can view them locally by right clicking on the file and opening in a web browser. Tip: using Safari you can go to **Develop** > **Enter Responsive Design Mode** to see how your site will look on different screens. This is great for making sure that what you see on a desktop when editing it will work well on mobile.
-  - If you get stuck, it's easy to get help. You can hire someone on Fiverr for as little as $5 ($7 with their fee) to fix an issue on your website. I recommend [musebkhalid](https://www.fiverr.com/musebkhalid/create-remix-update-and-recover-web-pages?ref_ctx_id=1ca3bd97-b64d-4042-90b4-70582610f333).
-- Alternatively, with a little HTML and CSS you can build a simple website yourself from scratch.
-
-## 3. Set Up Extras
-### 404.html
-The default 404 page on GitHub pages is this:
-
-![alt text](images/GitHub_404.png)
-
-If you would like a 404 page to match your theme, you can add a custom [`404.html`](https://github.com/mkudija/mkudija.github.io/blob/master/404.html) to your root directory.
-
-### CNAME
-If you want a custom domain (i.e. matthewkudija.com instead of mkudija.github.io), perform the following:
-1. Buy the domain from your preferred DNS provider. I use Host Gator.
-2. Add a [CNAME](CNAME) file to your directory. This should contain just the domain: `matthewkudija.com`. 
-3. Configure the A-record with the DNS provider to point to GitHub pages. I called Host Gator customer service and they got it set up. Refer to the [documentation](https://help.github.com/articles/setting-up-an-apex-domain/).
-4. For Hostgator, set nameservers as:
-- NS1.LAUNCHPAD.COM 
-- NS2.LAUNCHPAD.COM
-- NS3.LAUNCHPAD.COM 
-- NS4.LAUNCHPAD.COM
-
-#### HTTPS
-
-https://help.github.com/articles/troubleshooting-custom-domains/#https-errors
-Custom domains configured with A records
-If you configured your custom domain using an A record, your A record must point to one of the following IP addresses for HTTPS to work:
-
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-
-### favicon.ico
-Create or find a square image to use as your favicon. Go to one of the many favicon generator sites (such as [this](https://realfavicongenerator.net/)) to generate your favicon.
-
-### robots.txt
-I added a robots.txt but removed it after seeing that it messed up Google search results.
-
-### sitemap.xml
-I added a sitemap to aid in searching (and perhaps eventually get sitelinks on the search result) from [xml-sitemaps.com](https://www.xml-sitemaps.com).
-
-### meta tag
-I updated the meta tag to improve search results.
-
-```html
-<meta name="description" content="add a description of your site here">
-<meta name="keywords" content="add, some, keywords, you, want, here"> 
-```
-
-### Google Analytics
-Set up [Google Analytics](https://analytics.google.com/analytics/web/) to get your unique tracking ID and then copy the required code in to your HTML pages:
-
-> This is the Global Site Tag (gtag.js) tracking code for this property. Copy and paste this code as the first item into the `<HEAD>` of every webpage you want to track. If you already have a Global Site Tag on your page, simply add the **config** line from the snippet below to your existing Global Site Tag.
-
-```html
-<!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOURID-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-YOURID-1');
-  </script>
-```
-
-
-## 4. Enable Bigfoot Footnotes
-See [this commit](https://github.com/mkudija/mkudija.github.io/commit/8f6ed3f882466ee92a2aa00a8afec854b9b390ec)
-- to change button appearance, customize class "bigfoot-footnote__button" properties in [`bigfoot-default.css`](assets/css/bigfoot-default.css)
-- to change popup appearance, customize class "bigfoot-footnote__content" properties in [`bigfoot-default.css`](assets/css/bigfoot-default.css)
-
-
-## 5. Update Books
-1. write book review in markdown
-  * See [easybib](http://www.easybib.com/guides/citation-guides/chicago-turabian/footnotes/) exmple for footnote formatting: `Henry James, The Ambassadors (Rockville: Serenity, 2009), 34-40.` Footnotes in Markdown use this format:
-```
-"Blah blah blah."[^id] More words and more words.[^id2] Finally, let's add more words
-
-[^id]: Footnote text for id1 goes here...
-[^id2]: Footnote text for id2 goes here...
-```
-
-2. add cover image to [`images/books/`](images/books/)
-3. add data in [`books/md/_content.xlsx`](books/md/_content.xlsx)
-4. run [`books/md/_build.py`](books/md/_build.py) which creates an HTML file for each MD file defined in `_content.xlsx`\*
-5. commit changes (including newly created html file)
-
-\*Alternatively, individually convert from MD to HTML in the commany line by running [`markdown2.py`](/book-reviews/md/markdown2.py) (See [here](https://github.com/trentm/python-markdown2) for more information about markdown2 from @trentm):
-
-```
-python markdown2.py -x footnotes,smarty-pants,cuddled-lists,target-blank-links FNAME.md > FNAME.html
-```
-
-
-## 6. Update Reading
-Run [`reading.py`](/reading/reading.py) to covert book list from Markdown to HTML. This also generates a plot.
-
-```
-python reading.py
-```
-
-
-## 7. Particle background
-- Add particle background from http://jnicol.github.io/particleground/
-- Config ~380 in `assets/js/jquery.particleground.js`
-
-
-## Other Notes
-- previewing locally
-- mobile preview
-- right click-inspect element
-- adding password protection
-- how to choose a license for your site
-
-# Closing Thoughts
-
-
-## Resources
-- github
-- html
-- html5up templates
-- css
-- gh-pages
-- markdown
-- markdown2.py
-- pelican
