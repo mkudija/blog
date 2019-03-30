@@ -27,7 +27,7 @@ Sharing your work online brings benefits that can't be had working in seclusion.
 
 **Learning**
 
-The single most important reason to share your work online is for the personal learning it enables. Sharing publicly can be uncomfortable but the the additional pressure can help you learn with a rigor that would otherwise be lacking if it was just for yourself. 
+The single most important reason to share your work online is for the personal learning it enables. Sharing publicly can be uncomfortable but the additional pressure can help you learn with a rigor that would otherwise be lacking if it was just for yourself. 
 
 Sharing is a risk in that others may ignore you or even ridicule you. Polishing your ideas enough to share online is often the final step needed to solidify your understanding of a topic. Also, hearing people point out your mistakes might not be fun but it is a quick way to find and correct them.
 
@@ -50,11 +50,11 @@ Sharing your work is the first step in building a meaningful body of work. You w
 
 A typical knowledge worker may not as naturally create this body of work as an academic, artist, or craftsman for instance. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be published is a way to ensure your work accumulates over time rather than simply being lost to time. 
 
-Building anything worthwile takes time and energy. More than actively pursuing a goal, sharing online should come from a mindset of always improving.  What you write up and share may be the first tentative steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters" away for inclusion in his memoirs.[^manchester] He went on to write *The World Crisis*, a 6-volume history of the war that secured his family's livelihood for many years. What could have been lost was instead built up in small pieces as events happened and later assembled into a meaningful final product. 
+Building anything worthwhile takes time and energy. More than actively pursuing a goal, sharing online should come from a mindset of always improving.  What you write up and share may be the first tentative steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters" away for inclusion in his memoirs.[^manchester] He went on to write *The World Crisis*, a 6-volume history of the war that secured his family's livelihood for many years. What could have been lost was instead built up in small pieces as events happened and later assembled into a meaningful final product. 
 
 [^manchester]: William Mancheseter, [*The Last Lion: Winston Spencer Churchill: Visions of Glory, 1874-1932*](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=the+last+lion+visions+of+glory) (New York: Little, Brown, and Company, 1983), 767. Full quote: "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'"
 
-Little pieces of effort and examples of work add up over time. A little bit each day is great. A little  each week adds up quickly: "If you do one little thing each week, imagine how much you can learn in a year."[^little] Even at a monthly cadence you can build a solid foundation over a few year's time, and a lot of the blogs I have learned from average maybe 12 posts per year, or one per month. With patience and a long horizon, every little bit bit counts: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work."[^kleon]
+Little pieces of effort and examples of work add up over time. A little bit each day is great. A little  each week adds up quickly: "If you do one little thing each week, imagine how much you can learn in a year."[^little] Even at a monthly cadence you can build a solid foundation over a few years’ time, and a lot of the blogs I have learned from average maybe 12 posts per year, or one per month. With patience and a long horizon, every little bit counts: "One little blog post is nothing on its own, but publish a thousand blog posts over a decade, and it turns into your life's work."[^kleon]
 
 [^little]: Derya Little, [*From Islam to Christ*](https://www.amazon.com/Islam-Christ-Womans-through-Riddles/dp/1621641120/ref=sr_1_1?ie=UTF8&qid=1532269958&sr=8-1&keywords=from+islam+to+christ) (San Francisco: Ignatius, 2017), 201.
 
@@ -102,7 +102,7 @@ One challenge to overcome is the desire to only share what is *perfect*. But muc
 
 ![alt]({filename}/images/sharing.png)
 
-Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning somehting you are probably underestimating rather than overestimating how useful it could be.
+Granted you won't know what may be *useful* to someone else, but if you have put any amount of time into learning something you are probably underestimating rather than overestimating how useful it could be.
 
 Just remember that it must be *shared on the internet* to ever be useful to someone else. Remember that "things that are still on your computer are approximately useless." What you produce cannot help other people if it exists only in your head, in a notebook, or on your computer.[^robinson] 
 
@@ -120,11 +120,11 @@ Just remember that it must be *shared on the internet* to ever be useful to some
   - Helpful: In a remarkable essay titled “On Leisure,” published after Seneca retired, the philosopher wrote in an oblique way about his own experiences: “The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors, and, failing them, to himself: for when he helps others, he advances the general interests of mankind.”
 
 
-**Domocracy in the public square**: need to have a voice in the public square
+**Democracy in the public square**: need to have a voice in the public square
 
   - builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square
   - FT, etc.
-  - Toqueville...?
+  - Tocqueville...?
 
 
 Independent research notes: https://nadiaeghbal.com/independent-research
@@ -136,7 +136,7 @@ Show Your Work
 - Learn in front of others: "The best way to get started on the path to sharing your work is to think about what you want to learn, and make a commitment to learning it in front of others." (19)
 - "in this day and age, if your work isn't online, it doesn't exist" (23)
 - Domain: "Social networks are great, but they come and go...If you're really interested in sharing your work and expressing yourself, nothing beats owning your own space online." (66)
-- Domain: "The beauty of owning your own turf is that your can do whatever you want with it...You don't have to make compromises." (69)
+- Domain: "The beauty of owning your own turf is that you can do whatever you want with it...You don't have to make compromises." (69)
 - "The minute you learn something, turn around and teach it to others." (117)
 
 Silence in the age of noise
@@ -240,8 +240,8 @@ While HTML defines the content of your website, CSS (Cascading Style Sheet) defi
 
 ```css
 p {
-	fontsize: 14;
-	fontcolor: Red;
+  fontsize: 14;
+  fontcolor: Red;
 }
 ```
 
