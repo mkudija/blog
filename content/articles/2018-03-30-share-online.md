@@ -50,7 +50,7 @@ Sharing your work is the first step in building a meaningful body of work. You w
 
 A typical knowledge worker may not as naturally create this body of work as an academic, artist, or craftsman for instance. Taking the time to fashion your more nebulous contributions into tangible pieces of work that can be published is a way to ensure your work accumulates over time rather than simply being lost to time. 
 
-Building anything worthwhile takes time and energy. More than actively pursuing a goal, sharing online should come from a mindset of always improving.  What you write up and share may be the first tentative steps of something bigger that won't materialize for quite some time. I like the story of how during World War I William Churchill "carefully filed memoranda, documents, and letters" away for inclusion in his memoirs.[^manchester] He went on to write *The World Crisis*, a 6-volume history of the war that secured his family's livelihood for many years. What could have been lost was instead built up in small pieces as events happened and later assembled into a meaningful final product. 
+Building anything worthwhile takes time and energy. More than actively pursuing a goal, sharing online should come from a mindset of always improving.  What you write up and share may be the first tentative steps of something bigger that won't materialize for quite some time. I like the story of how during World War I Winston Churchill "carefully filed memoranda, documents, and letters" away for inclusion in his memoirs.[^manchester] He went on to write *The World Crisis*, a 6-volume history of the war that secured his family's livelihood for many years. What could have been lost was instead built up in small pieces as events happened and later assembled into a meaningful final product. 
 
 [^manchester]: William Mancheseter, [*The Last Lion: Winston Spencer Churchill: Visions of Glory, 1874-1932*](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=the+last+lion+visions+of+glory) (New York: Little, Brown, and Company, 1983), 767. Full quote: "carefully filed memoranda, documents, and letters, explaining, in a letter to Clementine on July 17, 1915, 'Someday I should like the truth to be known.'"
 
@@ -74,24 +74,13 @@ Rude feedback can be ignored, but even negative feedback will help you if receiv
 
 It goes without saying that if you want to build a business in today's world an online presence is required for all but the rarest exceptions. You need a way to reach customers, accept payments, respond to questions, and build a network. A website need not be complex and expensive (or built by a professional) to meet these basic needs. 
 
-Sharing online can clearly benefit you a lot. The best part about sharing online is that it benefits other too.
-
-
-<details>
-  <summary>Click to expand</summary>
-
 **Not Recognition**
 
 You'll notice that recognition or fame isn't on this list, though an honest self-examination by any author will probably reveal some desire for accolades. This is a poor reason to share online. Simple math says that your chances of achieving fame are not high, and I'll wager that the majority of what people post online languishes in obscurity. Plus, you might not even want what you're looking for: "When you find yourself pining for fame and recognition, stop and consider what it might actually feel like when you get it—why you think you’ll be the exception to the rule and will find happiness in what nearly everyone else in history has found to be a chimera."[^holiday]
 
 [^holiday]: Ryan Holiday, “The Most Successful People Are The Ones You’ve Never Heard Of (And Why They Want It That Way),” Thought Catalog, March 20, 2018, [`https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/`](https://thoughtcatalog.com/ryan-holiday/2018/03/the-most-successful-people-are-the-ones-youve-never-heard-of-and-why-they-want-it-that-way/).
 
-**Offload and record your thoughts**:
-  - doesn't need to be public, but doing the above publicly serves this end
-  - notes to your future self (useful and ...)
-  - serves as a journal of your intellectual development
-
-</details>
+Sharing online can clearly benefit you a lot. The best part about sharing online is that it benefits other too.
 
 
 ### Benefits to Others
@@ -108,42 +97,6 @@ Just remember that it must be *shared on the internet* to ever be useful to some
 
 [^robinson]: <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Things that are still on your computer are approximately useless.&quot; -<a href="https://twitter.com/drob?ref_src=twsrc%5Etfw">@drob</a> <a href="https://twitter.com/hashtag/eUSR?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR</a> <a href="https://twitter.com/hashtag/eUSR2017?src=hash&amp;ref_src=twsrc%5Etfw">#eUSR2017</a> <a href="https://t.co/nS3IBiRHBn">pic.twitter.com/nS3IBiRHBn</a></p>&mdash; Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/926509282874585089?ref_src=twsrc%5Etfw">November 3, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> I came across this tweet here: David Robinson, “Advice to aspiring data scientists: start a blog,” Variance Explained, November 14, 2017, [`http://varianceexplained.org/r/start-blog/`](http://varianceexplained.org/r/start-blog/).
-
-<details>
-  <summary>Click to expand</summary>
-
-
-  - think of all that you've learned from blogs, etc.
-  - feeling of just discovering someone and being nourished by their thinking: recently JMW, AJ, MMM
-  - contributes to the original vision of the Internet
-  - "The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors; and failing them, to himself: for when he helps others, he advances the general interests of mankind." - Seneca, [*On Leisure*](http://www.bartleby.com/library/prose/4636.html)
-  - Helpful: In a remarkable essay titled “On Leisure,” published after Seneca retired, the philosopher wrote in an oblique way about his own experiences: “The duty of a man is to be useful to his fellow-men; if possible, to be useful to many of them; failing this, to be useful to a few; failing this, to be useful to his neighbors, and, failing them, to himself: for when he helps others, he advances the general interests of mankind.”
-
-
-**Democracy in the public square**: need to have a voice in the public square
-
-  - builds a strong democracy: for our democracy to be healthy we need a serious conversation in the public square - the Internet is a public square
-  - FT, etc.
-  - Tocqueville...?
-
-
-Independent research notes: https://nadiaeghbal.com/independent-research
-- "You don’t need a PhD to study something you care about. You don’t need to publish papers in academic journals to become widely respected. You just need a curious mind, a bankroll, and a commitment to learning in public."
-
-
-Show Your Work
-
-- Learn in front of others: "The best way to get started on the path to sharing your work is to think about what you want to learn, and make a commitment to learning it in front of others." (19)
-- "in this day and age, if your work isn't online, it doesn't exist" (23)
-- Domain: "Social networks are great, but they come and go...If you're really interested in sharing your work and expressing yourself, nothing beats owning your own space online." (66)
-- Domain: "The beauty of owning your own turf is that you can do whatever you want with it...You don't have to make compromises." (69)
-- "The minute you learn something, turn around and teach it to others." (117)
-
-Silence in the age of noise
-
-- “Sometimes it makes more sense to make life more difficult than necessary” (46)
-
-</details>
 
 
 ## Share From Your Own Domain
@@ -188,82 +141,6 @@ Conquering the technical hurdles and sharing from your own domain also builds yo
 Multiple of these points stress the importance of sharing from your own domain. For the others, you might find my [GitHub Pages Example](https://matthewkudija.com/GitHub-Pages-Example/) helpful for learning the basics. Whatever specific technologies you choose, sharing from your domain rather than on a platform owned by someone grants you the most control in your online publishing.
 
 
-
-
-<details>
-  <summary>Click to expand</summary>
-
 ## Closing Thoughts
 
 A popular opinion among those promoting STEM education is that everyone should learn to code. Certainly not *everyone* needs to know "how to code" to be successful. But the internet would certainly be a place of more learning if more people who use it actively shared their work from their own domain. They would learn, others would learn from them, and we would return to the original vision of the internet.
-
-Cite this: Audrey Watters: http://hackeducation.com/2017/04/04/domains [^hackeducation]
-- "Students and staff can start to see how digital technologies work – those that underpin the Web and elsewhere. They can think about how these technologies shape the formation of their understanding of the world – how knowledge is formed and shared; how identity is formed and expressed."
-- "But you can publish stuff on your own site first, and then syndicate it to these other for-profit, ad-based venues."
-- "That’s your domain. You cultivate ideas there – quite carefully, no doubt, because others might pop by for a think. But also because it’s your space for a think."
-
-
-The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge."[^vision]
-[^vision]: [World Wide Web Consortium (W3C) Mission](https://www.w3.org/Consortium/mission#vision)
-
-The emergence of major web companies that control content creation—Facebook, etc.—endanger some of this vision by:
-
-
-
-With that as inspiration, the rest of this post is devoted to building up the 12 points Jacobs suggests. 
-
-
-# Part II: Introductory Concepts
-Since one of the benefits of sharing your work through your domain is building a basic understanding of the technologies that power the Internet, let's review the basics of those technologies.
-
-**Web Hosting**
-A website is just a collection of files, and those files need to stored somewhere. That somewhere is a computer connected to the internet, a server (TK). 
-
-**Domain Names**
-The domain name is the address of your website, familiar as: `https://domain.com`. You can accept the default domain provided by the web hosting company you use (`.github.io` or `wordpress.com` for example), or you can purchase a custom domain (`your_name.com`). 
-
-**Static Website**
-
-
-**HTML**
-Again, a website is just a collection of files. The primary files are written in HTML, or hyper-text markup language. The basic building block of your website is the `index.html` file, which gives the text to render on your webpage along with simple formatting tags. A line of HTML looks like this to define a heading and paragraph:
-
-```html
-<h1>Heading</h1>
-
-<p>Text of your paragraph.</p>
-```
-
-
-**CSS**
-While HTML defines the content of your website, CSS (Cascading Style Sheet) defines how that content is formatted. CSS, usually given in `main.css`, defines the layout, colors, typeface, and other formatting elements of your website. Example CSS to determine the fontsize of a paragraph element looks like this:
-
-```css
-p {
-  fontsize: 14;
-  fontcolor: Red;
-}
-```
-
-We reference a stylesheet in HTML like this:
-```html
-assets/main.css...
-```
-
-
-
-**JavaScript**
-HTML and CSS are primarily static. Dynamic elements of a website are commonly written in JavaScript. JavaScript looks like this
-
-
-We reference a JavaScript script in HTML like this:
-```html
-<script>javascript.js</script>
-```
-
-
-**Python**
-<!-- Python is not required  -->
-
-</details>
-
