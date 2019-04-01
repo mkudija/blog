@@ -143,4 +143,6 @@ Multiple of these points stress the importance of sharing from your own domain. 
 
 ## Closing Thoughts
 
-A popular opinion among those promoting STEM education is that everyone should learn to code. Certainly not *everyone* needs to know "how to code" to be successful. But the internet would certainly be a place of more learning if more people who use it actively shared their work from their own domain. They would learn, others would learn from them, and we would return to the original vision of the internet.
+A popular opinion among those promoting STEM education is that everyone should learn to code. Certainly not *everyone* needs to know "how to code" to be successful. But the internet would certainly be a place of more learning if more people who use it actively shared their work from their own domain. They would learn, others would learn from them, and we would return closer to the original vision of the internet.[^vision]
+
+[^vision]: The web, as envisioned by its inventor Sir Tim Berners-Lee, exists to enable "human communication, commerce, and opportunities to share knowledge." —[World Wide Web Consortium (W3C) Mission](https://www.w3.org/Consortium/mission#vision)
