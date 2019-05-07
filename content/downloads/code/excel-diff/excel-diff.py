@@ -12,11 +12,14 @@ def excel_diff(path_OLD, path_NEW):
     for row in range(dfDiff.shape[0]):
         for col in range(dfDiff.shape[1]):
             value_OLD = df_OLD.iloc[row,col]
-            value_NEW = df_NEW.iloc[row,col]
-            if value_OLD==value_NEW:
-                dfDiff.iloc[row,col] = df_NEW.iloc[row,col]
-            else:
-                dfDiff.iloc[row,col] = ('{}→{}').format(value_OLD,value_NEW)
+            try:
+                value_NEW = df_NEW.iloc[row,col]
+                if value_OLD==value_NEW:
+                    dfDiff.iloc[row,col] = df_NEW.iloc[row,col]
+                else:
+                    dfDiff.iloc[row,col] = ('{}-->{}').format(value_OLD,value_NEW)
+            except:
+                dfDiff.iloc[row,col] = ('{}-->{}').format(value_OLD, 'NaN')
 
     # Save output and format
     fname = '{} vs {}.xlsx'.format(path_OLD.stem,path_NEW.stem)

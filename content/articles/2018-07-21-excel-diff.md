@@ -37,11 +37,14 @@ dfDiff = df_OLD.copy()
 for row in range(dfDiff.shape[0]):
     for col in range(dfDiff.shape[1]):
         value_OLD = df_OLD.iloc[row,col]
-        value_NEW = df_NEW.iloc[row,col]
-        if value_OLD==value_NEW:
-            dfDiff.iloc[row,col] = df_NEW.iloc[row,col]
-        else:
-            dfDiff.iloc[row,col] = ('{}→{}').format(value_OLD,value_NEW)
+        try:
+            value_NEW = df_NEW.iloc[row,col]
+            if value_OLD==value_NEW:
+                dfDiff.iloc[row,col] = df_NEW.iloc[row,col]
+            else:
+                dfDiff.iloc[row,col] = ('{}-->{}').format(value_OLD,value_NEW)
+        except:
+            dfDiff.iloc[row,col] = ('{}-->{}').format(value_OLD, 'NaN')
 ```
 
 Looping through the rows and columns of the DataFrame and accessing values with `df.iloc` is not the fastest way to perform this operation (see [this stackoverflow discussion](https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas) for some alternatives, including `df.apply()` and `df.iterrows()`). It is, however, simple for me to understand and straightforward to implement.
@@ -125,11 +128,14 @@ def excel_diff(path_OLD, path_NEW):
     for row in range(dfDiff.shape[0]):
         for col in range(dfDiff.shape[1]):
             value_OLD = df_OLD.iloc[row,col]
-            value_NEW = df_NEW.iloc[row,col]
-            if value_OLD==value_NEW:
-                dfDiff.iloc[row,col] = df_NEW.iloc[row,col]
-            else:
-                dfDiff.iloc[row,col] = ('{}→{}').format(value_OLD,value_NEW)
+            try:
+                value_NEW = df_NEW.iloc[row,col]
+                if value_OLD==value_NEW:
+                    dfDiff.iloc[row,col] = df_NEW.iloc[row,col]
+                else:
+                    dfDiff.iloc[row,col] = ('{}-->{}').format(value_OLD,value_NEW)
+            except:
+                dfDiff.iloc[row,col] = ('{}-->{}').format(value_OLD, 'NaN')
 
     # Save output and format
     fname = '{} vs {}.xlsx'.format(path_OLD.stem,path_NEW.stem)
