@@ -12,7 +12,7 @@ def plot_countries(df,projection,colors,annotation,title,edgecolor):
 
     # configure chart
     plt.close()
-    plt.style.use('mag')
+    #plt.style.use('mag')
 
     ax = plt.axes(projection=projection)
     ax.add_feature(cartopy.feature.OCEAN, facecolor='white')

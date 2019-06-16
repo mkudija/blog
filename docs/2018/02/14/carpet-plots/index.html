@@ -1461,7 +1461,8 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1469,7 +1470,8 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1699,7 +1701,8 @@ DOBrM9sDbAO+quS/kkiZdI1epBxKp2Rvdc793O8sIsdLl25ERCKczuhFRCKczuhFRCKcil5EJMKp
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1733,7 +1736,8 @@ DOBrM9sDbAO+quS/kkiZdI1epBxKp2Rvdc793O8sIsdLl25ERCKczuhFRCKczuhFRCKcil5EJMKp
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2228,7 +2232,8 @@ TkSuQmCC
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2236,7 +2241,8 @@ TkSuQmCC
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3062,7 +3068,41 @@ AElFTkSuQmCC
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3070,96 +3110,6 @@ AElFTkSuQmCC
 <h2 id="Data-preparation-using-pd.melt()">Data preparation using <code>pd.melt()</code><a class="anchor-link" href="#Data-preparation-using-pd.melt()">¶</a></h2><p>Pandas has a number of helpful data reshaping methods, and this exercise presents the opportunity to use <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.melt.html"><code>pd.melt()</code></a>.</p>
 <p>Our starting dataset is an array with the index of one axis representing the first independent variable values (<strong><code>stops</code></strong>), and the index of the other axis representing the second independent variable values (<strong><code>dist</code></strong>). The values in the array represent our dependent variable (<strong><code>cost</code></strong>). You can think of this as the output of an Excel data table, which may at times in fact be the data source.</p>
 <p>Plotly takes a list of each variable to plot a carpet plot, so we use <code>pd.melt()</code> to <a href="http://www.stat.wvu.edu/~jharner/courses/stat623/docs/tidy-dataJSS.pdf">tidy</a> this data and then convert to lists.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stops</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stops</span><span class="p">)</span>
-         <span class="o">.</span><span class="n">melt</span><span class="p">()</span>
-         <span class="p">[</span><span class="s1">'value'</span><span class="p">]</span>
-         <span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-<span class="n">dist</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-         <span class="o">.</span><span class="n">melt</span><span class="p">()</span>
-         <span class="p">[</span><span class="s1">'value'</span><span class="p">]</span>
-         <span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-<span class="n">cost</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
-         <span class="o">.</span><span class="n">melt</span><span class="p">()</span>
-         <span class="p">[</span><span class="s1">'value'</span><span class="p">]</span>
-         <span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Plotting-with-Plotly">Plotting with Plotly<a class="anchor-link" href="#Plotting-with-Plotly">¶</a></h3><p>Now that we have a tidy dataset in a list for each variable, we can plot using Plotly. Why Plotly? I have avoided Plotly in the past due to the confusing process of making an account and putting your plots online. But using Plotly's <a href="https://plot.ly/python/carpet-plot/">carpet plot example</a> and some information from Stackoverflow, I was able to get it to work without the online authentication, which is just fine for a static chart. I would still prefer to use matplotlib, and may tackle that later. For now, here's the code to generate the Plotly carpet plot. Note that when running this, Plotly will generate a HTML file which then presents a prompt to save a .jpeg of your chart.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="k">import</span> <span class="n">Layout</span><span class="p">,</span><span class="n">Scatter</span>
-
-<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Carpet</span><span class="p">(</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">stops</span><span class="p">,</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">dist</span><span class="p">,</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">cost</span><span class="p">,</span>
-    <span class="n">aaxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">tickprefix</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
-        <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s1">' stops'</span><span class="p">,</span>
-        <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">minorgridcount</span> <span class="o">=</span> <span class="mi">9</span>
-    <span class="p">),</span>
-    <span class="n">baxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">tickprefix</span> <span class="o">=</span> <span class="s1">'Dist = '</span><span class="p">,</span>
-        <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s1">' mi.'</span><span class="p">,</span>
-        <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">minorgridcount</span> <span class="o">=</span> <span class="mi">9</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">plotly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">plot</span><span class="p">({</span>
-    <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span><span class="n">trace1</span><span class="p">],</span> 
-    <span class="s2">"layout"</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Carpet Plot Example"</span><span class="p">,</span>
-                     <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s1">'Arial, sans-serif'</span><span class="p">,</span> 
-                               <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> 
-                               <span class="n">color</span><span class="o">=</span><span class="s1">'rgb(0,0,0)'</span><span class="p">),</span>
-                     <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                         <span class="n">title</span><span class="o">=</span><span class="s1">'Total Fuel Cost ($)'</span><span class="p">,</span>
-                         <span class="n">titlefont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                             <span class="n">family</span><span class="o">=</span><span class="s1">'Arial, sans-serif'</span><span class="p">,</span>
-                             <span class="n">size</span><span class="o">=</span><span class="mi">18</span>
-                         <span class="p">),</span>
-                         <span class="n">showticklabels</span><span class="o">=</span><span class="kc">True</span>
-                     <span class="p">),</span>
-                     <span class="n">margin</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Margin</span><span class="p">(</span>
-                         <span class="n">l</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                         <span class="n">r</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-                    <span class="p">)</span>
-<span class="p">},</span><span class="n">filename</span><span class="o">=</span><span class="s1">'Carpet.html'</span><span class="p">,</span><span class="n">image</span><span class="o">=</span><span class="s1">'jpeg'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>'file:///Users/matthewkudija/Documents/GitHub/blog/content/downloads/notebooks/CarpetPlots/Carpet.html'</pre>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -4167,33 +4117,60 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Great, a carpet plot! Now we can pick any combination of number of stops and distance between stops and easily determine the total fuel cost for the trip.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Future-Work">Future Work<a class="anchor-link" href="#Future-Work">¶</a></h1><p>This has been a brief overview of plotting 3-variable carpet plots in Python with Plotly. In the future, I would also like to:</p>
-<ul>
-<li>plot with matplotlib, perhaps starting with <a href="https://github.com/steve855/pyCarpetPlot/blob/master/pyCarpetPlot.py">this example</a></li>
-<li>demonstrate including more than two independent variables</li>
-</ul>
+<h3 id="Plotting-with-Plotly">Plotting with Plotly<a class="anchor-link" href="#Plotting-with-Plotly">¶</a></h3><p>Now that we have a tidy dataset in a list for each variable, we can plot using Plotly. Why Plotly? I have avoided Plotly in the past due to the confusing process of making an account and putting your plots online. But using Plotly's <a href="https://plot.ly/python/carpet-plot/">carpet plot example</a> and some information from Stackoverflow, I was able to get it to work without the online authentication, which is just fine for a static chart. I would still prefer to use matplotlib, and may tackle that later. For now, here's the code to generate the Plotly carpet plot. Note that when running this, Plotly will generate a HTML file which then presents a prompt to save a .jpeg of your chart.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
-<span class="o">%</span><span class="k">watermark</span> -iv
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="k">import</span> <span class="n">Layout</span><span class="p">,</span><span class="n">Scatter</span>
+
+<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Carpet</span><span class="p">(</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">stops</span><span class="p">,</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">dist</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">cost</span><span class="p">,</span>
+    <span class="n">aaxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickprefix</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
+        <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s1">' stops'</span><span class="p">,</span>
+        <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">minorgridcount</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="p">),</span>
+    <span class="n">baxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickprefix</span> <span class="o">=</span> <span class="s1">'Dist = '</span><span class="p">,</span>
+        <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s1">' mi.'</span><span class="p">,</span>
+        <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">minorgridcount</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">plotly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">plot</span><span class="p">({</span>
+    <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span><span class="n">trace1</span><span class="p">],</span> 
+    <span class="s2">"layout"</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Carpet Plot Example"</span><span class="p">,</span>
+                     <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s1">'Arial, sans-serif'</span><span class="p">,</span> 
+                               <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> 
+                               <span class="n">color</span><span class="o">=</span><span class="s1">'rgb(0,0,0)'</span><span class="p">),</span>
+                     <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                         <span class="n">title</span><span class="o">=</span><span class="s1">'Total Fuel Cost ($)'</span><span class="p">,</span>
+                         <span class="n">titlefont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                             <span class="n">family</span><span class="o">=</span><span class="s1">'Arial, sans-serif'</span><span class="p">,</span>
+                             <span class="n">size</span><span class="o">=</span><span class="mi">18</span>
+                         <span class="p">),</span>
+                         <span class="n">showticklabels</span><span class="o">=</span><span class="kc">True</span>
+                     <span class="p">),</span>
+                     <span class="n">margin</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Margin</span><span class="p">(</span>
+                         <span class="n">l</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                         <span class="n">r</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+                    <span class="p">)</span>
+<span class="p">},</span><span class="n">filename</span><span class="o">=</span><span class="s1">'Carpet.html'</span><span class="p">,</span><span class="n">image</span><span class="o">=</span><span class="s1">'jpeg'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4201,24 +4178,29 @@ h6:hover .anchor-link {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>matplotlib  2.1.0
-pandas      0.21.1
-numpy       1.13.3
-plotly      2.2.2
-
-</pre>
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>'file:///Users/matthewkudija/Documents/GitHub/blog/content/downloads/notebooks/CarpetPlots/Carpet.html'</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>This post was written entirely in the Jupyter notebook. You can <a href="https://github.com/mkudija/blog/blob/master/content/downloads/notebooks/CarpetPlots/CarpetPlots.ipynb">download</a> the original notebook.</em></p>
+<p><img src="../../../images/Carpet.jpeg"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Great, a carpet plot! Now we can pick any combination of number of stops and distance between stops and easily determine the total fuel cost for the trip.</p>
 </div>
 </div>
 </div>
