@@ -16,7 +16,7 @@ Here is how to highlight select countries with Cartopy. (You can also [highlight
 
 <!-- PELICAN_END_SUMMARY -->
 
-Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv), and run [**`countries.py`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/countries.py):
+Define which countries to highlight in [**`countries.csv`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv), and run [**`cartopy_countries.py`**](https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/cartopy_countries.py):
 
 
 ```python
