@@ -1,0 +1,131 @@
+
+# coding: utf-8
+
+# In[41]:
+
+
+import pandas as pd
+from pathlib import Path
+
+def get_col_index(path):
+    df = pd.read_excel(path)
+    index_col = df.columns[0]
+    print('\nIndex column: {}\n'.format(index_col))
+    return index_col
+
+def get_diff_rows(dfDiff, df_OLD, df_NEW):
+    diff_rows = {}
+    dropped_rows = []
+    added_rows = []
+
+    cols_OLD = df_OLD.columns
+    cols_NEW = df_NEW.columns
+    shared_cols = list(set(cols_OLD).intersection(cols_NEW))
+    for row in dfDiff.index:
+        if (row in df_OLD.index) and (row in df_NEW.index):
+            for col in shared_cols:
+                value_OLD = df_OLD.loc[row,col]
+                value_NEW = df_NEW.loc[row,col]
+                if value_OLD==value_NEW:
+                    dfDiff.loc[row,col] = df_NEW.loc[row,col]
+                else:
+                    dfDiff.loc[row,col] = ('(old){}→(new){}').format(value_OLD,value_NEW)
+                    if row not in diff_rows:
+                        diff_rows[row] = {}
+                    diff_rows[row][col] = value_NEW
+        else:
+            added_rows.append(row)
+
+    for row in df_OLD.index:
+        if row not in df_NEW.index:
+            dropped_rows.append(row)
+            dfDiff = dfDiff.append(df_OLD.loc[row,:])
+    
+    dfDiff = dfDiff.sort_index().fillna('')
+
+    return dfDiff, diff_rows, added_rows, dropped_rows
+
+def is_excel_diff(diff_rows, added_rows, dropped_rows):
+    is_diff = False
+    if diff_rows or added_rows or dropped_rows:
+        is_diff = True
+    return is_diff
+
+def save_diff_excel(dfDiff, df_OLD, df_NEW, added_rows, dropped_rows, path_OLD, path_NEW):
+    # Save output and format
+    fname = './diff_datas/{}_old_vs_{}_new.xlsx'.format(path_OLD.stem, path_NEW.stem)
+    writer = pd.ExcelWriter(fname, engine='xlsxwriter')
+
+    dfDiff.to_excel(writer, sheet_name='DIFF', index=True)
+    df_OLD.to_excel(writer, sheet_name='old_'+ path_OLD.stem, index=True)
+    df_NEW.to_excel(writer, sheet_name='new_'+ path_NEW.stem, index=True)
+
+    # get xlsxwriter objects
+    workbook  = writer.book
+    worksheet = writer.sheets['DIFF']
+    worksheet.hide_gridlines(2)
+    worksheet.set_default_row(15)
+
+    # define formats
+    date_fmt = workbook.add_format({'align': 'center', 'num_format': 'yyyy-mm-dd'})
+    center_fmt = workbook.add_format({'align': 'center'})
+    number_fmt = workbook.add_format({'align': 'center', 'num_format': '#,##0.00'})
+    cur_fmt = workbook.add_format({'align': 'center', 'num_format': '$#,##0.00'})
+    perc_fmt = workbook.add_format({'align': 'center', 'num_format': '0%'})
+    grey_fmt = workbook.add_format({'font_color': '#000000', 'bg_color':'#E0E0E0'})
+    highlight_fmt = workbook.add_format({'font_color': '#FF0000', 'bg_color':'#B1B3B3'})
+    new_fmt = workbook.add_format({'font_color': '#000000', 'bg_color':'#00F5FF'})
+
+    # set format over range
+    ## highlight changed cells
+    worksheet.conditional_format('A1:ZZ1000', {'type': 'text',
+                                            'criteria': 'containing',
+                                            'value':'→',
+                                            'format': highlight_fmt})
+    
+    cell_format = workbook.add_format({'bold': True})
+    # highlight new/changed rows
+    for row in dfDiff.index:
+        cell_i = dfDiff.index.get_loc(row)
+        if row in added_rows:
+            worksheet.set_row(cell_i+1, 15, new_fmt)
+        elif row in dropped_rows:
+            worksheet.set_row(cell_i+1, 15, grey_fmt)
+    # save
+    writer.save()
+
+    
+def display_frame(dfDiff, added_rows, dropped_rows):
+    frame = pd.DataFrame(dfDiff)
+    display(frame)
+    print('\nNew Rows:     {}'.format(added_rows))
+    print('Dropped Rows: {}'.format(dropped_rows))
+    
+    
+def excel_diff(path_OLD, path_NEW):
+    index_col = get_col_index(path_NEW)
+    df_OLD = pd.read_excel(path_OLD, index_col=index_col).fillna(0)
+    df_NEW = pd.read_excel(path_NEW, index_col=index_col).fillna(0)
+    dfDiff = df_NEW.copy()
+    
+    dfDiff, diff_rows, added_rows, dropped_rows = get_diff_rows(dfDiff, df_OLD, df_NEW)
+    is_diff = is_excel_diff(diff_rows, added_rows, dropped_rows)
+    if is_diff:
+        print(path_OLD.stem, 'The two files are the same')
+        save_diff_excel(dfDiff, df_OLD, df_NEW, added_rows, dropped_rows, path_OLD, path_NEW)
+        display_frame(dfDiff, added_rows, dropped_rows)
+    else:
+        print(path_OLD.stem, 'The two files are not the same')
+    return is_diff, diff_rows, added_rows, dropped_rows
+
+
+def main():
+    path_NEW = Path('table_v1.xlsx')
+    path_OLD = Path('table_v2.xlsx')
+
+    # get index col from data
+    is_diff, diff_rows, added_rows, dropped_rows = excel_diff(path_OLD, path_NEW)
+    print(is_diff, diff_rows, added_rows, dropped_rows)
+    
+if __name__ == '__main__':
+    main()
