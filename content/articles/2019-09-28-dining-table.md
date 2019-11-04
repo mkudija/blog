@@ -5,6 +5,7 @@ authors: Matthew Kudija
 comments: true
 slug: dining-table
 tags: build log, wood, dining, table
+status: draft
 
 <!-- PELICAN_BEGIN_SUMMARY -->
 ![alt]({filename}../images/bookshelf/bookshelf_final.jpg)
