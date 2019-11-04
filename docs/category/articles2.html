@@ -10,7 +10,7 @@
     <meta name="author" content="Matthew Kudija">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <title>Blog | Matthew Kudija</title>
+    <title>Matthew Kudija - articles category | Matthew Kudija</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -484,6 +484,38 @@ article .meta a.comments_btn:hover {
 
   <article>
     <header>
+      <h2><a href="../2018/08/21/baby-schedule/">Visualizing An Infant's Schedule</a></h2>
+      <time datetime="" title="2018-08-21T06:00:00-04:00" pubdate>Tue 21 August 2018</time>
+    </header>
+
+    <div class="article_content">
+      
+
+<p style="text-align:center;"><img src="../downloads/code/baby-schedule/plot_all_radial.png" width="75%" height="75%"></p>
+
+<p>A newborn may only eat, sleep, and poop, but they sure do it a lot! Here is a sample of two weeks of an an infant's schedule visualized with matplotlib.</p>
+
+
+<p>A while ago I came across a radial sleep schedule plot and thought it was a creative way to visualize …</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="../2018/08/21/baby-schedule/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+        <a href="../tag/python.html" class="tag">python</a>
+        <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
+      </div>
+
+    </div>
+
+  </article>
+
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="../2018/07/21/excel-diff/">Diff Two Excel Files with Python</a></h2>
       <time datetime="" title="2018-07-21T06:00:00-04:00" pubdate>Sat 21 July 2018</time>
     </header>
@@ -494,6 +526,8 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../downloads/code/excel-diff/images/excel-diff1.png"></p>
 <p>It's handy to be able to quickly find the differences between two Excel files. Below is a quick example of doing so using Python and pandas. </p>
 
+
+<p>Plenty of others have solved this problem. Here's a good write-up by <a href="http://pbpython.com/excel-diff-pandas.html">pbpython</a> (and the <a href="http://pbpython.com/excel-diff-pandas-update.html">updated version</a>) and a version by <a href="https://gist.github.com/yassineAlouini/9b36ee91560445ce28b06733a362ced8">yassineAlouini</a>. Wanting a …</p>
     </div>
 
     <div class="meta">
@@ -524,6 +558,8 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../images/us-heliports.png"></p>
 <p>In a <a href="http://matthewkudija.com/blog/2018/06/22/altair-interactive/#airports-example">previous post</a> I used Altair to plot an interactive map of US airports using data from <a href="https://github.com/vega/vega-datasets">vega examples</a>. I found another dataset that includes airport elevation which makes exploring the data all the more interesting.</p>
 
+
+<p>The <a href="http://ourairports.com/data/">OurAirports</a> <code>airports.csv</code> dataset includes elevation data for airports and heliports. I …</p>
     </div>
 
     <div class="meta">
@@ -551,11 +587,17 @@ article .meta a.comments_btn:hover {
     </header>
 
     <div class="article_content">
-      
+      <p><strong>Contents</strong></p>
+<ul>
+<li><a href="#intro-to-altair">Intro to Altair</a></li>
+<li><a href="#building-interactive-altair-charts">Building Interactive Altair Charts</a></li>
+<li><a href="#sharing-interactive-altair-charts-on-the-web">Sharing Interactive Altair Charts on the Web</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+
 
 <p><img alt src="../images/altair-interactive.png"></p>
-<p>Adding interactivity to data visualizations can be helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from the excellent Altair <a href="https://altair-viz.github.io/gallery/index.html">gallery</a>—I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. </p>
-
+<p>Adding interactivity to data visualizations can be helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using …</p>
     </div>
 
     <div class="meta">
@@ -586,6 +628,9 @@ article .meta a.comments_btn:hover {
 
 <p>I previously wrote about <a href="http://matthewkudija.com/blog/2018/03/15/makefile-automation/">automation using Makefiles</a> to bundle together running multiple scripts into a single command. Using the subprocess library we can perform the same tasks entirely in Python.</p>
 
+
+<h1 id="why-python">Why Python?</h1>
+<p>Make is a quick and easy to use tool for automation, and may be a good option. But …</p>
     </div>
 
     <div class="meta">
@@ -621,6 +666,13 @@ article .meta a.comments_btn:hover {
 
 <p>Here is how to highlight select countries with Cartopy. (You can also <a href="https://matthewkudija.com/blog/2019/01/15/state-maps/">highlight select states with Cartopy</a>.)</p>
 
+
+<p>Define which countries to highlight in <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv"><strong><code>countries.csv</code></strong></a>, and run <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/cartopy_countries.py"><strong><code>cartopy_countries.py</code></strong></a>:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.io.shapereader</span> <span class="kn">as</span> <span class="nn">shpreader</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as …</span></pre></div>
     </div>
 
     <div class="meta">
@@ -652,6 +704,21 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../downloads/code/standard-maps/maps/world_Robinson_blue.png"></p>
 <p>Here are some examples of base world maps (excluding Antarctica which is cropped out) using Cartopy.</p>
 
+
+<h2 id="robinson-projection">Robinson Projection</h2>
+<p>These examples use the <a href="https://scitools.org.uk/cartopy/docs/v0.16/crs/projections.html#robinson">Robinson projection</a>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="c1"># configure chart</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;mag&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection …</span></pre></div>
     </div>
 
     <div class="meta">
@@ -683,6 +750,9 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../images/digitize-graph/Playfair_extracted.png"></p>
 <p>I recently needed to extract data from the screenshot of a graph. The data was provided by a third party in that format so I had to work with what I was given.</p>
 
+
+<h2 id="extract-with-mac-screen-coordinates">Extract with Mac Screen Coordinates</h2>
+<p>A quick way to extract the data is to use the Mac …</p>
     </div>
 
     <div class="meta">
@@ -712,6 +782,11 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../images/bookshelf/bookshelf_final.jpg"></p>
 <p>Moving into a new house comes with lots of projects: the most important of which, naturally, involve bookshelves and books. This build log chronicles the design, construction, and expansion of a large bookshelf.</p>
 
+
+<h2 id="design">Design</h2>
+<p>Pinterest is great for seeing lots of ideas for different configurations and construction techniques. </p>
+<p><img alt src="../images/bookshelf/pinterest.jpg"></p>
+<p>At a …</p>
     </div>
 
     <div class="meta">
@@ -742,10 +817,7 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../downloads/notebooks/travel-map-cartopy/2018_Travel.png"></p>
 <p>In a <a href="http://matthewkudija.com/blog/2016/12/17/travel-map/">former post</a> I generated a travel map plotted with Basemap. From the <a href="https://matplotlib.org/basemap/users/intro.html#cartopy-new-management-and-eol-announcement">Basemap documentation</a>, however, Cartopy will replace Basemap:</p>
 <blockquote>
-<p>Starting in 2016, Basemap came under new management. The Cartopy project will replace Basemap, but it hasn’t yet implemented all of Basemap’s features. All new software development should try to use Cartopy whenever possible, and existing software should start the process of switching over to use Cartopy. All maintenance and development efforts should be focused on Cartopy.</p>
-</blockquote>
-<p>In this post, I generate a similar travel map using Cartopy.</p>
-
+<p>Starting in 2016, Basemap came under new management. The Cartopy project will replace Basemap, but it hasn’t yet implemented all of Basemap’s features. All new software development …</p></blockquote>
     </div>
 
     <div class="meta">
@@ -758,38 +830,6 @@ article .meta a.comments_btn:hover {
         <a href="../tag/map.html" class="tag">map</a>
         <a href="../tag/python.html" class="tag">python</a>
         <a href="../tag/matplotlib.html" class="tag">matplotlib</a>
-      </div>
-
-    </div>
-
-  </article>
-
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="../2018/04/03/filter-table/">Table Filtering in HTML and JavaScript</a></h2>
-      <time datetime="" title="2018-04-03T06:00:00-04:00" pubdate>Tue 03 April 2018</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<p><img alt src="../images/filter-table-1.gif"></p>
-<p>GitHub pages makes it easy to share information: just send the URL instead of emailing a file attachment. When I wanted to share the contents of an Excel file this was a natural platform, but with over 1,000 rows of data I needed a way to filter the table on the webpage.</p>
-<p>With my knowledge at the time limited to some basic HTML and very little JavaScript, this is an exercise in hacking together a solution. Keep reading to see how I implemented a solution using the <a href="http://koalyptus.github.io/TableFilter/">TableFilter</a> JavaScript library. </p>
-
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="../2018/04/03/filter-table/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-        <a href="../tag/html.html" class="tag">html</a>
-        <a href="../tag/javascript.html" class="tag">javascript</a>
-        <a href="../tag/web.html" class="tag">web</a>
-        <a href="../tag/tablefilter.html" class="tag">TableFilter</a>
       </div>
 
     </div>

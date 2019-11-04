@@ -1,40 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija - articles</title><link href="http://matthewkudija.com/blog/" rel="alternate"></link><link href="http://matthewkudija.com/blog/feeds/articles.atom.xml" rel="self"></link><id>http://matthewkudija.com/blog/</id><updated>2019-06-03T06:00:00-04:00</updated><entry><title>Clock Angle Analysis</title><link href="http://matthewkudija.com/blog/2019/06/03/clock-angles/" rel="alternate"></link><published>2019-06-03T06:00:00-04:00</published><updated>2019-06-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-06-03:blog/2019/06/03/clock-angles/</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Matthew Kudija - articles</title><link href="http://matthewkudija.com/blog/" rel="alternate"></link><link href="http://matthewkudija.com/blog/feeds/articles.atom.xml" rel="self"></link><id>http://matthewkudija.com/blog/</id><updated>2019-11-03T06:00:00-05:00</updated><subtitle>Notes on Python and beyond</subtitle><entry><title>Build Log: Height Chart</title><link href="http://matthewkudija.com/blog/2019/11/03/height-chart/" rel="alternate"></link><published>2019-11-03T06:00:00-05:00</published><updated>2019-11-03T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-11-03:blog/2019/11/03/height-chart/</id><summary type="html">
+
+&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/height-chart/height-chart1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;My wife came across an idea of a &lt;a href="https://abeautifulmess.com/2019/10/wooden-height-chart-diy.html"&gt;height chart&lt;/a&gt; for measuring the kids and this was a fun afternoon project.&lt;/p&gt;
+
+
+&lt;h2 id="materials-required"&gt;Materials Required&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Material&lt;/th&gt;
+&lt;th&gt;Quantity&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;1 x 1 x 6' pine board&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Base board&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Numbers&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;As desired&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Wipe-On Poly&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3 coats&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.com/Minwax-40900-Oil-Based-Polyurethane-Finish/dp/B01M1EDG7Y/ref=sr_1_5?keywords=miniwax+wipe-on+poly&amp;amp;qid=1569712857&amp;amp;sr=8-5"&gt;Miniwax Wipe-On Poly&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Brown paper bag …&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><category term="build log"></category><category term="wood"></category><category term="height"></category><category term="kids"></category></entry><entry><title>Clock Angle Analysis</title><link href="http://matthewkudija.com/blog/2019/06/03/clock-angles/" rel="alternate"></link><published>2019-06-03T06:00:00-04:00</published><updated>2019-06-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-06-03:blog/2019/06/03/clock-angles/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/clock-angles/clock.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;While playing with my son's toy clock I got to thinking about the relative angles between the minute and hour hands. On the toy clock the hands move independently of each other so you can make any configuration desired. On a real clock, of course, the relative position is specified by the time. &lt;/p&gt;
-&lt;p&gt;For this analysis, let's look at the relative position of the hands over a 12-hour period to see if we see any patterns.&lt;/p&gt;
-</summary><category term="python"></category><category term="time"></category></entry><entry><title>Build Log: Console Table</title><link href="http://matthewkudija.com/blog/2019/05/30/console-table/" rel="alternate"></link><published>2019-05-30T06:00:00-04:00</published><updated>2019-05-30T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-05-30:blog/2019/05/30/console-table/</id><summary type="html">
+&lt;p&gt;While playing with my son's toy clock I got to thinking about the relative angles between the minute and hour hands. On the toy clock the hands move independently of each other so you can make any configuration desired. On a real clock, of course, the relative position is specified …&lt;/p&gt;</summary><category term="python"></category><category term="time"></category></entry><entry><title>Build Log: Console Table</title><link href="http://matthewkudija.com/blog/2019/05/30/console-table/" rel="alternate"></link><published>2019-05-30T06:00:00-04:00</published><updated>2019-05-30T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-05-30:blog/2019/05/30/console-table/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/console-table/complete.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I built a simple console table to organize items by the back door.&lt;/p&gt;
-</summary><category term="build log"></category><category term="wood"></category><category term="table"></category></entry><entry><title>Share Your Work Online</title><link href="http://matthewkudija.com/blog/2019/03/30/share-online/" rel="alternate"></link><published>2019-03-30T06:00:00-04:00</published><updated>2019-03-30T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-03-30:blog/2019/03/30/share-online/</id><summary type="html">
 
-&lt;p&gt;Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. Using these skills to share your work online has benefits to you and others that justify the costs in time and effort required to do so. And sharing from your own domain gives you control over your data and teaches you about how the internet works.&lt;/p&gt;
-&lt;p&gt;My time spent "learning in public" so far has taught me a lot and also helped out some other like-minded strangers on the internet.&lt;sup id="fnref-nadiaeghbal"&gt;&lt;a class="footnote-ref" href="#fn-nadiaeghbal"&gt;1&lt;/a&gt;&lt;/sup&gt; I hope to share how you can experience this as well.&lt;/p&gt;
-</summary><category term="gh-pages"></category><category term="python"></category><category term="html"></category><category term="css"></category><category term="javascript"></category><category term="web"></category></entry><entry><title>Analytics Principles</title><link href="http://matthewkudija.com/blog/2019/02/15/analytics-principles/" rel="alternate"></link><published>2019-02-15T06:00:00-05:00</published><updated>2019-02-15T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-02-15:blog/2019/02/15/analytics-principles/</id><summary type="html">
 
-&lt;p&gt;These principles are best practices developed over several years of building analytics tools and delivering analytics projects. These principles are by no means perfect, but if you find yourself violating one of them it is a good opportunity to step back and ask yourself why that is the case and how your process can be improved.&lt;/p&gt;
-&lt;p&gt;Principles are presented in categories to align with the general delineation of data, analysis, and visualization. However, this distinction is arbitrary and principles may apply to activities in multiple categories.&lt;/p&gt;
-</summary><category term="principles"></category><category term="analytics"></category></entry><entry><title>Matplotlib: Multiple Y-Axis Scales</title><link href="http://matthewkudija.com/blog/2019/02/13/matplotlib-twin-axes/" rel="alternate"></link><published>2019-02-13T06:00:00-05:00</published><updated>2019-02-13T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-02-13:blog/2019/02/13/matplotlib-twin-axes/</id><summary type="html">
+&lt;h2 id="design"&gt;Design&lt;/h2&gt;
+&lt;p&gt;I looked online for some ideas and found a number of good examples to work from.&lt;/p&gt;
+&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/console-table/designs.png"&gt;&lt;/p&gt;
+&lt;p&gt;My goal with this project was to use exclusively biscuit joints with no metal fasteners. I wanted a simple and …&lt;/p&gt;</summary><category term="build log"></category><category term="wood"></category><category term="table"></category></entry><entry><title>Share Your Work Online</title><link href="http://matthewkudija.com/blog/2019/03/30/share-online/" rel="alternate"></link><published>2019-03-30T06:00:00-04:00</published><updated>2019-03-30T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-03-30:blog/2019/03/30/share-online/</id><summary type="html">&lt;!-- started: 2018-03-30 06:00 --&gt;
+
+
+
+&lt;p&gt;Building a basic website is an important skill for the entrepreneur, employee, and citizen of the Internet. Using these skills to share your work online has benefits to you and others that justify the costs in time and effort required to do so. And sharing from your own domain gives …&lt;/p&gt;</summary><category term="gh-pages"></category><category term="python"></category><category term="html"></category><category term="css"></category><category term="javascript"></category><category term="web"></category></entry><entry><title>Analytics Principles</title><link href="http://matthewkudija.com/blog/2019/02/15/analytics-principles/" rel="alternate"></link><published>2019-02-15T06:00:00-05:00</published><updated>2019-02-15T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-02-15:blog/2019/02/15/analytics-principles/</id><summary type="html">
+
+&lt;p&gt;These principles are best practices developed over several years of building analytics tools and delivering analytics projects. These principles are by no means perfect, but if you find yourself violating one of them it is a good opportunity to step back and ask yourself why that is the case and …&lt;/p&gt;</summary><category term="principles"></category><category term="analytics"></category></entry><entry><title>Matplotlib: Multiple Y-Axis Scales</title><link href="http://matthewkudija.com/blog/2019/02/13/matplotlib-twin-axes/" rel="alternate"></link><published>2019-02-13T06:00:00-05:00</published><updated>2019-02-13T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-02-13:blog/2019/02/13/matplotlib-twin-axes/</id><summary type="html">
 
 &lt;!-- ![alt]({filename}/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png) --&gt;
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png" width="75%" height="75%"&gt;&lt;/p&gt;
 
 &lt;p&gt;Matplotlib's flexibility allows you to show a second scale on the y-axis. This example allows us to show monthly data with the corresponding annual total at those monthly rates. &lt;/p&gt;
-</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Highlighting States With Cartopy</title><link href="http://matthewkudija.com/blog/2019/01/15/state-maps/" rel="alternate"></link><published>2019-01-15T06:00:00-05:00</published><updated>2019-01-15T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-01-15:blog/2019/01/15/state-maps/</id><summary type="html">
+
+
+&lt;p&gt;The Matplotlib &lt;a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.twinx.html"&gt;&lt;code&gt;Axes.twinx&lt;/code&gt;&lt;/a&gt; method creates a new y-axis that shares the same x-axis. First we create an axis for the …&lt;/p&gt;</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Highlighting States With Cartopy</title><link href="http://matthewkudija.com/blog/2019/01/15/state-maps/" rel="alternate"></link><published>2019-01-15T06:00:00-05:00</published><updated>2019-01-15T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2019-01-15:blog/2019/01/15/state-maps/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/state-maps/13 Original Colonies.png"&gt;&lt;/p&gt;
 &lt;!-- &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"&gt;&lt;/p&gt; --&gt;
 
 &lt;p&gt;Here is how to highlight select US States with Cartopy. (You can also &lt;a href="https://matthewkudija.com/blog/2018/05/25/country-maps/"&gt;highlight select countries with Cartopy&lt;/a&gt;.)&lt;/p&gt;
-</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Python with the Google Maps API</title><link href="http://matthewkudija.com/blog/2018/11/19/google-maps-api/" rel="alternate"></link><published>2018-11-19T06:00:00-05:00</published><updated>2018-11-19T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-11-19:blog/2018/11/19/google-maps-api/</id><summary type="html">
+
+
+&lt;p&gt;Define which states to highlight in &lt;a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/states.csv"&gt;&lt;strong&gt;&lt;code&gt;states.csv&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;, and run &lt;a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/states.py"&gt;&lt;strong&gt;&lt;code&gt;states.py&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.patches&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;mpatches&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shapely.geometry&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sgeom&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cartopy.crs&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;ccrs …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Python with the Google Maps API</title><link href="http://matthewkudija.com/blog/2018/11/19/google-maps-api/" rel="alternate"></link><published>2018-11-19T06:00:00-05:00</published><updated>2018-11-19T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-11-19:blog/2018/11/19/google-maps-api/</id><summary type="html">
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/google-maps-api/googleMaps.png" width="100%" height="100%"&gt;&lt;/p&gt;
 
 &lt;p&gt;The Google Maps Platform offers a number of APIs to get maps, routes, and places information. In this example, I will demonstrate how to get coordinates of an address using the Geocoding API.&lt;/p&gt;
-</summary><category term="Google Maps API"></category><category term="python"></category><category term="map"></category></entry><entry><title>GitHub Pages Example</title><link href="http://matthewkudija.com/blog/2018/10/27/github-pages-example/" rel="alternate"></link><published>2018-10-27T06:00:00-04:00</published><updated>2018-10-27T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-10-27:blog/2018/10/27/github-pages-example/</id><summary type="html">
+
+
+&lt;h1 id="google-maps-api"&gt;Google Maps API&lt;/h1&gt;
+&lt;p&gt;While access to the Google Maps APIs used to be free for small requests …&lt;/p&gt;</summary><category term="Google Maps API"></category><category term="python"></category><category term="map"></category></entry><entry><title>GitHub Pages Example</title><link href="http://matthewkudija.com/blog/2018/10/27/github-pages-example/" rel="alternate"></link><published>2018-10-27T06:00:00-04:00</published><updated>2018-10-27T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-10-27:blog/2018/10/27/github-pages-example/</id><summary type="html">
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/images/github-pages-example.png" width="100%" height="100%"&gt;&lt;/p&gt;
 
@@ -45,102 +90,149 @@
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/exposure-report/exposure-report.png" width="100%" height="100%"&gt;&lt;/p&gt;
 
 &lt;p&gt;It is important for a capital business to understand the exposure on its books. Here is a quick visualization of exposure vs. market value using matplotlib. &lt;/p&gt;
-</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Visualizing An Infant's Schedule</title><link href="http://matthewkudija.com/blog/2018/08/21/baby-schedule/" rel="alternate"></link><published>2018-08-21T06:00:00-04:00</published><updated>2018-08-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-08-21:blog/2018/08/21/baby-schedule/</id><summary type="html">
+
+
+&lt;h2 id="book-value-vs-market-value"&gt;Book Value vs. Market Value&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;book value&lt;/strong&gt; of an asset is the value recorded on a company's balance sheet. This value typically decreases …&lt;/p&gt;</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Visualizing An Infant's Schedule</title><link href="http://matthewkudija.com/blog/2018/08/21/baby-schedule/" rel="alternate"></link><published>2018-08-21T06:00:00-04:00</published><updated>2018-08-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-08-21:blog/2018/08/21/baby-schedule/</id><summary type="html">
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/baby-schedule/plot_all_radial.png" width="75%" height="75%"&gt;&lt;/p&gt;
 
 &lt;p&gt;A newborn may only eat, sleep, and poop, but they sure do it a lot! Here is a sample of two weeks of an an infant's schedule visualized with matplotlib.&lt;/p&gt;
-</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Diff Two Excel Files with Python</title><link href="http://matthewkudija.com/blog/2018/07/21/excel-diff/" rel="alternate"></link><published>2018-07-21T06:00:00-04:00</published><updated>2018-07-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-07-21:blog/2018/07/21/excel-diff/</id><summary type="html">
+
+
+&lt;p&gt;A while ago I came across a radial sleep schedule plot and thought it was a creative way to visualize …&lt;/p&gt;</summary><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Diff Two Excel Files with Python</title><link href="http://matthewkudija.com/blog/2018/07/21/excel-diff/" rel="alternate"></link><published>2018-07-21T06:00:00-04:00</published><updated>2018-07-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-07-21:blog/2018/07/21/excel-diff/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/excel-diff/images/excel-diff1.png"&gt;&lt;/p&gt;
 &lt;p&gt;It's handy to be able to quickly find the differences between two Excel files. Below is a quick example of doing so using Python and pandas. &lt;/p&gt;
-</summary><category term="python"></category><category term="pandas"></category><category term="excel"></category></entry><entry><title>US Airports and Heliports</title><link href="http://matthewkudija.com/blog/2018/07/03/us-airports/" rel="alternate"></link><published>2018-07-03T06:00:00-04:00</published><updated>2018-07-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-07-03:blog/2018/07/03/us-airports/</id><summary type="html">
+
+
+&lt;p&gt;Plenty of others have solved this problem. Here's a good write-up by &lt;a href="http://pbpython.com/excel-diff-pandas.html"&gt;pbpython&lt;/a&gt; (and the &lt;a href="http://pbpython.com/excel-diff-pandas-update.html"&gt;updated version&lt;/a&gt;) and a version by &lt;a href="https://gist.github.com/yassineAlouini/9b36ee91560445ce28b06733a362ced8"&gt;yassineAlouini&lt;/a&gt;. Wanting a …&lt;/p&gt;</summary><category term="python"></category><category term="pandas"></category><category term="excel"></category></entry><entry><title>US Airports and Heliports</title><link href="http://matthewkudija.com/blog/2018/07/03/us-airports/" rel="alternate"></link><published>2018-07-03T06:00:00-04:00</published><updated>2018-07-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-07-03:blog/2018/07/03/us-airports/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/us-heliports.png"&gt;&lt;/p&gt;
 &lt;p&gt;In a &lt;a href="http://matthewkudija.com/blog/2018/06/22/altair-interactive/#airports-example"&gt;previous post&lt;/a&gt; I used Altair to plot an interactive map of US airports using data from &lt;a href="https://github.com/vega/vega-datasets"&gt;vega examples&lt;/a&gt;. I found another dataset that includes airport elevation which makes exploring the data all the more interesting.&lt;/p&gt;
-</summary><category term="python"></category><category term="altair"></category><category term="vega"></category><category term="interactive"></category><category term="map"></category></entry><entry><title>Altair: Interactive Plots on the Web</title><link href="http://matthewkudija.com/blog/2018/06/22/altair-interactive/" rel="alternate"></link><published>2018-06-22T06:00:00-04:00</published><updated>2018-06-22T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-06-22:blog/2018/06/22/altair-interactive/</id><summary type="html">
+
+
+&lt;p&gt;The &lt;a href="http://ourairports.com/data/"&gt;OurAirports&lt;/a&gt; &lt;code&gt;airports.csv&lt;/code&gt; dataset includes elevation data for airports and heliports. I …&lt;/p&gt;</summary><category term="python"></category><category term="altair"></category><category term="vega"></category><category term="interactive"></category><category term="map"></category></entry><entry><title>Altair: Interactive Plots on the Web</title><link href="http://matthewkudija.com/blog/2018/06/22/altair-interactive/" rel="alternate"></link><published>2018-06-22T06:00:00-04:00</published><updated>2018-06-22T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-06-22:blog/2018/06/22/altair-interactive/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#intro-to-altair"&gt;Intro to Altair&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#building-interactive-altair-charts"&gt;Building Interactive Altair Charts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sharing-interactive-altair-charts-on-the-web"&gt;Sharing Interactive Altair Charts on the Web&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#resources"&gt;Resources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/altair-interactive.png"&gt;&lt;/p&gt;
-&lt;p&gt;Adding interactivity to data visualizations can be helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using the Altair library to create and share some simple interactive visualizations. The examples below are largely derived from the excellent Altair &lt;a href="https://altair-viz.github.io/gallery/index.html"&gt;gallery&lt;/a&gt;—I claim no original work on these but enjoyed working with them to learn the mechanics of interactive visualization in Altair. &lt;/p&gt;
-</summary><category term="python"></category><category term="altair"></category><category term="vega"></category><category term="interactive"></category></entry><entry><title>Automation Using Python</title><link href="http://matthewkudija.com/blog/2018/06/08/python-automation/" rel="alternate"></link><published>2018-06-08T06:00:00-04:00</published><updated>2018-06-08T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-06-08:blog/2018/06/08/python-automation/</id><summary type="html">
+&lt;p&gt;Adding interactivity to data visualizations can be helpful for better exploring the data and fun. Sharing interactive visualizations online extends the benefits to others. In this post I will show some examples of using …&lt;/p&gt;</summary><category term="python"></category><category term="altair"></category><category term="vega"></category><category term="interactive"></category></entry><entry><title>Automation Using Python</title><link href="http://matthewkudija.com/blog/2018/06/08/python-automation/" rel="alternate"></link><published>2018-06-08T06:00:00-04:00</published><updated>2018-06-08T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-06-08:blog/2018/06/08/python-automation/</id><summary type="html">
 
 &lt;p&gt;I previously wrote about &lt;a href="http://matthewkudija.com/blog/2018/03/15/makefile-automation/"&gt;automation using Makefiles&lt;/a&gt; to bundle together running multiple scripts into a single command. Using the subprocess library we can perform the same tasks entirely in Python.&lt;/p&gt;
-</summary><category term="python"></category><category term="makefile"></category><category term="make"></category><category term="automation"></category><category term="subprocess"></category></entry><entry><title>Highlighting Countries With Cartopy</title><link href="http://matthewkudija.com/blog/2018/05/25/country-maps/" rel="alternate"></link><published>2018-05-25T06:00:00-04:00</published><updated>2018-05-25T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-25:blog/2018/05/25/country-maps/</id><summary type="html">
+
+
+&lt;h1 id="why-python"&gt;Why Python?&lt;/h1&gt;
+&lt;p&gt;Make is a quick and easy to use tool for automation, and may be a good option. But …&lt;/p&gt;</summary><category term="python"></category><category term="makefile"></category><category term="make"></category><category term="automation"></category><category term="subprocess"></category></entry><entry><title>Highlighting Countries With Cartopy</title><link href="http://matthewkudija.com/blog/2018/05/25/country-maps/" rel="alternate"></link><published>2018-05-25T06:00:00-04:00</published><updated>2018-05-25T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-25:blog/2018/05/25/country-maps/</id><summary type="html">
 
 &lt;!-- ![alt]({filename}/downloads/code/country-maps/maps/EU-Members.png) --&gt;
 
 &lt;p style="text-align:center;"&gt;&lt;img src="http://matthewkudija.com/blog/downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is how to highlight select countries with Cartopy. (You can also &lt;a href="https://matthewkudija.com/blog/2019/01/15/state-maps/"&gt;highlight select states with Cartopy&lt;/a&gt;.)&lt;/p&gt;
-</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Standard Maps with Cartopy</title><link href="http://matthewkudija.com/blog/2018/05/22/standard-maps/" rel="alternate"></link><published>2018-05-22T06:00:00-04:00</published><updated>2018-05-22T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-22:blog/2018/05/22/standard-maps/</id><summary type="html">
+
+
+&lt;p&gt;Define which countries to highlight in &lt;a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv"&gt;&lt;strong&gt;&lt;code&gt;countries.csv&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;, and run &lt;a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/cartopy_countries.py"&gt;&lt;strong&gt;&lt;code&gt;cartopy_countries.py&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cartopy&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cartopy.io.shapereader&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;shpreader&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cartopy.crs&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;ccrs&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Standard Maps with Cartopy</title><link href="http://matthewkudija.com/blog/2018/05/22/standard-maps/" rel="alternate"></link><published>2018-05-22T06:00:00-04:00</published><updated>2018-05-22T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-22:blog/2018/05/22/standard-maps/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/code/standard-maps/maps/world_Robinson_blue.png"&gt;&lt;/p&gt;
 &lt;p&gt;Here are some examples of base world maps (excluding Antarctica which is cropped out) using Cartopy.&lt;/p&gt;
-</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Digitize a Graph</title><link href="http://matthewkudija.com/blog/2018/05/05/digitize-graph/" rel="alternate"></link><published>2018-05-05T06:00:00-04:00</published><updated>2018-05-05T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-05:blog/2018/05/05/digitize-graph/</id><summary type="html">
+
+
+&lt;h2 id="robinson-projection"&gt;Robinson Projection&lt;/h2&gt;
+&lt;p&gt;These examples use the &lt;a href="https://scitools.org.uk/cartopy/docs/v0.16/crs/projections.html#robinson"&gt;Robinson projection&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cartopy&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cartopy.crs&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;ccrs&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# configure chart&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mag&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;projection …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cartopy"></category><category term="map"></category><category term="matplotlib"></category></entry><entry><title>Digitize a Graph</title><link href="http://matthewkudija.com/blog/2018/05/05/digitize-graph/" rel="alternate"></link><published>2018-05-05T06:00:00-04:00</published><updated>2018-05-05T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-05-05:blog/2018/05/05/digitize-graph/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/digitize-graph/Playfair_extracted.png"&gt;&lt;/p&gt;
 &lt;p&gt;I recently needed to extract data from the screenshot of a graph. The data was provided by a third party in that format so I had to work with what I was given.&lt;/p&gt;
-</summary><category term="python"></category><category term="pynput"></category></entry><entry><title>Build Log: Bookshelf</title><link href="http://matthewkudija.com/blog/2018/04/30/bookshelf/" rel="alternate"></link><published>2018-04-30T06:00:00-04:00</published><updated>2018-04-30T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-04-30:blog/2018/04/30/bookshelf/</id><summary type="html">
+
+
+&lt;h2 id="extract-with-mac-screen-coordinates"&gt;Extract with Mac Screen Coordinates&lt;/h2&gt;
+&lt;p&gt;A quick way to extract the data is to use the Mac …&lt;/p&gt;</summary><category term="python"></category><category term="pynput"></category></entry><entry><title>Build Log: Bookshelf</title><link href="http://matthewkudija.com/blog/2018/04/30/bookshelf/" rel="alternate"></link><published>2018-04-30T06:00:00-04:00</published><updated>2018-04-30T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-04-30:blog/2018/04/30/bookshelf/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/bookshelf/bookshelf_final.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Moving into a new house comes with lots of projects: the most important of which, naturally, involve bookshelves and books. This build log chronicles the design, construction, and expansion of a large bookshelf.&lt;/p&gt;
-</summary><category term="build log"></category><category term="wood"></category><category term="bookshelf"></category></entry><entry><title>Travel Map With Cartopy</title><link href="http://matthewkudija.com/blog/2018/04/21/travel-map-cartopy/" rel="alternate"></link><published>2018-04-21T06:00:00-04:00</published><updated>2018-04-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-04-21:blog/2018/04/21/travel-map-cartopy/</id><summary type="html">
+
+
+&lt;h2 id="design"&gt;Design&lt;/h2&gt;
+&lt;p&gt;Pinterest is great for seeing lots of ideas for different configurations and construction techniques. &lt;/p&gt;
+&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/bookshelf/pinterest.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;At a …&lt;/p&gt;</summary><category term="build log"></category><category term="wood"></category><category term="bookshelf"></category></entry><entry><title>Travel Map With Cartopy</title><link href="http://matthewkudija.com/blog/2018/04/21/travel-map-cartopy/" rel="alternate"></link><published>2018-04-21T06:00:00-04:00</published><updated>2018-04-21T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-04-21:blog/2018/04/21/travel-map-cartopy/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/downloads/notebooks/travel-map-cartopy/2018_Travel.png"&gt;&lt;/p&gt;
 &lt;p&gt;In a &lt;a href="http://matthewkudija.com/blog/2016/12/17/travel-map/"&gt;former post&lt;/a&gt; I generated a travel map plotted with Basemap. From the &lt;a href="https://matplotlib.org/basemap/users/intro.html#cartopy-new-management-and-eol-announcement"&gt;Basemap documentation&lt;/a&gt;, however, Cartopy will replace Basemap:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Starting in 2016, Basemap came under new management. The Cartopy project will replace Basemap, but it hasn’t yet implemented all of Basemap’s features. All new software development should try to use Cartopy whenever possible, and existing software should start the process of switching over to use Cartopy. All maintenance and development efforts should be focused on Cartopy.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In this post, I generate a similar travel map using Cartopy.&lt;/p&gt;
-</summary><category term="cartopy"></category><category term="map"></category><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Table Filtering in HTML and JavaScript</title><link href="http://matthewkudija.com/blog/2018/04/03/filter-table/" rel="alternate"></link><published>2018-04-03T06:00:00-04:00</published><updated>2018-04-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-04-03:blog/2018/04/03/filter-table/</id><summary type="html">
+&lt;p&gt;Starting in 2016, Basemap came under new management. The Cartopy project will replace Basemap, but it hasn’t yet implemented all of Basemap’s features. All new software development …&lt;/p&gt;&lt;/blockquote&gt;</summary><category term="cartopy"></category><category term="map"></category><category term="python"></category><category term="matplotlib"></category></entry><entry><title>Table Filtering in HTML and JavaScript</title><link href="http://matthewkudija.com/blog/2018/04/03/filter-table/" rel="alternate"></link><published>2018-04-03T06:00:00-04:00</published><updated>2018-04-03T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-04-03:blog/2018/04/03/filter-table/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/filter-table-1.gif"&gt;&lt;/p&gt;
-&lt;p&gt;GitHub pages makes it easy to share information: just send the URL instead of emailing a file attachment. When I wanted to share the contents of an Excel file this was a natural platform, but with over 1,000 rows of data I needed a way to filter the table on the webpage.&lt;/p&gt;
-&lt;p&gt;With my knowledge at the time limited to some basic HTML and very little JavaScript, this is an exercise in hacking together a solution. Keep reading to see how I implemented a solution using the &lt;a href="http://koalyptus.github.io/TableFilter/"&gt;TableFilter&lt;/a&gt; JavaScript library. &lt;/p&gt;
-</summary><category term="html"></category><category term="javascript"></category><category term="web"></category><category term="TableFilter"></category></entry><entry><title>xlwings: Use Python and Excel to Calculate Your Mortgage</title><link href="http://matthewkudija.com/blog/2018/03/25/xlwings-mortgage/" rel="alternate"></link><published>2018-03-25T06:00:00-04:00</published><updated>2018-03-25T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-25:blog/2018/03/25/xlwings-mortgage/</id><summary type="html">
+&lt;p&gt;GitHub pages makes it easy to share information: just send the URL instead of emailing a file attachment. When I wanted to share the contents of an Excel file this was a natural platform, but with over 1,000 rows of data I needed a way to filter the table …&lt;/p&gt;</summary><category term="html"></category><category term="javascript"></category><category term="web"></category><category term="TableFilter"></category></entry><entry><title>xlwings: Use Python and Excel to Calculate Your Mortgage</title><link href="http://matthewkudija.com/blog/2018/03/25/xlwings-mortgage/" rel="alternate"></link><published>2018-03-25T06:00:00-04:00</published><updated>2018-03-25T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-25:blog/2018/03/25/xlwings-mortgage/</id><summary type="html">&lt;!-- status: draft --&gt;
+
+
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/xlwings-mortgage-1.gif"&gt;&lt;/p&gt;
 &lt;p&gt;The Python &lt;a href="https://www.xlwings.org/"&gt;xlwings&lt;/a&gt; library provides easy interaction between Python and a Microsoft Excel workbook. In this example, I'll demonstrate using Excel as a wrapper around a Python function, with xlwings providing the link between the two.&lt;/p&gt;
-</summary><category term="python"></category><category term="pandas"></category><category term="xlwings"></category><category term="excel"></category></entry><entry><title>Automation Using Makefiles</title><link href="http://matthewkudija.com/blog/2018/03/15/makefile-automation/" rel="alternate"></link><published>2018-03-15T06:00:00-04:00</published><updated>2018-03-15T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-15:blog/2018/03/15/makefile-automation/</id><summary type="html">
+
+
+&lt;h1 id="when-to-use-xlwings"&gt;When to use xlwings&lt;/h1&gt;
+&lt;p&gt;Python and Excel have complementary strengths and it can be …&lt;/p&gt;</summary><category term="python"></category><category term="pandas"></category><category term="xlwings"></category><category term="excel"></category></entry><entry><title>Automation Using Makefiles</title><link href="http://matthewkudija.com/blog/2018/03/15/makefile-automation/" rel="alternate"></link><published>2018-03-15T06:00:00-04:00</published><updated>2018-03-15T06:00:00-04:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-03-15:blog/2018/03/15/makefile-automation/</id><summary type="html">
 
 &lt;p&gt;Makefiles provide an easy way to group multiple terminal commands into a single command using &lt;code&gt;make &amp;lt;command&amp;gt;&lt;/code&gt;. This gives a brief overview with just enough information to write your first Makefile.&lt;/p&gt;
-</summary><category term="python"></category><category term="makefile"></category><category term="make"></category><category term="automation"></category></entry><entry><title>Carpet Plots</title><link href="http://matthewkudija.com/blog/2018/02/14/carpet-plots/" rel="alternate"></link><published>2018-02-14T06:00:00-05:00</published><updated>2018-02-14T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-02-14:blog/2018/02/14/carpet-plots/</id><summary type="html">&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/carpet.jpeg"&gt;&lt;/p&gt;
+
+
+&lt;h1 id="why-make"&gt;Why Make?&lt;/h1&gt;
+&lt;p&gt;Apparently Make was originally developed to build executable programs, but I have seen an &lt;a href="https://github.com/mwilliamson/python-makefile/blob/master/makefile"&gt;number&lt;/a&gt; of &lt;a href="https://github.com/getsentry/raven-python/blob/master/Makefile"&gt;examples …&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="makefile"></category><category term="make"></category><category term="automation"></category></entry><entry><title>Carpet Plots</title><link href="http://matthewkudija.com/blog/2018/02/14/carpet-plots/" rel="alternate"></link><published>2018-02-14T06:00:00-05:00</published><updated>2018-02-14T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2018-02-14:blog/2018/02/14/carpet-plots/</id><summary type="html">&lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/carpet.jpeg"&gt;&lt;/p&gt;
 &lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
-.ansibold {
-  font-weight: bold;
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
 }
-/* use dark versions for foreground, to improve visibility */
-.ansiblack {
-  color: black;
+.ansi-black-bg {
+  background-color: #3E424D;
 }
-.ansired {
-  color: darkred;
+.ansi-black-intense-fg {
+  color: #282C36;
 }
-.ansigreen {
-  color: darkgreen;
+.ansi-black-intense-bg {
+  background-color: #282C36;
 }
-.ansiyellow {
-  color: #c4a000;
+.ansi-red-fg {
+  color: #E75C58;
 }
-.ansiblue {
-  color: darkblue;
+.ansi-red-bg {
+  background-color: #E75C58;
 }
-.ansipurple {
-  color: darkviolet;
-}
-.ansicyan {
-  color: steelblue;
-}
-.ansigray {
-  color: gray;
-}
-/* and light for background, for the …&lt;/style&gt;</summary><category term="carpet"></category><category term="plotly"></category><category term="pandas"></category><category term="pd.melt()"></category><category term="matplotlib"></category><category term="3Dplot"></category></entry><entry><title>Travel Map With Basemap</title><link href="http://matthewkudija.com/blog/2016/12/17/travel-map-basemap/" rel="alternate"></link><published>2016-12-17T06:00:00-05:00</published><updated>2016-12-17T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2016-12-17:blog/2016/12/17/travel-map-basemap/</id><summary type="html">
+.ansi-red-intense-fg {
+  color …&lt;/style&gt;</summary><category term="carpet"></category><category term="plotly"></category><category term="pandas"></category><category term="pd.melt()"></category><category term="matplotlib"></category><category term="3Dplot"></category></entry><entry><title>Travel Map With Basemap</title><link href="http://matthewkudija.com/blog/2016/12/17/travel-map-basemap/" rel="alternate"></link><published>2016-12-17T06:00:00-05:00</published><updated>2016-12-17T06:00:00-05:00</updated><author><name>Matthew Kudija</name></author><id>tag:matthewkudija.com,2016-12-17:blog/2016/12/17/travel-map-basemap/</id><summary type="html">
 
 &lt;p&gt;&lt;img alt src="http://matthewkudija.com/blog/images/2016_travel.png"&gt;&lt;/p&gt;
 &lt;p&gt;For me 2016 was quite a year for travel: a cross-country road trip, visiting family in Alabama, and a trip to Europe for work. In this example I'll show how to illustrate a year of travel using Python's Basemap library.&lt;/p&gt;
-</summary><category term="basemap"></category><category term="map"></category><category term="python"></category><category term="matplotlib"></category></entry></feed>
+
+
+&lt;p&gt;&lt;a href="https://matplotlib.org/basemap/users/intro.html#"&gt;Basemap&lt;/a&gt; was written by the Jeff Whitaker to visualize weather …&lt;/p&gt;</summary><category term="basemap"></category><category term="map"></category><category term="python"></category><category term="matplotlib"></category></entry></feed>
