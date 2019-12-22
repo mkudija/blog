@@ -89,7 +89,11 @@ After reading about a number of options, I chose do finish the table with wipe-o
 
 ![alt]({static}../images/dining-table/dining-table-15.jpg)
 
-I wanted simple legs and decided on two rectangles made from 4x4's. I cut the pieces to rough length and then trimmed them down from 3.5" x 3.5" to 2.5" x 3" on the table saw. This cleaned up the rough edges and gave a sharp looking set of legs. I joined these with biscuits as well, and painted white.
+I wanted simple legs and decided on two rectangles made from 4x4's after a few design iterations.
+
+![alt]({static}../images/dining-table/dining-table-26.jpg)
+
+I cut the pieces to rough length and then trimmed them down from 3.5" x 3.5" to 2.5" x 3" on the table saw. This cleaned up the rough edges and gave a sharp looking set of legs. I joined these with biscuits as well, and painted white.
 
 ![alt]({static}../images/dining-table/dining-table-18.jpg)
 
