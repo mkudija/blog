@@ -28,7 +28,7 @@ A US Navy officer developed the E6B—or "whiz wheel"—in the 1930s and it was 
 
 # Examples
 
-The pilot watch, like a standard E6B, consists of two concentric scales, one of which rotates. Notice that both have special markings for the **10** position. We will reference one or the other of these frequently to identify the solution opposite them. Here are two helpful videos ([one](https://youtu.be/vSUHCkvmYnE), [two](https://youtu.be/tOMuTMUJLcs)) for using a pilot watch, and I'll borrow a couple of examples from them.
+The pilot watch, like a standard E6B, consists of two concentric scales, one of which rotates. Notice that both have special markings for the **10** position. We will reference one or the other of these frequently to identify the solution opposite them. 
 
 <p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/01-overview.png" width="75%" height="75%"></p>
 
@@ -53,6 +53,11 @@ Here is another multiplication example:
 
 <p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/05-multiplication-example.png" width="75%" height="75%"></p>
 
+For a final practical example, say you need to split a $77 bill between 3 people and want to include a 20% tip, how much does each person pay? First divide 77 by 3 to determine that each person owes about $25.50 before the tip. Moving from **10** up to **12** (or 1.2), we see that with the tip each person owes about $31.
+
+<p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/14-bill.png" width="75%" height="75%"></p>
+
+
 Inevitably I will forget exactly how to set the bezels and whether to read off the inside or outside one. To remind myself, I pick a simple relationship that I know the answer to, and use that pattern to do the multiplication or division I can't do in my head.
 
 
@@ -68,9 +73,51 @@ You can also convert between pounds and kilograms:
 <p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/07-conversion-2.png" width="75%" height="75%"></p>
 
 
-## Descent
 
-In this example we calculate the distance from an airport to start a descent. 
+## Distance, Rate, and Time
+
+Next we will demonstrate how to solve for distance, rate, or time given the other two variables. These are given by the following relationship:
+
+```
+Distance [unit] = Rate [unit/time] * Time [time]
+```
+
+If the time units are the same, you can use the multiplication and division examples above with the **10** index. However, if one is in hours and one is in minutes, we instead reference the below relationships:
+
+```
+Distance [unit] = Rate [unit/hr]      * Time [min] * 1/60 [hr/min]
+Distance [nm]   = Rate [knot = nm/hr] * Time [min] * 1/60 [hr/min]
+Distance [gal]  = Rate [gal/hr]       * Time [min] * 1/60 [hr/min]
+```
+
+To save from needed to divide or multiply by 60 to convert between hours and minutes, we instead use **60** or **MPH** at the 12 o'clock position as the index rather than the **10**.
+
+Distance (or amount, like gallons) is show on the outer bezel, time in minutes on the inner bezel, and the rate in distance per hour at the **60** position. I remmber this as follows:
+
+- **Rate** at the top
+- **Time** in minutes on the inner bezel (closest to the hands of the watch that tell time)
+- **Distance** on the outer bezel (which also has markings for distance and fuel conversions)
+
+<p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/09-drt-1.png" width="75%" height="75%"></p>
+
+
+First, let's calculate **rate**—or airspeed—given distance and time. Rotate the bezel so the distance on the outer ring is over the time on the inner bezel, and read the rate across from the 60 at the top of the watch.
+
+<p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/10-drt-2.png" width="75%" height="75%"></p>
+
+To calculate **time** (in minutes) given speed and distance, set your speed at the top position and read the time on the inner bezel across from the distance on the outer bezel. Note in this example that the distance units don't matter as long as they are consistent. Here they are mph and miles, but they could also be knots and nm, gal/hr and gallons, etc.
+
+<p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/11-drt-3.png" width="75%" height="75%"></p>
+
+Likewise, to calculate **distance** given speed and time, set your speed at the top position and read the distance on the outer bezel across fro mthe time on the inner bezel.
+
+<p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/12-drt-4.png" width="75%" height="75%"></p>
+
+As mentioned above, we can substitue other "distance" units, in this case gallons per hour and gallons rather than airspeed and distance.
+
+<p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/13-drt-5.png" width="75%" height="75%"></p>
+
+In this final example we calculate the distance from an airport to start a descent in two steps. 
 
 1. First, divide the altitude to descend by the desired descent rate to calculate the time to descend.
 2. Next, determine your speed in <code>nm/min</code> by dividing your speed in knots (<code>nm/hr</code>) by 60 either using the watch or mentally.
@@ -79,3 +126,17 @@ In this example we calculate the distance from an airport to start a descent.
 If you are able to complete step 2 in your head, you can get straight to the answer with the outer bezel set in one position as show below.
 
 <p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/08-descent.png" width="75%" height="75%"></p>
+
+
+# Resources
+
+Here are some videos I found helpful that include additional examples for how to use a pilot watch:
+
+- [How to Use Aviation Pilot Watch. Advanced Tutorial for Real Aviators. Part 1 of 2](https://youtu.be/vSUHCkvmYnE)
+- [How to Use Aviation Pilot Watch. Advanced Tutorial for Real Aviators. Part 2 of 2](https://youtu.be/tOMuTMUJLcs)
+- [How On Earth Does A Navitimer Work? | Watchfinder & Co.](https://youtu.be/GlX01j1sNvo)
+- [How to use a Slide Rule Bezel on your Watch](https://youtu.be/RuK_77DEUfw)
+
+
+
+
