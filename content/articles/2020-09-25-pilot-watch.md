@@ -58,7 +58,7 @@ For a final practical example, say you need to split a $77 bill between 3 people
 <p style="text-align:center;"><img src="{filename}../images/citizen-skyhawk-e6b/14-bill.png" width="75%" height="75%"></p>
 
 
-Inevitably I will forget exactly how to set the bezels and whether to read off the inside or outside one. To remind myself, I pick a simple relationship that I know the answer to, and use that pattern to do the multiplication or division I can't do in my head.
+Inevitably I will forget exactly how to set the bezels and whether to read off the inside or outside one. To remind myself, I pick a simple relationship that I know the answer to and use that pattern to do the multiplication or division I can't do in my head.
 
 
 ## Conversions
@@ -92,7 +92,7 @@ Distance [gal]  = Rate [gal/hr]       * Time [min] * 1/60 [hr/min]
 
 To save from needed to divide or multiply by 60 to convert between hours and minutes, we instead use **60** or **MPH** at the 12 o'clock position as the index rather than the **10**.
 
-Distance (or amount, like gallons) is show on the outer bezel, time in minutes on the inner bezel, and the rate in distance per hour at the **60** position. I remmber this as follows:
+Distance (or amount, like gallons) is show on the outer bezel, time in minutes on the inner bezel, and the rate in distance per hour at the **60** position. I remember this as follows:
 
 - **Rate** at the top
 - **Time** in minutes on the inner bezel (closest to the hands of the watch that tell time)
@@ -136,7 +136,3 @@ Here are some videos I found helpful that include additional examples for how to
 - [How to Use Aviation Pilot Watch. Advanced Tutorial for Real Aviators. Part 2 of 2](https://youtu.be/tOMuTMUJLcs)
 - [How On Earth Does A Navitimer Work? | Watchfinder & Co.](https://youtu.be/GlX01j1sNvo)
 - [How to use a Slide Rule Bezel on your Watch](https://youtu.be/RuK_77DEUfw)
-
-
-
-
