@@ -151,4 +151,5 @@ A popular opinion among those promoting STEM education is that everyone should l
 ---
 
 **Update 2020-11-11**
+
 *I came across this relevant [post](https://tomcritchlow.com/2020/07/23/thinking-in-public/) and [presentation](https://www.figma.com/file/qFvsTtQ85fY1UZl78K5tY2/Thinking-in-Public?node-id=0%3A1) from Tom Critchlow.*
