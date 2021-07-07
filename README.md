@@ -18,6 +18,13 @@ $ conda create -n pelican-blog python=3.5 jupyter notebook
 $ source activate pelican-blog
 ```
 
+After reinstalling Python, I did this:
+
+```
+$ conda install -c conda-forge pelican
+$ pip install pelican markdown
+```
+
 Build the html:
 
 ```
