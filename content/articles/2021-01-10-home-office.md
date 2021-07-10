@@ -90,10 +90,3 @@ After the shelves were mounted I installed an [LED light strip](https://www.amaz
 With the cabinets assembled, I installed the desk tops and am very please with the finished product. 
 
 ![alt]({static}../images/home-office/finished.jpg)
-
-<details>
-    <summary>to add...</summary>
-- routed cable areas
-- routed wireless charger
-</details>
-

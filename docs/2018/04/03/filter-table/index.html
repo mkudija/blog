@@ -489,7 +489,6 @@ article .meta a.comments_btn:hover {
 
         <div class="article_content">
             
-
 <p><img alt src="../../../../images/filter-table-1.gif"></p>
 <p>GitHub pages makes it easy to share information: just send the URL instead of emailing a file attachment. When I wanted to share the contents of an Excel file this was a natural platform, but with over 1,000 rows of data I needed a way to filter the table on the webpage.</p>
 <p>With my knowledge at the time limited to some basic HTML and very little JavaScript, this is an exercise in hacking together a solution. Keep reading to see how I implemented a solution using the <a href="http://koalyptus.github.io/TableFilter/">TableFilter</a> JavaScript library. </p>
@@ -502,17 +501,15 @@ article .meta a.comments_btn:hover {
 <p>I was able to find a <a href="https://www.w3schools.com/howto/howto_js_filter_table.asp">number</a> of <a href="https://stackoverflow.com/questions/9127498/how-to-perform-a-real-time-search-and-filter-on-a-html-table">examples</a> that provide basic filtering capability with JavaScript, but these are limited to filtering on one column. Eventually I came across the <a href="http://koalyptus.github.io/TableFilter/">TableFilter</a> JavaScript library, which has great <a href="http://koalyptus.github.io/TableFilter/docs/">documentation</a> and plenty of <a href="http://koalyptus.github.io/TableFilter/examples.html">examples</a>. </p>
 <h1 id="using-tablefilter">Using TableFilter</h1>
 <p>To get started, I cloned TableFilter into my repository:</p>
-<div class="highlight"><pre><span></span><span class="go">git clone https://github.com/koalyptus/TableFilter.git</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">git clone https://github.com/koalyptus/TableFilter.git</span>
+</code></pre></div>
 
 <p>We will edit <code>index.html</code>, the HTML file that holds our table and uses <code>tablefilter.js</code> to perform the filtering.</p>
-<div class="highlight"><pre><span></span><span class="go">├── assets</span>
+<div class="highlight"><pre><span></span><code><span class="go">├── assets</span>
 <span class="go">├── index.html</span>
 <span class="go">└── tablefilter</span>
 <span class="go">    └── tablefilter.js</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The strategy I used to get a working product is simple and applicable to more general technical challenges:</p>
 <ol>
@@ -521,7 +518,7 @@ article .meta a.comments_btn:hover {
 <li>Repeat step 2 until you have what you want</li>
 </ol>
 <p>The key here is maintaining a working example throughout and taking a step back if you break something. Iterating a few times on the <code>index.html</code> I borrowed from one of the basic examples, I was left with this: </p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -594,8 +591,7 @@ article .meta a.comments_btn:hover {
             <span class="kd">var</span> <span class="nx">tf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TableFilter</span><span class="p">(</span><span class="s1">&#39;demo&#39;</span><span class="p">,</span> <span class="nx">filtersConfig</span><span class="p">);</span>
             <span class="nx">tf</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
           <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-
+</code></pre></div>
 
 <p><em>You can view the original <a href="https://github.com/mkudija/General-Examples/tree/master/Web/HTML_Table_Filter">code</a> or a <a href="http://matthewkudija.com/General-Examples/Web/HTML_Table_Filter/index.html">live example</a> of the final product.</em></p>
 <p>Customize this by including the HTML defining the table between <code>&lt;!-- TABLE CODE START --&gt;</code> and <code>&lt;!-- TABLE CODE END --&gt;</code> (easy to automate with Python if you need to update the data often). Just below the table definition, we call the <code>tablefilter.js</code> script and define the configuration items. </p>

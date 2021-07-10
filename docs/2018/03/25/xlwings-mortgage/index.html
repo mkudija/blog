@@ -509,18 +509,17 @@ article .meta a.comments_btn:hover {
 <p>The easiest way to get started with xlwings is to download and modify a working example. There are great examples on the <a href="https://www.xlwings.org/examples">xlwings page</a>, or you can download all the files used to create this example <a href="https://github.com/mkudija/blog/tree/master/content/downloads/code/xlwings-mortgage">here</a>. </p>
 <h2 id="basic-structure">Basic Structure</h2>
 <p>When all set up, our project directory will have two files:</p>
-<div class="highlight"><pre><span></span><span class="go">├── Mortgage.xlsm</span>
+<div class="highlight"><pre><span></span><code><span class="go">├── Mortgage.xlsm</span>
 <span class="go">└── mortgage.py</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Notice that <strong><code>Mortgage.xlsm</code></strong> is a macro-enabled Excel workbook. A macro—assigned to a button—will be used to initiate the the Python script. Our Python file <strong><code>mortgage.py</code></strong> contains our function, as well as the xlwings code to read from and write to the Excel workbook.</p>
 <p><img alt src="../../../../images/xlwings-mortgage-1.png"></p>
 <h2 id="python-function">Python Function</h2>
 <p>The Python function we will use as an example is a financial model in pandas written by <a href="https://twitter.com/chris1610">Chris Moffitt</a>. We will take this function as an input, but please see Chris' <a href="http://pbpython.com/amortization-model-revised.html">original post</a> for the details. This model builds a loan amortization table, such as you would need to evaluate a mortgage. Given the required inputs of loan principal, interest rate, term, etc. this Python function returns a pandas DataFrame giving the amortization table. </p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -565,8 +564,7 @@ article .meta a.comments_btn:hover {
         <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">start_date</span> <span class="o">+=</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">beg_balance</span> <span class="o">=</span> <span class="n">end_balance</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Remember that while we are using a financial model as an example, just about anything you can do in Python is fair game for extending the capabilities of Excel.</p>
 <h2 id="set-up-the-workbook">Set up the workbook</h2>
@@ -574,15 +572,15 @@ article .meta a.comments_btn:hover {
 <p><img alt src="../../../../images/xlwings-mortgage-2.png"></p>
 <h2 id="set-up-python-with-xlwings">Set up Python with xlwings</h2>
 <p>Our Python script <strong><code>mortgage.py</code></strong> uses xlwings to interface with Excel. First we include the <code>amortize()</code> function discussed previously. All the xlwings for interacting with the workbook is in the <code>main()</code> function. Here we define the sheet(s) to pull from, clear previous values as necessary, perform calculations, and write calculated values to Excel.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">amortize</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">addl_principal</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annual_payments</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">amortize</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">addl_principal</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annual_payments</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function shown above</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
 <span class="c1"># --------------------------------------------------------------------------------------------------------    </span>
-<span class="kn">import</span> <span class="nn">xlwings</span> <span class="kn">as</span> <span class="nn">xw</span>
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">xlwings</span> <span class="k">as</span> <span class="nn">xw</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 
 <span class="c1"># --------------------------------------------------------------------------------------------------------</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -613,16 +611,14 @@ article .meta a.comments_btn:hover {
     <span class="c1"># Expects the Excel file next to this source file, adjust accordingly.</span>
     <span class="n">xw</span><span class="o">.</span><span class="n">Book</span><span class="p">(</span><span class="s1">&#39;Mortgage.xlsm&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_mock_caller</span><span class="p">()</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
-
+</code></pre></div>
 
 <h2 id="set-up-the-macro">Set up the macro</h2>
 <p>Finally, map the the <strong>Calculate</strong> button to the <code>Button_click()</code> macro to call <code>mortgage.py</code>.</p>
-<div class="highlight"><pre><span></span><span class="n">Sub</span> <span class="n">Button_click</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">Sub</span> <span class="n">Button_click</span><span class="p">()</span>
     <span class="n">RunPython</span> <span class="p">(</span><span class="s2">&quot;import mortgage; mortgage.main()&quot;</span><span class="p">)</span>
 <span class="n">End</span> <span class="n">Sub</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Note that in this macro <code>mortgage</code> is the name of our script, and <code>main</code> is the function to call from within our script. You can easily have different buttons call different functions from the same script. This can be helpful for more complicated workbooks. For example, with multiple buttons you could load data with one, enter values or modify the data, and then use another button to load the modified data and perform final calculations.</p>
 <h2 id="run-it">Run it</h2>

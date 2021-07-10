@@ -484,22 +484,61 @@ article .meta a.comments_btn:hover {
 
   <article>
     <header>
+      <h2><a href="./2018/05/25/country-maps/">Highlighting Countries With Cartopy</a></h2>
+      <time datetime="" title="2018-05-25T06:00:00-04:00" pubdate>Fri 25 May 2018</time>
+    </header>
+
+    <div class="article_content">
+      
+<!-- ![alt]({filename}/downloads/code/country-maps/maps/EU-Members.png) -->
+
+<p style="text-align:center;"><img src="./downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"></p>
+
+<p>Here is how to highlight select countries with Cartopy. (You can also <a href="https://matthewkudija.com/blog/2019/01/15/state-maps/">highlight select states with Cartopy</a>.)</p>
+
+
+<p>Define which countries to highlight in <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv"><strong><code>countries.csv</code></strong></a>, and run <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/cartopy_countries.py"><strong><code>cartopy_countries.py</code></strong></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.io.shapereader</span> <span class="k">as</span> <span class="nn">shpreader</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as …</span></code></pre></div>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="./2018/05/25/country-maps/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+        <a href="./tag/python.html" class="tag">python</a>
+        <a href="./tag/cartopy.html" class="tag">cartopy</a>
+        <a href="./tag/map.html" class="tag">map</a>
+        <a href="./tag/matplotlib.html" class="tag">matplotlib</a>
+      </div>
+
+    </div>
+
+  </article>
+
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="./2018/05/22/standard-maps/">Standard Maps with Cartopy</a></h2>
       <time datetime="" title="2018-05-22T06:00:00-04:00" pubdate>Tue 22 May 2018</time>
     </header>
 
     <div class="article_content">
       
-
 <p><img alt src="./downloads/code/standard-maps/maps/world_Robinson_blue.png"></p>
 <p>Here are some examples of base world maps (excluding Antarctica which is cropped out) using Cartopy.</p>
 
 
 <h2 id="robinson-projection">Robinson Projection</h2>
 <p>These examples use the <a href="https://scitools.org.uk/cartopy/docs/v0.16/crs/projections.html#robinson">Robinson projection</a>.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">cartopy</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -508,7 +547,7 @@ article .meta a.comments_btn:hover {
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;mag&#39;</span><span class="p">)</span>
 
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection …</span></pre></div>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection …</span></code></pre></div>
     </div>
 
     <div class="meta">
@@ -536,7 +575,6 @@ article .meta a.comments_btn:hover {
 
     <div class="article_content">
       
-
 <p><img alt src="./images/digitize-graph/Playfair_extracted.png"></p>
 <p>I recently needed to extract data from the screenshot of a graph. The data was provided by a third party in that format so I had to work with what I was given.</p>
 
@@ -568,7 +606,6 @@ article .meta a.comments_btn:hover {
 
     <div class="article_content">
       
-
 <p><img alt src="./images/bookshelf/bookshelf_final.jpg"></p>
 <p>Moving into a new house comes with lots of projects: the most important of which, naturally, involve bookshelves and books. This build log chronicles the design, construction, and expansion of a large bookshelf.</p>
 
@@ -603,7 +640,6 @@ article .meta a.comments_btn:hover {
 
     <div class="article_content">
       
-
 <p><img alt src="./downloads/notebooks/travel-map-cartopy/2018_Travel.png"></p>
 <p>In a <a href="http://matthewkudija.com/blog/2016/12/17/travel-map/">former post</a> I generated a travel map plotted with Basemap. From the <a href="https://matplotlib.org/basemap/users/intro.html#cartopy-new-management-and-eol-announcement">Basemap documentation</a>, however, Cartopy will replace Basemap:</p>
 <blockquote>
@@ -635,7 +671,6 @@ article .meta a.comments_btn:hover {
 
     <div class="article_content">
       
-
 <p><img alt src="./images/filter-table-1.gif"></p>
 <p>GitHub pages makes it easy to share information: just send the URL instead of emailing a file attachment. When I wanted to share the contents of an Excel file this was a natural platform, but with over 1,000 rows of data I needed a way to filter the table …</p>
     </div>
@@ -734,35 +769,9 @@ article .meta a.comments_btn:hover {
 
     <div class="article_content">
       <p><img alt src="./images/carpet.jpeg"></p>
-<style type="text/css">/*!
-*
-* IPython notebook
-*
-*/
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color …</style>
+<p>{% notebook downloads/notebooks/CarpetPlots/CarpetPlots.ipynb cells[:16] %}</p>
+<p><img alt src="./images/carpet.jpeg"></p>
+<p>{% notebook downloads/notebooks/CarpetPlots/CarpetPlots.ipynb cells[17:21] %}</p>
     </div>
 
     <div class="meta">
@@ -792,7 +801,6 @@ article .meta a.comments_btn:hover {
 
     <div class="article_content">
       
-
 <p><img alt src="./images/2016_travel.png"></p>
 <p>For me 2016 was quite a year for travel: a cross-country road trip, visiting family in Alabama, and a trip to Europe for work. In this example I'll show how to illustrate a year of travel using Python's Basemap library.</p>
 

@@ -489,7 +489,6 @@ article .meta a.comments_btn:hover {
 
         <div class="article_content">
             
-
 <!-- ![alt]({filename}/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png) -->
 
 <p style="text-align:center;"><img src="../../../../downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png" width="75%" height="75%"></p>
@@ -498,33 +497,32 @@ article .meta a.comments_btn:hover {
 
 
 <p>The Matplotlib <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.twinx.html"><code>Axes.twinx</code></a> method creates a new y-axis that shares the same x-axis. First we create an axis for the monthly and yearly scales:</p>
-<div class="highlight"><pre><span></span><span class="n">mm</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">mm</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 <span class="n">yy</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Let's label the monthly and yearly scales:</p>
-<div class="highlight"><pre><span></span><span class="n">mm</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Monthly Hours&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">mm</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Monthly Hours&#39;</span><span class="p">)</span>
 <span class="n">yy</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Yearly Hours&#39;</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Finally, we set the position of the yearly scale to the far right, and scale it based on the axis limits to be an annual total:</p>
-<div class="highlight"><pre><span></span><span class="n">yy</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">yy</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">))</span>
 <span class="n">yy</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">,</span> <span class="n">mm</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The full code to generate this plot is given in <a href="https://github.com/mkudija/blog/tree/master/content/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.py"><code>matplotlib-twin-axes.py</code></a>:</p>
-<p><details>
-    <summary>Click to expand...</summary></p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<details>
+    <summary>Click to expand...</summary>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
 <span class="c1"># --------------------------------------------------------------------------------------------------------</span>
 <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
 
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;mag&#39;</span><span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -542,14 +540,14 @@ article .meta a.comments_btn:hover {
     <span class="n">mm</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span> <span class="c1"># set monthly labelsize (not global)</span>
 
     <span class="c1"># format</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">mm</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">yy</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="p">:</span> <span class="s2">&quot;{:,}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">mm</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">yy</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">x</span><span class="o">=.</span><span class="mi">65</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">)</span>
 
     <span class="c1"># format x-axis ticks as dates</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="kn">as</span> <span class="nn">mdates</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
     <span class="n">years</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">YearLocator</span><span class="p">()</span>    <span class="c1"># every year</span>
     <span class="n">months</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">()</span>  <span class="c1"># every month</span>
     <span class="n">yearsFmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">%Y&#39;</span><span class="p">)</span>
@@ -559,15 +557,15 @@ article .meta a.comments_btn:hover {
     <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">yearsFmt</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">moFmt</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_minorticklabels</span><span class="p">()[::</span><span class="mi">2</span><span class="p">]:</span> <span class="c1"># show every other minor label</span>
-        <span class="n">label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># turn off x-axis</span>
     <span class="n">x_axis</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span>
     <span class="n">x_label</span> <span class="o">=</span> <span class="n">x_axis</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span>
-    <span class="n">x_label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">x_label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># turn-off left y-axis</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># adjust fontsize</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
@@ -586,10 +584,12 @@ article .meta a.comments_btn:hover {
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
-<p></details></p>
+
+</details>
+
 <p style="text-align:center;"><img src="../../../../downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png" width="75%" height="75%"></p>
 
 <hr>
@@ -599,10 +599,10 @@ article .meta a.comments_btn:hover {
 <li><em>Example:</em> <a href="https://stackoverflow.com/questions/9103166/multiple-axis-in-matplotlib-with-different-scales">multiple axis in matplotlib with different scales</a></li>
 </ul>
 <p><em>Versions:</em></p>
-<div class="highlight"><pre><span></span>Python      3.6.3
-pandas      0.23.4
-matplotlib  3.0.0
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">Python      3.6.3</span>
+<span class="err">pandas      0.23.4</span>
+<span class="err">matplotlib  3.0.0</span>
+</code></pre></div>
         </div>
 
         <div class="meta">

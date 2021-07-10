@@ -497,56 +497,54 @@ article .meta a.comments_btn:hover {
 <p>Apparently Make was originally developed to build executable programs, but I have seen an <a href="https://github.com/mwilliamson/python-makefile/blob/master/makefile">number</a> of <a href="https://github.com/getsentry/raven-python/blob/master/Makefile">examples</a> of people using Make to manage Python workflows. In this example, let's say we have a Python script in several repositories that we use to update files in each respective repository. From the command line, we can easily <code>cd</code> into each and <code>python build.py</code> to run the update script and then commit the changes. Using a Makefile, however, we can automate all of that into a single command: <code>make publish</code>. Let's take a look at how to do this.</p>
 <h1 id="writing-a-makefile">Writing a Makefile</h1>
 <p>To start, our entire Makefile is below (and available for download <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/Makefile">here</a>):. </p>
-<div class="highlight"><pre><span></span>PY?=python3
+<div class="highlight"><pre><span></span><code><span class="n">PY</span><span class="vm">?</span><span class="o">=</span><span class="n">python3</span><span class="w"></span>
 
 
-help:
-    @echo &#39;                                                                          &#39;
-    @echo &#39;Makefile to update websites on MAG GitHub pages                           &#39;
-    @echo &#39;                                                                          &#39;
-    @echo &#39;Usage:                                                                    &#39;
-    @echo &#39;   make data                MILE_file_copy and update_utilization         &#39;
-    @echo &#39;   make html                regenerate the websites                       &#39;
-    @echo &#39;   make publish             regenerate websites, then publish to GitHub   &#39;
-    @echo &#39;                                                                          &#39;
+<span class="nl">help</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;                                                                          &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;Makefile to update websites on MAG GitHub pages                           &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;                                                                          &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;Usage:                                                                    &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;   make data                MILE_file_copy and update_utilization         &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;   make html                regenerate the websites                       &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;   make publish             regenerate websites, then publish to GitHub   &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39;                                                                          &#39;</span><span class="w"></span>
 
-data:
-    python ../MILE_Data/MILE_file_copy.py
-    cd ../Aircraft-Data/Utilization/Scripts; python update_utilization.py
+<span class="k">data</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">python</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">MILE_Data</span><span class="o">/</span><span class="n">MILE_file_copy</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">Aircraft</span><span class="o">-</span><span class="k">Data</span><span class="o">/</span><span class="n">Utilization</span><span class="o">/</span><span class="n">Scripts</span><span class="p">;</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">update_utilization</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
 
-html: data
-    cd ../CommercialData/scripts; python build.py
-    cd ../MarketView/scripts; python build.py
-    cd ../FleetView/scripts; python build.py
+<span class="nl">html</span><span class="p">:</span><span class="w"> </span><span class="k">data</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">CommercialData</span><span class="o">/</span><span class="n">scripts</span><span class="p">;</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">build</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">MarketView</span><span class="o">/</span><span class="n">scripts</span><span class="p">;</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">build</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">FleetView</span><span class="o">/</span><span class="n">scripts</span><span class="p">;</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">build</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
 
-publish: html
-    @echo &#39; &#39;
-    cd ../CommercialData; git pull origin master
-    cd ../CommercialData; git add -A
-    cd ../CommercialData; git commit -m &quot;auto-regenerate from make&quot;
-    cd ../CommercialData; git push origin master
+<span class="nl">publish</span><span class="p">:</span><span class="w"> </span><span class="n">html</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">CommercialData</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">pull</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">CommercialData</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">CommercialData</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="ss">&quot;auto-regenerate from make&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">CommercialData</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
 
-    @echo &#39; &#39;
-    cd ../MarketView; git pull origin master
-    cd ../MarketView; git add -A
-    cd ../MarketView; git commit -m &quot;auto-regenerate from make&quot;
-    cd ../MarketView; git push origin master
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">MarketView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">pull</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">MarketView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">MarketView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="ss">&quot;auto-regenerate from make&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">MarketView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
 
-    @echo &#39; &#39;
-    cd ../FleetView; git pull origin master
-    cd ../FleetView; git add -A
-    cd ../FleetView; git commit -m &quot;auto-regenerate from make&quot;
-    cd ../FleetView; git push origin master
-</pre></div>
-
+<span class="w">    </span><span class="nv">@echo</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">FleetView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">pull</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">FleetView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">FleetView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="k">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="ss">&quot;auto-regenerate from make&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">FleetView</span><span class="p">;</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
+</code></pre></div>
 
 <p>Let's break this down to understand how to construct a Makefile. A Makefile has this basic structure (see the complete <a href="https://www.gnu.org/software/make/manual/make.html">Make documentation, particularly section 2.1</a>):</p>
-<div class="highlight"><pre><span></span>target … : prerequisites …
-        recipe
-        …
-        …
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">target … : prerequisites …</span>
+<span class="err">        recipe</span>
+<span class="err">        …</span>
+<span class="err">        …</span>
+</code></pre></div>
 
 <ul>
 <li><strong><code>target</code></strong> is name of the make command we are constructing. In our Makefile, <code>data: ...</code> means we can enter the command <code>make data</code> from the command line.</li>

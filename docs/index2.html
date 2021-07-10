@@ -484,13 +484,45 @@ article .meta a.comments_btn:hover {
 
   <article>
     <header>
+      <h2><a href="./2019/02/13/matplotlib-twin-axes/">Matplotlib: Multiple Y-Axis Scales</a></h2>
+      <time datetime="" title="2019-02-13T06:00:00-05:00" pubdate>Wed 13 February 2019</time>
+    </header>
+
+    <div class="article_content">
+      
+<!-- ![alt]({filename}/downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png) -->
+
+<p style="text-align:center;"><img src="./downloads/code/matplotlib-twin-axes/matplotlib-twin-axes.png" width="75%" height="75%"></p>
+
+<p>Matplotlib's flexibility allows you to show a second scale on the y-axis. This example allows us to show monthly data with the corresponding annual total at those monthly rates. </p>
+
+
+<p>The Matplotlib <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.twinx.html"><code>Axes.twinx</code></a> method creates a new y-axis that shares the same x-axis. First we create an axis for the …</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="./2019/02/13/matplotlib-twin-axes/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+        <a href="./tag/python.html" class="tag">python</a>
+        <a href="./tag/matplotlib.html" class="tag">matplotlib</a>
+      </div>
+
+    </div>
+
+  </article>
+
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="./2019/01/15/state-maps/">Highlighting States With Cartopy</a></h2>
       <time datetime="" title="2019-01-15T06:00:00-05:00" pubdate>Tue 15 January 2019</time>
     </header>
 
     <div class="article_content">
       
-
 <p><img alt src="./downloads/code/state-maps/13 Original Colonies.png"></p>
 <!-- <p style="text-align:center;"><img src="./downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"></p> -->
 
@@ -498,11 +530,11 @@ article .meta a.comments_btn:hover {
 
 
 <p>Define which states to highlight in <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/states.csv"><strong><code>states.csv</code></strong></a>, and run <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/state-maps/states.py"><strong><code>states.py</code></strong></a>:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="kn">as</span> <span class="nn">mpatches</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">shapely.geometry</span> <span class="kn">as</span> <span class="nn">sgeom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">shapely.geometry</span> <span class="k">as</span> <span class="nn">sgeom</span>
 
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs …</span></pre></div>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs …</span></code></pre></div>
     </div>
 
     <div class="meta">
@@ -783,47 +815,6 @@ article .meta a.comments_btn:hover {
         <a href="./tag/make.html" class="tag">make</a>
         <a href="./tag/automation.html" class="tag">automation</a>
         <a href="./tag/subprocess.html" class="tag">subprocess</a>
-      </div>
-
-    </div>
-
-  </article>
-
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="./2018/05/25/country-maps/">Highlighting Countries With Cartopy</a></h2>
-      <time datetime="" title="2018-05-25T06:00:00-04:00" pubdate>Fri 25 May 2018</time>
-    </header>
-
-    <div class="article_content">
-      
-
-<!-- ![alt]({filename}/downloads/code/country-maps/maps/EU-Members.png) -->
-
-<p style="text-align:center;"><img src="./downloads/code/country-maps/maps/EU-Members.png" width="75%" height="75%"></p>
-
-<p>Here is how to highlight select countries with Cartopy. (You can also <a href="https://matthewkudija.com/blog/2019/01/15/state-maps/">highlight select states with Cartopy</a>.)</p>
-
-
-<p>Define which countries to highlight in <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/countries.csv"><strong><code>countries.csv</code></strong></a>, and run <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/country-maps/cartopy_countries.py"><strong><code>cartopy_countries.py</code></strong></a>:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">cartopy</span>
-<span class="kn">import</span> <span class="nn">cartopy.io.shapereader</span> <span class="kn">as</span> <span class="nn">shpreader</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as …</span></pre></div>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="./2018/05/25/country-maps/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-        <a href="./tag/python.html" class="tag">python</a>
-        <a href="./tag/cartopy.html" class="tag">cartopy</a>
-        <a href="./tag/map.html" class="tag">map</a>
-        <a href="./tag/matplotlib.html" class="tag">matplotlib</a>
       </div>
 
     </div>

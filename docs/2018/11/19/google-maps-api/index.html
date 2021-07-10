@@ -509,7 +509,7 @@ article .meta a.comments_btn:hover {
 <h1 id="geocoding-api-with-python">Geocoding API with Python</h1>
 <p>Using the Python requests library we can quickly get the coordinates for multiple addresses. We can write a <code>get_lat_lng</code> function that constructs the URL given an address and the API key and returns the latitude and longitude. Note that we read the API key from a local file to keep it private.</p>
 <p>The full <a href=""><code>google-maps-geocoding.py</code></a> script is below:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_lat_lng</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_lat_lng</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the latitude and longitude of a location using the Google Maps Geocoding API. </span>
 <span class="sd">    API: https://developers.google.com/maps/documentation/geocoding/start</span>
@@ -523,7 +523,7 @@ article .meta a.comments_btn:hover {
 <span class="sd">    lng                     [float] </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">requests</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://maps.googleapis.com/maps/api/geocode/json?address={}&amp;key={}&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://maps.googleapis.com/maps/api/geocode/json?address=</span><span class="si">{}</span><span class="s1">&amp;key=</span><span class="si">{}</span><span class="s1">&#39;</span>
            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">),</span> <span class="n">apiKey</span><span class="p">))</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -531,7 +531,7 @@ article .meta a.comments_btn:hover {
         <span class="n">lat</span> <span class="o">=</span> <span class="n">resp_json_payload</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
         <span class="n">lng</span> <span class="o">=</span> <span class="n">resp_json_payload</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;lng&#39;</span><span class="p">]</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ERROR: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
         <span class="n">lat</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">lng</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span>
@@ -540,29 +540,27 @@ article .meta a.comments_btn:hover {
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># get key</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;/Desktop/GoogleMapsAPIKey.txt&#39;</span>
-    <span class="nb">file</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">apiKey</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">file</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">apiKey</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="c1"># get coordinates </span>
     <span class="n">address</span> <span class="o">=</span> <span class="s1">&#39;1 Rocket Road, Hawthorne, CA&#39;</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span> <span class="o">=</span> <span class="n">get_lat_lng</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{} Coordinates:</span><span class="se">\n</span><span class="s1">Latitude:  {}°</span><span class="se">\n</span><span class="s1">Longitude: {}°&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">))</span>
-</pre></div>
-
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> Coordinates:</span><span class="se">\n</span><span class="s1">Latitude:  </span><span class="si">{}</span><span class="s1">°</span><span class="se">\n</span><span class="s1">Longitude: </span><span class="si">{}</span><span class="s1">°&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">))</span>
+</code></pre></div>
 
 <p>Running this script produces the following output:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> python google-maps-api.py
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> python google-maps-api.py
 
 <span class="go">1 Rocket Road, Hawthorne, CA Coordinates:</span>
 <span class="go">Latitude:  33.9206814°</span>
 <span class="go">Longitude: -118.3280263°</span>
-</pre></div>
-
+</code></pre></div>
 
 <h1 id="distance-matrix-api-with-python">Distance Matrix API with Python</h1>
 <p>Similarly, we can get information about the distance or drive time between locations using the <a href="https://developers.google.com/maps/documentation/distance-matrix/start">Google Maps Distance Matrix API</a>. </p>
 <p>The full <a href=""><code>google-maps-distance.py</code></a> script is below:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_drive_time</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_drive_time</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the driving time between using the Google Maps Distance Matrix API. </span>
 <span class="sd">    API: https://developers.google.com/maps/documentation/distance-matrix/start</span>
@@ -577,7 +575,7 @@ article .meta a.comments_btn:hover {
 <span class="sd">    drive_tim               [float] (minutes)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">requests</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&amp;origins={}&amp;destinations={}&amp;key={}&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&amp;origins=</span><span class="si">{}</span><span class="s1">&amp;destinations=</span><span class="si">{}</span><span class="s1">&amp;key=</span><span class="si">{}</span><span class="s1">&#39;</span>
            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">),</span>
                    <span class="n">destination</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">),</span>
                    <span class="n">apiKey</span>
@@ -588,7 +586,7 @@ article .meta a.comments_btn:hover {
         <span class="n">resp_json_payload</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="n">drive_time</span> <span class="o">=</span> <span class="n">resp_json_payload</span><span class="p">[</span><span class="s1">&#39;rows&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;duration&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">60</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ERROR: {}, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR: </span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
         <span class="n">drive_time</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">drive_time</span>
 
@@ -596,33 +594,31 @@ article .meta a.comments_btn:hover {
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># get key</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;/Users/matthewkudija/Desktop/GoogleMapsAPIKey.txt&#39;</span>
-    <span class="nb">file</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">apiKey</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">file</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">apiKey</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="c1"># get coordinates </span>
     <span class="n">origin</span> <span class="o">=</span> <span class="s1">&#39;1 Rocket Road, Hawthorne, CA&#39;</span>
     <span class="n">destination</span> <span class="o">=</span> <span class="s1">&#39;1 Rocket Road, McGregor, TX&#39;</span>
     <span class="n">drive_time</span> <span class="o">=</span> <span class="n">get_drive_time</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Origin:      {}</span><span class="se">\n</span><span class="s1">Destination: {}</span><span class="se">\n</span><span class="s1">Drive Time:  {} hr&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">drive_time</span><span class="o">/</span><span class="mi">60</span><span class="p">))</span>
-</pre></div>
-
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Origin:      </span><span class="si">{}</span><span class="se">\n</span><span class="s1">Destination: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">Drive Time:  </span><span class="si">{}</span><span class="s1"> hr&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">drive_time</span><span class="o">/</span><span class="mi">60</span><span class="p">))</span>
+</code></pre></div>
 
 <p>Running this script produces the following output:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> python google-maps-distance.py
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> python google-maps-distance.py
 
 <span class="go">Origin:      1 Rocket Road, Hawthorne, CA</span>
 <span class="go">Destination: 1 Rocket Road, McGregor, TX</span>
 <span class="go">Drive Time:  20.6625 hr</span>
-</pre></div>
-
+</code></pre></div>
 
 <hr>
 <ul>
 <li><em>You can view the original <a href="https://github.com/mkudija/blog/tree/master/content/downloads/code/google-maps-api">code and files</a>.</em></li>
 </ul>
 <p><em>Versions:</em></p>
-<div class="highlight"><pre><span></span>Python      3.6.3
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">Python      3.6.3</span>
+</code></pre></div>
         </div>
 
         <div class="meta">

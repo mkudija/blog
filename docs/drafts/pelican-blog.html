@@ -501,15 +501,14 @@ article .meta a.comments_btn:hover {
 <li></li>
 </ul>
 <h1 id="setting-up-a-pelican-blog">Setting Up a Pelican Blog</h1>
-<div class="highlight"><pre><span></span>$ conda create -n pelican-blog <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 jupyter notebook
+<div class="highlight"><pre><span></span><code>$ conda create -n pelican-blog <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 jupyter notebook
 $ <span class="nb">source</span> activate pelican-blog
 $ pip install pelican
 $ pip install Markdown
 $ pelican-quickstart
 $ git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
 $ git submodule add git://github.com/getpelican/pelican-plugins.git plugins/pelican-plugins
-</pre></div>
-
+</code></pre></div>
 
 <h1 id="other-setup">Other setup:</h1>
 <ul>
@@ -524,10 +523,9 @@ $ git submodule add git://github.com/getpelican/pelican-plugins.git plugins/peli
 <li></li>
 </ul>
 <h2 id="build">Build</h2>
-<div class="highlight"><pre><span></span>$ make html
+<div class="highlight"><pre><span></span><code>$ make html
 $ make serve
-</pre></div>
-
+</code></pre></div>
 
 <p>Navigate to [http://localhost:8000/]</p>
 <h2 id="push-to-github">Push to GitHub</h2>

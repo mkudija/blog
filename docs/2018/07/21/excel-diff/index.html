@@ -499,14 +499,13 @@ article .meta a.comments_btn:hover {
 <p>For this first version, I assume that both files are the same shape (same number of rows and columns) and only data in individual cells may have changed: the goal is to flag changes between two versions of the same file. This is helpful to confirm that nothing unexpected has changed, particularly with a file provided to you by a third party.</p>
 <p>Our output will highlight anything that has changed while graying out anything that stayed the same, letting us perform a quick visual inspection. The output will also include the two versions being compared in separate sheets for quick reference.</p>
 <p>We'll use pandas DataFrames for the comparison, so we first import pandas and read the files:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df_OLD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df_NEW</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_NEW</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Next we create a new DataFrame for the diff and loop through the originals to identify changes:</p>
-<div class="highlight"><pre><span></span><span class="n">dfDiff</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfDiff</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfDiff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfDiff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
         <span class="n">value_OLD</span> <span class="o">=</span> <span class="n">df_OLD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
@@ -515,37 +514,34 @@ article .meta a.comments_btn:hover {
             <span class="k">if</span> <span class="n">value_OLD</span><span class="o">==</span><span class="n">value_NEW</span><span class="p">:</span>
                 <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}--&gt;{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
+                <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">--&gt;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}--&gt;{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span> <span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
-</pre></div>
-
+            <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">--&gt;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span> <span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 <p>Looping through the rows and columns of the DataFrame and accessing values with <code>df.iloc</code> is not the fastest way to perform this operation (see <a href="https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas">this stackoverflow discussion</a> for some alternatives, including <code>df.apply()</code> and <code>df.iterrows()</code>). It is, however, simple for me to understand and straightforward to implement.</p>
 <p>For each cell (looping over rows and columns), we check to see if the values in the two files are the same. If the same, we keep the unchanged value. If different, we show the change from old value to new value using an arrow: <code>→</code>. </p>
 <p>Next we want to format the output to highlight changed cells. Since pandas uses <a href="https://xlsxwriter.readthedocs.io/working_with_pandas.html">XlsxWriter</a> to save files, we can access XlsxWriter's formatting options. </p>
 <p>To start the export, we specify that we are using XlsxWriter and assign the DataFrames to sheets.</p>
-<div class="highlight"><pre><span></span><span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;xlsxwriter&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;xlsxwriter&#39;</span><span class="p">)</span>
 
-<span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-
+<span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
 
 <p>Then we'll select the <code>DIFF</code> sheet to apply formatting to, and define a <code>grey_fmt</code> for non-changed values, and a <code>highlight_fmt</code> for changed values. </p>
-<div class="highlight"><pre><span></span><span class="n">workbook</span>  <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">book</span>
+<div class="highlight"><pre><span></span><code><span class="n">workbook</span>  <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">book</span>
 <span class="n">worksheet</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">sheets</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span>
 <span class="n">worksheet</span><span class="o">.</span><span class="n">hide_gridlines</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># define formats</span>
 <span class="n">grey_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#E0E0E0&#39;</span><span class="p">})</span>
 <span class="n">highlight_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;bg_color&#39;</span><span class="p">:</span><span class="s1">&#39;#B1B3B3&#39;</span><span class="p">})</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Using <a href="https://xlsxwriter.readthedocs.io/working_with_conditional_formats.html">XlsxWriter conditional formatting</a>, we can apply the appropriate format to changed and unchanged cells, using the arrow (<code>→</code>) defined previously in the diff.</p>
-<div class="highlight"><pre><span></span><span class="c1">## highlight changed cells</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## highlight changed cells</span>
 <span class="n">worksheet</span><span class="o">.</span><span class="n">conditional_format</span><span class="p">(</span><span class="s1">&#39;A1:ZZ1000&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
                                         <span class="s1">&#39;criteria&#39;</span><span class="p">:</span> <span class="s1">&#39;containing&#39;</span><span class="p">,</span>
                                         <span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;→&#39;</span><span class="p">,</span>
@@ -557,25 +553,26 @@ article .meta a.comments_btn:hover {
                                         <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">grey_fmt</span><span class="p">})</span>
 <span class="c1"># save</span>
 <span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Our starting file, <code>table_OLD.xlsx</code>, includes some dummy data. 
 <img alt src="../../../../downloads/code/excel-diff/images/table_OLD.png"></p>
 <p>For the purposes of testing, we'll change a few cells in <code>table_NEW.xlsx</code>. Perhaps you can spot them:
 <img alt src="../../../../downloads/code/excel-diff/images/table_NEW.png"></p>
 <p>Do you see all 6 cells that changed? If not don't worry, we'll run our <code>excel-diff.py</code> script to highlight the changes.</p>
-<div class="highlight"><pre><span></span>python excel-diff.py
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">python excel-diff.py</span>
+</code></pre></div>
 
 <p>And here you go! Our diff report, <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/table_OLD%20vs%20table_NEW.xlsx"><code>table_OLD vs table_NEW.xlsx</code></a>, quickly highlights what has changed.</p>
 <p><img alt src="../../../../downloads/code/excel-diff/images/diff.png"></p>
 <p>Wrapped in some functions, here is the whole script:</p>
-<p><details>
-    <summary>Click to expand...</summary></p>
-<p><a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff.py"><code>excel-diff.py</code></a></p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<details>
+    <summary>Click to expand...</summary>
+
+[`excel-diff.py`](https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff.py)
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 
@@ -594,17 +591,17 @@ article .meta a.comments_btn:hover {
                 <span class="k">if</span> <span class="n">value_OLD</span><span class="o">==</span><span class="n">value_NEW</span><span class="p">:</span>
                     <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}--&gt;{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
+                    <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">--&gt;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
-                <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}--&gt;{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span> <span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+                <span class="n">dfDiff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">--&gt;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span> <span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
 
     <span class="c1"># Save output and format</span>
-    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;{} vs {}.xlsx&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> vs </span><span class="si">{}</span><span class="s1">.xlsx&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;xlsxwriter&#39;</span><span class="p">)</span>
 
-    <span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># get xlsxwriter objects</span>
     <span class="n">workbook</span>  <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">book</span>
@@ -637,7 +634,7 @@ article .meta a.comments_btn:hover {
 
     <span class="c1"># save</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -649,17 +646,22 @@ article .meta a.comments_btn:hover {
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
-<p></details></p>
+
+</details>
+
 <h2 id="2-updated-rows-columns">2. Updated Rows &amp; Columns</h2>
 <p><em>Updated 2019-03-28</em></p>
 <p>Suppose the rows may have been added or deleted in addition to single values changed. This updated <a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff-2.py"><code>excel-diff-2.py</code></a> will highlight changes in red, new rows in green, and dropped rows in grey. Note that this chooses the first column in your data as the <code>index_col</code> for the purposes of determining row changes. Here's the full script:</p>
-<p><details>
-    <summary>Click to expand...</summary></p>
-<p><a href="https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff-2.py"><code>excel-diff-2.py</code></a></p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<details>
+    <summary>Click to expand...</summary>
+
+[`excel-diff-2.py`](https://github.com/mkudija/blog/blob/master/content/downloads/code/excel-diff/excel-diff-2.py)
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 
@@ -685,7 +687,7 @@ article .meta a.comments_btn:hover {
                 <span class="k">if</span> <span class="n">value_OLD</span><span class="o">==</span><span class="n">value_NEW</span><span class="p">:</span>
                     <span class="n">dfDiff</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_NEW</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">dfDiff</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;{}→{}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
+                    <span class="n">dfDiff</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">→</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_OLD</span><span class="p">,</span><span class="n">value_NEW</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">newRows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
@@ -695,17 +697,17 @@ article .meta a.comments_btn:hover {
             <span class="n">dfDiff</span> <span class="o">=</span> <span class="n">dfDiff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_OLD</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,:])</span>
 
     <span class="n">dfDiff</span> <span class="o">=</span> <span class="n">dfDiff</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">dfDiff</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">New Rows:     {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">newRows</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Dropped Rows: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">droppedRows</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dfDiff</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">New Rows:     </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">newRows</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dropped Rows: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">droppedRows</span><span class="p">))</span>
 
     <span class="c1"># Save output and format</span>
-    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;{} vs {}.xlsx&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> vs </span><span class="si">{}</span><span class="s1">.xlsx&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;xlsxwriter&#39;</span><span class="p">)</span>
 
-    <span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">dfDiff</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DIFF&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_NEW</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_NEW</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_OLD</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">path_OLD</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># get xlsxwriter objects</span>
     <span class="n">workbook</span>  <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">book</span>
@@ -721,7 +723,7 @@ article .meta a.comments_btn:hover {
     <span class="n">perc_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;align&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;num_format&#39;</span><span class="p">:</span> <span class="s1">&#39;0%&#39;</span><span class="p">})</span>
     <span class="n">grey_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#E0E0E0&#39;</span><span class="p">})</span>
     <span class="n">highlight_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;bg_color&#39;</span><span class="p">:</span><span class="s1">&#39;#B1B3B3&#39;</span><span class="p">})</span>
-    <span class="n">new_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#32CD32&#39;</span><span class="p">,</span><span class="s1">&#39;bold&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">})</span>
+    <span class="n">new_fmt</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">add_format</span><span class="p">({</span><span class="s1">&#39;font_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#32CD32&#39;</span><span class="p">,</span><span class="s1">&#39;bold&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
 
     <span class="c1"># set format over range</span>
     <span class="c1">## highlight changed cells</span>
@@ -739,7 +741,7 @@ article .meta a.comments_btn:hover {
 
     <span class="c1"># save</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Done.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Done.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -749,17 +751,18 @@ article .meta a.comments_btn:hover {
     <span class="c1"># get index col from data</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_NEW</span><span class="p">)</span>
     <span class="n">index_col</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Index column: {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index_col</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Index column: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index_col</span><span class="p">))</span>
 
     <span class="n">excel_diff</span><span class="p">(</span><span class="n">path_OLD</span><span class="p">,</span> <span class="n">path_NEW</span><span class="p">,</span> <span class="n">index_col</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
-<p></details></p>
+</details>
+
 <p><img alt src="../../../../downloads/code/excel-diff/images/excel-diff2.png"></p>
 <h2 id="closing-thoughts">Closing Thoughts</h2>
 <p>This is a simple way to view the difference between two Excel files, but easily modified to fit a particular dataset or use case. Since we're using pandas DataFrames, the original data could be csv files or a database table or any other format pandas can read from. We could also reformat the output to show only changes, or present the data differently, or specify data types by column, for instance.</p>
@@ -769,9 +772,9 @@ article .meta a.comments_btn:hover {
 <li><em>You can view the original <a href="https://github.com/mkudija/blog/tree/master/content/downloads/code/excel-diff">code and files</a>.</em></li>
 </ul>
 <p><em>Library versions:</em></p>
-<div class="highlight"><pre><span></span>pandas      0.23.4
-Python      3.6.3
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">pandas      0.23.4</span>
+<span class="err">Python      3.6.3</span>
+</code></pre></div>
         </div>
 
         <div class="meta">

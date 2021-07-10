@@ -519,12 +519,11 @@ article .meta a.comments_btn:hover {
 <p><a href="https://altair-viz.github.io">Altair</a> is a visualization library for Python notable for taking a <em>declarative</em> approach based on a grammar of graphics using <a href="https://vega.github.io/vega/">Vega</a> and <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. As Jake VanderPlas explains when presenting Altair, this allows visualization <em>concepts</em> to map directly to visualization <em>implementation</em>. </p>
 <p>Instead of imperatively specifying <em>how</em> to render the visualization as in matplotlib, with Altair (and vega/vega-lite) you specify <em>what</em> to visualize. This approach makes for rapid exploration of your data and iteration between chart types.</p>
 <p>Every Altair chart is made up of <strong>Data</strong>, <strong>Marks</strong>, and <strong>Encodings</strong>, which can be modified with <strong>Binning and Aggregation</strong>. Given a simple dataset with columns of <code>x</code> and <code>y</code> we can define a barebones Altair chart like this:</p>
-<div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x:Q&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean(y)&#39;</span><span class="p">,</span>
 <span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>A quick summary of the properties available is given in the table below, with links to the Altair documentation of the corresponding section:</p>
 <table>
@@ -617,7 +616,7 @@ article .meta a.comments_btn:hover {
 <p>Next I'll walk through several examples of interactive Altair charts. These are also available in the original <a href="https://github.com/mkudija/General-Examples/blob/master/Altair/Altair-interactive.ipynb">Jupyter Notebook</a>. Note that the interactivity is best supported by viewing this on a laptop rather than mobile.</p>
 <h2 id="cars-example">Cars Example</h2>
 <p>We'll start with a basic static scatter plot showing the relationship between Horsepower and Gas Mileage for a number of cars. Again we simply specify the data (along with data types for each value denoted by <code>:Q</code> in this case), chart type, and encoding.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
@@ -626,12 +625,10 @@ article .meta a.comments_btn:hover {
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
 <span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The result is a familiar scatter plot. </p>
 <div id="vis00"></div>
-
 <script type="text/javascript">
 var spec00 = {"config":{"view":{"width":400,"height":300}},"data":{"url":"https://vega.github.io/vega-datasets/data/cars.json","format":{"type":"json"}},"mark":"point","encoding":{"x":{"type":"quantitative","field":"Horsepower"},"y":{"type":"quantitative","field":"Miles_per_Gallon"}},"$schema":"https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 // below gives color by origin
@@ -652,7 +649,7 @@ vegaEmbed("#vis00", spec00, embed_opt00)
 </script>
 
 <p>Then we add in some interactivity, including tooltips and a selectable legend, which was inspired by <a href="https://www.youtube.com/watch?v=ms29ZPUKxbU">Jake VanderPlas' PyCon 2018 tutorial</a>:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">cars</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="o">.</span><span class="n">url</span>
@@ -667,7 +664,7 @@ vegaEmbed("#vis00", spec00, embed_opt00)
     <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span>
         <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
     <span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name:N&#39;</span><span class="p">,</span><span class="s1">&#39;Horsepower:Q&#39;</span><span class="p">,</span><span class="s1">&#39;Miles_per_Gallon:Q&#39;</span><span class="p">,</span>
              <span class="s1">&#39;Cylinders:O&#39;</span><span class="p">,</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">],</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
@@ -678,7 +675,7 @@ vegaEmbed("#vis00", spec00, embed_opt00)
 <span class="n">legend</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select Origin&#39;</span><span class="p">)),</span>
     <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">click</span><span class="p">,</span> <span class="s1">&#39;Origin:N&#39;</span><span class="p">,</span> 
-                        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span>
+                        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
     <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
     <span class="n">selection</span><span class="o">=</span><span class="n">click</span>
@@ -686,12 +683,10 @@ vegaEmbed("#vis00", spec00, embed_opt00)
 
 <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span><span class="n">scatter</span> <span class="o">|</span> <span class="n">legend</span><span class="p">)</span>
 <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;cars-clickable-legend.html&#39;</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>For about 3x the amount of code we get a lot more information and ease of exploring this data. By adding encodings for origin of manufacture (color) and size (number of cylinders) we can view more dimensions of the dataset. With the <code>.interactive()</code> method we can scroll on the chart to zoom in and out as well as pan around. By adding a "legend" (actually another chart with interactivity) we can click to highlight one or multiple origins while hiding the others.  </p>
 <div id="vis0"></div>
-
 <script type="text/javascript">
 var spec0 = {"config": {"view": {"width": 400, "height": 300}}, "hconcat": [{"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "circle", "encoding": {"color": {"type": "nominal", "field": "Origin", "legend": null}, "size": {"type": "ordinal", "field": "Cylinders", "scale": {"range": [20, 100]}}, "tooltip": [{"type": "nominal", "field": "Name"}, {"type": "quantitative", "field": "Horsepower"}, {"type": "quantitative", "field": "Miles_per_Gallon"}, {"type": "ordinal", "field": "Cylinders"}, {"type": "nominal", "field": "Origin"}], "x": {"type": "quantitative", "field": "Horsepower"}, "y": {"type": "quantitative", "field": "Miles_per_Gallon"}}, "selection": {"selector005": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "transform": [{"filter": {"selection": "selector004"}}]}, {"data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"}, "mark": "rect", "encoding": {"color": {"condition": {"type": "nominal", "field": "Origin", "legend": null, "selection": "selector004"}, "value": "lightgray"}, "size": {"value": 250}, "y": {"type": "nominal", "axis": {"title": "Select Origin"}, "field": "Origin"}}, "selection": {"selector004": {"type": "multi", "encodings": ["color"]}}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt0 = {"mode": "vega-lite"};
@@ -711,15 +706,15 @@ vegaEmbed("#vis0", spec0, embed_opt0)
 
 <h2 id="stocks-example">Stocks Example</h2>
 <p>This next example visualizes stocks data over time with a helpful multiline tooltip (original examples <a href="https://altair-viz.github.io/gallery/multi_series_line.html">here</a> and <a href="https://altair-viz.github.io/gallery/multiline_tooltip.html">here</a>). </p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="c1"># Create a selection that chooses the nearest point &amp; selects based on x-value</span>
-<span class="n">nearest</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">nearest</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span>
+<span class="n">nearest</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span>
                         <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
 
 <span class="c1"># The basic line</span>
 <span class="n">line</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">interpolate</span><span class="o">=</span><span class="s1">&#39;basis&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;price:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;$f&#39;</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;price:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;$f&#39;</span><span class="p">)),</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;symbol:N&#39;</span>
 <span class="p">)</span>
 
@@ -754,12 +749,10 @@ vegaEmbed("#vis0", spec0, embed_opt0)
                        <span class="n">data</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/altair-viz/vega_datasets/master/vega_datasets/_data/stocks.csv&#39;</span><span class="p">,</span> 
                        <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Stock History&#39;</span><span class="p">)</span>
 <span class="n">stockChart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;stocks.html&#39;</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>By layering a line chart, selection based on the points nearest our mouseover, and text/points/line to visualize the selected data we now have a visually appealing way to explore this stock history.</p>
 <div id="vis1"></div>
-
 <script type="text/javascript">
 var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"mark": {"type": "line", "interpolate": "basis"}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "axis": {"title": ""}, "field": "date"}, "y": {"type": "quantitative", "axis": {"format": "$f", "title": ""}, "field": "price"}}}, {"mark": "point", "encoding": {"opacity": {"value": 0}, "x": {"type": "temporal", "field": "date"}}, "selection": {"selector006": {"type": "single", "nearest": true, "on": "mouseover", "fields": ["date"], "empty": "none"}}}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector006"}, "value": 0}, "x": {"type": "temporal", "axis": {"title": ""}, "field": "date"}, "y": {"type": "quantitative", "axis": {"format": "$f", "title": ""}, "field": "price"}}}, {"mark": {"type": "rule", "color": "gray"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector006"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"condition": {"type": "quantitative", "field": "price", "selection": "selector006"}, "value": " "}, "x": {"type": "temporal", "axis": {"title": ""}, "field": "date"}, "y": {"type": "quantitative", "axis": {"format": "$f", "title": ""}, "field": "price"}}}], "data": {"url": "https://raw.githubusercontent.com/altair-viz/vega_datasets/master/vega_datasets/_data/stocks.csv"}, "height": 300, "title": "Stock History", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt = {"mode": "vega-lite"};
@@ -779,7 +772,7 @@ vegaEmbed("#vis1", spec, embed_opt)
 
 <h2 id="airports-example">Airports Example</h2>
 <p>Altair also supports <a href="https://altair-viz.github.io/gallery/world_projections.html">geographic projections</a> to visualize geospatial data. </p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">states</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">us_10m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;states&#39;</span><span class="p">)</span>
@@ -806,12 +799,10 @@ vegaEmbed("#vis1", spec, embed_opt)
 <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span><span class="n">background</span> <span class="o">+</span> <span class="n">points</span><span class="p">)</span>
 <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;airports.html&#39;</span><span class="p">)</span>
 <span class="n">chart</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>In this example we extend the simple <a href="https://altair-viz.github.io/gallery/airports.html">airports example</a> to include tooltips with additional information about the airport you hover over. (Another cool example to replicate in Altair is visualizing flights between each city in <a href="http://vega.github.io/vega-tutorials/airports/">this example</a>).</p>
 <div id="vis2"></div>
-
 <script type="text/javascript">
 var spec2 = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"data": {"url": "https://vega.github.io/vega-datasets/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}, "height": 500, "projection": {"type": "albersUsa"}, "width": 800}, {"data": {"url": "https://vega.github.io/vega-datasets/data/airports.csv"}, "mark": "circle", "encoding": {"color": {"value": "#3377B3"}, "latitude": {"type": "quantitative", "field": "latitude"}, "longitude": {"type": "quantitative", "field": "longitude"}, "size": {"value": 15}, "tooltip": [{"type": "nominal", "field": "iata"}, {"type": "nominal", "field": "name"}, {"type": "nominal", "field": "city"}, {"type": "nominal", "field": "state"}, {"type": "quantitative", "field": "latitude"}, {"type": "quantitative", "field": "longitude"}]}}], "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt2 = {"mode": "vega-lite"};
@@ -831,7 +822,7 @@ vegaEmbed("#vis2", spec2, embed_opt2)
 
 <h2 id="birdstrikes-example">Birdstrikes Example</h2>
 <p>At this point you are probably thinking that these building blocks Altair provides are easy stepping stones to a full web dashboard. This example (based off the <a href="https://altair-viz.github.io/gallery/seattle_weather_interactive.html">Seattle weather example</a>) shows how you can use selection in one chart to filter data in antoher. </p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="kn">as</span> <span class="nn">alt</span> 
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span> 
 <span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Wildlife__Species:N&#39;</span><span class="p">)</span>
@@ -878,12 +869,10 @@ vegaEmbed("#vis2", spec2, embed_opt2)
     <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">birdstrikes</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Aircraft Birdstrikes: 1990-2003&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;birdstrikes.html&#39;</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>By selecting one (click) or multiple (shift-click) species in the bar chart at the bottom, the scatter plot on top will update to show only those data points. You can also select a section on the time axis of the scatter plot and see how the distribution of species varies (note that we add the <code>yearmonthdate(Flight_Date)</code> property to enable this selection—thanks to Greg Schivley for <a href="https://twitter.com/gschivley/status/1010239788581040130">pointing this out</a>). It's easy to see how adding more of these building blocks could produce a nice dashboard. </p>
 <div id="vis3"></div>
-
 <script type="text/javascript">
 var spec3 = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"mark": "circle", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector002"}, "value": "lightgray"}, "tooltip": [{"type": "nominal", "field": "Airport__Name"}, {"type": "nominal", "field": "Aircraft__Make_Model"}, {"type": "temporal", "field": "Flight_Date"}, {"type": "nominal", "field": "When__Phase_of_flight"}, {"type": "nominal", "field": "Wildlife__Species"}, {"type": "quantitative", "field": "Speed_IAS_in_knots"}], "x": {"type": "temporal", "axis": {"title": "Date"}, "field": "Flight_Date", "timeUnit": "yearmonthdate"}, "y": {"type": "quantitative", "axis": {"title": "Indicated Airspeed (kts)"}, "field": "Speed_IAS_in_knots"}}, "height": 300, "selection": {"selector002": {"type": "interval", "encodings": ["x"]}}, "transform": [{"filter": {"selection": "selector003"}}], "width": 600}, {"mark": "bar", "encoding": {"color": {"condition": {"type": "nominal", "field": "Wildlife__Species", "selection": "selector003"}, "value": "lightgray"}, "x": {"type": "nominal", "field": "Wildlife__Species", "sort": {"op": "count", "field": "sort_order", "order": "descending"}}, "y": {"type": "quantitative", "aggregate": "count", "scale": {"type": "log"}}}, "selection": {"selector003": {"type": "multi", "encodings": ["color"]}}, "transform": [{"filter": {"selection": "selector002"}}], "width": 600}], "data": {"url": "https://vega.github.io/vega-datasets/data/birdstrikes.json"}, "title": "Aircraft Birdstrikes: 1990-2003", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
 var embed_opt3 = {"mode": "vega-lite"};
@@ -911,7 +900,7 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 <p>This blog is generated with Pelican, and as you can see above includes multiple interactive charts written in Altair. Below I walk through the process for including interactive Altair charts with Pelican.</p>
 <h2 id="pelican-template">Pelican Template</h2>
 <p>Since we need to load some styling and the Vega, Vega-Lite, and vegaEmbed scripts on any page that includes an Altair chart, we will add these to the article template in <code>theme/templates/article.html</code>.</p>
-<div class="highlight"><pre><span></span>{% if &#39;vega&#39; in article.include %}
+<div class="highlight"><pre><span></span><code>{% if &#39;vega&#39; in article.include %}
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
 <span class="p">.</span><span class="nc">vega-actions</span> <span class="nt">a</span> <span class="p">{</span>
     <span class="k">margin-right</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
@@ -927,13 +916,12 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm//vega-lite@2.4.3&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm//vega-embed@3.11&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 {% endif %}
-</pre></div>
-
+</code></pre></div>
 
 <p>Now, whenever we add the <code>include: vega</code> tag at the top of an article's markdown file, these items will be included.</p>
 <h2 id="add-a-single-plot">Add a Single Plot</h2>
 <p>To add a single plot to an article, we open the <code>chartName.html</code> file we exported from Altair and copy the below portion which defines a <code>&lt;div&gt;</code> for our chart and contains the JSON specification and JavaScript for the chart. Note that when placing this into a markdown document we need to un-indent so Pelican can generate the page properly. </p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vis&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vis&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
 <span class="kd">var</span> <span class="nx">spec</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;config&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;view&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;width&quot;</span><span class="o">:</span><span class="mi">400</span><span class="p">,</span><span class="s2">&quot;height&quot;</span><span class="o">:</span><span class="mi">300</span><span class="p">}},</span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="s2">&quot;https://vega.github.io/vega-datasets/data/cars.json&quot;</span><span class="p">,</span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;json&quot;</span><span class="p">}},</span><span class="s2">&quot;mark&quot;</span><span class="o">:</span><span class="s2">&quot;point&quot;</span><span class="p">,</span><span class="s2">&quot;encoding&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;quantitative&quot;</span><span class="p">,</span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="s2">&quot;Horsepower&quot;</span><span class="p">},</span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;quantitative&quot;</span><span class="p">,</span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="s2">&quot;Miles_per_Gallon&quot;</span><span class="p">}},</span><span class="s2">&quot;$schema&quot;</span><span class="o">:</span><span class="s2">&quot;https://vega.github.io/schema/vega-lite/v2.4.3.json&quot;</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">embed_opt</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mode&quot;</span><span class="o">:</span> <span class="s2">&quot;vega-lite&quot;</span><span class="p">};</span>
@@ -950,12 +938,11 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 <span class="nx">vegaEmbed</span><span class="p">(</span><span class="s2">&quot;#vis&quot;</span><span class="p">,</span> <span class="nx">spec</span><span class="p">,</span> <span class="nx">embed_opt</span><span class="p">)</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="nx">showError</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-
+</code></pre></div>
 
 <h2 id="add-multiple-plots">Add Multiple Plots</h2>
 <p>As shown above it is entirely possible to add multiple visualizations to a single page, but you'll need to rename some variables to make them unique and allow the subsequent charts to render. I simply incremented the required variables (<code>vis</code>, <code>spec</code>, <code>el</code>, and <code>embed_opt</code>) so they are unique.</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vis2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vis2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
 <span class="kd">var</span> <span class="nx">spec2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;config&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;view&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;width&quot;</span><span class="o">:</span><span class="mi">400</span><span class="p">,</span><span class="s2">&quot;height&quot;</span><span class="o">:</span><span class="mi">300</span><span class="p">}},</span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="s2">&quot;https://vega.github.io/vega-datasets/data/cars.json&quot;</span><span class="p">,</span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;json&quot;</span><span class="p">}},</span><span class="s2">&quot;mark&quot;</span><span class="o">:</span><span class="s2">&quot;point&quot;</span><span class="p">,</span><span class="s2">&quot;encoding&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;quantitative&quot;</span><span class="p">,</span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="s2">&quot;Horsepower&quot;</span><span class="p">},</span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;quantitative&quot;</span><span class="p">,</span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="s2">&quot;Miles_per_Gallon&quot;</span><span class="p">}},</span><span class="s2">&quot;$schema&quot;</span><span class="o">:</span><span class="s2">&quot;https://vega.github.io/schema/vega-lite/v2.4.3.json&quot;</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">embed_opt2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mode&quot;</span><span class="o">:</span> <span class="s2">&quot;vega-lite&quot;</span><span class="p">};</span>
@@ -972,8 +959,7 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 <span class="nx">vegaEmbed</span><span class="p">(</span><span class="s2">&quot;#vis2&quot;</span><span class="p">,</span> <span class="nx">spec2</span><span class="p">,</span> <span class="nx">embed_opt2</span><span class="p">)</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="nx">showError</span><span class="p">(</span><span class="nx">el2</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Set up in this manner, generating your Pelican site will pull in the required external scripts, style, and then display your interactive visualizations. You can view the full <a href="https://raw.githubusercontent.com/mkudija/blog/master/content/articles/2018-06-11-altair-interactive.md">markdown file</a> that generated the <a href="">HTML - ADD LINK</a> of this post to see how it all fits together. </p>
 <h1 id="closing-thoughts">Closing Thoughts</h1>
@@ -985,11 +971,12 @@ vegaEmbed("#vis3", spec3, embed_opt3)
 <li>Example data to play with: <a href="https://github.com/vega/vega-datasets/tree/gh-pages/data">vega-datasets</a></li>
 <li>Jim Vallandingham's <a href="http://vallandingham.me/altair_intro.html">Altair write-up</a></li>
 <li>pbpython's <a href="http://pbpython.com/altair-intro.html">Altair write-up</a></li>
-<li>Jake VanderPlas' PyCon 2018 tutorial:
+<li>Jake VanderPlas' PyCon 2018 tutorial:</li>
+</ul>
 <div class="video-container">
         <iframe width="750" height="500" src="https://www.youtube.com/embed/ms29ZPUKxbU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-</div></li>
-</ul>
+</div>
+
 <hr>
 <ul>
 <li><em>You can view the original <a href="https://github.com/mkudija/General-Examples/blob/master/Altair/Altair-interactive.ipynb">Jupyter Notebook</a> that was used to generate these examples.</em></li>
