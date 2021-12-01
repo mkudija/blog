@@ -31,10 +31,10 @@ Build the html:
 $ make publish
 ```
 
-## Modifying the theme
+## Modifying theme
 
 ### Colors
-Set color theme to               
+Set color theme to light or dark modes              
 
 
 ### Bigfoot footnotes
@@ -59,8 +59,7 @@ For fun I changed the color of the footnote when activated (line 41 in `bigfoot-
   background-color: #3377b3;
 ```
 
-
-Add the following to `theme/templates/base.html`:
+Link the following to `theme/templates/base.html`:
 - `<link rel="stylesheet" href="../../../../theme/css/bigfoot-default.css" />` (within the `<head>` tag)
 - just before the close of the `</body>` tag: 
 
