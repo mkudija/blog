@@ -4,7 +4,7 @@ This repository contains the source for http://matthewkudija.com/blog/.
 
 ## Building the Blog
 
-Clone the repository & make sure submodules are included
+Clone the repository and make sure submodules are included
 
 ```
 $ git clone https://github.com/mkudija/blog.git
